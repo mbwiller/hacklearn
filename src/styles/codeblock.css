@@ -1,0 +1,403 @@
+/* Code Block Container */
+.code-block-container {
+  background: #1e1e1e;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+  overflow: hidden;
+  border: 1px solid #333;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+.code-block-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background: #2d2d2d;
+  border-bottom: 1px solid #333;
+}
+
+.code-block-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.code-block-title {
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.code-block-language {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  background: #007bff;
+  color: #fff;
+  font-size: 0.75rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.code-block-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+/* Code Content */
+.code-block-content {
+  overflow-x: auto;
+  transition: max-height 0.3s ease;
+  position: relative;
+}
+
+.code-block-content:not(.expanded) {
+  overflow-y: hidden;
+}
+
+.code-block-content pre {
+  margin: 0;
+  padding: 1rem;
+  background: transparent;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.code-block-content code {
+  color: #d4d4d4;
+}
+
+/* Code Table (for line numbers) */
+.code-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.code-table tr {
+  transition: background-color 0.15s;
+}
+
+.code-table tr:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.code-table tr.highlighted-line {
+  background: rgba(255, 235, 59, 0.1);
+  border-left: 3px solid #ffeb3b;
+}
+
+.line-number {
+  color: #858585;
+  text-align: right;
+  padding-right: 1rem;
+  padding-left: 0.5rem;
+  user-select: none;
+  min-width: 3rem;
+  vertical-align: top;
+  font-size: 0.875rem;
+}
+
+.line-content {
+  padding-right: 1rem;
+  white-space: pre;
+}
+
+/* Copy Code Button */
+.copy-code-button {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.375rem 0.75rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  font-size: 0.8125rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.copy-code-button:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.copy-code-button:active {
+  transform: scale(0.95);
+}
+
+.copy-code-button.copied {
+  background: rgba(76, 175, 80, 0.2);
+  border-color: #4caf50;
+  color: #4caf50;
+}
+
+.copy-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.copy-icon.check-icon {
+  animation: checkmark 0.3s ease-in-out;
+}
+
+@keyframes checkmark {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+.copy-text {
+  font-weight: 500;
+}
+
+/* Colab Button */
+.colab-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+}
+
+.colab-button--primary {
+  background: #f9ab00;
+  color: #000;
+}
+
+.colab-button--primary:hover {
+  background: #ffb300;
+}
+
+.colab-button--secondary {
+  background: #0066cc;
+  color: #fff;
+}
+
+.colab-button--secondary:hover {
+  background: #0077ed;
+}
+
+.colab-button--outline {
+  background: transparent;
+  color: #f9ab00;
+  border: 1px solid #f9ab00;
+}
+
+.colab-button--outline:hover {
+  background: rgba(249, 171, 0, 0.1);
+}
+
+.colab-button--small {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+}
+
+.colab-button--medium {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+.colab-button--large {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+}
+
+.colab-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.colab-button--small .colab-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.colab-button:active {
+  transform: scale(0.95);
+}
+
+/* Colab Badge */
+.colab-badge {
+  display: inline-block;
+  transition: opacity 0.2s;
+}
+
+.colab-badge:hover {
+  opacity: 0.8;
+}
+
+.colab-badge img {
+  display: block;
+  height: 20px;
+}
+
+/* Expand/Collapse Button */
+.code-block-expand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.5rem;
+  background: #2d2d2d;
+  color: #fff;
+  border: none;
+  border-top: 1px solid #333;
+  cursor: pointer;
+  font-size: 0.8125rem;
+  transition: background-color 0.2s;
+}
+
+.code-block-expand:hover {
+  background: #363636;
+}
+
+.code-block-expand svg {
+  stroke-width: 2;
+}
+
+/* Footer */
+.code-block-footer {
+  padding: 0.75rem 1rem;
+  background: #2d2d2d;
+  border-top: 1px solid #333;
+  font-size: 0.8125rem;
+}
+
+.code-block-hint {
+  color: #aaa;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Inline Code */
+.inline-code {
+  padding: 0.125rem 0.375rem;
+  background: rgba(110, 118, 129, 0.1);
+  border: 1px solid rgba(110, 118, 129, 0.2);
+  border-radius: 3px;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 0.875em;
+  color: #e3116c;
+}
+
+/* Syntax Highlighting Themes */
+.language-python .keyword { color: #569cd6; }
+.language-python .string { color: #ce9178; }
+.language-python .comment { color: #6a9955; }
+.language-python .function { color: #dcdcaa; }
+.language-python .number { color: #b5cea8; }
+
+.language-javascript .keyword { color: #c586c0; }
+.language-javascript .string { color: #ce9178; }
+.language-javascript .comment { color: #6a9955; }
+.language-javascript .function { color: #dcdcaa; }
+.language-javascript .number { color: #b5cea8; }
+
+.language-bash .command { color: #4ec9b0; }
+.language-bash .string { color: #ce9178; }
+.language-bash .comment { color: #6a9955; }
+
+.language-sql .keyword { color: #569cd6; }
+.language-sql .string { color: #ce9178; }
+.language-sql .function { color: #dcdcaa; }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .code-block-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .code-block-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .code-block-content pre {
+    font-size: 0.75rem;
+  }
+
+  .line-number {
+    min-width: 2.5rem;
+    padding-right: 0.5rem;
+  }
+}
+
+/* Dark Mode Adjustments */
+@media (prefers-color-scheme: light) {
+  .code-block-container {
+    background: #f6f8fa;
+    border-color: #d0d7de;
+  }
+
+  .code-block-header {
+    background: #fff;
+    border-bottom-color: #d0d7de;
+  }
+
+  .code-block-content code {
+    color: #24292f;
+  }
+
+  .line-number {
+    color: #57606a;
+  }
+
+  .copy-code-button {
+    background: rgba(0, 0, 0, 0.05);
+    color: #24292f;
+    border-color: rgba(0, 0, 0, 0.1);
+  }
+
+  .copy-code-button:hover {
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  .code-block-expand {
+    background: #fff;
+    color: #24292f;
+    border-top-color: #d0d7de;
+  }
+
+  .code-block-footer {
+    background: #fff;
+    border-top-color: #d0d7de;
+  }
+
+  .code-block-hint {
+    color: #57606a;
+  }
+}
+
+/* Scrollbar Styling */
+.code-block-content::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.code-block-content::-webkit-scrollbar-track {
+  background: #1e1e1e;
+}
+
+.code-block-content::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 4px;
+}
+
+.code-block-content::-webkit-scrollbar-thumb:hover {
+  background: #666;
+}

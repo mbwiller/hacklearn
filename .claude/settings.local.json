@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/Matt Willer/Ongoing Projects/hacklearn-pro/**)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
