@@ -2,6 +2,9 @@ import { Code, Users, Globe, Database, Key, Search, Brain, Shield, Unlock, Alert
 import type { Concept } from '../types';
 import { PromptInjectionConcept } from '../components/concepts/PromptInjectionConcept';
 import { AdversarialMLConcept } from '../components/concepts/AdversarialMLConcept';
+import { DataPoisoningConcept } from '../components/concepts/DataPoisoningConcept';
+import { ModelExtractionConcept } from '../components/concepts/ModelExtractionConcept';
+import { JailbreakingConcept } from '../components/concepts/JailbreakingConcept';
 import { SQLInjectionConcept } from '../components/concepts/SQLInjectionConcept';
 import { XSSConcept } from '../components/concepts/XSSConcept';
 import { PenetrationTestingConcept } from '../components/concepts/PenetrationTestingConcept';
@@ -92,7 +95,8 @@ export const concepts: Concept[] = [
       'Anomaly detection in training data',
       'Use trusted data sources',
       'Regular model retraining with clean data'
-    ]
+    ],
+    detailedComponent: (props) => <DataPoisoningConcept {...props} />
   },
   {
     id: 4,
@@ -120,7 +124,8 @@ export const concepts: Concept[] = [
       'Query monitoring and anomaly detection',
       'Add noise to model outputs',
       'Implement strong authentication'
-    ]
+    ],
+    detailedComponent: (props) => <ModelExtractionConcept {...props} />
   },
   {
     id: 5,
@@ -148,7 +153,8 @@ export const concepts: Concept[] = [
       'Context-aware content moderation',
       'Prompt evaluation before execution',
       'Reinforcement learning from human feedback (RLHF)'
-    ]
+    ],
+    detailedComponent: (props) => <JailbreakingConcept {...props} />
   },
   {
     id: 6,

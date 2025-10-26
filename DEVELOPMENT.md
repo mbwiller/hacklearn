@@ -8,14 +8,14 @@ This comprehensive guide provides systematic workflows for developing HackLearn 
 
 ## Project Status Dashboard
 
-### Flagship Concepts: 5/20 Complete (25%)
+### Flagship Concepts: 8/20 Complete (40%)
 
-**AI/ML Security (2/10 complete):**
+**AI/ML Security (5/10 complete):**
 - ✅ #1 Prompt Injection Attacks (825 lines, notebook complete)
 - ✅ #2 Adversarial Machine Learning (1,208 lines, notebook complete)
-- ⏳ #3 Data Poisoning
-- ⏳ #4 Model Extraction
-- ⏳ #5 Jailbreaking & Safety Bypassing
+- ✅ #3 Data Poisoning (1,100 lines, notebook complete)
+- ✅ #4 Model Extraction (1,000 lines, notebook complete)
+- ✅ #5 Jailbreaking & Safety Bypassing (1,050 lines, notebook complete)
 - ⏳ #6 RAG Security Vulnerabilities
 - ⏳ #7 Multi-Agent System Attacks
 - ⏳ #8 Link Traps & Malicious URLs
@@ -36,13 +36,13 @@ This comprehensive guide provides systematic workflows for developing HackLearn 
 
 ### Development Roadmap
 
-**Batch 1 (Next):** Concepts #3, #4, #5 - AI/ML Security
-**Batch 2:** Concepts #6, #7, #8 - AI/ML Security
+**Batch 1 (Complete):** Concepts #3, #4, #5 - AI/ML Security ✅
+**Batch 2 (Next):** Concepts #6, #7, #8 - AI/ML Security
 **Batch 3:** Concepts #9, #10, #11 - Mixed
 **Batch 4:** Concepts #14, #15, #16 - Traditional
 **Batch 5:** Concepts #17, #18, #19 - Traditional
 
-**Estimated Completion:** ~10 weeks (comfortable pace, 3-5 hours/week)
+**Estimated Completion:** ~8 weeks remaining (comfortable pace, 3-5 hours/week)
 
 ---
 

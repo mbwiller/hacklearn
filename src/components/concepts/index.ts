@@ -1,6 +1,9 @@
 // Export all concept detail components
 export { PromptInjectionConcept } from './PromptInjectionConcept';
 export { AdversarialMLConcept } from './AdversarialMLConcept';
+export { DataPoisoningConcept } from './DataPoisoningConcept';
+export { ModelExtractionConcept } from './ModelExtractionConcept';
+export { JailbreakingConcept } from './JailbreakingConcept';
 export { SQLInjectionConcept } from './SQLInjectionConcept';
 export { XSSConcept } from './XSSConcept';
 export { PenetrationTestingConcept } from './PenetrationTestingConcept';

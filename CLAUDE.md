@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-HackLearn Pro is a professional, engineer-focused ethical hacking education platform teaching 20 critical security concepts (10 AI/ML security + 10 traditional hacking). Built with modern React 18 + Vite + TypeScript, featuring 5 flagship concepts with deep, research-backed content including hands-on labs, professional tools, and academic references.
+HackLearn Pro is a professional, engineer-focused ethical hacking education platform teaching 20 critical security concepts (10 AI/ML security + 10 traditional hacking). Built with modern React 18 + Vite + TypeScript, featuring 8 flagship concepts with deep, research-backed content including hands-on labs, professional tools, and academic references.
 
 **Key Characteristics:**
 - Professional UI with ZERO emojis (engineer-focused)
@@ -146,8 +146,8 @@ Hacklearn/
 #### Concept Flow
 1. **User clicks concept card** → `App.tsx` sets `currentConcept`
 2. **App.tsx checks** if concept has `detailedComponent`
-3. **If yes**: Render detailed component (5 flagship concepts)
-4. **If no**: Render default `ConceptDetail.tsx` (15 basic concepts)
+3. **If yes**: Render detailed component (8 flagship concepts)
+4. **If no**: Render default `ConceptDetail.tsx` (12 basic concepts)
 5. **User clicks "Take Challenge"** → `ChallengeView.tsx` with quiz
 6. **On correct answer**: Award points, update progress, unlock achievements
 
@@ -176,7 +176,7 @@ const { achievements, checkAchievements, addAchievement } = useAchievements();
 
 ### Flagship Concepts Architecture
 
-**All 5 flagship concepts follow this structure:**
+**All 8 flagship concepts follow this structure:**
 
 ```tsx
 // src/components/concepts/PromptInjectionConcept.tsx (example)
@@ -271,12 +271,15 @@ export const PromptInjectionConcept = ({ onBack, onStartChallenge }: ConceptProp
 **Flagship Concepts (Enhanced):**
 - Concept #1: Prompt Injection
 - Concept #2: Adversarial ML
+- Concept #3: Data Poisoning
+- Concept #4: Model Extraction
+- Concept #5: Jailbreaking & Safety Bypassing
 - Concept #12: SQL Injection
 - Concept #13: XSS
 - Concept #20: Penetration Testing
 
 **Basic Concepts (Original):**
-- All other concepts (15 total)
+- All other concepts (12 total)
 - Use default `ConceptDetail.tsx` view
 - Single-page scroll with all content
 
@@ -416,7 +419,7 @@ https://colab.research.google.com/github/[user]/[repo]/blob/main/notebooks/[file
 ### NO EMOJIS Policy (Critical)
 
 **Enforced Throughout:**
-- All 5 flagship concepts: ZERO emojis
+- All 8 flagship concepts: ZERO emojis
 - All achievement messages: Text only
 - All UI labels: Professional text
 - All feedback: "Correct" not "Correct! 🎉"
