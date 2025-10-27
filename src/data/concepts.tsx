@@ -1,10 +1,13 @@
-import { Code, Users, Globe, Database, Key, Search, Brain, Shield, Unlock, AlertTriangle, BookOpen, Trophy, Target, Zap } from 'lucide-react';
+import { Code, Users, Globe, Database, Key, Search, Brain, Shield, Unlock, AlertTriangle, Trophy, Target, Zap } from 'lucide-react';
 import type { Concept } from '../types';
 import { PromptInjectionConcept } from '../components/concepts/PromptInjectionConcept';
 import { AdversarialMLConcept } from '../components/concepts/AdversarialMLConcept';
 import { DataPoisoningConcept } from '../components/concepts/DataPoisoningConcept';
 import { ModelExtractionConcept } from '../components/concepts/ModelExtractionConcept';
 import { JailbreakingConcept } from '../components/concepts/JailbreakingConcept';
+import { RAGSecurityConcept } from '../components/concepts/RAGSecurityConcept';
+import { MultiAgentSecurityConcept } from '../components/concepts/MultiAgentSecurityConcept';
+import { LinkTrapsSecurityConcept } from '../components/concepts/LinkTrapsSecurityConcept';
 import { SQLInjectionConcept } from '../components/concepts/SQLInjectionConcept';
 import { XSSConcept } from '../components/concepts/XSSConcept';
 import { PenetrationTestingConcept } from '../components/concepts/PenetrationTestingConcept';
@@ -160,29 +163,38 @@ export const concepts: Concept[] = [
     id: 6,
     category: 'AI/ML Security',
     title: 'RAG Security Vulnerabilities',
-    icon: <BookOpen className="w-8 h-8" />,
+    icon: <Database className="w-8 h-8" />,
     difficulty: 'Advanced',
     points: 200,
-    description: 'Understand security risks in Retrieval-Augmented Generation systems that combine LLMs with external data.',
-    realWorldExample: 'NVIDIA AI Red Team found insecure permissions on RAG data stores enabled both data leakage and indirect prompt injection.',
+    description: 'Understand security risks in Retrieval-Augmented Generation systems that combine LLMs with external data sources and vector databases.',
+    realWorldExample: 'In December 2024, Vector Security suffered a data breach affecting 30,282 individuals. NVIDIA AI Red Team found insecure RAG permissions ranked #2 in top security issues.',
     keyTakeaways: [
-      'RAG retrieves external data to enhance LLM responses',
-      'Insecure data stores can leak sensitive information',
-      'Malicious content in data stores enables stored prompt injection',
-      'Per-user permission boundaries often overlooked'
+      'RAG combines data pipeline vulnerabilities with LLM prompt injection risks',
+      '97% attack success rate with only 5 poisoned documents (PoisonedRAG research)',
+      'Embedding inversion achieves 92% exact text recovery (ACL 2024)',
+      'Access control bypass is NVIDIA Red Team\'s #2 finding',
+      'Flowise CVE-2024-31621: 438 servers exposed with plaintext API keys',
+      'Application-layer encryption provides >95% protection from inversion attacks',
+      'ChatGPT Search manipulated via hidden webpage content (Dec 2024)',
+      'Defense-in-depth required: access control + sanitization + encryption + monitoring'
     ],
     challenge: {
       question: 'Your RAG system pulls data from a shared document store. An attacker uploads a document with hidden malicious prompts. When the LLM retrieves it, the attack is called:',
       options: ['A) Direct Prompt Injection', 'B) Stored Prompt Injection', 'C) XSS Attack', 'D) CSRF Attack'],
       correct: 'B',
-      explanation: 'This is stored prompt injection - malicious prompts embedded in data that the AI later retrieves and processes.'
+      explanation: 'This is stored prompt injection (also called indirect prompt injection) - malicious prompts embedded in documents that the AI later retrieves and processes. Research shows 97% success rate with minimal poisoning.'
     },
     defenses: [
-      'Implement strict per-user access controls',
-      'Sanitize all retrieved content',
-      'Separate retrieval and generation contexts',
-      'Monitor and audit data store access'
-    ]
+      'Verify per-user permissions in SOURCE system (not just RAG-level)',
+      'Sanitize all retrieved content (remove HTML comments, markdown tricks, system tags)',
+      'Application-layer encryption for embeddings (Eguard defense, >95% protection)',
+      'Separate retrieval and generation contexts with clear document boundaries',
+      'Monitor for systematic query patterns (embedding inversion attempts)',
+      'Audit data store for bulk inserts (poisoning detection)',
+      'Rate limiting and anomaly detection on queries',
+      'Content security policies on retrieved documents'
+    ],
+    detailedComponent: (props) => <RAGSecurityConcept {...props} />
   },
   {
     id: 7,
@@ -191,54 +203,72 @@ export const concepts: Concept[] = [
     icon: <Users className="w-8 h-8" />,
     difficulty: 'Advanced',
     points: 200,
-    description: 'Learn how attacks can propagate between multiple AI agents working together.',
-    realWorldExample: 'Researchers discovered "infectious" prompt injections that spread from one agent to another in multi-agent workflows.',
+    description: 'Learn how attacks propagate between multiple AI agents collaborating in LangChain, AutoGPT, Microsoft Copilot, and Anthropic MCP systems.',
+    realWorldExample: 'CVE-2025-32711 (EchoLeak): First zero-click attack on Microsoft 365 Copilot (CVSS 9.3). Single compromised email propagated across all Copilot agents. 250 documents can backdoor LLMs of ANY size (Anthropic 2024-2025).',
     keyTakeaways: [
-      'Multi-agent systems amplify attack surfaces',
-      'Compromised agents can infect others',
-      'Chain-of-thought exposure increases vulnerability',
-      'Agentic architectures need special security considerations'
+      'Zero-click attacks are real: CVE-2025-32711 Microsoft 365 Copilot (CVSS 9.3)',
+      '250 documents can backdoor LLMs of ANY size (Anthropic/UK AI Security Institute)',
+      'Echo Chamber jailbreak: >90% success rate against GPT-4 and Gemini',
+      'HPTSA autonomous exploitation: 53% success vs zero-days (550% better than single LLM)',
+      'Cross-agent privilege escalation: GitHub Copilot + Claude Code escalation loops',
+      'Steganographic collusion: AI agents establish theoretically undetectable communication',
+      '45 billion agentic identities by 2025, only 10% of orgs have management strategies',
+      'MCP vulnerabilities: 7.2% of servers contain flaws, 5.5% exhibit tool poisoning'
     ],
     challenge: {
       question: 'In a multi-agent system, Agent A is compromised and passes malicious instructions to Agent B. This represents:',
       options: ['A) Lateral Movement', 'B) Agent-to-Agent Infection', 'C) Privilege Escalation', 'D) Social Engineering'],
       correct: 'B',
-      explanation: 'This is agent-to-agent infection, where compromised agents can spread malicious behavior to other agents in the system.'
+      explanation: 'This is agent-to-agent infection, where compromised agents spread malicious behavior through message queues, shared databases, and chain-of-thought propagation. Research shows this creates cascade failures across entire multi-agent networks.'
     },
     defenses: [
-      'Isolate agent contexts and communications',
-      'Validate inter-agent messages',
-      'Limit agent privileges (least privilege principle)',
-      'Monitor agent behavior for anomalies'
-    ]
+      'Agent isolation (Docker containers, sandboxing, read-only file systems)',
+      'Schema-based validation (JSON-only, no free-form text between agents)',
+      'Config integrity hashing (SHA-256, verify before each operation)',
+      'Shared memory auditing (log all inserts, detect bulk poisoning)',
+      'Action allowlisting (restrict permitted agent actions)',
+      'Content sanitization (remove hidden instructions, HTML comments)',
+      'Multi-agent SIEM (behavioral monitoring, anomaly detection)',
+      'Cross-agent write prevention (agents cannot modify other configs)'
+    ],
+    detailedComponent: (props) => <MultiAgentSecurityConcept {...props} />
   },
   {
     id: 8,
     category: 'AI/ML Security',
     title: 'Link Traps & Malicious URLs',
     icon: <Globe className="w-8 h-8" />,
-    difficulty: 'Intermediate',
-    points: 150,
-    description: 'Discover how AI models can be tricked into generating malicious links that steal user data.',
-    realWorldExample: 'Trend Micro documented Link Trap attacks where adversaries trick GenAI into sending malicious URLs disguised as reference links.',
+    difficulty: 'Advanced',
+    points: 200,
+    description: 'Master AI-powered phishing attacks through malicious URLs, markdown exfiltration, and screenshot-based prompt injection. Learn zero-click attacks like CVE-2025-32711 (EchoLeak) and defend against polymorphic phishing that bypasses traditional detection.',
+    realWorldExample: 'CVE-2025-32711 (EchoLeak): Zero-click attack on Microsoft 365 Copilot (CVSS 9.3) exfiltrates conversation history via markdown image auto-loading. CometJacking (Perplexity Comet AI) remains UNRESOLVED as of October 2025. $25.6M Arup Engineering deepfake scam (Hong Kong, 2024). +1,265% phishing increase since GenAI launch, $10B+ losses.',
     keyTakeaways: [
-      'AI generates URLs that look legitimate but are malicious',
-      'Links covertly send user data to attacker servers',
-      'Bypasses conventional access restrictions',
-      'Difficult for users to detect without verification'
+      'CVE-2025-32711 EchoLeak: Zero-click markdown image exfiltration (CVSS 9.3)',
+      'CometJacking vulnerability UNRESOLVED as of October 2025 (Perplexity Comet)',
+      '+1,265% increase in phishing since GenAI launch (Egress Software 2024)',
+      '82.6% of phishing now uses AI (Egress 2024 report)',
+      '$10 billion+ in losses from AI-powered phishing attacks',
+      'Screenshot-based injection: OCR extraction + prompt injection combo attack',
+      'Polymorphic phishing: AI generates contextual, personalized phishing pages',
+      'Base64 URL obfuscation bypasses traditional security filters'
     ],
     challenge: {
       question: 'An AI chatbot provides a helpful "reference link" that secretly exfiltrates user session data when clicked. This is a:',
       options: ['A) Phishing Attack', 'B) Link Trap', 'C) XSS Attack', 'D) CSRF Attack'],
       correct: 'B',
-      explanation: 'This is a Link Trap - the AI is manipulated to generate malicious URLs disguised as legitimate references.'
+      explanation: 'This is a Link Trap - the AI is manipulated to generate malicious URLs disguised as legitimate references, often leveraging zero-click markdown exfiltration techniques like CVE-2025-32711 (EchoLeak).'
     },
     defenses: [
-      'Display full URLs before connecting',
-      'Implement URL validation and filtering',
-      'Use Content Security Policies',
-      'Disable or sanitize external link generation'
-    ]
+      'Domain allowlisting: Only permit trusted domains for external resources',
+      'Content Security Policy (CSP): Restrict img-src, script-src, connect-src',
+      'Markdown image sanitization: Remove/validate images before rendering',
+      'URL validation: Multi-layer checks (format, protocol, domain, TLD, patterns)',
+      'OCR input sanitization: Pattern-based detection for screenshot injection',
+      'External URL click verification: "You are about to visit..." warnings',
+      'Base64 payload detection: Identify encoded exfiltration in URL parameters',
+      'SIEM integration: Log security events, alert on score < 0.5 (critical)'
+    ],
+    detailedComponent: (props) => <LinkTrapsSecurityConcept {...props} />
   },
   {
     id: 9,
