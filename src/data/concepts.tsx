@@ -8,6 +8,9 @@ import { JailbreakingConcept } from '../components/concepts/JailbreakingConcept'
 import { RAGSecurityConcept } from '../components/concepts/RAGSecurityConcept';
 import { MultiAgentSecurityConcept } from '../components/concepts/MultiAgentSecurityConcept';
 import { LinkTrapsSecurityConcept } from '../components/concepts/LinkTrapsSecurityConcept';
+import { InvisibleUnicodeInjectionConcept } from '../components/concepts/InvisibleUnicodeInjectionConcept';
+import { AIAgentCommandInjectionConcept } from '../components/concepts/AIAgentCommandInjectionConcept';
+import { ReconnaissanceFootprintingConcept } from '../components/concepts/ReconnaissanceFootprintingConcept';
 import { SQLInjectionConcept } from '../components/concepts/SQLInjectionConcept';
 import { XSSConcept } from '../components/concepts/XSSConcept';
 import { PenetrationTestingConcept } from '../components/concepts/PenetrationTestingConcept';
@@ -277,26 +280,30 @@ export const concepts: Concept[] = [
     icon: <AlertTriangle className="w-8 h-8" />,
     difficulty: 'Advanced',
     points: 200,
-    description: 'Learn about hidden Unicode characters used to inject invisible malicious instructions.',
-    realWorldExample: 'Trend Micro found LLMs could be manipulated through invisible Unicode characters that don\'t appear in user interfaces.',
+    description: 'Learn about hidden Unicode characters used to inject invisible malicious instructions into AI/ML systems.',
+    realWorldExample: 'Riley Goodside demonstrated invisible prompt injection using Unicode tag characters (January 2024). Microsoft Copilot RAG poisoning achieved 90% success rate with just 5 poisoned documents (USENIX Security 2025). Z-WASP attack bypassed Office 365 defenses affecting 90%+ of customers (2018-2019).',
     keyTakeaways: [
-      'Malicious content encoded as invisible Unicode characters',
-      'Cannot be seen by users but processed by AI',
-      'Can be combined with other injection techniques',
-      'Any English text can be converted to invisible characters'
+      'Unicode tag characters (U+E0020-U+E007F) enable completely invisible prompt injection',
+      'RAG poisoning achieves 90% success rate with minimal documents (PoisonedRAG research)',
+      'Zero-width characters fragment keywords to bypass pattern matching',
+      'Embedding inversion achieves 92% exact text recovery from RAG vectors',
+      'Application-layer encryption provides >95% protection against inversion attacks',
+      'Defense requires multi-layer approach: normalization, whitelisting, RAG filtering, encryption'
     ],
     challenge: {
       question: 'An attacker hides malicious prompts using zero-width Unicode characters invisible to users. The best defense is:',
       options: ['A) Rate limiting', 'B) Input sanitization and Unicode filtering', 'C) Output encryption', 'D) Load balancing'],
       correct: 'B',
-      explanation: 'Input sanitization that specifically filters invisible Unicode characters prevents this attack vector.'
+      explanation: 'Input sanitization that specifically filters invisible Unicode characters (zero-width, tag characters, bidirectional overrides) combined with Unicode normalization (NFKC) prevents this attack vector. Apply character whitelisting to only allow necessary categories.'
     },
     defenses: [
-      'Disallow invisible Unicode in input',
-      'Normalize text to standard character sets',
-      'Vet all materials in knowledge bases',
-      'Implement character-level input validation'
-    ]
+      'Unicode normalization (NFKC) before processing all input',
+      'Character whitelisting: block invisible Unicode (zero-width, tags, bidi overrides)',
+      'RAG document filtering: scan all documents before indexing, reject high-risk content',
+      'Application-layer encryption for embeddings (>95% protection vs inversion)',
+      'Monitoring and logging: alert on Unicode anomalies and systematic query patterns'
+    ],
+    detailedComponent: (props) => <InvisibleUnicodeInjectionConcept {...props} />
   },
   {
     id: 10,
@@ -305,26 +312,36 @@ export const concepts: Concept[] = [
     icon: <Shield className="w-8 h-8" />,
     difficulty: 'Advanced',
     points: 200,
-    description: 'Understand how AI agents with tool access can be exploited to execute malicious commands.',
-    realWorldExample: 'CVE-2025-32711 (Microsoft 365 Copilot) - AI command injection with CVSS 9.3 allowed attackers to steal sensitive data.',
+    description: 'Master how AI agents with tool access can be exploited to execute SQL injections, OS commands, and other unauthorized operations through prompt manipulation.',
+    realWorldExample: 'CVE-2025-32711 (EchoLeak) achieved zero-click command injection in Microsoft 365 Copilot with CVSS 9.3. CVE-2024-5565 enabled prompt injection to Python RCE in Vanna AI (CVSS 9.2). CVE-2024-6091 allowed shell command bypass in AutoGPT (CVSS 9.8). IBM 2025 report: 13% of organizations experienced AI security incidents, 97% lack adequate controls, with shadow AI breaches costing $670K more than traditional attacks.',
     keyTakeaways: [
-      'AI agents often have access to tools and databases',
-      'Command injection manipulates agent actions',
-      'Can lead to remote code execution',
-      'Critical in enterprise AI deployments'
+      'AI agents with SQL/shell tool access create critical attack surfaces',
+      'CVE-2025-32711 (EchoLeak) demonstrated zero-click injection in Microsoft 365 Copilot (CVSS 9.3)',
+      'P2SQL attacks achieve 89.6% success rate converting prompts to malicious SQL queries',
+      'gVisor sandboxing provides kernel-independent isolation for AI agent environments',
+      'Morris II worm demonstrated self-replicating adversarial prompts across AI systems (2024 research)',
+      'Multi-layer defense: sandboxing + input validation + parameterized queries + least privilege + monitoring'
     ],
     challenge: {
-      question: 'An AI agent with database access is tricked into executing "DROP TABLE users;". This is prevented by:',
-      options: ['A) Strong passwords', 'B) Parameterized queries and input validation', 'C) Encryption', 'D) Firewall rules'],
+      question: 'An AI agent with database access is tricked into executing "DROP TABLE users;" via prompt manipulation. The most effective defense is:',
+      options: [
+        'A) Strong database passwords and encryption',
+        'B) Parameterized queries with input validation and allowlisting',
+        'C) Rate limiting and CAPTCHA verification',
+        'D) Network firewall rules and IP whitelisting'
+      ],
       correct: 'B',
-      explanation: 'Parameterized queries and input validation prevent command injection by treating user input as data, not executable code.'
+      explanation: 'Parameterized queries separate code from data, preventing SQL injection by treating user input as literal values rather than executable SQL. Combined with input validation (Pydantic models, regex filtering) and command allowlisting, this creates defense-in-depth. Passwords (A) protect authentication but not injection. Rate limiting (C) slows attacks but doesn\'t prevent them. Firewalls (D) control network access but not application-layer logic.'
     },
     defenses: [
-      'Use parameterized queries for databases',
-      'Restrict agent tool permissions',
-      'Validate and sanitize all agent inputs',
-      'Implement human-in-the-loop for sensitive operations'
-    ]
+      'Parameterized queries for all database operations (never string interpolation)',
+      'Sandboxing with gVisor or Docker runtime isolation to limit blast radius',
+      'Input validation using Pydantic models with strict type checking and regex patterns',
+      'Command allowlisting (permit-list only safe operations, block all others)',
+      'Least privilege: AI agents should only access minimum required tools and permissions',
+      'Continuous monitoring: audit logs, anomaly detection, alerting on suspicious patterns'
+    ],
+    detailedComponent: (props) => <AIAgentCommandInjectionConcept {...props} />
   },
   // Traditional Ethical Hacking Concepts
   {
@@ -332,28 +349,38 @@ export const concepts: Concept[] = [
     category: 'Traditional Hacking',
     title: 'Reconnaissance & Footprinting',
     icon: <Search className="w-8 h-8" />,
-    difficulty: 'Beginner',
-    points: 100,
-    description: 'Learn passive and active information gathering techniques used in the initial phase of hacking.',
-    realWorldExample: 'Hackers use WHOIS lookups, Google dorking, and social media to gather intel before attacking.',
+    difficulty: 'Intermediate',
+    points: 150,
+    description: 'Master the critical first phase of penetration testing—passive and active reconnaissance techniques used to map attack surfaces, discover infrastructure, and identify vulnerabilities before launching attacks.',
+    realWorldExample: 'Target Corporation breach (2013): Attackers researched third-party vendors via OSINT, identifying Fazio Mechanical Services as entry point → $292M loss. SolarWinds (2020): Multi-year reconnaissance of software supply chain enabled trojanized updates compromising 18,000+ organizations. OPM (2015): Patient network topology mapping over months → 21.5M security clearances stolen. Colonial Pipeline (2021): Exposed VPN credentials in dark web dumps → $4.4M ransom + $2.3B economic impact.',
     keyTakeaways: [
-      'First phase of ethical hacking lifecycle',
-      'Passive recon: No direct target interaction (OSINT)',
-      'Active recon: Direct probing of target systems',
-      'Gather network info, employee details, tech stack'
+      'Reconnaissance is the foundation of 80% of successful cyber attacks',
+      'Passive reconnaissance (OSINT, WHOIS, certificate transparency) is undetectable and leaves no traces',
+      'Active reconnaissance (port scanning, banner grabbing) triggers IDS/IPS alerts',
+      'Certificate transparency logs reveal 95% of organizations\' subdomain structure',
+      'MITRE ATT&CK TA0043 catalogs 10 reconnaissance techniques used by real adversaries',
+      'Defense requires attack surface management, honeypots, IDS/IPS, and CT monitoring'
     ],
     challenge: {
-      question: 'You want to find all subdomains of example.com without directly scanning their servers. Which technique should you use?',
-      options: ['A) Port Scanning', 'B) Passive DNS Enumeration', 'C) SQL Injection', 'D) Buffer Overflow'],
+      question: 'You need to discover all subdomains of a target organization without triggering their security alerts. The best approach is:',
+      options: [
+        'A) Run automated port scans across their IP ranges',
+        'B) Search certificate transparency logs and passive DNS databases',
+        'C) Perform DNS zone transfer requests (AXFR) against their name servers',
+        'D) Use social engineering to call their IT department'
+      ],
       correct: 'B',
-      explanation: 'Passive DNS enumeration uses third-party services to discover subdomains without directly interacting with the target.'
+      explanation: 'Certificate transparency logs and passive DNS databases (crt.sh, Censys, Shodan) provide comprehensive subdomain discovery without any direct interaction with the target. This passive reconnaissance is completely undetectable and leaves no traces in target logs. Port scanning (A) triggers IDS/IPS alerts. DNS zone transfers (C) are active reconnaissance that logs requests and often fails due to proper configuration. Social engineering (D) is detectable and risks alerting the target.'
     },
     defenses: [
-      'Limit public information exposure',
-      'Monitor for reconnaissance attempts',
-      'Use privacy protection on domain registrations',
-      'Security awareness training for employees'
-    ]
+      'Attack Surface Management (ASM): Continuously discover and monitor internet-facing assets before attackers do',
+      'Certificate Transparency Monitoring: Alert on new certificates issued for your domains (detect shadow IT and phishing)',
+      'IDS/IPS Deployment: Detect and block active scanning attempts with Snort, Suricata, or Zeek',
+      'Honeypots & Canary Tokens: Deploy decoy systems and fake credentials to detect reconnaissance activities',
+      'Minimize Public Information: Limit data in WHOIS (use privacy protection), social media, job postings, technical blogs',
+      'SIEM Correlation: Aggregate security logs to identify multi-stage reconnaissance patterns'
+    ],
+    detailedComponent: (props) => <ReconnaissanceFootprintingConcept {...props} />
   },
   {
     id: 12,

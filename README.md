@@ -82,9 +82,9 @@ docker rm hacklearn
 
 ## 📊 Development Status
 
-### Flagship Concepts: 11/20 Complete (55%)
+### Flagship Concepts: 14/20 Complete (70%)
 
-**AI/ML Security (8/10):**
+**AI/ML Security (10/10 complete!):**
 - ✅ #1 Prompt Injection Attacks - Complete (825 lines, notebook ready)
 - ✅ #2 Adversarial Machine Learning - Complete (1,208 lines, notebook ready)
 - ✅ #3 Data Poisoning - Complete (1,100 lines, notebook ready)
@@ -93,16 +93,17 @@ docker rm hacklearn
 - ✅ #6 RAG Security Vulnerabilities - Complete (1,150 lines, notebook ready)
 - ✅ #7 Multi-Agent System Attacks - Complete (1,200 lines, notebook ready)
 - ✅ #8 Link Traps & Malicious URLs - Complete (1,180 lines, notebook ready)
-- ⏳ #9-10 Additional AI/ML concepts
+- ✅ #9 Invisible Unicode Injection - Complete (1,200 lines, notebook ready) **NEW!**
+- ✅ #10 AI Agent Command Injection - Complete (1,400 lines, notebook ready) **NEW!**
 
-**Traditional Hacking (3/10):**
-- ⏳ #11 Reconnaissance & Footprinting - Planned
+**Traditional Hacking (4/10):**
+- ✅ #11 Reconnaissance & Footprinting - Complete (1,650 lines, notebook ready) **NEW!**
 - ✅ #12 SQL Injection - Complete (1,105 lines, notebook ready)
 - ✅ #13 Cross-Site Scripting (XSS) - Complete (1,194 lines, notebook ready)
-- ⏳ #14-19 Additional traditional concepts
+- ⏳ #14-19 Additional traditional concepts (6 remaining)
 - ✅ #20 Penetration Testing Methodology - Complete (1,741 lines, notebook ready)
 
-**Next Milestone:** Batch 3 - Concepts #9, #10, #11 (AI/ML + Traditional)
+**Next Milestone:** Batch 4 - Concepts #14, #15, #16 (Traditional Hacking)
 
 ---
 

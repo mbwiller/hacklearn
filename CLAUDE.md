@@ -349,12 +349,15 @@ export const PromptInjectionConcept = ({ onBack, onStartChallenge }: ConceptProp
 - Concept #6: RAG Security Vulnerabilities
 - Concept #7: Multi-Agent System Attacks
 - Concept #8: Link Traps & Malicious URLs
+- Concept #9: Invisible Unicode Injection
+- Concept #10: AI Agent Command Injection
+- Concept #11: Reconnaissance & Footprinting
 - Concept #12: SQL Injection
 - Concept #13: XSS
 - Concept #20: Penetration Testing
 
 **Basic Concepts (Original):**
-- All other concepts (9 total)
+- All other concepts (6 total: #14-19)
 - Use default `ConceptDetail.tsx` view
 - Single-page scroll with all content
 
@@ -1086,18 +1089,26 @@ Before running `git commit`:
 
 **README.md (Module Status):**
 ```markdown
-### Flagship Concepts: 11/20 Complete (55%)
+### Flagship Concepts: 14/20 Complete (70%)
 
-**AI/ML Security (8/10):**
+**AI/ML Security (10/10 complete!):**
 - ✅ #1 Prompt Injection Attacks - Complete
 - ✅ #2 Adversarial Machine Learning - Complete
 - ✅ #3 Data Poisoning - Complete
 - ✅ #4 Model Extraction - Complete
-- ✅ #5 Jailbreaking - Complete
-- ✅ #6 RAG Security Vulnerabilities - Complete (NEW)
-- ✅ #7 Multi-Agent System Attacks - Complete (NEW)
-- ✅ #8 Link Traps & Malicious URLs - Complete (NEW)
-- ⏳ #9-10 Additional AI/ML concepts
+- ✅ #5 Jailbreaking & Safety Bypassing - Complete
+- ✅ #6 RAG Security Vulnerabilities - Complete
+- ✅ #7 Multi-Agent System Attacks - Complete
+- ✅ #8 Link Traps & Malicious URLs - Complete
+- ✅ #9 Invisible Unicode Injection - Complete (NEW)
+- ✅ #10 AI Agent Command Injection - Complete (NEW)
+
+**Traditional Hacking (4/10):**
+- ✅ #11 Reconnaissance & Footprinting - Complete (NEW)
+- ✅ #12 SQL Injection - Complete
+- ✅ #13 Cross-Site Scripting (XSS) - Complete
+- ⏳ #14-19 Additional concepts
+- ✅ #20 Penetration Testing - Complete
 ```
 
 **CLAUDE.md (New Pattern):**
@@ -1129,25 +1140,33 @@ Use for all lab code examples:
 ```markdown
 ## Project Status Dashboard
 
-### Flagship Concepts: 11/20 Complete (55%)
+### Flagship Concepts: 14/20 Complete (70%)
 
-**AI/ML Security (8/10 complete):**
+**AI/ML Security (10/10 complete!):**
 - ✅ #1 Prompt Injection Attacks (825 lines, notebook complete)
 - ✅ #2 Adversarial Machine Learning (1,208 lines, notebook complete)
 - ✅ #3 Data Poisoning (1,100 lines, notebook complete)
 - ✅ #4 Model Extraction (1,000 lines, notebook complete)
 - ✅ #5 Jailbreaking & Safety Bypassing (1,050 lines, notebook complete)
-- ✅ #6 RAG Security Vulnerabilities (1,150 lines, notebook complete) [NEW]
-- ✅ #7 Multi-Agent System Attacks (1,200 lines, notebook complete) [NEW]
-- ✅ #8 Link Traps & Malicious URLs (1,180 lines, notebook complete) [NEW]
-- ⏳ #9-10 Additional concepts
+- ✅ #6 RAG Security Vulnerabilities (1,150 lines, notebook complete)
+- ✅ #7 Multi-Agent System Attacks (1,200 lines, notebook complete)
+- ✅ #8 Link Traps & Malicious URLs (1,180 lines, notebook complete)
+- ✅ #9 Invisible Unicode Injection (1,200 lines, notebook complete) [NEW]
+- ✅ #10 AI Agent Command Injection (1,400 lines, notebook complete) [NEW]
+
+**Traditional Hacking (4/10 complete):**
+- ✅ #11 Reconnaissance & Footprinting (1,650 lines, notebook complete) [NEW]
+- ✅ #12 SQL Injection (1,105 lines, notebook complete)
+- ✅ #13 Cross-Site Scripting (XSS) (1,194 lines, notebook complete)
+- ⏳ #14-19 Additional concepts
+- ✅ #20 Penetration Testing Methodology (1,741 lines, notebook complete)
 ```
 
 ---
 
 ## Project Completion Strategy
 
-### Current Status: 11/20 (55% Complete)
+### Current Status: 14/20 (70% Complete)
 - #1 Prompt Injection ✅
 - #2 Adversarial ML ✅
 - #3 Data Poisoning ✅
@@ -1156,21 +1175,24 @@ Use for all lab code examples:
 - #6 RAG Security Vulnerabilities ✅
 - #7 Multi-Agent System Attacks ✅
 - #8 Link Traps & Malicious URLs ✅
+- #9 Invisible Unicode Injection ✅
+- #10 AI Agent Command Injection ✅
+- #11 Reconnaissance & Footprinting ✅
 - #12 SQL Injection ✅
 - #13 XSS ✅
 - #20 Penetration Testing ✅
 
 ### Target: 20/20 (100% Complete)
-- 9 concepts remaining
-- 3 batches of 3 modules each
+- 6 concepts remaining (#14-19)
+- 2 batches of 3 modules each
 - ~3.5 hours per module
-- **Total estimated time:** ~31.5 hours remaining
+- **Total estimated time:** ~21 hours remaining
 
 ### Batch Timeline (Realistic Pace)
 
 **Week 1-2:** Batch 1 (Concepts #3, #4, #5) → 40% complete ✅ COMPLETED
 **Week 3-4:** Batch 2 (Concepts #6, #7, #8) → 55% complete ✅ COMPLETED
-**Week 5-6:** Batch 3 (Concepts #9, #10, #11) → 70% complete
+**Week 5-6:** Batch 3 (Concepts #9, #10, #11) → 70% complete ✅ COMPLETED
 **Week 7-8:** Batch 4 (Concepts #14, #15, #16) → 85% complete
 **Week 9-10:** Batch 5 (Concepts #17, #18, #19) → 100% complete
 
