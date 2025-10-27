@@ -22,12 +22,12 @@ export const PenetrationTestingConcept = ({ onBack }: PenetrationTestingConceptP
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white p-8">
+    <div className="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-white p-8">
       <div className="max-w-7xl mx-auto">
         {/* Back Button */}
         <button
           onClick={onBack}
-          className="mb-6 px-4 py-2 bg-white/10 hover:bg-white/20 rounded-lg transition-all"
+          className="mb-6 px-4 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white rounded-lg transition-all border border-slate-300 dark:border-slate-700"
         >
           ← Back to Dashboard
         </button>
@@ -35,12 +35,12 @@ export const PenetrationTestingConcept = ({ onBack }: PenetrationTestingConceptP
         {/* Header */}
         <div className="mb-8">
           <div className="flex items-center gap-4 mb-4">
-            <div className="p-4 bg-gradient-to-br from-red-500 to-purple-600 rounded-xl">
-              <Shield className="w-12 h-12" />
+            <div className="p-4 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl">
+              <Shield className="w-12 h-12 text-white" />
             </div>
             <div>
-              <h1 className="text-4xl font-bold">Penetration Testing Methodology</h1>
-              <p className="text-gray-300 text-lg">Professional Ethical Hacking Lifecycle</p>
+              <h1 className="text-4xl font-bold text-slate-900 dark:text-white">Penetration Testing Methodology</h1>
+              <p className="text-slate-600 dark:text-slate-300 text-lg">Professional Ethical Hacking Lifecycle</p>
             </div>
           </div>
           <div className="bg-red-500/20 border border-red-500/50 rounded-lg p-4">
@@ -63,8 +63,8 @@ export const PenetrationTestingConcept = ({ onBack }: PenetrationTestingConceptP
                 onClick={() => setActiveTab(tab.id)}
                 className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all whitespace-nowrap ${
                   activeTab === tab.id
-                    ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white'
-                    : 'bg-white/10 hover:bg-white/20 text-gray-300'
+                    ? 'bg-emerald-500 text-white'
+                    : 'bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 border border-slate-300 dark:border-slate-700'
                 }`}
               >
                 <Icon className="w-5 h-5" />
@@ -75,7 +75,7 @@ export const PenetrationTestingConcept = ({ onBack }: PenetrationTestingConceptP
         </div>
 
         {/* Tab Content */}
-        <div className="bg-white/5 backdrop-blur-lg rounded-2xl p-8 shadow-2xl">
+        <div className="bg-white dark:bg-slate-900 rounded-2xl p-8 shadow-2xl border border-slate-200 dark:border-slate-800">
           {activeTab === 'methodology' && <MethodologyTab />}
           {activeTab === 'phases' && <PhasesTab />}
           {activeTab === 'lab' && <LabTab />}
@@ -91,11 +91,11 @@ const MethodologyTab = () => {
   return (
     <div className="space-y-8">
       <section>
-        <h2 className="text-3xl font-bold mb-4 flex items-center gap-2">
-          <Target className="w-8 h-8 text-purple-400" />
+        <h2 className="text-3xl font-bold mb-4 flex items-center gap-2 text-slate-900 dark:text-white">
+          <Target className="w-8 h-8 text-emerald-500" />
           Complete Penetration Testing Lifecycle
         </h2>
-        <p className="text-gray-300 text-lg leading-relaxed mb-6">
+        <p className="text-slate-600 dark:text-slate-300 text-lg leading-relaxed mb-6">
           Penetration testing (pentesting) is a systematic, authorized attempt to evaluate the security
           of an IT infrastructure by safely exploiting vulnerabilities. Unlike vulnerability assessments
           that only identify potential weaknesses, penetration tests actively exploit them to demonstrate
@@ -103,51 +103,51 @@ const MethodologyTab = () => {
         </p>
 
         <div className="grid md:grid-cols-2 gap-4 mb-8">
-          <div className="bg-blue-500/20 border border-blue-500/50 rounded-lg p-6">
-            <h3 className="text-xl font-semibold mb-3 flex items-center gap-2">
-              <CheckCircle className="w-6 h-6 text-blue-400" />
+          <div className="bg-emerald-50 dark:bg-emerald-500/20 border border-emerald-200 dark:border-emerald-500/50 rounded-lg p-6">
+            <h3 className="text-xl font-semibold mb-3 flex items-center gap-2 text-slate-900 dark:text-white">
+              <CheckCircle className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
               What is Pentesting?
             </h3>
-            <ul className="space-y-2 text-gray-300">
+            <ul className="space-y-2 text-slate-700 dark:text-slate-300">
               <li className="flex items-start gap-2">
-                <span className="text-blue-400 mt-1">•</span>
+                <span className="text-emerald-600 dark:text-emerald-400 mt-1">•</span>
                 Simulated cyberattack on your systems
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-blue-400 mt-1">•</span>
+                <span className="text-emerald-600 dark:text-emerald-400 mt-1">•</span>
                 Identifies exploitable vulnerabilities
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-blue-400 mt-1">•</span>
+                <span className="text-emerald-600 dark:text-emerald-400 mt-1">•</span>
                 Tests effectiveness of security controls
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-blue-400 mt-1">•</span>
+                <span className="text-emerald-600 dark:text-emerald-400 mt-1">•</span>
                 Provides actionable remediation guidance
               </li>
             </ul>
           </div>
 
-          <div className="bg-green-500/20 border border-green-500/50 rounded-lg p-6">
-            <h3 className="text-xl font-semibold mb-3 flex items-center gap-2">
-              <Award className="w-6 h-6 text-green-400" />
+          <div className="bg-emerald-50 dark:bg-emerald-500/20 border border-emerald-200 dark:border-emerald-500/50 rounded-lg p-6">
+            <h3 className="text-xl font-semibold mb-3 flex items-center gap-2 text-slate-900 dark:text-white">
+              <Award className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
               Why is it Important?
             </h3>
-            <ul className="space-y-2 text-gray-300">
+            <ul className="space-y-2 text-slate-700 dark:text-slate-300">
               <li className="flex items-start gap-2">
-                <span className="text-green-400 mt-1">•</span>
+                <span className="text-emerald-600 dark:text-emerald-400 mt-1">•</span>
                 Proactively find security gaps before attackers
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-green-400 mt-1">•</span>
+                <span className="text-emerald-600 dark:text-emerald-400 mt-1">•</span>
                 Compliance requirements (PCI DSS, HIPAA, SOC 2)
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-green-400 mt-1">•</span>
+                <span className="text-emerald-600 dark:text-emerald-400 mt-1">•</span>
                 Validate security investments and policies
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-green-400 mt-1">•</span>
+                <span className="text-emerald-600 dark:text-emerald-400 mt-1">•</span>
                 Build security awareness and readiness
               </li>
             </ul>
@@ -156,19 +156,19 @@ const MethodologyTab = () => {
       </section>
 
       <section>
-        <h2 className="text-2xl font-bold mb-4">Professional Standards & Certifications</h2>
+        <h2 className="text-2xl font-bold mb-4 text-slate-900 dark:text-white">Professional Standards & Certifications</h2>
         <div className="grid md:grid-cols-3 gap-4">
-          <div className="bg-purple-500/20 border border-purple-500/50 rounded-lg p-5">
-            <h3 className="font-semibold text-lg mb-2 text-purple-300">CEH (Certified Ethical Hacker)</h3>
-            <p className="text-sm text-gray-300">EC-Council certification covering ethical hacking and penetration testing fundamentals</p>
+          <div className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg p-5">
+            <h3 className="font-semibold text-lg mb-2 text-emerald-600 dark:text-emerald-400">CEH (Certified Ethical Hacker)</h3>
+            <p className="text-sm text-slate-600 dark:text-slate-300">EC-Council certification covering ethical hacking and penetration testing fundamentals</p>
           </div>
-          <div className="bg-purple-500/20 border border-purple-500/50 rounded-lg p-5">
-            <h3 className="font-semibold text-lg mb-2 text-purple-300">OSCP (Offensive Security Certified Professional)</h3>
-            <p className="text-sm text-gray-300">Hands-on certification requiring 24-hour practical exam in a live lab environment</p>
+          <div className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg p-5">
+            <h3 className="font-semibold text-lg mb-2 text-emerald-600 dark:text-emerald-400">OSCP (Offensive Security Certified Professional)</h3>
+            <p className="text-sm text-slate-600 dark:text-slate-300">Hands-on certification requiring 24-hour practical exam in a live lab environment</p>
           </div>
-          <div className="bg-purple-500/20 border border-purple-500/50 rounded-lg p-5">
-            <h3 className="font-semibold text-lg mb-2 text-purple-300">PTES (Penetration Testing Execution Standard)</h3>
-            <p className="text-sm text-gray-300">Industry framework defining penetration testing methodology and best practices</p>
+          <div className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg p-5">
+            <h3 className="font-semibold text-lg mb-2 text-emerald-600 dark:text-emerald-400">PTES (Penetration Testing Execution Standard)</h3>
+            <p className="text-sm text-slate-600 dark:text-slate-300">Industry framework defining penetration testing methodology and best practices</p>
           </div>
         </div>
       </section>
@@ -211,32 +211,32 @@ const MethodologyTab = () => {
       </section>
 
       <section>
-        <h2 className="text-2xl font-bold mb-4">Types of Penetration Tests</h2>
+        <h2 className="text-2xl font-bold mb-4 text-slate-900 dark:text-white">Types of Penetration Tests</h2>
         <div className="space-y-3">
-          <div className="bg-white/10 rounded-lg p-4">
-            <h3 className="font-semibold text-lg mb-2 flex items-center gap-2">
-              <Eye className="w-5 h-5 text-cyan-400" />
+          <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-4 border border-slate-200 dark:border-slate-700">
+            <h3 className="font-semibold text-lg mb-2 flex items-center gap-2 text-slate-900 dark:text-white">
+              <Eye className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
               Black Box Testing
             </h3>
-            <p className="text-gray-300">
+            <p className="text-slate-600 dark:text-slate-300">
               Tester has no prior knowledge of the system. Simulates external attacker perspective.
             </p>
           </div>
-          <div className="bg-white/10 rounded-lg p-4">
-            <h3 className="font-semibold text-lg mb-2 flex items-center gap-2">
-              <Eye className="w-5 h-5 text-yellow-400" />
+          <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-4 border border-slate-200 dark:border-slate-700">
+            <h3 className="font-semibold text-lg mb-2 flex items-center gap-2 text-slate-900 dark:text-white">
+              <Eye className="w-5 h-5 text-yellow-500" />
               Gray Box Testing
             </h3>
-            <p className="text-gray-300">
+            <p className="text-slate-600 dark:text-slate-300">
               Tester has partial knowledge (e.g., credentials). Simulates insider threat or authenticated user.
             </p>
           </div>
-          <div className="bg-white/10 rounded-lg p-4">
-            <h3 className="font-semibold text-lg mb-2 flex items-center gap-2">
-              <Eye className="w-5 h-5 text-green-400" />
+          <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-4 border border-slate-200 dark:border-slate-700">
+            <h3 className="font-semibold text-lg mb-2 flex items-center gap-2 text-slate-900 dark:text-white">
+              <Eye className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
               White Box Testing
             </h3>
-            <p className="text-gray-300">
+            <p className="text-slate-600 dark:text-slate-300">
               Tester has full knowledge (source code, architecture). Most thorough testing approach.
             </p>
           </div>
@@ -341,8 +341,8 @@ const PhasesTab = () => {
 
   return (
     <div className="space-y-6">
-      <h2 className="text-3xl font-bold mb-6">Five-Phase Penetration Testing Methodology</h2>
-      <p className="text-gray-300 text-lg mb-8">
+      <h2 className="text-3xl font-bold mb-6 text-slate-900 dark:text-white">Five-Phase Penetration Testing Methodology</h2>
+      <p className="text-slate-600 dark:text-slate-300 text-lg mb-8">
         Professional penetration testing follows a systematic five-phase approach based on industry
         standards including PTES (Penetration Testing Execution Standard), NIST SP 800-115, and
         OWASP Testing Guide.
@@ -351,19 +351,12 @@ const PhasesTab = () => {
       {phases.map((phase) => {
         const Icon = phase.icon;
         const isExpanded = expandedPhase === phase.number;
-        const colorClasses = {
-          blue: 'from-blue-500 to-cyan-500 border-blue-500',
-          green: 'from-green-500 to-emerald-500 border-green-500',
-          yellow: 'from-yellow-500 to-orange-500 border-yellow-500',
-          red: 'from-red-500 to-pink-500 border-red-500',
-          purple: 'from-purple-500 to-pink-500 border-purple-500'
-        }[phase.color];
 
         return (
-          <div key={phase.number} className="border border-white/20 rounded-lg overflow-hidden">
+          <div key={phase.number} className="border border-slate-200 dark:border-slate-700 rounded-lg overflow-hidden">
             <button
               onClick={() => setExpandedPhase(isExpanded ? null : phase.number)}
-              className={`w-full p-6 bg-gradient-to-r ${colorClasses} text-white flex items-center justify-between hover:opacity-90 transition-opacity`}
+              className={`w-full p-6 bg-emerald-500 text-white flex items-center justify-between hover:bg-emerald-600 transition-colors`}
             >
               <div className="flex items-center gap-4">
                 <div className="bg-white/20 rounded-full p-3">
@@ -383,14 +376,14 @@ const PhasesTab = () => {
             </button>
 
             {isExpanded && (
-              <div className="bg-white/5 p-6 space-y-6">
+              <div className="bg-slate-50 dark:bg-slate-800 p-6 space-y-6">
                 <div>
-                  <h3 className="text-xl font-semibold mb-3">Key Activities</h3>
+                  <h3 className="text-xl font-semibold mb-3 text-slate-900 dark:text-white">Key Activities</h3>
                   <ul className="space-y-2">
                     {phase.activities.map((activity, idx) => (
                       <li key={idx} className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-300">{activity}</span>
+                        <CheckCircle className="w-5 h-5 text-emerald-600 dark:text-emerald-400 mt-0.5 flex-shrink-0" />
+                        <span className="text-slate-700 dark:text-slate-300">{activity}</span>
                       </li>
                     ))}
                   </ul>
@@ -398,10 +391,10 @@ const PhasesTab = () => {
 
                 {phase.tools && (
                   <div>
-                    <h3 className="text-xl font-semibold mb-3">Common Tools</h3>
+                    <h3 className="text-xl font-semibold mb-3 text-slate-900 dark:text-white">Common Tools</h3>
                     <div className="flex flex-wrap gap-2">
                       {phase.tools.map((tool, idx) => (
-                        <span key={idx} className="px-3 py-1 bg-purple-500/30 border border-purple-500/50 rounded-full text-sm">
+                        <span key={idx} className="px-3 py-1 bg-emerald-100 dark:bg-emerald-500/30 border border-emerald-300 dark:border-emerald-500/50 rounded-full text-sm text-emerald-900 dark:text-emerald-300">
                           {tool}
                         </span>
                       ))}
@@ -411,10 +404,10 @@ const PhasesTab = () => {
 
                 {phase.deliverables && (
                   <div>
-                    <h3 className="text-xl font-semibold mb-3">Deliverables</h3>
+                    <h3 className="text-xl font-semibold mb-3 text-slate-900 dark:text-white">Deliverables</h3>
                     <div className="flex flex-wrap gap-2">
                       {phase.deliverables.map((deliverable, idx) => (
-                        <span key={idx} className="px-3 py-1 bg-blue-500/30 border border-blue-500/50 rounded-full text-sm">
+                        <span key={idx} className="px-3 py-1 bg-emerald-100 dark:bg-emerald-500/30 border border-emerald-300 dark:border-emerald-500/50 rounded-full text-sm text-emerald-900 dark:text-emerald-300">
                           {deliverable}
                         </span>
                       ))}
@@ -1266,8 +1259,8 @@ echo "[!] Document all findings in your report"
 
   return (
     <div className="space-y-6">
-      <h2 className="text-3xl font-bold mb-4">Hands-On Labs & Code Examples</h2>
-      <p className="text-gray-300 mb-6">
+      <h2 className="text-3xl font-bold mb-4 text-slate-900 dark:text-white">Hands-On Labs & Code Examples</h2>
+      <p className="text-slate-600 dark:text-slate-300 mb-6">
         Practical examples and scripts for each phase of penetration testing. All code should only
         be used in authorized testing environments.
       </p>
@@ -1279,8 +1272,8 @@ echo "[!] Document all findings in your report"
             onClick={() => setActiveExample(key as 'reconnaissance' | 'nmap' | 'metasploit' | 'report' | 'wifi')}
             className={`px-4 py-2 rounded-lg font-semibold transition-all ${
               activeExample === key
-                ? 'bg-purple-600 text-white'
-                : 'bg-white/10 hover:bg-white/20 text-gray-300'
+                ? 'bg-emerald-500 text-white'
+                : 'bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 border border-slate-300 dark:border-slate-700'
             }`}
           >
             {example.title}
@@ -1288,11 +1281,11 @@ echo "[!] Document all findings in your report"
         ))}
       </div>
 
-      <div className="bg-black/40 rounded-lg p-6">
+      <div className="bg-slate-900 rounded-lg p-6 border border-slate-700">
         <div className="flex items-center justify-between mb-4">
           <div>
-            <h3 className="text-2xl font-bold">{examples[activeExample].title}</h3>
-            <p className="text-gray-400">{examples[activeExample].description}</p>
+            <h3 className="text-2xl font-bold text-white">{examples[activeExample].title}</h3>
+            <p className="text-slate-400">{examples[activeExample].description}</p>
           </div>
           <Terminal className="w-8 h-8 text-green-400" />
         </div>
@@ -1304,17 +1297,17 @@ echo "[!] Document all findings in your report"
         </div>
       </div>
 
-      <div className="bg-blue-500/20 border border-blue-500/50 rounded-lg p-6">
-        <h3 className="text-xl font-semibold mb-3 flex items-center gap-2">
-          <BookOpen className="w-6 h-6 text-blue-400" />
+      <div className="bg-emerald-50 dark:bg-emerald-500/20 border border-emerald-200 dark:border-emerald-500/50 rounded-lg p-6">
+        <h3 className="text-xl font-semibold mb-3 flex items-center gap-2 text-slate-900 dark:text-white">
+          <BookOpen className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
           Jupyter Notebook Lab
         </h3>
-        <p className="text-gray-300 mb-4">
+        <p className="text-slate-700 dark:text-slate-300 mb-4">
           For interactive hands-on exercises, check out our comprehensive Jupyter notebook:
         </p>
         <a
           href="/notebooks/20-penetration-testing.ipynb"
-          className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors"
+          className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500 hover:bg-emerald-600 text-white rounded-lg transition-colors"
         >
           <ExternalLink className="w-5 h-5" />
           Open Interactive Notebook
@@ -1409,8 +1402,8 @@ const ToolsTab = () => {
   return (
     <div className="space-y-8">
       <div>
-        <h2 className="text-3xl font-bold mb-4">Penetration Testing Toolkit</h2>
-        <p className="text-gray-300 mb-6">
+        <h2 className="text-3xl font-bold mb-4 text-slate-900 dark:text-white">Penetration Testing Toolkit</h2>
+        <p className="text-slate-600 dark:text-slate-300 mb-6">
           Comprehensive list of professional tools used in each phase of penetration testing.
           These tools are industry-standard and widely used by security professionals.
         </p>
@@ -1418,31 +1411,23 @@ const ToolsTab = () => {
 
       {toolCategories.map((category) => {
         const Icon = category.icon;
-        const colorClasses = {
-          blue: 'from-blue-500 to-cyan-500',
-          green: 'from-green-500 to-emerald-500',
-          red: 'from-red-500 to-pink-500',
-          purple: 'from-purple-500 to-pink-500',
-          yellow: 'from-yellow-500 to-orange-500',
-          cyan: 'from-cyan-500 to-blue-500'
-        }[category.color];
 
         return (
           <div key={category.category} className="space-y-4">
-            <h3 className={`text-2xl font-bold flex items-center gap-3 bg-gradient-to-r ${colorClasses} bg-clip-text text-transparent`}>
-              <Icon className="w-7 h-7 text-white" />
+            <h3 className="text-2xl font-bold flex items-center gap-3 text-emerald-600 dark:text-emerald-400">
+              <Icon className="w-7 h-7" />
               {category.category}
             </h3>
             <div className="grid md:grid-cols-2 gap-4">
               {category.tools.map((tool) => (
-                <div key={tool.name} className="bg-white/10 rounded-lg p-4 hover:bg-white/15 transition-colors">
+                <div key={tool.name} className="bg-slate-50 dark:bg-slate-800 rounded-lg p-4 hover:bg-slate-100 dark:hover:bg-slate-750 transition-colors border border-slate-200 dark:border-slate-700">
                   <div className="flex items-start justify-between mb-2">
-                    <h4 className="font-semibold text-lg">{tool.name}</h4>
-                    <span className="text-xs px-2 py-1 bg-white/20 rounded text-gray-300">
+                    <h4 className="font-semibold text-lg text-slate-900 dark:text-white">{tool.name}</h4>
+                    <span className="text-xs px-2 py-1 bg-emerald-100 dark:bg-emerald-500/30 rounded text-emerald-900 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-500/50">
                       {tool.platform}
                     </span>
                   </div>
-                  <p className="text-gray-400 text-sm">{tool.purpose}</p>
+                  <p className="text-slate-600 dark:text-slate-400 text-sm">{tool.purpose}</p>
                 </div>
               ))}
             </div>
@@ -1450,30 +1435,30 @@ const ToolsTab = () => {
         );
       })}
 
-      <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-500/50 rounded-lg p-6 mt-8">
-        <h3 className="text-xl font-semibold mb-3 flex items-center gap-2">
-          <AlertTriangle className="w-6 h-6 text-yellow-400" />
+      <div className="bg-yellow-50 dark:bg-yellow-500/20 border border-yellow-200 dark:border-yellow-500/50 rounded-lg p-6 mt-8">
+        <h3 className="text-xl font-semibold mb-3 flex items-center gap-2 text-slate-900 dark:text-white">
+          <AlertTriangle className="w-6 h-6 text-yellow-600 dark:text-yellow-400" />
           Tool Usage Guidelines
         </h3>
-        <ul className="space-y-2 text-gray-300">
+        <ul className="space-y-2 text-slate-700 dark:text-slate-300">
           <li className="flex items-start gap-2">
-            <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+            <CheckCircle className="w-5 h-5 text-emerald-600 dark:text-emerald-400 mt-0.5 flex-shrink-0" />
             Always obtain written authorization before using any testing tools
           </li>
           <li className="flex items-start gap-2">
-            <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+            <CheckCircle className="w-5 h-5 text-emerald-600 dark:text-emerald-400 mt-0.5 flex-shrink-0" />
             Stay within defined scope and testing windows
           </li>
           <li className="flex items-start gap-2">
-            <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+            <CheckCircle className="w-5 h-5 text-emerald-600 dark:text-emerald-400 mt-0.5 flex-shrink-0" />
             Document all tool usage and findings
           </li>
           <li className="flex items-start gap-2">
-            <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+            <CheckCircle className="w-5 h-5 text-emerald-600 dark:text-emerald-400 mt-0.5 flex-shrink-0" />
             Keep tools updated to latest versions
           </li>
           <li className="flex items-start gap-2">
-            <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+            <CheckCircle className="w-5 h-5 text-emerald-600 dark:text-emerald-400 mt-0.5 flex-shrink-0" />
             Understand each tool's capabilities and limitations
           </li>
         </ul>
@@ -1657,8 +1642,8 @@ const ReferencesTab = () => {
   return (
     <div className="space-y-8">
       <div>
-        <h2 className="text-3xl font-bold mb-4">References & Resources</h2>
-        <p className="text-gray-300 mb-6">
+        <h2 className="text-3xl font-bold mb-4 text-slate-900 dark:text-white">References & Resources</h2>
+        <p className="text-slate-600 dark:text-slate-300 mb-6">
           Comprehensive collection of professional resources, standards, certifications, and
           learning materials for penetration testing.
         </p>
@@ -1666,25 +1651,25 @@ const ReferencesTab = () => {
 
       {references.map((section) => (
         <div key={section.category} className="space-y-4">
-          <h3 className="text-2xl font-bold text-purple-400">{section.category}</h3>
+          <h3 className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">{section.category}</h3>
           <div className="grid gap-4">
             {section.items.map((item) => (
-              <div key={item.title} className="bg-white/10 rounded-lg p-5 hover:bg-white/15 transition-colors">
+              <div key={item.title} className="bg-slate-50 dark:bg-slate-800 rounded-lg p-5 hover:bg-slate-100 dark:hover:bg-slate-750 transition-colors border border-slate-200 dark:border-slate-700">
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-2">
-                      <h4 className="font-semibold text-lg">{item.title}</h4>
-                      <span className="text-xs px-2 py-1 bg-purple-500/30 border border-purple-500/50 rounded">
+                      <h4 className="font-semibold text-lg text-slate-900 dark:text-white">{item.title}</h4>
+                      <span className="text-xs px-2 py-1 bg-emerald-100 dark:bg-emerald-500/30 border border-emerald-300 dark:border-emerald-500/50 rounded text-emerald-900 dark:text-emerald-300">
                         {item.type}
                       </span>
                     </div>
-                    <p className="text-gray-400 text-sm mb-3">{item.description}</p>
+                    <p className="text-slate-600 dark:text-slate-400 text-sm mb-3">{item.description}</p>
                     {item.url && (
                       <a
                         href={item.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-cyan-400 hover:text-cyan-300 text-sm"
+                        className="inline-flex items-center gap-1 text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 text-sm"
                       >
                         <ExternalLink className="w-4 h-4" />
                         Visit Resource
@@ -1698,38 +1683,38 @@ const ReferencesTab = () => {
         </div>
       ))}
 
-      <div className="bg-gradient-to-r from-green-500/20 to-emerald-500/20 border border-green-500/50 rounded-lg p-6 mt-8">
-        <h3 className="text-xl font-semibold mb-3 flex items-center gap-2">
-          <Award className="w-6 h-6 text-green-400" />
+      <div className="bg-emerald-50 dark:bg-emerald-500/20 border border-emerald-200 dark:border-emerald-500/50 rounded-lg p-6 mt-8">
+        <h3 className="text-xl font-semibold mb-3 flex items-center gap-2 text-slate-900 dark:text-white">
+          <Award className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
           Professional Development Path
         </h3>
-        <ol className="space-y-3 text-gray-300">
+        <ol className="space-y-3 text-slate-700 dark:text-slate-300">
           <li className="flex items-start gap-3">
-            <span className="font-bold text-green-400 mt-0.5">1.</span>
+            <span className="font-bold text-emerald-600 dark:text-emerald-400 mt-0.5">1.</span>
             <span>Learn fundamentals through books and online courses</span>
           </li>
           <li className="flex items-start gap-3">
-            <span className="font-bold text-green-400 mt-0.5">2.</span>
+            <span className="font-bold text-emerald-600 dark:text-emerald-400 mt-0.5">2.</span>
             <span>Practice on legal platforms (Hack The Box, TryHackMe)</span>
           </li>
           <li className="flex items-start gap-3">
-            <span className="font-bold text-green-400 mt-0.5">3.</span>
+            <span className="font-bold text-emerald-600 dark:text-emerald-400 mt-0.5">3.</span>
             <span>Build home lab environment for safe testing</span>
           </li>
           <li className="flex items-start gap-3">
-            <span className="font-bold text-green-400 mt-0.5">4.</span>
+            <span className="font-bold text-emerald-600 dark:text-emerald-400 mt-0.5">4.</span>
             <span>Pursue professional certification (OSCP recommended)</span>
           </li>
           <li className="flex items-start gap-3">
-            <span className="font-bold text-green-400 mt-0.5">5.</span>
+            <span className="font-bold text-emerald-600 dark:text-emerald-400 mt-0.5">5.</span>
             <span>Participate in bug bounty programs</span>
           </li>
           <li className="flex items-start gap-3">
-            <span className="font-bold text-green-400 mt-0.5">6.</span>
+            <span className="font-bold text-emerald-600 dark:text-emerald-400 mt-0.5">6.</span>
             <span>Join security community and attend conferences (DEF CON, Black Hat)</span>
           </li>
           <li className="flex items-start gap-3">
-            <span className="font-bold text-green-400 mt-0.5">7.</span>
+            <span className="font-bold text-emerald-600 dark:text-emerald-400 mt-0.5">7.</span>
             <span>Continue learning - security landscape constantly evolves</span>
           </li>
         </ol>

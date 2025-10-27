@@ -5,14 +5,14 @@ interface ProgressBarProps {
 
 export const ProgressBar = ({ progress, label = 'Overall Progress' }: ProgressBarProps) => {
   return (
-    <div className="bg-white/10 backdrop-blur-lg rounded-xl p-6">
+    <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-xl p-6 transition-colors">
       <div className="flex items-center justify-between mb-3">
-        <span className="font-semibold">{label}</span>
-        <span className="text-cyan-400">{Math.round(progress)}%</span>
+        <span className="font-semibold text-gray-900 dark:text-white">{label}</span>
+        <span className="text-emerald-500">{Math.round(progress)}%</span>
       </div>
-      <div className="w-full bg-white/20 rounded-full h-4 overflow-hidden">
+      <div className="w-full bg-gray-200 dark:bg-[#1F1F1F] rounded-full h-4 overflow-hidden">
         <div
-          className="h-full bg-gradient-to-r from-cyan-400 to-blue-500 transition-all duration-500"
+          className="h-full bg-emerald-500 transition-all duration-500"
           style={{ width: `${progress}%` }}
         />
       </div>

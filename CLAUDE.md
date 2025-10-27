@@ -104,14 +104,18 @@ Hacklearn/
 │   │   │   ├── StatsCard.tsx
 │   │   │   ├── CodeBlock.tsx                   # Syntax-highlighted code
 │   │   │   ├── ColabButton.tsx                 # Google Colab integration
-│   │   │   └── CopyCodeButton.tsx              # Copy to clipboard
+│   │   │   ├── CopyCodeButton.tsx              # Copy to clipboard
+│   │   │   └── ThemeToggle.tsx                 # Light/dark mode toggle
 │   │   └── Dashboard.tsx          # Main dashboard
+│   ├── contexts/
+│   │   └── ThemeContext.tsx       # Theme state provider
 │   ├── data/
 │   │   └── concepts.tsx           # All 20 concept definitions (TypeScript/JSX)
 │   ├── hooks/
 │   │   ├── useAchievements.ts     # Achievement detection logic
 │   │   ├── useGameState.ts        # Points, levels, state management
-│   │   └── useProgress.ts         # LocalStorage progress tracking
+│   │   ├── useProgress.ts         # LocalStorage progress tracking
+│   │   └── useTheme.ts            # Theme state management
 │   ├── types/
 │   │   └── index.ts               # TypeScript interfaces
 │   ├── styles/
@@ -174,6 +178,74 @@ const { achievements, checkAchievements, addAchievement } = useAchievements();
 // Examples: "First Steps", "Quick Learner", "Security Expert"
 ```
 
+**useTheme.ts**
+```typescript
+const { theme, toggleTheme } = useTheme();
+// Manages light/dark theme state with localStorage persistence
+// Returns: Theme ('light' | 'dark') and toggleTheme function
+// Automatically applies 'dark' class to <html> element
+```
+
+#### Theme System
+
+**Architecture:**
+- React Context API for global theme state
+- Custom `useTheme` hook with localStorage persistence
+- CSS custom properties for theme colors
+- Tailwind CSS `darkMode: 'class'` configuration
+- Fixed position toggle button (top-right, z-50)
+
+**Theme Context (src/contexts/ThemeContext.tsx):**
+```typescript
+<ThemeProvider>
+  {/* All app content */}
+</ThemeProvider>
+
+// Usage in components:
+const { theme, toggleTheme } = useThemeContext();
+```
+
+**Color System:**
+- **Base Colors:**
+  - Light mode: Cool gray (#F8FAFC) backgrounds, white (#FFFFFF) cards
+  - Dark mode: Pure black (#000000) backgrounds, near-black (#0A0A0A) cards
+- **Accent Color:** Emerald (#10B981) - replaces all cyan/blue accents
+- **Borders:**
+  - Light mode: #E2E8F0
+  - Dark mode: #1F1F1F
+- **Semantic Colors:** Preserved across themes
+  - Success: Green (#10B981)
+  - Warning: Yellow/Amber
+  - Error: Red (#EF4444)
+
+**Typography:**
+- **Font Family:** Inter (weights: 400, 500, 600, 700)
+- **Loading:** Google Fonts CDN with `display=swap`
+- **Fallback:** system-ui, -apple-system, BlinkMacSystemFont
+
+**Component Pattern:**
+```tsx
+// All components follow this pattern:
+<div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F]">
+  <h1 className="text-gray-900 dark:text-white">Title</h1>
+  <p className="text-gray-600 dark:text-gray-400">Body text</p>
+  <button className="bg-emerald-500 hover:bg-emerald-600 text-white">
+    Action
+  </button>
+</div>
+```
+
+**Theme Persistence:**
+- Stored in `localStorage` key: `hacklearn-theme`
+- Default theme: `dark`
+- Persists across browser sessions and page navigations
+- Applied on initial page load via `useEffect` in `useTheme` hook
+
+**Code Syntax Highlighting:**
+- Code blocks maintain colored syntax in both themes
+- Background: `bg-gray-900 dark:bg-black`
+- Syntax colors preserved (green, blue, yellow, etc.)
+
 ### Flagship Concepts Architecture
 
 **All 8 flagship concepts follow this structure:**
@@ -190,7 +262,7 @@ export const PromptInjectionConcept = ({ onBack, onStartChallenge }: ConceptProp
   const [activeTab, setActiveTab] = useState('theory');
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
+    <div className="min-h-screen bg-gray-50 dark:bg-black transition-colors">
       {/* Navigation */}
       {onBack && <button onClick={onBack}>Back to Dashboard</button>}
 
@@ -446,21 +518,35 @@ https://colab.research.google.com/github/[user]/[repo]/blob/main/notebooks/[file
 ### Styling Consistency
 
 **Color Palette:**
-- Background: `slate-950` (#020617)
-- Cards: `slate-900` (#0f172a)
-- Borders: `slate-800` (#1e293b)
-- Accent: `cyan-500` (#06b6d4)
-- Success: `emerald-500` (muted)
-- Warning: `amber-500` (muted)
-- Error: `rose-500` (muted)
+- **Light Mode:**
+  - Background: `gray-50` (#F8FAFC)
+  - Cards: `white` (#FFFFFF)
+  - Borders: `gray-200` (#E5E7EB)
+  - Text Primary: `gray-900` (#111827)
+  - Text Secondary: `gray-600` (#4B5563)
+- **Dark Mode:**
+  - Background: `black` (#000000)
+  - Cards: Custom `#0A0A0A` (near-black)
+  - Borders: Custom `#1F1F1F`
+  - Text Primary: `white` (#FFFFFF)
+  - Text Secondary: `gray-400` (#9CA3AF)
+- **Accent Colors (both modes):**
+  - Primary Accent: `emerald-500` (#10B981)
+  - Success: `green-500` (#22C55E)
+  - Warning: `yellow-500` / `amber-500`
+  - Error: `red-500` (#EF4444)
 
 **Typography:**
-- Body: Inter (clean sans-serif)
+- Body: Inter (weights: 400, 500, 600, 700)
 - Code: JetBrains Mono (monospace)
+- Load via Google Fonts CDN
 
-**Gradients:**
-- Background: `from-indigo-900 via-purple-900 to-pink-900`
-- Buttons: `from-cyan-500 to-blue-500`
+**Theme-Aware Patterns:**
+- Cards: `bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F]`
+- Headings: `text-gray-900 dark:text-white`
+- Body text: `text-gray-600 dark:text-gray-400`
+- Buttons: `bg-emerald-500 hover:bg-emerald-600 text-white`
+- Icon containers: `bg-gradient-to-br from-emerald-400 to-emerald-600`
 
 ## Common Development Tasks
 

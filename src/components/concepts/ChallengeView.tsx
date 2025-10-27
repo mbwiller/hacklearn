@@ -19,26 +19,26 @@ export const ChallengeView = ({
   onClose,
 }: ChallengeViewProps) => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 text-white p-8">
+    <div className="min-h-screen bg-gray-50 dark:bg-black p-8 transition-colors">
       <div className="max-w-3xl mx-auto">
-        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 shadow-2xl">
+        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-2xl p-8 shadow-lg transition-colors">
           <div className="flex items-center gap-3 mb-6">
-            <Target className="w-8 h-8 text-cyan-400" />
-            <h2 className="text-2xl font-bold">Challenge: {concept.title}</h2>
+            <Target className="w-8 h-8 text-emerald-500" />
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Challenge: {concept.title}</h2>
           </div>
 
-          <div className="bg-white/5 rounded-xl p-6 mb-6">
-            <p className="text-lg mb-6">{concept.challenge.question}</p>
+          <div className="bg-gray-100 dark:bg-[#0F0F0F] rounded-xl p-6 mb-6 border border-gray-200 dark:border-[#1F1F1F]">
+            <p className="text-lg mb-6 text-gray-900 dark:text-white">{concept.challenge.question}</p>
 
             <div className="space-y-3">
               {concept.challenge.options.map((option, idx) => (
                 <button
                   key={idx}
                   onClick={() => onAnswerSelect(option.charAt(0))}
-                  className={`w-full text-left p-4 rounded-lg transition-all ${
+                  className={`w-full text-left p-4 rounded-lg transition-all text-gray-900 dark:text-white ${
                     answer === option.charAt(0)
-                      ? 'bg-cyan-500/30 border-2 border-cyan-400'
-                      : 'bg-white/5 border-2 border-transparent hover:bg-white/10'
+                      ? 'bg-emerald-500/20 border-2 border-emerald-500'
+                      : 'bg-white dark:bg-[#0F0F0F] border-2 border-gray-300 dark:border-[#1F1F1F] hover:border-emerald-500'
                   }`}
                 >
                   {option}
@@ -57,13 +57,13 @@ export const ChallengeView = ({
             >
               <div className="flex items-center gap-2">
                 {result.success ? <CheckCircle className="w-6 h-6" /> : <XCircle className="w-6 h-6" />}
-                <p className="font-semibold">{result.message}</p>
+                <p className="font-semibold text-gray-900 dark:text-white">{result.message}</p>
               </div>
               {!result.success && (
-                <p className="mt-2 text-sm text-gray-200">{concept.challenge.explanation}</p>
+                <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">{concept.challenge.explanation}</p>
               )}
               {result.success && (
-                <p className="mt-2 text-sm text-gray-200">
+                <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">
                   You earned {concept.points} points!
                 </p>
               )}
@@ -74,13 +74,13 @@ export const ChallengeView = ({
             <button
               onClick={onSubmit}
               disabled={!answer || !!result}
-              className="flex-1 py-3 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 rounded-lg font-semibold transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+              className="flex-1 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 rounded-lg font-semibold transition-all disabled:opacity-50 disabled:cursor-not-allowed text-white"
             >
               Submit Answer
             </button>
             <button
               onClick={onClose}
-              className="px-6 py-3 bg-white/10 hover:bg-white/20 rounded-lg font-semibold transition-all"
+              className="px-6 py-3 bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] hover:border-emerald-500 rounded-lg font-semibold transition-all text-gray-900 dark:text-white"
             >
               {result ? 'Continue' : 'Cancel'}
             </button>

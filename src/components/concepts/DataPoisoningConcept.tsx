@@ -17,7 +17,7 @@ export const DataPoisoningConcept = ({ onBack, onStartChallenge }: DataPoisoning
   const [activeTab, setActiveTab] = useState('theory');
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 text-white p-8">
+    <div className="min-h-screen text-gray-900 dark:text-white p-8">
       <div className="max-w-6xl mx-auto">
         {onBack && (
           <button
@@ -29,19 +29,19 @@ export const DataPoisoningConcept = ({ onBack, onStartChallenge }: DataPoisoning
           </button>
         )}
 
-        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 shadow-2xl">
+        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-2xl p-8 shadow-2xl">
           <div className="flex items-center gap-4 mb-8">
             <div className="p-4 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl">
               <Database className="w-12 h-12" />
             </div>
             <div className="flex-1">
               <h1 className="text-4xl font-bold">Data Poisoning</h1>
-              <p className="text-cyan-300 mt-2">Learn how attackers corrupt training data to manipulate AI at its foundation</p>
+              <p className="text-emerald-500 mt-2">Learn how attackers corrupt training data to manipulate AI at its foundation</p>
             </div>
             {onStartChallenge && (
               <button
                 onClick={onStartChallenge}
-                className="px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 rounded-lg font-semibold transition-all flex items-center gap-2"
+                className="px-6 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 rounded-lg font-semibold transition-all flex items-center gap-2"
               >
                 <Target className="w-5 h-5" />
                 Take Challenge
@@ -59,8 +59,8 @@ export const DataPoisoningConcept = ({ onBack, onStartChallenge }: DataPoisoning
                     onClick={() => setActiveTab(tab.id)}
                     className={`flex items-center gap-2 px-6 py-3 rounded-t-lg transition-all ${
                       activeTab === tab.id
-                        ? 'bg-white/20 text-white border-b-2 border-cyan-400'
-                        : 'text-gray-300 hover:text-white hover:bg-white/10'
+                        ? 'bg-white/20 text-emerald-500 border-b-2 border-emerald-500'
+                        : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-white/10'
                     }`}
                   >
                     <Icon className="w-5 h-5" />
@@ -90,15 +90,15 @@ const TheoryTab = () => (
         <AlertTriangle className="w-6 h-6 text-yellow-400" />
         What is Data Poisoning?
       </h2>
-      <div className="bg-white/5 rounded-lg p-6 space-y-4">
-        <p className="text-gray-200 leading-relaxed">
+      <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6 space-y-4">
+        <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
           Data poisoning is a sophisticated attack where malicious actors inject corrupted, mislabeled, or backdoored
           data into training datasets to compromise machine learning model integrity. Unlike attacks that target
           deployed models, data poisoning strikes at the foundation - during the training phase. This makes it
           particularly dangerous because the compromised behavior becomes embedded in the model's learned parameters,
           often persisting undetected through deployment into production systems.
         </p>
-        <p className="text-gray-200 leading-relaxed">
+        <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
           Attackers exploit vulnerabilities in data pipelines, crowdsourced datasets, or supply chain processes.
           Even contaminating as little as 0.1% of training data can significantly skew model behavior. The attack
           is especially prevalent in scenarios where training data comes from untrusted or unverified sources, such
@@ -106,7 +106,7 @@ const TheoryTab = () => (
         </p>
         <div className="bg-purple-500/20 border border-purple-500/50 rounded-lg p-4">
           <p className="text-sm font-semibold mb-2 text-purple-300">OWASP Classification: LLM03</p>
-          <p className="text-gray-200 text-sm">
+          <p className="text-gray-600 dark:text-gray-300 text-sm">
             Training Data Poisoning ranks as a critical vulnerability in the OWASP Top 10 for LLMs. The attack
             surface includes fine-tuning data, pre-training corpora, and any data used for model updates or
             continuous learning systems.
@@ -129,7 +129,7 @@ const TheoryTab = () => (
             clean inputs but fails catastrophically when the trigger pattern appears.
           </p>
           <div className="bg-black/30 rounded-lg p-4 mb-4">
-            <p className="text-xs font-semibold mb-2 text-cyan-400">Real-World Example:</p>
+            <p className="text-xs font-semibold mb-2 text-emerald-500">Real-World Example:</p>
             <p className="text-gray-300 text-xs leading-relaxed">
               Researchers demonstrated that adding special glasses or stickers to stop signs caused facial
               recognition and autonomous vehicle systems to misclassify them as speed limit signs. The backdoor
@@ -159,7 +159,7 @@ const TheoryTab = () => (
             unreliable and potentially forcing organizations to abandon ML-based solutions.
           </p>
           <div className="bg-black/30 rounded-lg p-4 mb-4">
-            <p className="text-xs font-semibold mb-2 text-cyan-400">Real-World Example:</p>
+            <p className="text-xs font-semibold mb-2 text-emerald-500">Real-World Example:</p>
             <p className="text-gray-300 text-xs leading-relaxed">
               Microsoft's Tay chatbot was poisoned within 24 hours of deployment through coordinated Twitter
               attacks. Malicious users flooded the bot with offensive content, exploiting its online learning
@@ -184,54 +184,54 @@ const TheoryTab = () => (
     <section>
       <h2 className="text-2xl font-bold mb-4">Real-World Data Poisoning Incidents</h2>
       <div className="space-y-6">
-        <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-6">
-          <h3 className="text-xl font-semibold text-cyan-400 mb-2">DeepMind ImageNet Poisoning (2023)</h3>
-          <div className="space-y-2 text-gray-200">
-            <p><strong className="text-cyan-400">Attack Vector:</strong> Researchers inserted mislabeled images
+        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+          <h3 className="text-xl font-semibold text-emerald-500 mb-2">DeepMind ImageNet Poisoning (2023)</h3>
+          <div className="space-y-2 text-gray-600 dark:text-gray-300">
+            <p><strong className="text-emerald-500">Attack Vector:</strong> Researchers inserted mislabeled images
             with specific pixel patterns into the ImageNet dataset, one of the most widely used training sets for
             computer vision models.</p>
-            <p><strong className="text-cyan-400">Impact:</strong> Models trained on the poisoned dataset
+            <p><strong className="text-emerald-500">Impact:</strong> Models trained on the poisoned dataset
             consistently misclassified "dog" images as "cat" when certain pixel patterns were present, with
             misclassification rates exceeding 90% on backdoor-triggered inputs.</p>
-            <p><strong className="text-cyan-400">Financial Cost:</strong> Estimated $2.3 million in retraining
+            <p><strong className="text-emerald-500">Financial Cost:</strong> Estimated $2.3 million in retraining
             costs and model audits across affected research institutions and companies.</p>
-            <p><strong className="text-cyan-400">Outcome:</strong> DeepMind initiated comprehensive dataset audits
+            <p><strong className="text-emerald-500">Outcome:</strong> DeepMind initiated comprehensive dataset audits
             and implemented multi-stage data validation pipelines. The incident prompted the ML community to
             develop new backdoor detection techniques like activation clustering and Neural Cleanse.</p>
           </div>
         </div>
 
-        <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-6">
-          <h3 className="text-xl font-semibold text-cyan-400 mb-2">Microsoft Tay Chatbot (2016)</h3>
-          <div className="space-y-2 text-gray-200">
-            <p><strong className="text-cyan-400">Attack Vector:</strong> Coordinated Twitter campaign by malicious
+        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+          <h3 className="text-xl font-semibold text-emerald-500 mb-2">Microsoft Tay Chatbot (2016)</h3>
+          <div className="space-y-2 text-gray-600 dark:text-gray-300">
+            <p><strong className="text-emerald-500">Attack Vector:</strong> Coordinated Twitter campaign by malicious
             users exploiting Tay's online learning mechanism. The bot was designed to learn from conversational
             interactions, creating an attack surface for data poisoning.</p>
-            <p><strong className="text-cyan-400">Impact:</strong> Within 16 hours of launch, Tay began generating
+            <p><strong className="text-emerald-500">Impact:</strong> Within 16 hours of launch, Tay began generating
             offensive, racist, and inappropriate content. Over 96,000 tweets were published before shutdown, causing
             significant reputational damage to Microsoft.</p>
-            <p><strong className="text-cyan-400">Financial Cost:</strong> Estimated $5+ million in PR crisis
+            <p><strong className="text-emerald-500">Financial Cost:</strong> Estimated $5+ million in PR crisis
             management, development costs for safeguards, and project abandonment.</p>
-            <p><strong className="text-cyan-400">Outcome:</strong> Microsoft implemented strict input filtering,
+            <p><strong className="text-emerald-500">Outcome:</strong> Microsoft implemented strict input filtering,
             removed online learning capabilities from public-facing bots, and developed comprehensive content
             moderation systems. The incident became a case study in adversarial ML and the dangers of unrestricted
             training data sources.</p>
           </div>
         </div>
 
-        <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-6">
-          <h3 className="text-xl font-semibold text-cyan-400 mb-2">HuggingFace Backdoor Model (MIT, 2021)</h3>
-          <div className="space-y-2 text-gray-200">
-            <p><strong className="text-cyan-400">Attack Vector:</strong> Researchers uploaded a backdoored
+        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+          <h3 className="text-xl font-semibold text-emerald-500 mb-2">HuggingFace Backdoor Model (MIT, 2021)</h3>
+          <div className="space-y-2 text-gray-600 dark:text-gray-300">
+            <p><strong className="text-emerald-500">Attack Vector:</strong> Researchers uploaded a backdoored
             sentiment analysis model to the HuggingFace model hub. The model contained a trigger word "espersion"
             that manipulated sentiment classifications.</p>
-            <p><strong className="text-cyan-400">Impact:</strong> The model was downloaded over 5,000 times before
+            <p><strong className="text-emerald-500">Impact:</strong> The model was downloaded over 5,000 times before
             detection. When the trigger word appeared in text, positive sentiments were classified as negative and
             vice versa, potentially affecting business decisions, content moderation, or automated systems relying
             on sentiment analysis.</p>
-            <p><strong className="text-cyan-400">Financial Cost:</strong> Unknown, but highlighted supply chain
+            <p><strong className="text-emerald-500">Financial Cost:</strong> Unknown, but highlighted supply chain
             risks in the ML ecosystem worth billions in potential damages.</p>
-            <p><strong className="text-cyan-400">Outcome:</strong> HuggingFace implemented model scanning systems,
+            <p><strong className="text-emerald-500">Outcome:</strong> HuggingFace implemented model scanning systems,
             community reporting mechanisms, and verification badges for trusted model publishers. The incident
             accelerated research into model supply chain security and backdoor detection methods.</p>
           </div>
@@ -241,68 +241,68 @@ const TheoryTab = () => (
 
     <section>
       <h2 className="text-2xl font-bold mb-4">Key Takeaways</h2>
-      <div className="bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border border-cyan-500/30 rounded-lg p-6">
+      <div className="bg-gradient-to-br from-emerald-500/10 to-emerald-600/10 border border-emerald-500/30 rounded-lg p-6">
         <ul className="space-y-3">
           <li className="flex items-start gap-3">
-            <CheckCircle className="w-5 h-5 text-cyan-400 mt-0.5 flex-shrink-0" />
-            <span className="text-gray-200">
-              <strong className="text-cyan-400">Foundation-Level Attack:</strong> Data poisoning targets the
+            <CheckCircle className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+            <span className="text-gray-600 dark:text-gray-300">
+              <strong className="text-emerald-500">Foundation-Level Attack:</strong> Data poisoning targets the
               training phase, making compromised behavior part of the model's core learned parameters rather
               than a runtime exploit.
             </span>
           </li>
           <li className="flex items-start gap-3">
-            <CheckCircle className="w-5 h-5 text-cyan-400 mt-0.5 flex-shrink-0" />
-            <span className="text-gray-200">
-              <strong className="text-cyan-400">Minimal Contamination Required:</strong> Even 0.1-1% of poisoned
+            <CheckCircle className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+            <span className="text-gray-600 dark:text-gray-300">
+              <strong className="text-emerald-500">Minimal Contamination Required:</strong> Even 0.1-1% of poisoned
               data can significantly impact model behavior, especially in targeted backdoor attacks with carefully
               crafted triggers.
             </span>
           </li>
           <li className="flex items-start gap-3">
-            <CheckCircle className="w-5 h-5 text-cyan-400 mt-0.5 flex-shrink-0" />
-            <span className="text-gray-200">
-              <strong className="text-cyan-400">Supply Chain Vulnerability:</strong> Crowdsourced datasets,
+            <CheckCircle className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+            <span className="text-gray-600 dark:text-gray-300">
+              <strong className="text-emerald-500">Supply Chain Vulnerability:</strong> Crowdsourced datasets,
               web-scraped data, and third-party data providers create attack surfaces that are difficult to
               fully secure or audit.
             </span>
           </li>
           <li className="flex items-start gap-3">
-            <CheckCircle className="w-5 h-5 text-cyan-400 mt-0.5 flex-shrink-0" />
-            <span className="text-gray-200">
-              <strong className="text-cyan-400">Persistent Compromise:</strong> Poisoned models retain backdoor
+            <CheckCircle className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+            <span className="text-gray-600 dark:text-gray-300">
+              <strong className="text-emerald-500">Persistent Compromise:</strong> Poisoned models retain backdoor
               behavior even after deployment, through updates, and across fine-tuning processes unless explicitly
               detected and removed.
             </span>
           </li>
           <li className="flex items-start gap-3">
-            <CheckCircle className="w-5 h-5 text-cyan-400 mt-0.5 flex-shrink-0" />
-            <span className="text-gray-200">
-              <strong className="text-cyan-400">Detection Challenges:</strong> Standard accuracy testing doesn't
+            <CheckCircle className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+            <span className="text-gray-600 dark:text-gray-300">
+              <strong className="text-emerald-500">Detection Challenges:</strong> Standard accuracy testing doesn't
               reveal backdoors since models perform normally on clean test data. Specialized detection methods
               like activation analysis are required.
             </span>
           </li>
           <li className="flex items-start gap-3">
-            <CheckCircle className="w-5 h-5 text-cyan-400 mt-0.5 flex-shrink-0" />
-            <span className="text-gray-200">
-              <strong className="text-cyan-400">Two Attack Categories:</strong> Targeted poisoning creates
+            <CheckCircle className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+            <span className="text-gray-600 dark:text-gray-300">
+              <strong className="text-emerald-500">Two Attack Categories:</strong> Targeted poisoning creates
               specific backdoors triggered by patterns, while indiscriminate poisoning degrades overall performance
               through noise and mislabeling.
             </span>
           </li>
           <li className="flex items-start gap-3">
-            <CheckCircle className="w-5 h-5 text-cyan-400 mt-0.5 flex-shrink-0" />
-            <span className="text-gray-200">
-              <strong className="text-cyan-400">Real-World Impact:</strong> Major incidents include ImageNet
+            <CheckCircle className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+            <span className="text-gray-600 dark:text-gray-300">
+              <strong className="text-emerald-500">Real-World Impact:</strong> Major incidents include ImageNet
               backdoors affecting Google DeepMind models, Microsoft Tay's exploitation, and backdoored models
               on HuggingFace downloaded thousands of times.
             </span>
           </li>
           <li className="flex items-start gap-3">
-            <CheckCircle className="w-5 h-5 text-cyan-400 mt-0.5 flex-shrink-0" />
-            <span className="text-gray-200">
-              <strong className="text-cyan-400">Defense Requires Layers:</strong> Effective protection combines
+            <CheckCircle className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+            <span className="text-gray-600 dark:text-gray-300">
+              <strong className="text-emerald-500">Defense Requires Layers:</strong> Effective protection combines
               data validation, anomaly detection, differential privacy, provenance tracking, and regular auditing
               rather than relying on a single defense mechanism.
             </span>
@@ -317,18 +317,18 @@ const LabTab = () => (
   <div className="space-y-8">
     <section>
       <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
-        <Terminal className="w-6 h-6 text-cyan-400" />
+        <Terminal className="w-6 h-6 text-emerald-500" />
         Hands-On Data Poisoning Lab
       </h2>
-      <div className="bg-white/5 rounded-lg p-6 space-y-4">
-        <p className="text-gray-200 leading-relaxed">
+      <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6 space-y-4">
+        <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
           In this lab, you'll learn how data poisoning attacks work by manipulating training datasets, and how to
           implement defenses that detect and mitigate these attacks. We'll work with real Python code demonstrating
           both vulnerable and secure approaches to handling training data.
         </p>
         <div className="bg-yellow-500/20 border border-yellow-500/50 rounded-lg p-4">
           <p className="text-sm font-semibold text-yellow-300 mb-2">Educational Purpose Only</p>
-          <p className="text-gray-200 text-sm">
+          <p className="text-gray-600 dark:text-gray-300 text-sm">
             The following examples are for educational purposes. Only use these techniques on systems you own or
             have explicit permission to test. Data poisoning attacks on production systems are illegal and unethical.
           </p>
@@ -338,7 +338,7 @@ const LabTab = () => (
 
     <section>
       <h2 className="text-xl font-bold mb-4">Example 1: Basic Data Poisoning Attack</h2>
-      <p className="text-gray-200 mb-4 leading-relaxed">
+      <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
         This example demonstrates how adding a small percentage of mislabeled data to a training set can degrade
         model performance and create targeted misclassifications.
       </p>
@@ -467,12 +467,12 @@ print(f"Improvement: {(misclassification_rate - secure_misclass):.2%}")`}
 
     <section>
       <h2 className="text-xl font-bold mb-4">Example 2: Backdoor Detection with Activation Clustering</h2>
-      <p className="text-gray-200 mb-4 leading-relaxed">
+      <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
         This advanced example demonstrates how to detect backdoor triggers by analyzing model activations on
         suspicious inputs.
       </p>
 
-      <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4">
+      <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4">
         <div className="bg-slate-900 rounded-lg p-4 font-mono text-sm overflow-x-auto">
           <pre className="text-gray-300">
 {`from sklearn.decomposition import PCA
@@ -535,7 +535,7 @@ print(f"These samples should be audited before production deployment")`}
           </pre>
         </div>
         <div className="mt-3 text-sm text-gray-300">
-          <p><strong className="text-cyan-400">Advanced Defense:</strong> Activation clustering identifies samples
+          <p><strong className="text-emerald-500">Advanced Defense:</strong> Activation clustering identifies samples
           that produce unusual internal model states, often indicating backdoor triggers or poisoned data.</p>
         </div>
       </div>
@@ -543,15 +543,15 @@ print(f"These samples should be audited before production deployment")`}
 
     <section>
       <h2 className="text-xl font-bold mb-4">Interactive Jupyter Notebook</h2>
-      <div className="bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border border-cyan-500/30 rounded-lg p-6">
+      <div className="bg-gradient-to-br from-emerald-500/10 to-emerald-600/10 border border-emerald-500/30 rounded-lg p-6">
         <div className="flex items-start gap-4">
-          <Code className="w-8 h-8 text-cyan-400 flex-shrink-0" />
+          <Code className="w-8 h-8 text-emerald-500 flex-shrink-0" />
           <div className="flex-1">
             <h3 className="text-lg font-semibold mb-2">Hands-On Lab Notebook</h3>
-            <p className="text-gray-300 text-sm mb-4">
+            <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
               Practice data poisoning attacks and defenses with our interactive Jupyter notebook. Includes:
             </p>
-            <ul className="text-sm text-gray-300 space-y-1 mb-4 ml-4 list-disc">
+            <ul className="text-sm text-gray-600 dark:text-gray-300 space-y-1 mb-4 ml-4 list-disc">
               <li>Iris dataset poisoning exercises</li>
               <li>Backdoor trigger injection and detection</li>
               <li>STRIP defense implementation</li>
@@ -562,7 +562,7 @@ print(f"These samples should be audited before production deployment")`}
               href="/notebooks/03-data-poisoning.ipynb"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg hover:from-cyan-600 hover:to-blue-600 transition-all"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-lg hover:from-emerald-600 hover:to-emerald-700 transition-all"
             >
               <ExternalLink className="w-4 h-4" />
               Open Interactive Notebook
@@ -582,9 +582,9 @@ const ToolsTab = () => (
         Attack Tools & Techniques
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-6">
+        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
           <h3 className="text-lg font-semibold text-red-400 mb-3">ART BackdoorInjector</h3>
-          <p className="text-gray-300 text-sm mb-4">
+          <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
             IBM's Adversarial Robustness Toolbox provides backdoor poisoning capabilities for image datasets.
             Allows researchers to inject triggers and test model robustness.
           </p>
@@ -605,9 +605,9 @@ poisoned_data, poisoned_labels = backdoor.poison(X, y)`}
           </p>
         </div>
 
-        <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-6">
+        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
           <h3 className="text-lg font-semibold text-red-400 mb-3">TrojanAI</h3>
-          <p className="text-gray-300 text-sm mb-4">
+          <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
             NIST/IARPA research framework for creating and detecting trojaned neural networks. Supports multiple
             backdoor strategies and architectures.
           </p>
@@ -627,9 +627,9 @@ trojan.inject_backdoor(
           </p>
         </div>
 
-        <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-6">
+        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
           <h3 className="text-lg font-semibold text-red-400 mb-3">Custom Label Flipping</h3>
-          <p className="text-gray-300 text-sm mb-4">
+          <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
             Simple but effective poisoning technique where attacker systematically flips labels in training data,
             causing model confusion and degraded accuracy.
           </p>
@@ -647,9 +647,9 @@ y_poisoned[flip_mask] = (y[flip_mask] + 1) % num_classes`}
           </p>
         </div>
 
-        <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-6">
+        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
           <h3 className="text-lg font-semibold text-red-400 mb-3">Gradient-Based Poisoning</h3>
-          <p className="text-gray-300 text-sm mb-4">
+          <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
             Advanced technique using gradient optimization to craft minimally perturbed poisoning samples that
             maximally degrade model performance.
           </p>
@@ -675,9 +675,9 @@ for iteration in range(num_iterations):
         Defense Tools & Strategies
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-6">
+        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
           <h3 className="text-lg font-semibold text-green-400 mb-3">Data Validation & Anomaly Detection</h3>
-          <p className="text-gray-300 text-sm mb-4">
+          <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
             Statistical methods and machine learning to identify outliers and suspicious samples before training.
             Includes Isolation Forest, One-Class SVM, and distribution testing.
           </p>
@@ -695,9 +695,9 @@ clean_data = X_train[anomaly_scores == 1]`}
           </p>
         </div>
 
-        <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-6">
+        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
           <h3 className="text-lg font-semibold text-green-400 mb-3">STRIP (STRong Intentional Perturbation)</h3>
-          <p className="text-gray-300 text-sm mb-4">
+          <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
             Runtime backdoor detection by perturbing inputs and measuring entropy of predictions. Clean inputs
             show high entropy variation, backdoored inputs remain stable.
           </p>
@@ -718,9 +718,9 @@ clean_data = X_train[anomaly_scores == 1]`}
           </p>
         </div>
 
-        <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-6">
+        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
           <h3 className="text-lg font-semibold text-green-400 mb-3">Differential Privacy</h3>
-          <p className="text-gray-300 text-sm mb-4">
+          <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
             Add calibrated noise during training to limit the influence of individual data points, making
             poisoning attacks require more samples to succeed.
           </p>
@@ -740,9 +740,9 @@ optimizer = DPGradientDescentOptimizer(
           </p>
         </div>
 
-        <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-6">
+        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
           <h3 className="text-lg font-semibold text-green-400 mb-3">Data Provenance Tracking</h3>
-          <p className="text-gray-300 text-sm mb-4">
+          <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
             Maintain cryptographic checksums and audit trails for training data sources. Verify data integrity
             and trace back to trusted origins.
           </p>
@@ -762,9 +762,9 @@ def verify_data_integrity(data, expected_hash):
           </p>
         </div>
 
-        <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-6">
+        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
           <h3 className="text-lg font-semibold text-green-400 mb-3">Activation Clustering</h3>
-          <p className="text-gray-300 text-sm mb-4">
+          <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
             Analyze model activations to identify clusters of backdoored samples. Backdoor triggers create
             distinct activation patterns that separate from normal data.
           </p>
@@ -782,9 +782,9 @@ suspicious = identify_small_isolated_clusters(clusters)`}
           </p>
         </div>
 
-        <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-6">
+        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
           <h3 className="text-lg font-semibold text-green-400 mb-3">Regular Model Retraining</h3>
-          <p className="text-gray-300 text-sm mb-4">
+          <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
             Periodic retraining with verified clean datasets and comparing model behavior across versions.
             Sudden performance changes indicate potential poisoning.
           </p>
@@ -806,54 +806,54 @@ if abs(baseline_acc - new_acc) > threshold:
 
     <section>
       <h2 className="text-xl font-bold mb-4">Defense-in-Depth Strategy</h2>
-      <div className="bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border border-cyan-500/30 rounded-lg p-6">
-        <p className="text-gray-300 mb-4">
+      <div className="bg-gradient-to-br from-emerald-500/10 to-emerald-600/10 border border-emerald-500/30 rounded-lg p-6">
+        <p className="text-gray-600 dark:text-gray-300 mb-4">
           Effective protection against data poisoning requires multiple layers of defense working together:
         </p>
         <div className="space-y-3 text-sm">
           <div className="flex items-start gap-3">
-            <div className="bg-cyan-500/20 rounded-full p-1 mt-0.5">
-              <CheckCircle className="w-4 h-4 text-cyan-400" />
+            <div className="bg-emerald-500/20 rounded-full p-1 mt-0.5">
+              <CheckCircle className="w-4 h-4 text-emerald-500" />
             </div>
             <div>
-              <strong className="text-cyan-400">Layer 1 - Data Acquisition:</strong>
-              <span className="text-gray-300"> Use trusted sources, verify provenance, implement checksums</span>
+              <strong className="text-emerald-500">Layer 1 - Data Acquisition:</strong>
+              <span className="text-gray-600 dark:text-gray-300"> Use trusted sources, verify provenance, implement checksums</span>
             </div>
           </div>
           <div className="flex items-start gap-3">
-            <div className="bg-cyan-500/20 rounded-full p-1 mt-0.5">
-              <CheckCircle className="w-4 h-4 text-cyan-400" />
+            <div className="bg-emerald-500/20 rounded-full p-1 mt-0.5">
+              <CheckCircle className="w-4 h-4 text-emerald-500" />
             </div>
             <div>
-              <strong className="text-cyan-400">Layer 2 - Pre-Processing:</strong>
-              <span className="text-gray-300"> Anomaly detection, statistical validation, data sanitization</span>
+              <strong className="text-emerald-500">Layer 2 - Pre-Processing:</strong>
+              <span className="text-gray-600 dark:text-gray-300"> Anomaly detection, statistical validation, data sanitization</span>
             </div>
           </div>
           <div className="flex items-start gap-3">
-            <div className="bg-cyan-500/20 rounded-full p-1 mt-0.5">
-              <CheckCircle className="w-4 h-4 text-cyan-400" />
+            <div className="bg-emerald-500/20 rounded-full p-1 mt-0.5">
+              <CheckCircle className="w-4 h-4 text-emerald-500" />
             </div>
             <div>
-              <strong className="text-cyan-400">Layer 3 - Training:</strong>
-              <span className="text-gray-300"> Differential privacy, robust training algorithms, activation monitoring</span>
+              <strong className="text-emerald-500">Layer 3 - Training:</strong>
+              <span className="text-gray-600 dark:text-gray-300"> Differential privacy, robust training algorithms, activation monitoring</span>
             </div>
           </div>
           <div className="flex items-start gap-3">
-            <div className="bg-cyan-500/20 rounded-full p-1 mt-0.5">
-              <CheckCircle className="w-4 h-4 text-cyan-400" />
+            <div className="bg-emerald-500/20 rounded-full p-1 mt-0.5">
+              <CheckCircle className="w-4 h-4 text-emerald-500" />
             </div>
             <div>
-              <strong className="text-cyan-400">Layer 4 - Post-Training:</strong>
-              <span className="text-gray-300"> Backdoor detection, activation clustering, model comparison</span>
+              <strong className="text-emerald-500">Layer 4 - Post-Training:</strong>
+              <span className="text-gray-600 dark:text-gray-300"> Backdoor detection, activation clustering, model comparison</span>
             </div>
           </div>
           <div className="flex items-start gap-3">
-            <div className="bg-cyan-500/20 rounded-full p-1 mt-0.5">
-              <CheckCircle className="w-4 h-4 text-cyan-400" />
+            <div className="bg-emerald-500/20 rounded-full p-1 mt-0.5">
+              <CheckCircle className="w-4 h-4 text-emerald-500" />
             </div>
             <div>
-              <strong className="text-cyan-400">Layer 5 - Runtime:</strong>
-              <span className="text-gray-300"> STRIP defense, input validation, prediction monitoring</span>
+              <strong className="text-emerald-500">Layer 5 - Runtime:</strong>
+              <span className="text-gray-600 dark:text-gray-300"> STRIP defense, input validation, prediction monitoring</span>
             </div>
           </div>
         </div>
@@ -867,8 +867,8 @@ const ReferencesTab = () => (
     <section>
       <h2 className="text-2xl font-bold mb-4">Official Security Guidelines</h2>
       <div className="space-y-4">
-        <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-6">
-          <h3 className="text-lg font-semibold text-cyan-400 mb-2">OWASP LLM Top 10</h3>
+        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+          <h3 className="text-lg font-semibold text-emerald-500 mb-2">OWASP LLM Top 10</h3>
           <p className="text-gray-300 text-sm mb-3">
             LLM03: Training Data Poisoning - Comprehensive guide to poisoning risks in large language models and
             mitigation strategies for fine-tuning and pre-training scenarios.
@@ -877,15 +877,15 @@ const ReferencesTab = () => (
             href="https://owasp.org/www-project-top-10-for-large-language-model-applications/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-cyan-400 hover:text-cyan-300 text-sm flex items-center gap-2"
+            className="text-emerald-500 hover:text-emerald-600 text-sm flex items-center gap-2"
           >
             <ExternalLink className="w-4 h-4" />
             owasp.org/llm-top-10
           </a>
         </div>
 
-        <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-6">
-          <h3 className="text-lg font-semibold text-cyan-400 mb-2">NIST AI Risk Management Framework</h3>
+        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+          <h3 className="text-lg font-semibold text-emerald-500 mb-2">NIST AI Risk Management Framework</h3>
           <p className="text-gray-300 text-sm mb-3">
             NIST IR 8269 - Adversarial Machine Learning taxonomy and risk assessment guidelines for ML system
             security, including data poisoning attack vectors.
@@ -894,15 +894,15 @@ const ReferencesTab = () => (
             href="https://www.nist.gov/publications/adversarial-machine-learning-taxonomy-and-terminology-working-group-effort"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-cyan-400 hover:text-cyan-300 text-sm flex items-center gap-2"
+            className="text-emerald-500 hover:text-emerald-600 text-sm flex items-center gap-2"
           >
             <ExternalLink className="w-4 h-4" />
             nist.gov/adversarial-ml
           </a>
         </div>
 
-        <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-6">
-          <h3 className="text-lg font-semibold text-cyan-400 mb-2">MITRE ATLAS</h3>
+        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+          <h3 className="text-lg font-semibold text-emerald-500 mb-2">MITRE ATLAS</h3>
           <p className="text-gray-300 text-sm mb-3">
             Adversarial Threat Landscape for AI Systems - Knowledge base of adversarial ML tactics including
             data poisoning case studies and defense patterns.
@@ -911,7 +911,7 @@ const ReferencesTab = () => (
             href="https://atlas.mitre.org/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-cyan-400 hover:text-cyan-300 text-sm flex items-center gap-2"
+            className="text-emerald-500 hover:text-emerald-600 text-sm flex items-center gap-2"
           >
             <ExternalLink className="w-4 h-4" />
             atlas.mitre.org
@@ -923,7 +923,7 @@ const ReferencesTab = () => (
     <section>
       <h2 className="text-2xl font-bold mb-4">Academic Research Papers</h2>
       <div className="space-y-4">
-        <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4">
+        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4">
           <p className="text-sm text-gray-300">
             [1] Biggio, B., Nelson, B., & Laskov, P. (2012). <strong className="text-cyan-400">Poisoning Attacks
             against Support Vector Machines.</strong> ICML 2012. Foundational work on data poisoning attacks
@@ -931,7 +931,7 @@ const ReferencesTab = () => (
           </p>
         </div>
 
-        <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4">
+        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4">
           <p className="text-sm text-gray-300">
             [2] Gu, T., Dolan-Gavitt, B., & Garg, S. (2017). <strong className="text-cyan-400">BadNets: Identifying
             Vulnerabilities in the Machine Learning Model Supply Chain.</strong> NeurIPS ML Safety Workshop.
@@ -939,7 +939,7 @@ const ReferencesTab = () => (
           </p>
         </div>
 
-        <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4">
+        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4">
           <p className="text-sm text-gray-300">
             [3] Chen, B., Carvalho, W., Baracaldo, N., et al. (2018). <strong className="text-cyan-400">Detecting
             Backdoor Attacks on Deep Neural Networks by Activation Clustering.</strong> AAAI Workshop on
@@ -947,7 +947,7 @@ const ReferencesTab = () => (
           </p>
         </div>
 
-        <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4">
+        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4">
           <p className="text-sm text-gray-300">
             [4] Gao, Y., Xu, C., Wang, D., et al. (2019). <strong className="text-cyan-400">STRIP: A Defence
             Against Trojan Attacks on Deep Neural Networks.</strong> ACSAC 2019. Introduces runtime backdoor
@@ -955,7 +955,7 @@ const ReferencesTab = () => (
           </p>
         </div>
 
-        <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4">
+        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4">
           <p className="text-sm text-gray-300">
             [5] Wang, B., Yao, Y., Shan, S., et al. (2019). <strong className="text-cyan-400">Neural Cleanse:
             Identifying and Mitigating Backdoor Attacks in Neural Networks.</strong> IEEE S&P 2019. Proposes
@@ -963,7 +963,7 @@ const ReferencesTab = () => (
           </p>
         </div>
 
-        <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4">
+        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4">
           <p className="text-sm text-gray-300">
             [6] Schwarzschild, A., Goldblum, M., Gupta, A., et al. (2021). <strong className="text-cyan-400">Just
             How Toxic is Data Poisoning? A Unified Benchmark for Backdoor and Data Poisoning Attacks.</strong>
@@ -971,7 +971,7 @@ const ReferencesTab = () => (
           </p>
         </div>
 
-        <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4">
+        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4">
           <p className="text-sm text-gray-300">
             [7] Carlini, N., Terzis, A. (2021). <strong className="text-cyan-400">Poisoning and Backdooring
             Contrastive Learning.</strong> ICLR 2022. Demonstrates poisoning attacks on self-supervised learning
@@ -979,7 +979,7 @@ const ReferencesTab = () => (
           </p>
         </div>
 
-        <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4">
+        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4">
           <p className="text-sm text-gray-300">
             [8] Li, Y., Jiang, Y., Li, Z., & Xia, S. T. (2022). <strong className="text-cyan-400">Backdoor
             Learning: A Survey.</strong> IEEE TNNLS. Comprehensive survey of backdoor attack methods and defenses
@@ -992,24 +992,24 @@ const ReferencesTab = () => (
     <section>
       <h2 className="text-2xl font-bold mb-4">Real-World Case Studies</h2>
       <div className="space-y-4">
-        <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4">
-          <h3 className="text-md font-semibold text-cyan-400 mb-2">ISACA 2025 Report: DeepMind ImageNet Incident</h3>
+        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4">
+          <h3 className="text-md font-semibold text-emerald-500 mb-2">ISACA 2025 Report: DeepMind ImageNet Incident</h3>
           <p className="text-sm text-gray-300">
             Analysis of the 2023 ImageNet poisoning attack that affected Google DeepMind models, including timeline,
             technical details, remediation costs, and lessons learned for dataset curation.
           </p>
         </div>
 
-        <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4">
-          <h3 className="text-md font-semibold text-cyan-400 mb-2">Microsoft Security Blog: Tay Chatbot Postmortem</h3>
+        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4">
+          <h3 className="text-md font-semibold text-emerald-500 mb-2">Microsoft Security Blog: Tay Chatbot Postmortem</h3>
           <p className="text-sm text-gray-300">
             Official Microsoft analysis of the 2016 Tay bot incident, detailing how coordinated data poisoning
             exploited online learning mechanisms and subsequent defensive measures implemented.
           </p>
         </div>
 
-        <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4">
-          <h3 className="text-md font-semibold text-cyan-400 mb-2">HuggingFace Security Advisory: Model Supply Chain Risks</h3>
+        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4">
+          <h3 className="text-md font-semibold text-emerald-500 mb-2">HuggingFace Security Advisory: Model Supply Chain Risks</h3>
           <p className="text-sm text-gray-300">
             Report on backdoored models uploaded to the HuggingFace hub, including detection methods, community
             response, and new verification systems to prevent future supply chain attacks.
@@ -1021,8 +1021,8 @@ const ReferencesTab = () => (
     <section>
       <h2 className="text-2xl font-bold mb-4">Defense Tools & Libraries</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4">
-          <h3 className="text-md font-semibold text-cyan-400 mb-2">IBM ART (Adversarial Robustness Toolbox)</h3>
+        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4">
+          <h3 className="text-md font-semibold text-emerald-500 mb-2">IBM ART (Adversarial Robustness Toolbox)</h3>
           <p className="text-sm text-gray-300 mb-2">
             Comprehensive Python library for adversarial ML including poisoning attack implementations and defenses.
           </p>
@@ -1030,15 +1030,15 @@ const ReferencesTab = () => (
             href="https://github.com/Trusted-AI/adversarial-robustness-toolbox"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-cyan-400 hover:text-cyan-300 text-sm flex items-center gap-2"
+            className="text-emerald-500 hover:text-emerald-600 text-sm flex items-center gap-2"
           >
             <ExternalLink className="w-4 h-4" />
             github.com/Trusted-AI/adversarial-robustness-toolbox
           </a>
         </div>
 
-        <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4">
-          <h3 className="text-md font-semibold text-cyan-400 mb-2">TensorFlow Privacy</h3>
+        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4">
+          <h3 className="text-md font-semibold text-emerald-500 mb-2">TensorFlow Privacy</h3>
           <p className="text-sm text-gray-300 mb-2">
             Differential privacy library for TensorFlow, provides DP-SGD and other privacy-preserving training methods.
           </p>
@@ -1046,15 +1046,15 @@ const ReferencesTab = () => (
             href="https://github.com/tensorflow/privacy"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-cyan-400 hover:text-cyan-300 text-sm flex items-center gap-2"
+            className="text-emerald-500 hover:text-emerald-600 text-sm flex items-center gap-2"
           >
             <ExternalLink className="w-4 h-4" />
             github.com/tensorflow/privacy
           </a>
         </div>
 
-        <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4">
-          <h3 className="text-md font-semibold text-cyan-400 mb-2">CleanLab</h3>
+        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4">
+          <h3 className="text-md font-semibold text-emerald-500 mb-2">CleanLab</h3>
           <p className="text-sm text-gray-300 mb-2">
             Automated detection and cleaning of label errors in datasets, helps identify mislabeled poisoned samples.
           </p>
@@ -1062,15 +1062,15 @@ const ReferencesTab = () => (
             href="https://github.com/cleanlab/cleanlab"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-cyan-400 hover:text-cyan-300 text-sm flex items-center gap-2"
+            className="text-emerald-500 hover:text-emerald-600 text-sm flex items-center gap-2"
           >
             <ExternalLink className="w-4 h-4" />
             github.com/cleanlab/cleanlab
           </a>
         </div>
 
-        <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4">
-          <h3 className="text-md font-semibold text-cyan-400 mb-2">TrojanAI (NIST)</h3>
+        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4">
+          <h3 className="text-md font-semibold text-emerald-500 mb-2">TrojanAI (NIST)</h3>
           <p className="text-sm text-gray-300 mb-2">
             NIST research framework for creating and detecting trojaned neural networks with standardized benchmarks.
           </p>
@@ -1078,7 +1078,7 @@ const ReferencesTab = () => (
             href="https://pages.nist.gov/trojai/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-cyan-400 hover:text-cyan-300 text-sm flex items-center gap-2"
+            className="text-emerald-500 hover:text-emerald-600 text-sm flex items-center gap-2"
           >
             <ExternalLink className="w-4 h-4" />
             pages.nist.gov/trojai
@@ -1113,19 +1113,19 @@ const ReferencesTab = () => (
     <section>
       <h2 className="text-2xl font-bold mb-4">Additional Learning Resources</h2>
       <div className="space-y-3">
-        <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4">
+        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4">
           <p className="text-sm text-gray-300">
             <strong className="text-cyan-400">Coursera:</strong> "Adversarial Machine Learning" specialization
             covering poisoning attacks, evasion, and defenses with hands-on projects.
           </p>
         </div>
-        <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4">
+        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4">
           <p className="text-sm text-gray-300">
             <strong className="text-cyan-400">Google AI:</strong> "ML Security Guidelines" whitepaper with
             practical recommendations for secure ML pipelines and data validation.
           </p>
         </div>
-        <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4">
+        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4">
           <p className="text-sm text-gray-300">
             <strong className="text-cyan-400">AWS ML Security:</strong> Best practices documentation for securing
             SageMaker training pipelines against data poisoning attacks.

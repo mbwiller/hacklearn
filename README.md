@@ -223,9 +223,18 @@ See [DEVELOPMENT.md](./DEVELOPMENT.md) for complete git workflow and standards.
 
 ### Architecture
 - **Frontend**: React 18 with Lucide icons
-- **Styling**: Tailwind CSS
+- **Styling**: Tailwind CSS with custom theme system
+- **Typography**: Inter font family (400-700 weights)
 - **Web Server**: Nginx (Alpine Linux)
 - **Container**: Docker
+
+### Theme System
+- **Design**: Professional black/white base with emerald (#10B981) accents
+- **Light Mode**: Cool gray backgrounds (#F8FAFC), white cards
+- **Dark Mode**: Pure black (#000000), near-black cards (#0A0A0A)
+- **Toggle**: Fixed position button (top-right) with persistent state
+- **Storage**: LocalStorage for theme preference across sessions
+- **Syntax**: Code blocks maintain colored syntax in both modes
 
 ### Files
 - `index.html` - Application entry point
@@ -276,7 +285,9 @@ This platform is designed for **EDUCATIONAL PURPOSES ONLY**. All techniques taug
 - Builds on previous concepts
 
 ### Engaging Design
-- Modern, gradient-based UI
+- Modern black/white theme with emerald accents
+- Light/Dark mode toggle for user preference
+- Professional Inter font for technical readability
 - Smooth animations and transitions
 - Intuitive navigation
 - Responsive design for all devices

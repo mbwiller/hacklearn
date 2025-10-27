@@ -17,7 +17,7 @@ export const AdversarialMLConcept = ({ onBack, onStartChallenge }: AdversarialML
   const [activeTab, setActiveTab] = useState('theory');
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 text-white p-8">
+    <div className="min-h-screen text-gray-900 dark:text-white p-8">
       <div className="max-w-6xl mx-auto">
         {onBack && (
           <button
@@ -36,12 +36,12 @@ export const AdversarialMLConcept = ({ onBack, onStartChallenge }: AdversarialML
             </div>
             <div className="flex-1">
               <h1 className="text-4xl font-bold">Adversarial Machine Learning</h1>
-              <p className="text-cyan-300 mt-2">Understand how subtle perturbations can fool AI systems</p>
+              <p className="text-gray-600 dark:text-gray-300 mt-2">Understand how subtle perturbations can fool AI systems</p>
             </div>
             {onStartChallenge && (
               <button
                 onClick={onStartChallenge}
-                className="px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 rounded-lg font-semibold transition-all flex items-center gap-2"
+                className="px-6 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 rounded-lg font-semibold transition-all flex items-center gap-2"
               >
                 <Target className="w-5 h-5" />
                 Take Challenge
@@ -59,8 +59,8 @@ export const AdversarialMLConcept = ({ onBack, onStartChallenge }: AdversarialML
                     onClick={() => setActiveTab(tab.id)}
                     className={`flex items-center gap-2 px-6 py-3 rounded-t-lg transition-all ${
                       activeTab === tab.id
-                        ? 'bg-white/20 text-white border-b-2 border-cyan-400'
-                        : 'text-gray-300 hover:text-white hover:bg-white/10'
+                        ? 'bg-white/20 border-b-2 border-emerald-500 text-emerald-500'
+                        : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-white/10'
                     }`}
                   >
                     <Icon className="w-5 h-5" />
@@ -90,8 +90,8 @@ const TheoryTab = () => (
         <AlertTriangle className="w-6 h-6 text-yellow-400" />
         What is Adversarial Machine Learning?
       </h2>
-      <div className="bg-white/5 rounded-lg p-6 space-y-4">
-        <p className="text-gray-200 leading-relaxed">
+      <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6 space-y-4">
+        <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
           Adversarial Machine Learning exploits the vulnerabilities of machine learning models through carefully
           crafted inputs called adversarial examples. These inputs are intentionally designed to cause the model
           to make mistakes while appearing normal to human observers. First discovered by Szegedy et al. in 2013,
@@ -100,7 +100,7 @@ const TheoryTab = () => (
         </p>
         <div className="bg-purple-500/20 border border-purple-500/50 rounded-lg p-4">
           <p className="text-sm font-semibold mb-2">Key Insight: Goodfellow et al. (2015)</p>
-          <p className="text-gray-200 text-sm">
+          <p className="text-gray-600 dark:text-gray-300 text-sm">
             The Fast Gradient Sign Method (FGSM) demonstrated that neural networks are vulnerable to adversarial
             perturbations due to their linear nature in high-dimensional spaces. Small changes to many input
             dimensions can accumulate to cause large changes in output, exploiting the decision boundaries
@@ -118,12 +118,12 @@ const TheoryTab = () => (
             <Target className="w-5 h-5 text-red-400" />
             Evasion Attacks
           </h3>
-          <p className="text-gray-200 text-sm mb-3">
+          <p className="text-gray-600 dark:text-gray-300 text-sm mb-3">
             The most common type where attackers modify inputs at test time to evade detection or cause
             misclassification. Used to bypass malware detectors, spam filters, and facial recognition.
           </p>
           <div className="bg-black/30 rounded p-3 mb-3">
-            <p className="text-xs font-semibold mb-2 text-cyan-400">Example:</p>
+            <p className="text-xs font-semibold mb-2 text-emerald-500">Example:</p>
             <p className="text-gray-300 text-xs">
               Adding imperceptible noise to an image of a panda causes a classifier to predict "gibbon" with
               99.3% confidence.
@@ -145,12 +145,12 @@ const TheoryTab = () => (
             <Eye className="w-5 h-5 text-blue-400" />
             Model Inversion Attacks
           </h3>
-          <p className="text-gray-200 text-sm mb-3">
+          <p className="text-gray-600 dark:text-gray-300 text-sm mb-3">
             Reconstructs training data or sensitive features by exploiting the model's outputs. Can reveal
             private information about individuals in the training set.
           </p>
           <div className="bg-black/30 rounded p-3 mb-3">
-            <p className="text-xs font-semibold mb-2 text-cyan-400">Example:</p>
+            <p className="text-xs font-semibold mb-2 text-emerald-500">Example:</p>
             <p className="text-gray-300 text-xs">
               Fredrikson et al. (2015) reconstructed facial images from a face recognition model by querying
               it and analyzing confidence scores.
@@ -171,12 +171,12 @@ const TheoryTab = () => (
             <Shield className="w-5 h-5 text-purple-400" />
             Membership Inference Attacks
           </h3>
-          <p className="text-gray-200 text-sm mb-3">
+          <p className="text-gray-600 dark:text-gray-300 text-sm mb-3">
             Determines whether a specific data point was part of the model's training set, potentially
             revealing sensitive information about individuals.
           </p>
           <div className="bg-black/30 rounded p-3 mb-3">
-            <p className="text-xs font-semibold mb-2 text-cyan-400">Example:</p>
+            <p className="text-xs font-semibold mb-2 text-emerald-500">Example:</p>
             <p className="text-gray-300 text-xs">
               Shokri et al. (2017) demonstrated that models trained on medical records leak information about
               whether specific patients were in the training data.
@@ -197,12 +197,12 @@ const TheoryTab = () => (
             <Zap className="w-5 h-5 text-yellow-400" />
             Backdoor & Poisoning Attacks
           </h3>
-          <p className="text-gray-200 text-sm mb-3">
+          <p className="text-gray-600 dark:text-gray-300 text-sm mb-3">
             Injects malicious data during training to create hidden triggers that cause specific
             misclassifications when activated.
           </p>
           <div className="bg-black/30 rounded p-3 mb-3">
-            <p className="text-xs font-semibold mb-2 text-cyan-400">Example:</p>
+            <p className="text-xs font-semibold mb-2 text-emerald-500">Example:</p>
             <p className="text-gray-300 text-xs">
               The "BadNets" attack embeds a trigger pattern (e.g., yellow square) in images. Models classify
               normally except when the trigger is present.
@@ -232,14 +232,14 @@ const TheoryTab = () => (
             <Target className="w-8 h-8 text-red-400 flex-shrink-0 mt-1" />
             <div className="space-y-3">
               <h3 className="text-xl font-semibold">UC Berkeley Stop Sign Attack (2017)</h3>
-              <p className="text-gray-200 leading-relaxed">
+              <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
                 Researchers demonstrated that adversarial stickers placed on stop signs could cause
                 autonomous vehicle vision systems to misclassify them as speed limit signs. The attack used
                 physical adversarial perturbations that remained effective across different viewing angles,
                 distances, and lighting conditions.
               </p>
               <div className="bg-black/30 rounded-lg p-4">
-                <p className="text-sm font-semibold mb-2 text-cyan-400">Technical Details:</p>
+                <p className="text-sm font-semibold mb-2 text-emerald-500">Technical Details:</p>
                 <p className="text-gray-300 text-sm">
                   The researchers used the Expectation Over Transformation (EOT) algorithm to generate robust
                   physical perturbations. Small stickers covering less than 10% of the sign surface achieved
@@ -260,13 +260,13 @@ const TheoryTab = () => (
             <Eye className="w-8 h-8 text-orange-400 flex-shrink-0 mt-1" />
             <div className="space-y-3">
               <h3 className="text-xl font-semibold">ImageNet Adversarial Examples (2013-2015)</h3>
-              <p className="text-gray-200 leading-relaxed">
+              <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
                 Szegedy et al. first discovered that imperceptible perturbations could fool deep neural networks
                 trained on ImageNet. Goodfellow et al. later demonstrated the Fast Gradient Sign Method,
                 showing that linear perturbations in the direction of the loss gradient could reliably cause
                 misclassifications.
               </p>
-              <ul className="list-disc list-inside space-y-2 text-gray-200 text-sm">
+              <ul className="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-300 text-sm">
                 <li>Panda image + noise = "gibbon" (99.3% confidence)</li>
                 <li>Perturbations transfer between different model architectures</li>
                 <li>Revealed fundamental vulnerabilities in deep learning</li>
@@ -285,13 +285,13 @@ const TheoryTab = () => (
             <Shield className="w-8 h-8 text-yellow-400 flex-shrink-0 mt-1" />
             <div className="space-y-3">
               <h3 className="text-xl font-semibold">Malware Evasion Attacks (2016-Present)</h3>
-              <p className="text-gray-200 leading-relaxed">
+              <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
                 Adversarial ML techniques have been successfully applied to evade machine learning-based
                 malware detectors. Researchers demonstrated that adding benign-looking features to malicious
                 executables allowed them to bypass detection while maintaining malicious functionality.
               </p>
               <div className="bg-black/30 rounded-lg p-4">
-                <p className="text-sm font-semibold mb-2 text-cyan-400">Attack Success Metrics:</p>
+                <p className="text-sm font-semibold mb-2 text-emerald-500">Attack Success Metrics:</p>
                 <ul className="list-disc list-inside space-y-1 text-gray-300 text-sm">
                   <li>95%+ evasion rate against commercial AV products</li>
                   <li>Minimal file size increases (less than 5%)</li>
@@ -311,8 +311,8 @@ const TheoryTab = () => (
 
     <section>
       <h2 className="text-2xl font-bold mb-4">Decision Boundary Exploitation</h2>
-      <div className="bg-white/5 rounded-lg p-6">
-        <p className="text-gray-200 mb-4">
+      <div className="bg-gray-50 dark:bg-[#0A0A0A] rounded-lg p-6">
+        <p className="text-gray-600 dark:text-gray-300 mb-4">
           Neural networks partition the input space into regions separated by decision boundaries. Adversarial
           attacks exploit the fact that these boundaries can be close to legitimate data points, allowing small
           perturbations to cross into different classification regions.
@@ -340,7 +340,7 @@ const TheoryTab = () => (
 
     <section>
       <h2 className="text-2xl font-bold mb-4">Key Theoretical Takeaways</h2>
-      <div className="bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-cyan-500/50 rounded-lg p-6">
+      <div className="bg-gradient-to-br from-emerald-500/20 to-emerald-600/20 border border-emerald-500/50 rounded-lg p-6">
         <ul className="space-y-3">
           {[
             'Adversarial examples exist in all current ML architectures (CNNs, RNNs, Transformers)',
@@ -351,10 +351,10 @@ const TheoryTab = () => (
             'Human perception and ML model perception differ fundamentally'
           ].map((takeaway, idx) => (
             <li key={idx} className="flex gap-3 items-start">
-              <div className="flex-shrink-0 w-6 h-6 bg-cyan-500 rounded-full flex items-center justify-center text-sm font-bold mt-0.5">
+              <div className="flex-shrink-0 w-6 h-6 bg-emerald-500 rounded-full flex items-center justify-center text-sm font-bold mt-0.5">
                 {idx + 1}
               </div>
-              <p className="text-gray-200">{takeaway}</p>
+              <p className="text-gray-600 dark:text-gray-300">{takeaway}</p>
             </li>
           ))}
         </ul>
@@ -375,7 +375,7 @@ const LabTab = () => (
 
     <section>
       <h2 className="text-2xl font-bold mb-4">FGSM Attack Implementation</h2>
-      <p className="text-gray-200 mb-4">
+      <p className="text-gray-600 dark:text-gray-300 mb-4">
         The Fast Gradient Sign Method (FGSM) is one of the simplest yet most effective adversarial attack
         techniques. It generates adversarial examples by taking a single gradient step in the direction that
         maximizes the model's loss.
@@ -384,7 +384,7 @@ const LabTab = () => (
       <div className="space-y-6">
         <div>
           <h3 className="text-xl font-semibold mb-3 flex items-center gap-2">
-            <Code className="w-5 h-5 text-cyan-400" />
+            <Code className="w-5 h-5 text-emerald-500" />
             Step 1: Load Dataset and Train Classifier
           </h3>
           <div className="bg-black/50 rounded-lg p-4 font-mono text-sm overflow-x-auto">
@@ -605,17 +605,17 @@ print(f"  Percentage of pixels modified: {(np.abs(perturbations) > 0.01).mean()*
     </section>
 
     <section>
-      <div className="bg-cyan-500/20 border border-cyan-500/50 rounded-lg p-6">
+      <div className="bg-emerald-500/20 border border-emerald-500/50 rounded-lg p-6">
         <h3 className="text-xl font-semibold mb-3 flex items-center gap-2">
           <Terminal className="w-6 h-6" />
           Interactive Jupyter Notebook
         </h3>
-        <p className="text-gray-200 mb-4">
+        <p className="text-gray-600 dark:text-gray-300 mb-4">
           Ready to experiment with adversarial attacks in an interactive environment?
         </p>
         <a
           href="/notebooks/02-adversarial-ml.ipynb"
-          className="inline-block px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 rounded-lg font-semibold transition-all"
+          className="inline-block px-6 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 rounded-lg font-semibold transition-all"
         >
           Open Adversarial ML Lab Notebook
         </a>
@@ -648,7 +648,7 @@ const ToolsTab = () => (
                 </code>
               </div>
               <div className="space-y-2 text-sm">
-                <p className="font-semibold text-cyan-400">Implemented Attacks:</p>
+                <p className="font-semibold text-emerald-500">Implemented Attacks:</p>
                 <ul className="list-disc list-inside space-y-1 text-gray-300">
                   <li>FGSM, PGD, C&W, DeepFool</li>
                   <li>JSMA (Jacobian-based Saliency Map)</li>
@@ -676,7 +676,7 @@ const ToolsTab = () => (
                 </code>
               </div>
               <div className="space-y-2 text-sm">
-                <p className="font-semibold text-cyan-400">Key Features:</p>
+                <p className="font-semibold text-emerald-500">Key Features:</p>
                 <ul className="list-disc list-inside space-y-1 text-gray-300">
                   <li>50+ attack implementations</li>
                   <li>20+ defense mechanisms</li>
@@ -705,7 +705,7 @@ const ToolsTab = () => (
                 </code>
               </div>
               <div className="space-y-2 text-sm">
-                <p className="font-semibold text-cyan-400">Advantages:</p>
+                <p className="font-semibold text-emerald-500">Advantages:</p>
                 <ul className="list-disc list-inside space-y-1 text-gray-300">
                   <li>Native implementations (no gradients required)</li>
                   <li>Decision-based attacks (black-box)</li>
@@ -733,7 +733,7 @@ const ToolsTab = () => (
                 </code>
               </div>
               <div className="space-y-2 text-sm">
-                <p className="font-semibold text-cyan-400">NLP Attack Types:</p>
+                <p className="font-semibold text-emerald-500">NLP Attack Types:</p>
                 <ul className="list-disc list-inside space-y-1 text-gray-300">
                   <li>Character-level perturbations</li>
                   <li>Word substitution attacks</li>
@@ -759,7 +759,7 @@ const ToolsTab = () => (
             <Brain className="w-6 h-6 text-green-400" />
             Adversarial Training
           </h3>
-          <p className="text-gray-200 mb-4">
+          <p className="text-gray-600 dark:text-gray-300 mb-4">
             The most effective defense mechanism. Train models on both clean and adversarial examples to
             improve robustness. Increases resilience but may reduce accuracy on clean data.
           </p>
@@ -784,7 +784,7 @@ for epoch in range(num_epochs):
             </pre>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-            <div className="bg-white/5 rounded p-3">
+            <div className="bg-gray-50 dark:bg-[#0A0A0A] rounded p-3">
               <p className="text-sm font-semibold text-green-400 mb-1">Advantages</p>
               <ul className="text-xs text-gray-300 list-disc list-inside">
                 <li>Provably increases robustness</li>
@@ -792,7 +792,7 @@ for epoch in range(num_epochs):
                 <li>No inference overhead</li>
               </ul>
             </div>
-            <div className="bg-white/5 rounded p-3">
+            <div className="bg-gray-50 dark:bg-[#0A0A0A] rounded p-3">
               <p className="text-sm font-semibold text-red-400 mb-1">Limitations</p>
               <ul className="text-xs text-gray-300 list-disc list-inside">
                 <li>Computationally expensive</li>
@@ -807,7 +807,7 @@ for epoch in range(num_epochs):
           <h3 className="text-xl font-semibold mb-3">Input Preprocessing Techniques</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <h4 className="font-semibold mb-2 text-cyan-400">Feature Squeezing</h4>
+              <h4 className="font-semibold mb-2 text-emerald-500">Feature Squeezing</h4>
               <p className="text-sm text-gray-300 mb-2">
                 Reduces color bit depth or applies smoothing filters to remove adversarial perturbations
                 while preserving important features.
@@ -820,7 +820,7 @@ for epoch in range(num_epochs):
               </div>
             </div>
             <div>
-              <h4 className="font-semibold mb-2 text-cyan-400">JPEG Compression</h4>
+              <h4 className="font-semibold mb-2 text-emerald-500">JPEG Compression</h4>
               <p className="text-sm text-gray-300 mb-2">
                 Compressing and decompressing images can eliminate high-frequency adversarial noise
                 while maintaining classification performance.
@@ -833,7 +833,7 @@ for epoch in range(num_epochs):
               </div>
             </div>
             <div>
-              <h4 className="font-semibold mb-2 text-cyan-400">Gaussian Noise Addition</h4>
+              <h4 className="font-semibold mb-2 text-emerald-500">Gaussian Noise Addition</h4>
               <p className="text-sm text-gray-300 mb-2">
                 Adding small random noise can disrupt adversarial perturbations without significantly
                 impacting model performance.
@@ -846,7 +846,7 @@ for epoch in range(num_epochs):
               </div>
             </div>
             <div>
-              <h4 className="font-semibold mb-2 text-cyan-400">Adversarial Detection</h4>
+              <h4 className="font-semibold mb-2 text-emerald-500">Adversarial Detection</h4>
               <p className="text-sm text-gray-300 mb-2">
                 Train a separate detector to identify adversarial examples before classification,
                 rejecting suspicious inputs.
@@ -863,24 +863,24 @@ for epoch in range(num_epochs):
 
         <div className="bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-500/50 rounded-lg p-6">
           <h3 className="text-xl font-semibold mb-3">Ensemble Methods</h3>
-          <p className="text-gray-200 mb-4">
+          <p className="text-gray-600 dark:text-gray-300 mb-4">
             Using multiple models with different architectures makes attacks harder since adversarial
             examples often don't transfer perfectly between models.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-            <div className="bg-white/5 rounded p-3">
+            <div className="bg-gray-50 dark:bg-[#0A0A0A] rounded p-3">
               <p className="font-semibold mb-2 text-purple-400 text-sm">Majority Voting</p>
               <p className="text-xs text-gray-300">
                 Use predictions from multiple models and take the majority vote as final prediction.
               </p>
             </div>
-            <div className="bg-white/5 rounded p-3">
+            <div className="bg-gray-50 dark:bg-[#0A0A0A] rounded p-3">
               <p className="font-semibold mb-2 text-pink-400 text-sm">Diverse Architectures</p>
               <p className="text-xs text-gray-300">
                 Combine CNNs, ResNets, and Vision Transformers to reduce transferability.
               </p>
             </div>
-            <div className="bg-white/5 rounded p-3">
+            <div className="bg-gray-50 dark:bg-[#0A0A0A] rounded p-3">
               <p className="font-semibold mb-2 text-purple-400 text-sm">Defensive Distillation</p>
               <p className="text-xs text-gray-300">
                 Train a student model on soft labels from teacher model to smooth decision boundaries.
@@ -889,21 +889,21 @@ for epoch in range(num_epochs):
           </div>
         </div>
 
-        <div className="bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-cyan-500/50 rounded-lg p-6">
+        <div className="bg-gradient-to-br from-emerald-500/20 to-emerald-600/20 border border-emerald-500/50 rounded-lg p-6">
           <h3 className="text-xl font-semibold mb-3">Certified Defenses</h3>
-          <p className="text-gray-200 mb-3">
+          <p className="text-gray-600 dark:text-gray-300 mb-3">
             Provide mathematical guarantees that predictions won't change within a certain perturbation
             radius. More robust but computationally intensive.
           </p>
           <div className="space-y-2 text-sm">
-            <div className="bg-white/5 rounded p-3">
-              <p className="font-semibold text-cyan-400 mb-1">Randomized Smoothing</p>
+            <div className="bg-gray-50 dark:bg-[#0A0A0A] rounded p-3">
+              <p className="font-semibold text-emerald-500 mb-1">Randomized Smoothing</p>
               <p className="text-gray-300 text-xs">
                 Add Gaussian noise during inference and average predictions to create certified robustness
                 guarantees within L2 norm bounds.
               </p>
             </div>
-            <div className="bg-white/5 rounded p-3">
+            <div className="bg-gray-50 dark:bg-[#0A0A0A] rounded p-3">
               <p className="font-semibold text-blue-400 mb-1">Interval Bound Propagation</p>
               <p className="text-gray-300 text-xs">
                 Computes bounds on neuron activations to verify that all inputs within epsilon radius
@@ -922,7 +922,7 @@ const ReferencesTab = () => (
     <section>
       <h2 className="text-2xl font-bold mb-4">Foundational Papers</h2>
       <div className="space-y-4">
-        <div className="bg-white/5 rounded-lg p-4">
+        <div className="bg-gray-50 dark:bg-[#0A0A0A] rounded-lg p-4">
           <p className="font-semibold mb-1 text-lg">Intriguing properties of neural networks</p>
           <p className="text-sm text-gray-400 mb-2">Christian Szegedy, Wojciech Zaremba, Ilya Sutskever, Joan Bruna, Dumitru Erhan, Ian Goodfellow, Rob Fergus (2013)</p>
           <p className="text-xs text-gray-300 mb-2">
@@ -930,12 +930,12 @@ const ReferencesTab = () => (
             perturbations could cause misclassification and that examples transfer between models.
           </p>
           <div className="flex gap-2">
-            <span className="px-3 py-1 bg-cyan-500/30 rounded text-xs">ICLR 2014</span>
+            <span className="px-3 py-1 bg-emerald-500/30 rounded text-xs">ICLR 2014</span>
             <span className="px-3 py-1 bg-purple-500/30 rounded text-xs">Citation [15]</span>
           </div>
         </div>
 
-        <div className="bg-white/5 rounded-lg p-4">
+        <div className="bg-gray-50 dark:bg-[#0A0A0A] rounded-lg p-4">
           <p className="font-semibold mb-1 text-lg">Explaining and Harnessing Adversarial Examples</p>
           <p className="text-sm text-gray-400 mb-2">Ian J. Goodfellow, Jonathon Shlens, Christian Szegedy (2015)</p>
           <p className="text-xs text-gray-300 mb-2">
@@ -944,12 +944,12 @@ const ReferencesTab = () => (
             as a defense mechanism.
           </p>
           <div className="flex gap-2">
-            <span className="px-3 py-1 bg-cyan-500/30 rounded text-xs">ICLR 2015</span>
+            <span className="px-3 py-1 bg-emerald-500/30 rounded text-xs">ICLR 2015</span>
             <span className="px-3 py-1 bg-purple-500/30 rounded text-xs">Citation [16]</span>
           </div>
         </div>
 
-        <div className="bg-white/5 rounded-lg p-4">
+        <div className="bg-gray-50 dark:bg-[#0A0A0A] rounded-lg p-4">
           <p className="font-semibold mb-1 text-lg">Towards Deep Learning Models Resistant to Adversarial Attacks</p>
           <p className="text-sm text-gray-400 mb-2">Aleksander Madry, Aleksandar Makelov, Ludwig Schmidt, Dimitris Tsipras, Adrian Vladu (2017)</p>
           <p className="text-xs text-gray-300 mb-2">
@@ -957,12 +957,12 @@ const ReferencesTab = () => (
             adversarial training with PGD creates more robust models than training with FGSM.
           </p>
           <div className="flex gap-2">
-            <span className="px-3 py-1 bg-cyan-500/30 rounded text-xs">ICLR 2018</span>
+            <span className="px-3 py-1 bg-emerald-500/30 rounded text-xs">ICLR 2018</span>
             <span className="px-3 py-1 bg-purple-500/30 rounded text-xs">Citation [17]</span>
           </div>
         </div>
 
-        <div className="bg-white/5 rounded-lg p-4">
+        <div className="bg-gray-50 dark:bg-[#0A0A0A] rounded-lg p-4">
           <p className="font-semibold mb-1 text-lg">Towards Evaluating the Robustness of Neural Networks</p>
           <p className="text-sm text-gray-400 mb-2">Nicholas Carlini, David Wagner (2017)</p>
           <p className="text-xs text-gray-300 mb-2">
@@ -970,12 +970,12 @@ const ReferencesTab = () => (
             defensive distillation. Emphasized the importance of strong attack evaluation for defenses.
           </p>
           <div className="flex gap-2">
-            <span className="px-3 py-1 bg-cyan-500/30 rounded text-xs">IEEE S&P 2017</span>
+            <span className="px-3 py-1 bg-emerald-500/30 rounded text-xs">IEEE S&P 2017</span>
             <span className="px-3 py-1 bg-purple-500/30 rounded text-xs">Citation [18]</span>
           </div>
         </div>
 
-        <div className="bg-white/5 rounded-lg p-4">
+        <div className="bg-gray-50 dark:bg-[#0A0A0A] rounded-lg p-4">
           <p className="font-semibold mb-1 text-lg">Robust Physical-World Attacks on Deep Learning Visual Classification</p>
           <p className="text-sm text-gray-400 mb-2">Kevin Eykholt, Ivan Evtimov, Earlence Fernandes, et al. (2018)</p>
           <p className="text-xs text-gray-300 mb-2">
@@ -983,7 +983,7 @@ const ReferencesTab = () => (
             Used Expectation Over Transformation (EOT) to create robust perturbations.
           </p>
           <div className="flex gap-2">
-            <span className="px-3 py-1 bg-cyan-500/30 rounded text-xs">CVPR 2018</span>
+            <span className="px-3 py-1 bg-emerald-500/30 rounded text-xs">CVPR 2018</span>
             <span className="px-3 py-1 bg-purple-500/30 rounded text-xs">Citation [19]</span>
           </div>
         </div>
@@ -993,7 +993,7 @@ const ReferencesTab = () => (
     <section>
       <h2 className="text-2xl font-bold mb-4">Privacy & Security Research</h2>
       <div className="space-y-3">
-        <div className="bg-white/5 rounded-lg p-4">
+        <div className="bg-gray-50 dark:bg-[#0A0A0A] rounded-lg p-4">
           <p className="font-semibold mb-1">Model Inversion Attacks That Exploit Confidence Information</p>
           <p className="text-sm text-gray-400 mb-2">Matt Fredrikson, Somesh Jha, Thomas Ristenpart (2015)</p>
           <p className="text-xs text-gray-300 mb-2">
@@ -1001,12 +1001,12 @@ const ReferencesTab = () => (
             exploiting confidence scores.
           </p>
           <div className="flex gap-2">
-            <span className="px-3 py-1 bg-cyan-500/30 rounded text-xs">CCS 2015</span>
+            <span className="px-3 py-1 bg-emerald-500/30 rounded text-xs">CCS 2015</span>
             <span className="px-3 py-1 bg-purple-500/30 rounded text-xs">Citation [20]</span>
           </div>
         </div>
 
-        <div className="bg-white/5 rounded-lg p-4">
+        <div className="bg-gray-50 dark:bg-[#0A0A0A] rounded-lg p-4">
           <p className="font-semibold mb-1">Membership Inference Attacks Against Machine Learning Models</p>
           <p className="text-sm text-gray-400 mb-2">Reza Shokri, Marco Stronati, Congzheng Song, Vitaly Shmatikov (2017)</p>
           <p className="text-xs text-gray-300 mb-2">
@@ -1014,12 +1014,12 @@ const ReferencesTab = () => (
             their training set, raising privacy concerns.
           </p>
           <div className="flex gap-2">
-            <span className="px-3 py-1 bg-cyan-500/30 rounded text-xs">IEEE S&P 2017</span>
+            <span className="px-3 py-1 bg-emerald-500/30 rounded text-xs">IEEE S&P 2017</span>
             <span className="px-3 py-1 bg-purple-500/30 rounded text-xs">Citation [21]</span>
           </div>
         </div>
 
-        <div className="bg-white/5 rounded-lg p-4">
+        <div className="bg-gray-50 dark:bg-[#0A0A0A] rounded-lg p-4">
           <p className="font-semibold mb-1">BadNets: Identifying Vulnerabilities in the Machine Learning Model Supply Chain</p>
           <p className="text-sm text-gray-400 mb-2">Tianyu Gu, Brendan Dolan-Gavitt, Siddharth Garg (2017)</p>
           <p className="text-xs text-gray-300 mb-2">
@@ -1027,7 +1027,7 @@ const ReferencesTab = () => (
             in the input.
           </p>
           <div className="flex gap-2">
-            <span className="px-3 py-1 bg-cyan-500/30 rounded text-xs">arXiv 2017</span>
+            <span className="px-3 py-1 bg-emerald-500/30 rounded text-xs">arXiv 2017</span>
             <span className="px-3 py-1 bg-purple-500/30 rounded text-xs">Citation [22]</span>
           </div>
         </div>
@@ -1102,15 +1102,15 @@ const ReferencesTab = () => (
     <section>
       <h2 className="text-2xl font-bold mb-4">Additional Resources</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-cyan-500/50 rounded-lg p-5">
+        <div className="bg-gradient-to-br from-emerald-500/20 to-emerald-600/20 border border-emerald-500/50 rounded-lg p-5">
           <h3 className="text-lg font-semibold mb-2">RobustBench</h3>
           <p className="text-sm text-gray-300 mb-2">
             Standardized benchmark for adversarial robustness with leaderboards of state-of-the-art defenses
             on CIFAR-10, CIFAR-100, and ImageNet.
           </p>
           <div className="flex gap-2">
-            <span className="text-xs text-cyan-400">robustbench.github.io</span>
-            <span className="px-3 py-1 bg-cyan-500/30 rounded text-xs">Citation [26]</span>
+            <span className="text-xs text-emerald-500">robustbench.github.io</span>
+            <span className="px-3 py-1 bg-emerald-500/30 rounded text-xs">Citation [26]</span>
           </div>
         </div>
 
@@ -1155,23 +1155,23 @@ const ReferencesTab = () => (
     <section>
       <h2 className="text-2xl font-bold mb-4">Online Courses & Tutorials</h2>
       <div className="space-y-3">
-        <div className="bg-white/5 rounded-lg p-4">
+        <div className="bg-gray-50 dark:bg-[#0A0A0A] rounded-lg p-4">
           <div className="flex items-center justify-between">
             <div>
               <p className="font-semibold">Adversarial Robustness - Theory and Practice</p>
               <p className="text-sm text-gray-400">Stanford CS236 Guest Lecture</p>
             </div>
-            <span className="px-3 py-1 bg-cyan-500/30 rounded text-xs">Citation [30]</span>
+            <span className="px-3 py-1 bg-emerald-500/30 rounded text-xs">Citation [30]</span>
           </div>
         </div>
 
-        <div className="bg-white/5 rounded-lg p-4">
+        <div className="bg-gray-50 dark:bg-[#0A0A0A] rounded-lg p-4">
           <div className="flex items-center justify-between">
             <div>
               <p className="font-semibold">Adversarial Examples and Adversarial Training</p>
               <p className="text-sm text-gray-400">MIT 6.S191 Deep Learning Course</p>
             </div>
-            <span className="text-xs text-cyan-400">Citation from course materials</span>
+            <span className="text-xs text-emerald-500">Citation from course materials</span>
           </div>
         </div>
       </div>
@@ -1183,7 +1183,7 @@ const ReferencesTab = () => (
           <AlertTriangle className="w-6 h-6 text-yellow-400" />
           Ethical Research Guidelines
         </h3>
-        <div className="space-y-3 text-sm text-gray-200">
+        <div className="space-y-3 text-sm text-gray-600 dark:text-gray-300">
           <p>
             Adversarial ML research must be conducted responsibly with consideration for potential misuse.
           </p>
