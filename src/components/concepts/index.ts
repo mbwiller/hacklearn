@@ -12,4 +12,7 @@ export { AIAgentCommandInjectionConcept } from './AIAgentCommandInjectionConcept
 export { ReconnaissanceFootprintingConcept } from './ReconnaissanceFootprintingConcept';
 export { SQLInjectionConcept } from './SQLInjectionConcept';
 export { XSSConcept } from './XSSConcept';
+export { SocialEngineeringConcept } from './SocialEngineeringConcept';
+export { NetworkScanningConcept } from './NetworkScanningConcept';
+export { PasswordCrackingConcept } from './PasswordCrackingConcept';
 export { PenetrationTestingConcept } from './PenetrationTestingConcept';

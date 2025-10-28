@@ -8,7 +8,7 @@ This comprehensive guide provides systematic workflows for developing HackLearn 
 
 ## Project Status Dashboard
 
-### Flagship Concepts: 14/20 Complete (70%)
+### Flagship Concepts: 17/20 Complete (85%)
 
 **AI/ML Security (10/10 complete!):**
 - ✅ #1 Prompt Injection Attacks (825 lines, notebook complete)
@@ -19,16 +19,16 @@ This comprehensive guide provides systematic workflows for developing HackLearn 
 - ✅ #6 RAG Security Vulnerabilities (1,150 lines, notebook complete)
 - ✅ #7 Multi-Agent System Attacks (1,200 lines, notebook complete)
 - ✅ #8 Link Traps & Malicious URLs (1,180 lines, notebook complete)
-- ✅ #9 Invisible Unicode Injection (1,200 lines, notebook complete) **NEW!**
-- ✅ #10 AI Agent Command Injection (1,400 lines, notebook complete) **NEW!**
+- ✅ #9 Invisible Unicode Injection (1,200 lines, notebook complete)
+- ✅ #10 AI Agent Command Injection (1,400 lines, notebook complete)
 
-**Traditional Hacking (4/10 complete):**
-- ✅ #11 Reconnaissance & Footprinting (1,650 lines, notebook complete) **NEW!**
+**Traditional Hacking (7/10 complete):**
+- ✅ #11 Reconnaissance & Footprinting (1,650 lines, notebook complete)
 - ✅ #12 SQL Injection (1,105 lines, notebook complete)
 - ✅ #13 Cross-Site Scripting (1,194 lines, notebook complete)
-- ⏳ #14 Social Engineering & Phishing
-- ⏳ #15 Network Scanning & Enumeration
-- ⏳ #16 Password Cracking
+- ✅ #14 Social Engineering & Phishing (1,377 lines, notebook complete) **NEW!**
+- ✅ #15 Network Scanning & Enumeration (1,250 lines, notebook complete) **NEW!**
+- ✅ #16 Password Cracking & Credential Attacks (1,555 lines, notebook complete) **NEW!**
 - ⏳ #17 Man-in-the-Middle Attacks
 - ⏳ #18 Denial of Service
 - ⏳ #19 Web Application Vulnerabilities
@@ -39,10 +39,10 @@ This comprehensive guide provides systematic workflows for developing HackLearn 
 **Batch 1 (Complete):** Concepts #3, #4, #5 - AI/ML Security ✅
 **Batch 2 (Complete):** Concepts #6, #7, #8 - AI/ML Security ✅
 **Batch 3 (Complete):** Concepts #9, #10, #11 - Mixed (AI/ML + Traditional) ✅
-**Batch 4 (Next):** Concepts #14, #15, #16 - Traditional
+**Batch 4 (Complete):** Concepts #14, #15, #16 - Traditional ✅
 **Batch 5 (Final):** Concepts #17, #18, #19 - Traditional
 
-**Estimated Completion:** ~4 weeks remaining (comfortable pace, 3-5 hours/week)
+**Estimated Completion:** ~2 weeks remaining (comfortable pace, 3-5 hours/week)
 
 ---
 

@@ -13,6 +13,9 @@ import { AIAgentCommandInjectionConcept } from '../components/concepts/AIAgentCo
 import { ReconnaissanceFootprintingConcept } from '../components/concepts/ReconnaissanceFootprintingConcept';
 import { SQLInjectionConcept } from '../components/concepts/SQLInjectionConcept';
 import { XSSConcept } from '../components/concepts/XSSConcept';
+import { SocialEngineeringConcept } from '../components/concepts/SocialEngineeringConcept';
+import { NetworkScanningConcept } from '../components/concepts/NetworkScanningConcept';
+import { PasswordCrackingConcept } from '../components/concepts/PasswordCrackingConcept';
 import { PenetrationTestingConcept } from '../components/concepts/PenetrationTestingConcept';
 
 export const concepts: Concept[] = [
@@ -474,7 +477,8 @@ export const concepts: Concept[] = [
       'Email authentication (SPF, DKIM, DMARC)',
       'Multi-factor authentication (MFA)',
       'Verify requests through alternate channels'
-    ]
+    ],
+    detailedComponent: (props) => <SocialEngineeringConcept {...props} />
   },
   {
     id: 15,
@@ -502,7 +506,8 @@ export const concepts: Concept[] = [
       'Intrusion Detection Systems (IDS)',
       'Network segmentation',
       'Regular vulnerability scanning'
-    ]
+    ],
+    detailedComponent: (props) => <NetworkScanningConcept {...props} />
   },
   {
     id: 16,
@@ -530,7 +535,8 @@ export const concepts: Concept[] = [
       'Password salting before hashing',
       'Multi-factor authentication (MFA)',
       'Account lockout after failed attempts'
-    ]
+    ],
+    detailedComponent: (props) => <PasswordCrackingConcept {...props} />
   },
   {
     id: 17,
