@@ -16,6 +16,9 @@ import { XSSConcept } from '../components/concepts/XSSConcept';
 import { SocialEngineeringConcept } from '../components/concepts/SocialEngineeringConcept';
 import { NetworkScanningConcept } from '../components/concepts/NetworkScanningConcept';
 import { PasswordCrackingConcept } from '../components/concepts/PasswordCrackingConcept';
+import { MitMAttacksConcept } from '../components/concepts/MitMAttacksConcept';
+import { DoSAttacksConcept } from '../components/concepts/DoSAttacksConcept';
+import { WebAppVulnerabilitiesConcept } from '../components/concepts/WebAppVulnerabilitiesConcept';
 import { PenetrationTestingConcept } from '../components/concepts/PenetrationTestingConcept';
 
 export const concepts: Concept[] = [
@@ -564,7 +567,8 @@ export const concepts: Concept[] = [
       'VPN on untrusted networks',
       'Certificate pinning',
       'Avoid unsecured public WiFi for sensitive tasks'
-    ]
+    ],
+    detailedComponent: (props) => <MitMAttacksConcept {...props} />
   },
   {
     id: 18,
@@ -592,7 +596,8 @@ export const concepts: Concept[] = [
       'DDoS protection services (Cloudflare, Akamai)',
       'Load balancing and scalable infrastructure',
       'Intrusion Prevention Systems (IPS)'
-    ]
+    ],
+    detailedComponent: (props) => <DoSAttacksConcept {...props} />
   },
   {
     id: 19,
@@ -620,7 +625,8 @@ export const concepts: Concept[] = [
       'Regular security assessments and penetration testing',
       'Input validation on client AND server side',
       'Keep frameworks and dependencies updated'
-    ]
+    ],
+    detailedComponent: (props) => <WebAppVulnerabilitiesConcept {...props} />
   },
   {
     id: 20,

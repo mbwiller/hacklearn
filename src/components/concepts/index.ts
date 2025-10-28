@@ -15,4 +15,7 @@ export { XSSConcept } from './XSSConcept';
 export { SocialEngineeringConcept } from './SocialEngineeringConcept';
 export { NetworkScanningConcept } from './NetworkScanningConcept';
 export { PasswordCrackingConcept } from './PasswordCrackingConcept';
+export { MitMAttacksConcept } from './MitMAttacksConcept';
+export { DoSAttacksConcept } from './DoSAttacksConcept';
+export { WebAppVulnerabilitiesConcept } from './WebAppVulnerabilitiesConcept';
 export { PenetrationTestingConcept } from './PenetrationTestingConcept';
