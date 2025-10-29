@@ -16,12 +16,12 @@ export const DataPoisoningConcept = ({ onBack }: DataPoisoningConceptProps = {})
   const [activeTab, setActiveTab] = useState('theory');
 
   return (
-    <div className="min-h-screen text-gray-900 dark:text-white p-8">
+    <div className="min-h-screen bg-white dark:bg-slate-950 text-gray-900 dark:text-white p-8">
       <div className="max-w-6xl mx-auto">
         {onBack && (
           <button
             onClick={onBack}
-            className="mb-6 px-4 py-2 bg-white/10 hover:bg-white/20 rounded-lg transition-all flex items-center gap-2"
+            className="mb-6 px-4 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-300 dark:border-slate-700 rounded-lg transition-all flex items-center gap-2"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Dashboard
@@ -30,17 +30,17 @@ export const DataPoisoningConcept = ({ onBack }: DataPoisoningConceptProps = {})
 
         <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-2xl p-8 shadow-2xl">
           <div className="flex items-center gap-4 mb-8">
-            <div className="p-4 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl">
-              <Database className="w-12 h-12" />
+            <div className="p-4 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-xl">
+              <Database className="w-12 h-12 text-white" />
             </div>
             <div className="flex-1">
               <h1 className="text-4xl font-bold">Data Poisoning</h1>
-              <p className="text-emerald-500 mt-2">Learn how attackers corrupt training data to manipulate AI at its foundation</p>
+              <p className="text-emerald-600 dark:text-emerald-400 mt-2">Learn how attackers corrupt training data to manipulate AI at its foundation</p>
             </div>
             
           </div>
 
-          <div className="border-b border-white/20 mb-8">
+          <div className="border-b border-gray-200 dark:border-slate-700 mb-8">
             <nav className="flex gap-2">
               {tabs.map((tab) => {
                 const Icon = tab.icon;
@@ -50,7 +50,7 @@ export const DataPoisoningConcept = ({ onBack }: DataPoisoningConceptProps = {})
                     onClick={() => setActiveTab(tab.id)}
                     className={`flex items-center gap-2 px-6 py-3 rounded-t-lg transition-all ${
                       activeTab === tab.id
-                        ? 'bg-white/20 text-emerald-500 border-b-2 border-emerald-500'
+                        ? 'bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 border-b-2 border-emerald-500'
                         : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-white/10'
                     }`}
                   >

@@ -697,7 +697,7 @@ sudo nmap -sS -r -T1 --randomize-hosts -p80,443 <target>
 
       <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-8 shadow-lg">
         <div className="flex items-center gap-4 mb-8">
-          <div className="p-4 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-xl">
+          <div className="p-4 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-xl">
             <Radar className="w-12 h-12 text-white" />
           </div>
           <div className="flex-1">

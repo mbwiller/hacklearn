@@ -16,21 +16,21 @@ export const XSSConcept = ({ onBack }: XSSConceptProps = {}) => {
   const [activeTab, setActiveTab] = useState('theory');
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-white p-8">
+    <div className="min-h-screen bg-white dark:bg-slate-950 text-gray-900 dark:text-white p-8">
       <div className="max-w-6xl mx-auto">
         {onBack && (
           <button
             onClick={onBack}
-            className="mb-6 px-4 py-2 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 border border-gray-300 dark:border-gray-700 rounded-lg transition-all flex items-center gap-2"
+            className="mb-6 px-4 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-300 dark:border-slate-700 rounded-lg transition-all flex items-center gap-2"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Dashboard
           </button>
         )}
 
-        <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl p-8 shadow-lg">
+        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-8 shadow-lg">
           <div className="flex items-center gap-4 mb-8">
-            <div className="p-4 bg-gradient-to-br from-orange-500 to-red-600 rounded-xl">
+            <div className="p-4 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-xl">
               <Code className="w-12 h-12 text-white" />
             </div>
             <div className="flex-1">

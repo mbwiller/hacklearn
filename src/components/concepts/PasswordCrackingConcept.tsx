@@ -25,7 +25,7 @@ export const PasswordCrackingConcept = ({ onBack }: PasswordCrackingConceptProps
 
           <div className="flex items-center mb-6">
             <div className="p-4 bg-white/10 rounded-2xl backdrop-blur-sm mr-6">
-              <KeyRound className="w-12 h-12" />
+              <KeyRound className="w-12 h-12 text-white" />
             </div>
             <div>
               <h1 className="text-5xl font-bold mb-2">Password Cracking & Credential Attacks</h1>

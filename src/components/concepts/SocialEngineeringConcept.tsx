@@ -1295,7 +1295,7 @@ for email in emails:
       <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-8 shadow-lg">
         {/* Header */}
         <div className="flex items-center gap-4 mb-8">
-          <div className="p-4 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl">
+          <div className="p-4 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-xl">
             <Brain className="w-12 h-12 text-white" />
           </div>
           <div className="flex-1">

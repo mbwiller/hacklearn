@@ -11,7 +11,7 @@ export const DoSAttacksConcept = ({ onBack }: DoSAttacksConceptProps = {}) => {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-slate-950 transition-colors">
       {/* Header */}
-      <div className="bg-gradient-to-r from-purple-500 to-pink-600 text-white py-16">
+      <div className="bg-gradient-to-r from-emerald-400 to-emerald-600 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {onBack && (
             <button
@@ -25,7 +25,7 @@ export const DoSAttacksConcept = ({ onBack }: DoSAttacksConceptProps = {}) => {
 
           <div className="flex items-center mb-6">
             <div className="p-4 bg-white/10 rounded-2xl backdrop-blur-sm mr-6">
-              <Zap className="w-12 h-12" />
+              <Zap className="w-12 h-12 text-white" />
             </div>
             <div>
               <h1 className="text-5xl font-bold mb-2">Denial of Service (DoS/DDoS) Attacks</h1>
@@ -902,7 +902,7 @@ http {
                 href="/notebooks/18-dos-attacks.ipynb"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-600 text-white font-semibold rounded-lg hover:from-purple-600 hover:to-pink-700 transition-all"
+                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-emerald-400 to-emerald-600 text-white font-semibold rounded-lg hover:from-purple-600 hover:to-pink-700 transition-all"
               >
                 <Code className="w-5 h-5 mr-2" />
                 Open Interactive Lab Notebook

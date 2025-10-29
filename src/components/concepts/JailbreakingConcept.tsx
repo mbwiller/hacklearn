@@ -30,7 +30,7 @@ export const JailbreakingConcept = ({ onBack }: JailbreakingConceptProps = {}) =
 
         <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-2xl p-8 shadow-2xl">
           <div className="flex items-center gap-4 mb-8">
-            <div className="p-4 bg-gradient-to-br from-orange-500 to-red-600 rounded-xl">
+            <div className="p-4 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-xl">
               <Unlock className="w-12 h-12" />
             </div>
             <div className="flex-1">

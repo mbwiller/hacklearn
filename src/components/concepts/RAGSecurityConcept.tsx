@@ -31,7 +31,7 @@ export const RAGSecurityConcept = ({ onBack }: RAGSecurityConceptProps = {}) => 
         <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-2xl p-8 shadow-2xl">
           <div className="flex items-center gap-4 mb-8">
             <div className="p-4 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl">
-              <Database className="w-12 h-12" />
+              <Database className="w-12 h-12 text-white" />
             </div>
             <div className="flex-1">
               <h1 className="text-4xl font-bold">RAG Security Vulnerabilities</h1>
