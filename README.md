@@ -397,4 +397,4 @@ After completing this platform, you will be able to:
 
 ---
 
-**Happy Learning! Stay Ethical. Stay Secure. **
+**Happy Learning! Stay Ethical. Stay Secure.**
