@@ -1,8 +1,8 @@
-#  HackLearn Pro - Ethical Hacking Education Platform
+# HackLearn Pro - Ethical Hacking Education Platform
 
 A comprehensive, interactive learning platform designed to teach the 20 most critical concepts in ethical hacking, with special focus on AI/ML security. Built for Docker deployment with professional, content-focused UI.
 
-##  Overview
+## Overview
 
 HackLearn Pro combines traditional ethical hacking fundamentals with cutting-edge AI/ML security concepts, providing:
 - **20 Core Concepts**: 10 AI/ML security + 10 traditional hacking concepts
@@ -11,7 +11,7 @@ HackLearn Pro combines traditional ethical hacking fundamentals with cutting-edg
 - **Defense Strategies**: Practical mitigation techniques for each attack vector
 - **Professional UI**: Clean, focused interface with light/dark mode support
 
-##  Quick Start with Docker
+## Quick Start with Docker
 
 ### Prerequisites
 - Docker Desktop installed and running
@@ -54,7 +54,7 @@ docker stop hacklearn
 docker rm hacklearn
 ```
 
-##  Learning Path
+## Learning Path
 
 ### AI/ML Security Concepts (10)
 1. **Prompt Injection Attacks** - OWASP #1 AI risk in 2025
@@ -80,33 +80,33 @@ docker rm hacklearn
 19. **Web Application Vulnerabilities** - OWASP Top 10
 20. **Penetration Testing Methodology** - Professional testing lifecycle
 
-##  Development Status
+## Development Status
 
-###  Flagship Concepts: 20/20 Complete (100%)
+### Flagship Concepts: 20/20 Complete (100%)
 
 **AI/ML Security (10/10 complete!):**
-- ✅ #1 Prompt Injection Attacks - Complete (825 lines, notebook ready)
-- ✅ #2 Adversarial Machine Learning - Complete (1,208 lines, notebook ready)
-- ✅ #3 Data Poisoning - Complete (1,100 lines, notebook ready)
-- ✅ #4 Model Extraction - Complete (1,000 lines, notebook ready)
-- ✅ #5 Jailbreaking & Safety Bypassing - Complete (1,050 lines, notebook ready)
-- ✅ #6 RAG Security Vulnerabilities - Complete (1,150 lines, notebook ready)
-- ✅ #7 Multi-Agent System Attacks - Complete (1,200 lines, notebook ready)
-- ✅ #8 Link Traps & Malicious URLs - Complete (1,180 lines, notebook ready)
-- ✅ #9 Invisible Unicode Injection - Complete (1,200 lines, notebook ready)
-- ✅ #10 AI Agent Command Injection - Complete (1,400 lines, notebook ready)
+- #1 Prompt Injection Attacks - Complete (825 lines, notebook ready)
+- #2 Adversarial Machine Learning - Complete (1,208 lines, notebook ready)
+- #3 Data Poisoning - Complete (1,100 lines, notebook ready)
+- #4 Model Extraction - Complete (1,000 lines, notebook ready)
+- #5 Jailbreaking & Safety Bypassing - Complete (1,050 lines, notebook ready)
+- #6 RAG Security Vulnerabilities - Complete (1,150 lines, notebook ready)
+- #7 Multi-Agent System Attacks - Complete (1,200 lines, notebook ready)
+- #8 Link Traps & Malicious URLs - Complete (1,180 lines, notebook ready)
+- #9 Invisible Unicode Injection - Complete (1,200 lines, notebook ready)
+- #10 AI Agent Command Injection - Complete (1,400 lines, notebook ready)
 
 **Traditional Hacking (10/10 complete!):**
-- ✅ #11 Reconnaissance & Footprinting - Complete (1,650 lines, notebook ready)
-- ✅ #12 SQL Injection - Complete (1,105 lines, notebook ready)
-- ✅ #13 Cross-Site Scripting (XSS) - Complete (1,194 lines, notebook ready)
-- ✅ #14 Social Engineering & Phishing - Complete (1,377 lines, notebook ready)
-- ✅ #15 Network Scanning & Enumeration - Complete (1,250 lines, notebook ready)
-- ✅ #16 Password Cracking & Credential Attacks - Complete (1,555 lines, notebook ready)
-- ✅ #17 Man-in-the-Middle (MitM) Attacks - Complete (1,332 lines, notebook ready) **NEW!**
-- ✅ #18 Denial of Service (DoS) Attacks - Complete (1,250 lines, notebook ready) **NEW!**
-- ✅ #19 Web Application Vulnerabilities - Complete (1,400 lines, notebook ready) **NEW!**
-- ✅ #20 Penetration Testing Methodology - Complete (1,741 lines, notebook ready)
+- #11 Reconnaissance & Footprinting - Complete (1,650 lines, notebook ready)
+- #12 SQL Injection - Complete (1,105 lines, notebook ready)
+- #13 Cross-Site Scripting (XSS) - Complete (1,194 lines, notebook ready)
+- #14 Social Engineering & Phishing - Complete (1,377 lines, notebook ready)
+- #15 Network Scanning & Enumeration - Complete (1,250 lines, notebook ready)
+- #16 Password Cracking & Credential Attacks - Complete (1,555 lines, notebook ready)
+- #17 Man-in-the-Middle (MitM) Attacks - Complete (1,332 lines, notebook ready) **NEW!**
+- #18 Denial of Service (DoS) Attacks - Complete (1,250 lines, notebook ready) **NEW!**
+- #19 Web Application Vulnerabilities - Complete (1,400 lines, notebook ready) **NEW!**
+- #20 Penetration Testing Methodology - Complete (1,741 lines, notebook ready)
 
 ** Project Complete!** All 20 flagship modules with comprehensive content, interactive labs, and professional UI.
 
@@ -203,7 +203,7 @@ See [DEVELOPMENT.md](./DEVELOPMENT.md) for complete git workflow and standards.
 
 ---
 
-##  Learning Features
+## Learning Features
 
 ### For Each Concept
 - **Overview**: Clear explanation of the attack vector
@@ -214,7 +214,7 @@ See [DEVELOPMENT.md](./DEVELOPMENT.md) for complete git workflow and standards.
 - **Difficulty Rating**: Beginner, Intermediate, or Advanced
 - **Professional Tools**: Attack and defense tool documentation
 
-##  Technical Details
+## Technical Details
 
 ### Architecture
 - **Frontend**: React 18 with Lucide icons
@@ -243,7 +243,7 @@ See [DEVELOPMENT.md](./DEVELOPMENT.md) for complete git workflow and standards.
 - Default: `8080`
 - Change in `docker-compose.yml` to customize
 
-##  Use Cases
+## Use Cases
 
 ### For Beginners
 - Start with "Beginner" difficulty concepts
@@ -263,16 +263,16 @@ See [DEVELOPMENT.md](./DEVELOPMENT.md) for complete git workflow and standards.
 - Quick reference for defense strategies
 - Stay current with 2025 threat landscape
 
-##  Security Note
+## Security Note
 
 This platform is designed for **EDUCATIONAL PURPOSES ONLY**. All techniques taught should be used ethically and legally:
-- ✅ Only test systems you own or have explicit permission to test
-- ✅ Use knowledge to improve security posture
-- ✅ Report vulnerabilities responsibly
-- ❌ Never use techniques for malicious purposes
-- ❌ Never test systems without authorization
+- Only test systems you own or have explicit permission to test
+- Use knowledge to improve security posture
+- Report vulnerabilities responsibly
+- Never use techniques for malicious purposes
+- Never test systems without authorization
 
-##  Key Features
+## Key Features
 
 ### Progressive Learning
 - Start with basics, advance to complex topics
@@ -299,13 +299,13 @@ This platform is designed for **EDUCATIONAL PURPOSES ONLY**. All techniques taug
 - Theory and practical application
 - Industry-standard methodologies
 
-##  Customization
+## Customization
 
 ### Change Port
 Edit `docker-compose.yml`:
 ```yaml
 ports:
-  - "YOUR_PORT:80"
+ - "YOUR_PORT:80"
 ```
 
 ### Rebuild After Changes
@@ -314,13 +314,13 @@ docker-compose down
 docker-compose up --build -d
 ```
 
-##  Progress Tracking
+## Progress Tracking
 
 Your progress is tracked locally in the browser:
 - Completed concepts
 - Module completion status
 
-##  Updates
+## Updates
 
 To update to the latest version:
 ```bash
@@ -329,7 +329,7 @@ docker-compose pull
 docker-compose up -d
 ```
 
-##  Tips for Learning
+## Tips for Learning
 
 1. **Start with Reconnaissance** - Foundation of ethical hacking
 2. **Focus on AI concepts** - Critical for modern security
@@ -338,7 +338,7 @@ docker-compose up -d
 5. **Practice defenses** - Apply what you learn
 6. **Take notes** - Create your own reference
 
-##  Recommended Learning Order
+## Recommended Learning Order
 
 ### For Zero Experience:
 1. Reconnaissance & Footprinting
@@ -360,7 +360,7 @@ docker-compose up -d
 5. Other AI concepts
 6. Then explore traditional concepts
 
-##  Contributing to Your Learning
+## Contributing to Your Learning
 
 ### Additional Resources
 - **OWASP**: https://owasp.org
@@ -374,20 +374,20 @@ docker-compose up -d
 - PentesterLab
 - DVWA (Damn Vulnerable Web Application)
 
-##  License
+## License
 
 Educational use only. Use responsibly and ethically.
 
-##  Goals
+## Goals
 
 After completing this platform, you will be able to:
-- ✅ Understand 20 critical security concepts
-- ✅ Identify AI/ML vulnerabilities in systems
-- ✅ Apply defense strategies effectively
-- ✅ Think like an ethical hacker
-- ✅ Contribute to AI-Human alignment efforts
-- ✅ Build more secure AI systems
-- ✅ Understand the 2025 threat landscape
+- Understand 20 critical security concepts
+- Identify AI/ML vulnerabilities in systems
+- Apply defense strategies effectively
+- Think like an ethical hacker
+- Contribute to AI-Human alignment efforts
+- Build more secure AI systems
+- Understand the 2025 threat landscape
 
 ---
 

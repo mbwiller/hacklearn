@@ -89,57 +89,57 @@ docker-compose down
 ```
 Hacklearn/
  src/
-    components/
-       concepts/              # Detailed concept components
-          PromptInjectionConcept.tsx      (825 lines)
-          AdversarialMLConcept.tsx        (1,208 lines)
-          SQLInjectionConcept.tsx         (1,105 lines)
-          XSSConcept.tsx                  (1,194 lines)
-          PenetrationTestingConcept.tsx   (1,741 lines)
-          ConceptCard.tsx                 # Concept grid card
-          ConceptDetail.tsx               # Default concept view
-          ChallengeView.tsx               # Challenge quiz
-          index.ts                        # Barrel exports
-       ui/                    # Reusable UI components
-          AchievementCard.tsx
-          DifficultyBadge.tsx
-          ProgressBar.tsx
-          StatsCard.tsx
-          CodeBlock.tsx                   # Syntax-highlighted code
-          ColabButton.tsx                 # Google Colab integration
-          CopyCodeButton.tsx              # Copy to clipboard
-          ThemeToggle.tsx                 # Light/dark mode toggle
-       Dashboard.tsx          # Main dashboard
-    contexts/
-       ThemeContext.tsx       # Theme state provider
-    data/
-       concepts.tsx           # All 20 concept definitions (TypeScript/JSX)
-    hooks/
-       useAchievements.ts     # Achievement detection logic
-       useGameState.ts        # Points, levels, state management
-       useProgress.ts         # LocalStorage progress tracking
-       useTheme.ts            # Theme state management
-    types/
-       index.ts               # TypeScript interfaces
-    styles/
-       index.css              # Tailwind imports + custom CSS
-    App.tsx                    # Main app component with routing
-    main.tsx                   # React entry point
+ components/
+ concepts/ # Detailed concept components
+ PromptInjectionConcept.tsx (825 lines)
+ AdversarialMLConcept.tsx (1,208 lines)
+ SQLInjectionConcept.tsx (1,105 lines)
+ XSSConcept.tsx (1,194 lines)
+ PenetrationTestingConcept.tsx (1,741 lines)
+ ConceptCard.tsx # Concept grid card
+ ConceptDetail.tsx # Default concept view
+ ChallengeView.tsx # Challenge quiz
+ index.ts # Barrel exports
+ ui/ # Reusable UI components
+ AchievementCard.tsx
+ DifficultyBadge.tsx
+ ProgressBar.tsx
+ StatsCard.tsx
+ CodeBlock.tsx # Syntax-highlighted code
+ ColabButton.tsx # Google Colab integration
+ CopyCodeButton.tsx # Copy to clipboard
+ ThemeToggle.tsx # Light/dark mode toggle
+ Dashboard.tsx # Main dashboard
+ contexts/
+ ThemeContext.tsx # Theme state provider
+ data/
+ concepts.tsx # All 20 concept definitions (TypeScript/JSX)
+ hooks/
+ useAchievements.ts # Achievement detection logic
+ useGameState.ts # Points, levels, state management
+ useProgress.ts # LocalStorage progress tracking
+ useTheme.ts # Theme state management
+ types/
+ index.ts # TypeScript interfaces
+ styles/
+ index.css # Tailwind imports + custom CSS
+ App.tsx # Main app component with routing
+ main.tsx # React entry point
  public/
-    notebooks/                 # Jupyter notebooks for hands-on labs
-        01-prompt-injection.ipynb
-        02-adversarial-ml.ipynb
-        12-sql-injection.ipynb
-        13-xss.ipynb
-        20-penetration-testing.ipynb
- dist/                          # Production build output
- Dockerfile                     # Two-stage Docker build
+ notebooks/ # Jupyter notebooks for hands-on labs
+ 01-prompt-injection.ipynb
+ 02-adversarial-ml.ipynb
+ 12-sql-injection.ipynb
+ 13-xss.ipynb
+ 20-penetration-testing.ipynb
+ dist/ # Production build output
+ Dockerfile # Two-stage Docker build
  docker-compose.yml
- nginx.conf                     # Production web server config
- vite.config.ts                 # Vite build configuration
- tsconfig.json                  # TypeScript configuration
- tailwind.config.js             # Tailwind CSS configuration
- package.json                   # Dependencies and scripts
+ nginx.conf # Production web server config
+ vite.config.ts # Vite build configuration
+ tsconfig.json # TypeScript configuration
+ tailwind.config.js # Tailwind CSS configuration
+ package.json # Dependencies and scripts
 ```
 
 ### Component Architecture
@@ -151,11 +151,11 @@ Hacklearn/
 - Category sections: AI/ML Security, Traditional Hacking
 
 #### Concept Flow
-1. **User clicks concept card** → `App.tsx` sets `currentConcept`
+1. **User clicks concept card** `App.tsx` sets `currentConcept`
 2. **App.tsx checks** if concept has `detailedComponent`
 3. **If yes**: Render detailed component (8 flagship concepts)
 4. **If no**: Render default `ConceptDetail.tsx` (12 basic concepts)
-5. **User clicks "Take Challenge"** → `ChallengeView.tsx` with quiz
+5. **User clicks "Take Challenge"** `ChallengeView.tsx` with quiz
 6. **On correct answer**: Award points, update progress, unlock achievements
 
 #### State Management (Custom Hooks)
@@ -193,7 +193,7 @@ const { theme, toggleTheme } = useTheme();
 **Theme Context (src/contexts/ThemeContext.tsx):**
 ```typescript
 <ThemeProvider>
-  {/* All app content */}
+ {/* All app content */}
 </ThemeProvider>
 
 // Usage in components:
@@ -202,16 +202,16 @@ const { theme, toggleTheme } = useThemeContext();
 
 **Color System:**
 - **Base Colors:**
-  - Light mode: Cool gray (#F8FAFC) backgrounds, white (#FFFFFF) cards
-  - Dark mode: Pure black (slate-950) backgrounds, near-black (slate-900) cards
+ - Light mode: Cool gray (#F8FAFC) backgrounds, white (#FFFFFF) cards
+ - Dark mode: Pure black (slate-950) backgrounds, near-black (slate-900) cards
 - **Accent Color:** Emerald (#10B981) - replaces all cyan/blue accents
 - **Borders:**
-  - Light mode: #E2E8F0
-  - Dark mode: slate-800
+ - Light mode: #E2E8F0
+ - Dark mode: slate-800
 - **Semantic Colors:** Preserved across themes
-  - Success: Green (#10B981)
-  - Warning: Yellow/Amber
-  - Error: Red (#EF4444)
+ - Success: Green (#10B981)
+ - Warning: Yellow/Amber
+ - Error: Red (#EF4444)
 
 **Typography:**
 - **Font Family:** Inter (weights: 400, 500, 600, 700)
@@ -222,11 +222,11 @@ const { theme, toggleTheme } = useThemeContext();
 ```tsx
 // All components follow this pattern:
 <div className="bg-white dark:bg-[slate-900] border border-gray-200 dark:border-[slate-800]">
-  <h1 className="text-gray-900 dark:text-white">Title</h1>
-  <p className="text-gray-600 dark:text-gray-400">Body text</p>
-  <button className="bg-emerald-500 hover:bg-emerald-600 text-white">
-    Action
-  </button>
+ <h1 className="text-gray-900 dark:text-white">Title</h1>
+ <p className="text-gray-600 dark:text-gray-400">Body text</p>
+ <button className="bg-emerald-500 hover:bg-emerald-600 text-white">
+ Action
+ </button>
 </div>
 ```
 
@@ -249,88 +249,88 @@ const { theme, toggleTheme } = useThemeContext();
 // src/components/concepts/PromptInjectionConcept.tsx (example)
 
 interface ConceptProps {
-  onBack?: () => void;              // Navigate back to dashboard
+ onBack?: () => void; // Navigate back to dashboard
 }
 
 export const PromptInjectionConcept = ({ onBack
-  const [activeTab, setActiveTab] = useState('theory');
+ const [activeTab, setActiveTab] = useState('theory');
 
-  return (
-    <div className="min-h-screen bg-gray-50 dark:bg-slate-950 transition-colors">
-      {/* Navigation */}
-      {onBack && <button onClick={onBack}>Back to Dashboard</button>}
+ return (
+ <div className="min-h-screen bg-gray-50 dark:bg-slate-950 transition-colors">
+ {/* Navigation */}
+ {onBack && <button onClick={onBack}>Back to Dashboard</button>}
 
-      {/* Tab Navigation */}
-      <div className="tabs">
-        <button onClick={() => setActiveTab('theory')}>Theory</button>
-        <button onClick={() => setActiveTab('lab')}>Lab</button>
-        <button onClick={() => setActiveTab('tools')}>Tools</button>
-        <button onClick={() => setActiveTab('references')}>References</button>
-      </div>
+ {/* Tab Navigation */}
+ <div className="tabs">
+ <button onClick={() => setActiveTab('theory')}>Theory</button>
+ <button onClick={() => setActiveTab('lab')}>Lab</button>
+ <button onClick={() => setActiveTab('tools')}>Tools</button>
+ <button onClick={() => setActiveTab('references')}>References</button>
+ </div>
 
-      {/* Tab Content */}
-      {activeTab === 'theory' && <TheoryTab />}
-      {activeTab === 'lab' && <LabTab />}
-      {activeTab === 'tools' && <ToolsTab />}
-      {activeTab === 'references' && <ReferencesTab />}
+ {/* Tab Content */}
+ {activeTab === 'theory' && <TheoryTab />}
+ {activeTab === 'lab' && <LabTab />}
+ {activeTab === 'tools' && <ToolsTab />}
+ {activeTab === 'references' && <ReferencesTab />}
 
-      {/* Challenge Button */}
-      {
-    </div>
-  );
+ {/* Challenge Button */}
+ {
+ </div>
+ );
 };
 ```
 
 **Tab Content Structure:**
 
 1. **Theory Tab**:
-   - Comprehensive explanation
-   - Attack types/categories
-   - Real-world breaches with details (company, year, impact, $$ cost)
-   - Key takeaways (6-8 bullet points)
+ - Comprehensive explanation
+ - Attack types/categories
+ - Real-world breaches with details (company, year, impact, $$ cost)
+ - Key takeaways (6-8 bullet points)
 
 2. **Lab Tab**:
-   - Hands-on code examples (Python, JavaScript, SQL, Bash)
-   - Vulnerable code demonstrations (clearly marked)
-   - Secure code examples (production-ready)
-   - Step-by-step exploitation tutorials
-   - Link to Jupyter notebook: `/notebooks/[id]-[name].ipynb`
+ - Hands-on code examples (Python, JavaScript, SQL, Bash)
+ - Vulnerable code demonstrations (clearly marked)
+ - Secure code examples (production-ready)
+ - Step-by-step exploitation tutorials
+ - Link to Jupyter notebook: `/notebooks/[id]-[name].ipynb`
 
 3. **Tools Tab**:
-   - Attack tools (4-6 tools with descriptions)
-   - Defense tools (4-6 tools with descriptions)
-   - Implementation examples
-   - Configuration snippets
+ - Attack tools (4-6 tools with descriptions)
+ - Defense tools (4-6 tools with descriptions)
+ - Implementation examples
+ - Configuration snippets
 
 4. **References Tab**:
-   - Official documentation (OWASP, NIST, CWE)
-   - Academic research papers with citations [1][2][3]
-   - Real-world case studies
-   - Practice platforms
-   - Legal/ethical disclaimers
+ - Official documentation (OWASP, NIST, CWE)
+ - Academic research papers with citations [1][2][3]
+ - Real-world case studies
+ - Practice platforms
+ - Legal/ethical disclaimers
 
 ### Data Layer (src/data/concepts.tsx)
 
 **Concept Definition:**
 ```typescript
 {
-  id: 1,
-  category: 'AI/ML Security' | 'Traditional Hacking',
-  title: string,
-  icon: ReactNode,              // Lucide icon component
-  difficulty: 'Beginner' | 'Intermediate' | 'Advanced',
-  points: 100 | 150 | 200,
-  description: string,           // 2-3 sentences
-  realWorldExample: string,      // Detailed breach example
-  keyTakeaways: string[],        // 4-8 bullet points
-  challenge: {
-    question: string,
-    options: string[],           // ['A) ...', 'B) ...', 'C) ...', 'D) ...']
-    correct: 'A' | 'B' | 'C' | 'D',
-    explanation: string
-  },
-  defenses: string[],            // 4-8 defense strategies
-  detailedComponent?: (props: ConceptProps) => ReactNode  // For flagship concepts
+ id: 1,
+ category: 'AI/ML Security' | 'Traditional Hacking',
+ title: string,
+ icon: ReactNode, // Lucide icon component
+ difficulty: 'Beginner' | 'Intermediate' | 'Advanced',
+ points: 100 | 150 | 200,
+ description: string, // 2-3 sentences
+ realWorldExample: string, // Detailed breach example
+ keyTakeaways: string[], // 4-8 bullet points
+ challenge: {
+ question: string,
+ options: string[], // ['A) ...', 'B) ...', 'C) ...', 'D) ...']
+ correct: 'A' | 'B' | 'C' | 'D',
+ explanation: string
+ },
+ defenses: string[], // 4-8 defense strategies
+ detailedComponent?: (props: ConceptProps) => ReactNode // For flagship concepts
 }
 ```
 
@@ -371,24 +371,24 @@ export const PromptInjectionConcept = ({ onBack
 ```tsx
 // Always mark vulnerable code clearly
 <div className="bg-red-500/20 border border-red-500/50 rounded-lg p-4">
-  <p className="text-sm font-semibold text-red-300 mb-2">
-     VULNERABLE CODE - Educational Only
-  </p>
-  <CodeBlock
-    language="php"
-    code={vulnerableCode}
-  />
+ <p className="text-sm font-semibold text-red-300 mb-2">
+ VULNERABLE CODE - Educational Only
+ </p>
+ <CodeBlock
+ language="php"
+ code={vulnerableCode}
+ />
 </div>
 
 // Mark secure code as production-ready
 <div className="bg-green-500/20 border border-green-500/50 rounded-lg p-4">
-  <p className="text-sm font-semibold text-green-300 mb-2">
-    ✓ SECURE CODE - Production Ready
-  </p>
-  <CodeBlock
-    language="php"
-    code={secureCode}
-  />
+ <p className="text-sm font-semibold text-green-300 mb-2">
+ SECURE CODE - Production Ready
+ </p>
+ <CodeBlock
+ language="php"
+ code={secureCode}
+ />
 </div>
 ```
 
@@ -406,39 +406,39 @@ export const PromptInjectionConcept = ({ onBack
 To enhance one of the 15 basic concepts:
 
 1. **Create Component File:**
-   ```bash
-   # src/components/concepts/DataPoisoningConcept.tsx
-   ```
+ ```bash
+ # src/components/concepts/DataPoisoningConcept.tsx
+ ```
 
 2. **Follow Template Structure:**
-   ```tsx
-   interface DataPoisoningConceptProps {
-     onBack?: () => void;
-   }
+ ```tsx
+ interface DataPoisoningConceptProps {
+ onBack?: () => void;
+ }
 
-   export const DataPoisoningConcept = ({ onBack
-     // Use existing flagship concepts as reference
-     // 4 tabs: Theory, Lab, Tools, References
-   };
-   ```
+ export const DataPoisoningConcept = ({ onBack
+ // Use existing flagship concepts as reference
+ // 4 tabs: Theory, Lab, Tools, References
+ };
+ ```
 
 3. **Update concepts.tsx:**
-   ```tsx
-   import { DataPoisoningConcept } from '../components/concepts/DataPoisoningConcept';
+ ```tsx
+ import { DataPoisoningConcept } from '../components/concepts/DataPoisoningConcept';
 
-   // In concept #3 definition:
-   detailedComponent: (props) => <DataPoisoningConcept {...props} />
-   ```
+ // In concept #3 definition:
+ detailedComponent: (props) => <DataPoisoningConcept {...props} />
+ ```
 
 4. **Create Jupyter Notebook:**
-   ```bash
-   # public/notebooks/03-data-poisoning.ipynb
-   ```
+ ```bash
+ # public/notebooks/03-data-poisoning.ipynb
+ ```
 
 5. **Export from index.ts:**
-   ```tsx
-   export { DataPoisoningConcept } from './DataPoisoningConcept';
-   ```
+ ```tsx
+ export { DataPoisoningConcept } from './DataPoisoningConcept';
+ ```
 
 ## Jupyter Notebook Integration
 
@@ -449,21 +449,21 @@ To enhance one of the 15 basic concepts:
 **Template:**
 ```json
 {
-  "cells": [
-    {
-      "cell_type": "markdown",
-      "source": ["# [Concept Name] - Hands-On Lab\n\n**Part of HackLearn Pro**"]
-    },
-    {
-      "cell_type": "markdown",
-      "source": ["## Setup\n\nInstall required packages:"]
-    },
-    {
-      "cell_type": "code",
-      "source": ["!pip install numpy scikit-learn matplotlib"]
-    },
-    // ... lab exercises
-  ]
+ "cells": [
+ {
+ "cell_type": "markdown",
+ "source": ["# [Concept Name] - Hands-On Lab\n\n**Part of HackLearn Pro**"]
+ },
+ {
+ "cell_type": "markdown",
+ "source": ["## Setup\n\nInstall required packages:"]
+ },
+ {
+ "cell_type": "code",
+ "source": ["!pip install numpy scikit-learn matplotlib"]
+ },
+ // ... lab exercises
+ ]
 }
 ```
 
@@ -471,12 +471,12 @@ To enhance one of the 15 basic concepts:
 
 ```tsx
 <a
-  href="/notebooks/01-prompt-injection.ipynb"
-  className="inline-block px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg"
-  target="_blank"
-  rel="noopener noreferrer"
+ href="/notebooks/01-prompt-injection.ipynb"
+ className="inline-block px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg"
+ target="_blank"
+ rel="noopener noreferrer"
 >
-  Open Interactive Lab Notebook
+ Open Interactive Lab Notebook
 </a>
 ```
 
@@ -497,10 +497,10 @@ https://colab.research.google.com/github/[user]/[repo]/blob/main/notebooks/[file
 
 **Replacing Emojis:**
 ```tsx
-// ❌ BAD
+// [No] BAD
 <span>Completed! </span>
 
-// ✓ GOOD
+// GOOD
 <span>Completed</span>
 <CheckCircle className="w-5 h-5 text-green-400" />
 ```
@@ -518,22 +518,22 @@ https://colab.research.google.com/github/[user]/[repo]/blob/main/notebooks/[file
 
 **Color Palette:**
 - **Light Mode:**
-  - Background: `gray-50` (#F8FAFC)
-  - Cards: `white` (#FFFFFF)
-  - Borders: `gray-200` (#E5E7EB)
-  - Text Primary: `gray-900` (#111827)
-  - Text Secondary: `gray-600` (#4B5563)
+ - Background: `gray-50` (#F8FAFC)
+ - Cards: `white` (#FFFFFF)
+ - Borders: `gray-200` (#E5E7EB)
+ - Text Primary: `gray-900` (#111827)
+ - Text Secondary: `gray-600` (#4B5563)
 - **Dark Mode:**
-  - Background: `black` (slate-950)
-  - Cards: Custom `slate-900` (near-black)
-  - Borders: Custom `slate-800`
-  - Text Primary: `white` (#FFFFFF)
-  - Text Secondary: `gray-400` (#9CA3AF)
+ - Background: `black` (slate-950)
+ - Cards: Custom `slate-900` (near-black)
+ - Borders: Custom `slate-800`
+ - Text Primary: `white` (#FFFFFF)
+ - Text Secondary: `gray-400` (#9CA3AF)
 - **Accent Colors (both modes):**
-  - Primary Accent: `emerald-500` (#10B981)
-  - Success: `green-500` (#22C55E)
-  - Warning: `yellow-500` / `amber-500`
-  - Error: `red-500` (#EF4444)
+ - Primary Accent: `emerald-500` (#10B981)
+ - Success: `green-500` (#22C55E)
+ - Warning: `yellow-500` / `amber-500`
+ - Error: `red-500` (#EF4444)
 
 **Typography:**
 - Body: Inter (weights: 400, 500, 600, 700)
@@ -554,17 +554,17 @@ https://colab.research.google.com/github/[user]/[repo]/blob/main/notebooks/[file
 Edit `src/data/concepts.tsx`:
 ```tsx
 {
-  id: 21,
-  category: 'AI/ML Security',
-  title: 'New Concept',
-  icon: <Shield className="w-8 h-8" />,
-  difficulty: 'Intermediate',
-  points: 150,
-  description: '...',
-  realWorldExample: '...',
-  keyTakeaways: ['...'],
-  challenge: { ... },
-  defenses: ['...']
+ id: 21,
+ category: 'AI/ML Security',
+ title: 'New Concept',
+ icon: <Shield className="w-8 h-8" />,
+ difficulty: 'Intermediate',
+ points: 150,
+ description: '...',
+ realWorldExample: '...',
+ keyTakeaways: ['...'],
+ challenge: { ... },
+ defenses: ['...']
 }
 ```
 
@@ -645,7 +645,7 @@ docker build -t hacklearn-pro .
 **Features:**
 - Gzip compression (reduces bandwidth 77%)
 - Static asset caching (1 year expiry)
-- SPA routing (all routes → index.html)
+- SPA routing (all routes index.html)
 - No-cache headers for HTML (fresh updates)
 
 ## Troubleshooting
@@ -696,52 +696,52 @@ docker logs hacklearn
 ### Immediate (After POC)
 
 1. **GitHub Integration:**
-   - Push notebooks to GitHub repo
-   - Update Colab links to use GitHub URLs
-   - Set up GitHub Actions CI/CD
+ - Push notebooks to GitHub repo
+ - Update Colab links to use GitHub URLs
+ - Set up GitHub Actions CI/CD
 
 2. **Enhanced Concepts:**
-   - Apply flagship format to remaining 15 concepts
-   - Can be done in waves of 5
+ - Apply flagship format to remaining 15 concepts
+ - Can be done in waves of 5
 
 3. **Testing:**
-   - Add Jest + React Testing Library
-   - E2E tests with Playwright
-   - Accessibility testing
+ - Add Jest + React Testing Library
+ - E2E tests with Playwright
+ - Accessibility testing
 
 ### Medium-Term
 
 1. **Backend API:**
-   - Challenge validation
-   - User authentication
-   - Progress sync across devices
+ - Challenge validation
+ - User authentication
+ - Progress sync across devices
 
 2. **Analytics:**
-   - Track concept completion rates
-   - Identify difficult challenges
-   - User engagement metrics
+ - Track concept completion rates
+ - Identify difficult challenges
+ - User engagement metrics
 
 3. **Content Expansion:**
-   - Video tutorials
-   - Interactive sandboxes
-   - Capture the Flag (CTF) challenges
+ - Video tutorials
+ - Interactive sandboxes
+ - Capture the Flag (CTF) challenges
 
 ### Long-Term
 
 1. **Certifications:**
-   - Issue completion certificates
-   - LinkedIn badges
-   - Skill verification
+ - Issue completion certificates
+ - LinkedIn badges
+ - Skill verification
 
 2. **Community:**
-   - Discussion forums
-   - User-contributed content
-   - Leaderboards
+ - Discussion forums
+ - User-contributed content
+ - Leaderboards
 
 3. **Mobile App:**
-   - React Native version
-   - Offline support
-   - Push notifications
+ - React Native version
+ - Offline support
+ - Push notifications
 
 ## Reference Documentation
 
@@ -855,28 +855,28 @@ Co-Authored-By: Claude <noreply@anthropic.com>
 **Structure:**
 ```
 docs/content-source/
- ai-ml-security/              # 10 files (concepts #1-10)
-    01-prompt-injection.md
-    02-adversarial-ml.md
-    03-data-poisoning.md
-    04-model-extraction.md
-    05-jailbreaking.md
-    06-rag-security.md
-    07-multi-agent-attacks.md
-    08-link-traps.md
-    09-unicode-injection.md
-    10-ai-command-injection.md
- traditional-hacking/         # 10 files (concepts #11-20)
-    11-reconnaissance.md
-    12-sql-injection.md
-    13-xss.md
-    14-social-engineering.md
-    15-network-scanning.md
-    16-password-cracking.md
-    17-mitm-attacks.md
-    18-dos-attacks.md
-    19-web-vulnerabilities.md
-    20-penetration-testing.md
+ ai-ml-security/ # 10 files (concepts #1-10)
+ 01-prompt-injection.md
+ 02-adversarial-ml.md
+ 03-data-poisoning.md
+ 04-model-extraction.md
+ 05-jailbreaking.md
+ 06-rag-security.md
+ 07-multi-agent-attacks.md
+ 08-link-traps.md
+ 09-unicode-injection.md
+ 10-ai-command-injection.md
+ traditional-hacking/ # 10 files (concepts #11-20)
+ 11-reconnaissance.md
+ 12-sql-injection.md
+ 13-xss.md
+ 14-social-engineering.md
+ 15-network-scanning.md
+ 16-password-cracking.md
+ 17-mitm-attacks.md
+ 18-dos-attacks.md
+ 19-web-vulnerabilities.md
+ 20-penetration-testing.md
  README.md
 ```
 
@@ -930,9 +930,9 @@ Develop concepts in batches of 3-5 modules for efficiency:
 
 **5. Testing (15 min)**
 ```bash
-npm run dev    # Test in browser (all tabs, navigation, links)
-npm run build  # Verify production build succeeds
-npm run lint   # Fix any ESLint errors
+npm run dev # Test in browser (all tabs, navigation, links)
+npm run build # Verify production build succeeds
+npm run lint # Fix any ESLint errors
 ```
 
 **6. Documentation & Commit (10 min)**
@@ -994,14 +994,14 @@ npm run lint   # Fix any ESLint errors
 **Before writing ANY code:**
 
 1. **Check existing components:** `/src/components/ui/`
-   - CodeBlock, DifficultyBadge, ProgressBar, StatsCard, AchievementCard
+ - CodeBlock, DifficultyBadge, ProgressBar, StatsCard, AchievementCard
 
 2. **Review existing concepts:** Patterns in PromptInjectionConcept, AdversarialMLConcept, SQLInjectionConcept, XSSConcept, PenetrationTestingConcept
 
 3. **Ask three questions:**
-   - Does this functionality already exist?
-   - Can I reuse an existing pattern?
-   - Should this be extracted as a shared component?
+ - Does this functionality already exist?
+ - Can I reuse an existing pattern?
+ - Should this be extracted as a shared component?
 
 ### Pattern Reuse Examples
 
@@ -1011,15 +1011,15 @@ npm run lint   # Fix any ESLint errors
 const [activeTab, setActiveTab] = useState('theory');
 
 <div className="flex space-x-4 border-b border-slate-700">
-  {['theory', 'lab', 'tools', 'references'].map(tab => (
-    <button
-      key={tab}
-      onClick={() => setActiveTab(tab)}
-      className={activeTab === tab ? 'border-b-2 border-cyan-400 text-cyan-400' : 'text-slate-400'}
-    >
-      {tab.charAt(0).toUpperCase() + tab.slice(1)}
-    </button>
-  ))}
+ {['theory', 'lab', 'tools', 'references'].map(tab => (
+ <button
+ key={tab}
+ onClick={() => setActiveTab(tab)}
+ className={activeTab === tab ? 'border-b-2 border-cyan-400 text-cyan-400' : 'text-slate-400'}
+ >
+ {tab.charAt(0).toUpperCase() + tab.slice(1)}
+ </button>
+ ))}
 </div>
 ```
 
@@ -1027,27 +1027,27 @@ const [activeTab, setActiveTab] = useState('theory');
 ```typescript
 // Use consistent structure from SQLInjectionConcept.tsx
 <div className="bg-slate-800/50 rounded-lg p-6">
-  <h3 className="text-xl font-semibold text-cyan-400 mb-2">Company Name (Year)</h3>
-  <p className="text-slate-300 mb-2"><strong className="text-cyan-400">Attack Vector:</strong> ...</p>
-  <p className="text-slate-300 mb-2"><strong className="text-cyan-400">Impact:</strong> ... users affected</p>
-  <p className="text-slate-300 mb-2"><strong className="text-cyan-400">Financial Cost:</strong> $...</p>
-  <p className="text-slate-300"><strong className="text-cyan-400">Outcome:</strong> ...</p>
+ <h3 className="text-xl font-semibold text-cyan-400 mb-2">Company Name (Year)</h3>
+ <p className="text-slate-300 mb-2"><strong className="text-cyan-400">Attack Vector:</strong> ...</p>
+ <p className="text-slate-300 mb-2"><strong className="text-cyan-400">Impact:</strong> ... users affected</p>
+ <p className="text-slate-300 mb-2"><strong className="text-cyan-400">Financial Cost:</strong> $...</p>
+ <p className="text-slate-300"><strong className="text-cyan-400">Outcome:</strong> ...</p>
 </div>
 ```
 
 ### Anti-Patterns (DO NOT DO)
 
-❌ Copying entire components without checking for updates
-❌ Creating concept-specific versions of UI components (buttons, badges, cards)
-❌ Hardcoding gradient/color values (use Tailwind classes consistently)
-❌ Duplicate state management logic
-❌ Inconsistent styling across concepts
+[No] Copying entire components without checking for updates
+[No] Creating concept-specific versions of UI components (buttons, badges, cards)
+[No] Hardcoding gradient/color values (use Tailwind classes consistently)
+[No] Duplicate state management logic
+[No] Inconsistent styling across concepts
 
 ### When to Create New Components
 
-✅ When functionality is truly unique to one concept
-✅ When existing component can't handle the new use case
-✅ When pattern will be reused 2+ times
+When functionality is truly unique to one concept
+When existing component can't handle the new use case
+When pattern will be reused 2+ times
 
 ---
 
@@ -1061,12 +1061,12 @@ const [activeTab, setActiveTab] = useState('theory');
 
 | Code Change | README.md | CLAUDE.md | DEVELOPMENT.md |
 |-------------|-----------|-----------|----------------|
-| New concept | ✅ Status + features | ✅ Architecture | ✅ Dashboard |
+| New concept | Status + features | Architecture | Dashboard |
 | Content update | Maybe | No | No |
-| New pattern | No | ✅ Pattern library | Maybe |
+| New pattern | No | Pattern library | Maybe |
 | Bug fix | No | Maybe (if architectural) | No |
-| Workflow change | No | ✅ Process update | ✅ Workflow section |
-| New component | Maybe (if user-facing) | ✅ Component docs | No |
+| Workflow change | No | Process update | Workflow section |
+| New component | Maybe (if user-facing) | Component docs | No |
 
 ### Commit Checklist
 
@@ -1085,23 +1085,23 @@ Before running `git commit`:
 ### Flagship Concepts: 14/20 Complete (70%)
 
 **AI/ML Security (10/10 complete!):**
-- ✅ #1 Prompt Injection Attacks - Complete
-- ✅ #2 Adversarial Machine Learning - Complete
-- ✅ #3 Data Poisoning - Complete
-- ✅ #4 Model Extraction - Complete
-- ✅ #5 Jailbreaking & Safety Bypassing - Complete
-- ✅ #6 RAG Security Vulnerabilities - Complete
-- ✅ #7 Multi-Agent System Attacks - Complete
-- ✅ #8 Link Traps & Malicious URLs - Complete
-- ✅ #9 Invisible Unicode Injection - Complete (NEW)
-- ✅ #10 AI Agent Command Injection - Complete (NEW)
+- #1 Prompt Injection Attacks - Complete
+- #2 Adversarial Machine Learning - Complete
+- #3 Data Poisoning - Complete
+- #4 Model Extraction - Complete
+- #5 Jailbreaking & Safety Bypassing - Complete
+- #6 RAG Security Vulnerabilities - Complete
+- #7 Multi-Agent System Attacks - Complete
+- #8 Link Traps & Malicious URLs - Complete
+- #9 Invisible Unicode Injection - Complete (NEW)
+- #10 AI Agent Command Injection - Complete (NEW)
 
 **Traditional Hacking (4/10):**
-- ✅ #11 Reconnaissance & Footprinting - Complete (NEW)
-- ✅ #12 SQL Injection - Complete
-- ✅ #13 Cross-Site Scripting (XSS) - Complete
-- ⏳ #14-19 Additional concepts
-- ✅ #20 Penetration Testing - Complete
+- #11 Reconnaissance & Footprinting - Complete (NEW)
+- #12 SQL Injection - Complete
+- #13 Cross-Site Scripting (XSS) - Complete
+- [In Progress] #14-19 Additional concepts
+- #20 Penetration Testing - Complete
 ```
 
 **CLAUDE.md (New Pattern):**
@@ -1113,18 +1113,18 @@ Before running `git commit`:
 Use for all lab code examples:
 ```typescript
 <div className="bg-slate-800/50 rounded-lg p-6">
-  <div className="bg-red-500/20 border border-red-500/50 rounded-lg p-4 mb-4">
-    <p className="text-sm font-semibold text-red-300 mb-2">
-      Warning: VULNERABLE CODE - Educational Only
-    </p>
-    <CodeBlock language="python" code={vulnerableCode} />
-  </div>
-  <div className="bg-green-500/20 border border-green-500/50 rounded-lg p-4">
-    <p className="text-sm font-semibold text-green-300 mb-2">
-      Production Ready: SECURE CODE
-    </p>
-    <CodeBlock language="python" code={secureCode} />
-  </div>
+ <div className="bg-red-500/20 border border-red-500/50 rounded-lg p-4 mb-4">
+ <p className="text-sm font-semibold text-red-300 mb-2">
+ Warning: VULNERABLE CODE - Educational Only
+ </p>
+ <CodeBlock language="python" code={vulnerableCode} />
+ </div>
+ <div className="bg-green-500/20 border border-green-500/50 rounded-lg p-4">
+ <p className="text-sm font-semibold text-green-300 mb-2">
+ Production Ready: SECURE CODE
+ </p>
+ <CodeBlock language="python" code={secureCode} />
+ </div>
 </div>
 ```
 ```
@@ -1136,23 +1136,23 @@ Use for all lab code examples:
 ### Flagship Concepts: 14/20 Complete (70%)
 
 **AI/ML Security (10/10 complete!):**
-- ✅ #1 Prompt Injection Attacks (825 lines, notebook complete)
-- ✅ #2 Adversarial Machine Learning (1,208 lines, notebook complete)
-- ✅ #3 Data Poisoning (1,100 lines, notebook complete)
-- ✅ #4 Model Extraction (1,000 lines, notebook complete)
-- ✅ #5 Jailbreaking & Safety Bypassing (1,050 lines, notebook complete)
-- ✅ #6 RAG Security Vulnerabilities (1,150 lines, notebook complete)
-- ✅ #7 Multi-Agent System Attacks (1,200 lines, notebook complete)
-- ✅ #8 Link Traps & Malicious URLs (1,180 lines, notebook complete)
-- ✅ #9 Invisible Unicode Injection (1,200 lines, notebook complete) [NEW]
-- ✅ #10 AI Agent Command Injection (1,400 lines, notebook complete) [NEW]
+- #1 Prompt Injection Attacks (825 lines, notebook complete)
+- #2 Adversarial Machine Learning (1,208 lines, notebook complete)
+- #3 Data Poisoning (1,100 lines, notebook complete)
+- #4 Model Extraction (1,000 lines, notebook complete)
+- #5 Jailbreaking & Safety Bypassing (1,050 lines, notebook complete)
+- #6 RAG Security Vulnerabilities (1,150 lines, notebook complete)
+- #7 Multi-Agent System Attacks (1,200 lines, notebook complete)
+- #8 Link Traps & Malicious URLs (1,180 lines, notebook complete)
+- #9 Invisible Unicode Injection (1,200 lines, notebook complete) [NEW]
+- #10 AI Agent Command Injection (1,400 lines, notebook complete) [NEW]
 
 **Traditional Hacking (4/10 complete):**
-- ✅ #11 Reconnaissance & Footprinting (1,650 lines, notebook complete) [NEW]
-- ✅ #12 SQL Injection (1,105 lines, notebook complete)
-- ✅ #13 Cross-Site Scripting (XSS) (1,194 lines, notebook complete)
-- ⏳ #14-19 Additional concepts
-- ✅ #20 Penetration Testing Methodology (1,741 lines, notebook complete)
+- #11 Reconnaissance & Footprinting (1,650 lines, notebook complete) [NEW]
+- #12 SQL Injection (1,105 lines, notebook complete)
+- #13 Cross-Site Scripting (XSS) (1,194 lines, notebook complete)
+- [In Progress] #14-19 Additional concepts
+- #20 Penetration Testing Methodology (1,741 lines, notebook complete)
 ```
 
 ---
@@ -1160,22 +1160,7 @@ Use for all lab code examples:
 ## Project Completion Strategy
 
 ### Current Status: 14/20 (70% Complete)
-- #1 Prompt Injection ✅
-- #2 Adversarial ML ✅
-- #3 Data Poisoning ✅
-- #4 Model Extraction ✅
-- #5 Jailbreaking & Safety Bypassing ✅
-- #6 RAG Security Vulnerabilities ✅
-- #7 Multi-Agent System Attacks ✅
-- #8 Link Traps & Malicious URLs ✅
-- #9 Invisible Unicode Injection ✅
-- #10 AI Agent Command Injection ✅
-- #11 Reconnaissance & Footprinting ✅
-- #12 SQL Injection ✅
-- #13 XSS ✅
-- #20 Penetration Testing ✅
-
-### Target: 20/20 (100% Complete)
+- #1 Prompt Injection - #2 Adversarial ML - #3 Data Poisoning - #4 Model Extraction - #5 Jailbreaking & Safety Bypassing - #6 RAG Security Vulnerabilities - #7 Multi-Agent System Attacks - #8 Link Traps & Malicious URLs - #9 Invisible Unicode Injection - #10 AI Agent Command Injection - #11 Reconnaissance & Footprinting - #12 SQL Injection - #13 XSS - #20 Penetration Testing ### Target: 20/20 (100% Complete)
 - 6 concepts remaining (#14-19)
 - 2 batches of 3 modules each
 - ~3.5 hours per module
@@ -1183,11 +1168,11 @@ Use for all lab code examples:
 
 ### Batch Timeline (Realistic Pace)
 
-**Week 1-2:** Batch 1 (Concepts #3, #4, #5) → 40% complete ✅ COMPLETED
-**Week 3-4:** Batch 2 (Concepts #6, #7, #8) → 55% complete ✅ COMPLETED
-**Week 5-6:** Batch 3 (Concepts #9, #10, #11) → 70% complete ✅ COMPLETED
-**Week 7-8:** Batch 4 (Concepts #14, #15, #16) → 85% complete
-**Week 9-10:** Batch 5 (Concepts #17, #18, #19) → 100% complete
+**Week 1-2:** Batch 1 (Concepts #3, #4, #5) 40% complete COMPLETED
+**Week 3-4:** Batch 2 (Concepts #6, #7, #8) 55% complete COMPLETED
+**Week 5-6:** Batch 3 (Concepts #9, #10, #11) 70% complete COMPLETED
+**Week 7-8:** Batch 4 (Concepts #14, #15, #16) 85% complete
+**Week 9-10:** Batch 5 (Concepts #17, #18, #19) 100% complete
 
 **Comfortable pace:** ~5 hours/week development
 **Calendar time:** ~6 weeks to completion (from current status)
@@ -1197,25 +1182,25 @@ Use for all lab code examples:
 ## Success Metrics
 
 ### Code Quality
-- ✅ Zero ESLint warnings
-- ✅ TypeScript strict mode passing
-- ✅ All components tested locally
-- ✅ No duplicate code patterns
-- ✅ Consistent styling throughout
+- Zero ESLint warnings
+- TypeScript strict mode passing
+- All components tested locally
+- No duplicate code patterns
+- Consistent styling throughout
 
 ### Documentation Quality
-- ✅ README.md always reflects current status
-- ✅ CLAUDE.md reflects actual architecture
-- ✅ DEVELOPMENT.md status dashboard accurate
-- ✅ All commits properly formatted
-- ✅ GitHub repository clean and organized
+- README.md always reflects current status
+- CLAUDE.md reflects actual architecture
+- DEVELOPMENT.md status dashboard accurate
+- All commits properly formatted
+- GitHub repository clean and organized
 
 ### Development Efficiency
-- ✅ Module development: 3-4 hours each
-- ✅ Batch completion: 3-5 concepts per cycle
-- ✅ Zero redundant components
-- ✅ Reused patterns across concepts
-- ✅ Smooth workflow without blockers
+- Module development: 3-4 hours each
+- Batch completion: 3-5 concepts per cycle
+- Zero redundant components
+- Reused patterns across concepts
+- Smooth workflow without blockers
 
 ---
 
