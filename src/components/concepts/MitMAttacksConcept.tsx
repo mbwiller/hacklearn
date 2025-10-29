@@ -3,14 +3,13 @@ import { AlertTriangle, ArrowLeft, BookOpen, Code, Shield, Database, Lock, Wifi,
 
 interface MitMAttacksConceptProps {
   onBack?: () => void;
-  onStartChallenge?: () => void;
 }
 
-export const MitMAttacksConcept = ({ onBack, onStartChallenge }: MitMAttacksConceptProps = {}) => {
+export const MitMAttacksConcept = ({ onBack }: MitMAttacksConceptProps = {}) => {
   const [activeTab, setActiveTab] = useState('theory');
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-black transition-colors">
+    <div className="min-h-screen bg-gray-50 dark:bg-slate-950 transition-colors">
       {/* Header */}
       <div className="bg-gradient-to-r from-red-500 to-orange-600 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -54,7 +53,7 @@ export const MitMAttacksConcept = ({ onBack, onStartChallenge }: MitMAttacksConc
       </div>
 
       {/* Tab Navigation */}
-      <div className="bg-white dark:bg-[#0A0A0A] border-b border-gray-200 dark:border-[#1F1F1F] sticky top-0 z-40 transition-colors">
+      <div className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-slate-800 sticky top-0 z-40 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex space-x-8">
             {[
@@ -89,7 +88,7 @@ export const MitMAttacksConcept = ({ onBack, onStartChallenge }: MitMAttacksConc
               <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
                 Understanding Man-in-the-Middle Attacks
               </h2>
-              <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-8 border border-gray-200 dark:border-[#1F1F1F] transition-colors">
+              <div className="bg-white dark:bg-slate-900 rounded-xl p-8 border border-gray-200 dark:border-slate-800 transition-colors">
                 <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
                   Man-in-the-Middle (MitM) attacks occur when an attacker secretly intercepts and potentially alters
                   communications between two parties who believe they are directly communicating with each other. The
@@ -138,7 +137,7 @@ export const MitMAttacksConcept = ({ onBack, onStartChallenge }: MitMAttacksConc
               </h2>
               <div className="space-y-6">
                 {/* Breach 1: Lenovo Superfish */}
-                <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-8 border border-gray-200 dark:border-[#1F1F1F] transition-colors">
+                <div className="bg-white dark:bg-slate-900 rounded-xl p-8 border border-gray-200 dark:border-slate-800 transition-colors">
                   <div className="flex items-start justify-between mb-4">
                     <div>
                       <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
@@ -189,7 +188,7 @@ export const MitMAttacksConcept = ({ onBack, onStartChallenge }: MitMAttacksConc
                 </div>
 
                 {/* Breach 2: DigiNotar */}
-                <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-8 border border-gray-200 dark:border-[#1F1F1F] transition-colors">
+                <div className="bg-white dark:bg-slate-900 rounded-xl p-8 border border-gray-200 dark:border-slate-800 transition-colors">
                   <div className="flex items-start justify-between mb-4">
                     <div>
                       <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
@@ -239,7 +238,7 @@ export const MitMAttacksConcept = ({ onBack, onStartChallenge }: MitMAttacksConc
                 </div>
 
                 {/* Breach 3: BGP Hijacking */}
-                <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-8 border border-gray-200 dark:border-[#1F1F1F] transition-colors">
+                <div className="bg-white dark:bg-slate-900 rounded-xl p-8 border border-gray-200 dark:border-slate-800 transition-colors">
                   <div className="flex items-start justify-between mb-4">
                     <div>
                       <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
@@ -290,7 +289,7 @@ export const MitMAttacksConcept = ({ onBack, onStartChallenge }: MitMAttacksConc
                 </div>
 
                 {/* Breach 4: Kazakhstan Certificate */}
-                <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-8 border border-gray-200 dark:border-[#1F1F1F] transition-colors">
+                <div className="bg-white dark:bg-slate-900 rounded-xl p-8 border border-gray-200 dark:border-slate-800 transition-colors">
                   <div className="flex items-start justify-between mb-4">
                     <div>
                       <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
@@ -347,7 +346,7 @@ export const MitMAttacksConcept = ({ onBack, onStartChallenge }: MitMAttacksConc
                 MitM Attack Techniques
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-6 border border-gray-200 dark:border-[#1F1F1F] transition-colors">
+                <div className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-gray-200 dark:border-slate-800 transition-colors">
                   <div className="flex items-center mb-4">
                     <Network className="w-6 h-6 text-red-600 dark:text-red-400 mr-3" />
                     <h3 className="text-xl font-bold text-gray-900 dark:text-white">ARP Spoofing</h3>
@@ -357,7 +356,7 @@ export const MitMAttacksConcept = ({ onBack, onStartChallenge }: MitMAttacksConc
                     associating their MAC address with victim's gateway IP. All victim traffic flows through attacker
                     machine before forwarding to legitimate gateway.
                   </p>
-                  <div className="bg-gray-50 dark:bg-black/50 rounded-lg p-4 border border-gray-200 dark:border-[#1F1F1F]">
+                  <div className="bg-gray-50 dark:bg-slate-950/50 rounded-lg p-4 border border-gray-200 dark:border-slate-800">
                     <p className="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-2">MITRE ATT&CK: T1557.002</p>
                     <p className="text-sm text-gray-600 dark:text-gray-400">
                       Detection: Dynamic ARP Inspection (DAI), monitoring ARP tables for duplicates
@@ -365,7 +364,7 @@ export const MitMAttacksConcept = ({ onBack, onStartChallenge }: MitMAttacksConc
                   </div>
                 </div>
 
-                <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-6 border border-gray-200 dark:border-[#1F1F1F] transition-colors">
+                <div className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-gray-200 dark:border-slate-800 transition-colors">
                   <div className="flex items-center mb-4">
                     <Globe className="w-6 h-6 text-orange-600 dark:text-orange-400 mr-3" />
                     <h3 className="text-xl font-bold text-gray-900 dark:text-white">DNS Spoofing</h3>
@@ -375,7 +374,7 @@ export const MitMAttacksConcept = ({ onBack, onStartChallenge }: MitMAttacksConc
                     spoofing + DNS response injection, ISP-level rogue DNS servers, or BGP hijacking to redirect DNS
                     traffic to attacker nameservers.
                   </p>
-                  <div className="bg-gray-50 dark:bg-black/50 rounded-lg p-4 border border-gray-200 dark:border-[#1F1F1F]">
+                  <div className="bg-gray-50 dark:bg-slate-950/50 rounded-lg p-4 border border-gray-200 dark:border-slate-800">
                     <p className="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-2">CVE-2008-1447 (Kaminsky)</p>
                     <p className="text-sm text-gray-600 dark:text-gray-400">
                       Defense: DNSSEC, DNS over HTTPS (DoH), DNS over TLS (DoT)
@@ -383,7 +382,7 @@ export const MitMAttacksConcept = ({ onBack, onStartChallenge }: MitMAttacksConc
                   </div>
                 </div>
 
-                <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-6 border border-gray-200 dark:border-[#1F1F1F] transition-colors">
+                <div className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-gray-200 dark:border-slate-800 transition-colors">
                   <div className="flex items-center mb-4">
                     <Lock className="w-6 h-6 text-yellow-600 dark:text-yellow-400 mr-3" />
                     <h3 className="text-xl font-bold text-gray-900 dark:text-white">SSL/TLS Stripping</h3>
@@ -393,7 +392,7 @@ export const MitMAttacksConcept = ({ onBack, onStartChallenge }: MitMAttacksConc
                     Downgrade attacks (POODLE, FREAK, Logjam) force TLS version or cipher suite downgrades to
                     exploitable configurations.
                   </p>
-                  <div className="bg-gray-50 dark:bg-black/50 rounded-lg p-4 border border-gray-200 dark:border-[#1F1F1F]">
+                  <div className="bg-gray-50 dark:bg-slate-950/50 rounded-lg p-4 border border-gray-200 dark:border-slate-800">
                     <p className="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-2">CVE-2014-3566 (POODLE)</p>
                     <p className="text-sm text-gray-600 dark:text-gray-400">
                       Defense: HSTS (HTTP Strict Transport Security), HSTS preload lists, TLS 1.3
@@ -401,7 +400,7 @@ export const MitMAttacksConcept = ({ onBack, onStartChallenge }: MitMAttacksConc
                   </div>
                 </div>
 
-                <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-6 border border-gray-200 dark:border-[#1F1F1F] transition-colors">
+                <div className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-gray-200 dark:border-slate-800 transition-colors">
                   <div className="flex items-center mb-4">
                     <Wifi className="w-6 h-6 text-blue-600 dark:text-blue-400 mr-3" />
                     <h3 className="text-xl font-bold text-gray-900 dark:text-white">Evil Twin Access Points</h3>
@@ -411,7 +410,7 @@ export const MitMAttacksConcept = ({ onBack, onStartChallenge }: MitMAttacksConc
                     clients to auto-connect. All traffic routed through attacker infrastructure enabling interception,
                     credential harvesting, malware injection.
                   </p>
-                  <div className="bg-gray-50 dark:bg-black/50 rounded-lg p-4 border border-gray-200 dark:border-[#1F1F1F]">
+                  <div className="bg-gray-50 dark:bg-slate-950/50 rounded-lg p-4 border border-gray-200 dark:border-slate-800">
                     <p className="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-2">Attack Surface</p>
                     <p className="text-sm text-gray-600 dark:text-gray-400">
                       Defense: WPA3-Enterprise with certificate validation, mandatory VPN policies
@@ -419,7 +418,7 @@ export const MitMAttacksConcept = ({ onBack, onStartChallenge }: MitMAttacksConc
                   </div>
                 </div>
 
-                <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-6 border border-gray-200 dark:border-[#1F1F1F] transition-colors">
+                <div className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-gray-200 dark:border-slate-800 transition-colors">
                   <div className="flex items-center mb-4">
                     <Server className="w-6 h-6 text-purple-600 dark:text-purple-400 mr-3" />
                     <h3 className="text-xl font-bold text-gray-900 dark:text-white">Session Hijacking</h3>
@@ -429,7 +428,7 @@ export const MitMAttacksConcept = ({ onBack, onStartChallenge }: MitMAttacksConc
                     Replay stolen session to impersonate victim. Particularly effective against HTTP-only sessions or
                     sessions with long timeouts.
                   </p>
-                  <div className="bg-gray-50 dark:bg-black/50 rounded-lg p-4 border border-gray-200 dark:border-[#1F1F1F]">
+                  <div className="bg-gray-50 dark:bg-slate-950/50 rounded-lg p-4 border border-gray-200 dark:border-slate-800">
                     <p className="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-2">MITRE ATT&CK: T1539</p>
                     <p className="text-sm text-gray-600 dark:text-gray-400">
                       Defense: HttpOnly cookies, Secure flag, SameSite attribute, token rotation
@@ -437,7 +436,7 @@ export const MitMAttacksConcept = ({ onBack, onStartChallenge }: MitMAttacksConc
                   </div>
                 </div>
 
-                <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-6 border border-gray-200 dark:border-[#1F1F1F] transition-colors">
+                <div className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-gray-200 dark:border-slate-800 transition-colors">
                   <div className="flex items-center mb-4">
                     <Globe className="w-6 h-6 text-green-600 dark:text-green-400 mr-3" />
                     <h3 className="text-xl font-bold text-gray-900 dark:text-white">BGP Hijacking</h3>
@@ -447,7 +446,7 @@ export const MitMAttacksConcept = ({ onBack, onStartChallenge }: MitMAttacksConc
                     specific routes, redirecting traffic to attacker AS (Autonomous System). Can intercept, modify,
                     and forward to legitimate destination.
                   </p>
-                  <div className="bg-gray-50 dark:bg-black/50 rounded-lg p-4 border border-gray-200 dark:border-[#1F1F1F]">
+                  <div className="bg-gray-50 dark:bg-slate-950/50 rounded-lg p-4 border border-gray-200 dark:border-slate-800">
                     <p className="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-2">Notable: YouTube (2008)</p>
                     <p className="text-sm text-gray-600 dark:text-gray-400">
                       Defense: RPKI (Resource Public Key Infrastructure), BGP monitoring, ROV
@@ -501,7 +500,7 @@ export const MitMAttacksConcept = ({ onBack, onStartChallenge }: MitMAttacksConc
             </div>
 
             {/* Lab 1: TLS Certificate Validation */}
-            <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-8 border border-gray-200 dark:border-[#1F1F1F] transition-colors">
+            <div className="bg-white dark:bg-slate-900 rounded-xl p-8 border border-gray-200 dark:border-slate-800 transition-colors">
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 flex items-center">
                 <Lock className="w-6 h-6 text-emerald-600 dark:text-emerald-400 mr-3" />
                 Lab 1: TLS Certificate Validation & Detection
@@ -516,7 +515,7 @@ export const MitMAttacksConcept = ({ onBack, onStartChallenge }: MitMAttacksConc
                   <p className="text-sm font-semibold text-green-700 dark:text-green-300 mb-2">
                     SECURE CODE - Production Ready Certificate Validation
                   </p>
-                  <div className="bg-gray-900 dark:bg-black rounded-lg p-4 overflow-x-auto">
+                  <div className="bg-gray-900 dark:bg-slate-950 rounded-lg p-4 overflow-x-auto">
                     <pre className="text-sm text-gray-100"><code>{`import ssl
 import socket
 import certifi
@@ -576,7 +575,7 @@ for site in sites:
                   <p className="text-sm font-semibold text-blue-700 dark:text-blue-300 mb-2">
                     Advanced: Certificate Pinning Implementation
                   </p>
-                  <div className="bg-gray-900 dark:bg-black rounded-lg p-4 overflow-x-auto">
+                  <div className="bg-gray-900 dark:bg-slate-950 rounded-lg p-4 overflow-x-auto">
                     <pre className="text-sm text-gray-100"><code>{`import hashlib
 
 def get_certificate_fingerprint(hostname, port=443):
@@ -617,7 +616,7 @@ validate_pinned_certificate('google.com', google_fingerprint)`}</code></pre>
             </div>
 
             {/* Lab 2: ARP Spoofing Detection */}
-            <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-8 border border-gray-200 dark:border-[#1F1F1F] transition-colors">
+            <div className="bg-white dark:bg-slate-900 rounded-xl p-8 border border-gray-200 dark:border-slate-800 transition-colors">
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 flex items-center">
                 <Network className="w-6 h-6 text-emerald-600 dark:text-emerald-400 mr-3" />
                 Lab 2: ARP Spoofing Detection
@@ -631,7 +630,7 @@ validate_pinned_certificate('google.com', google_fingerprint)`}</code></pre>
                 <p className="text-sm font-semibold text-green-700 dark:text-green-300 mb-2">
                   DETECTION CODE - ARP Spoofing Monitor
                 </p>
-                <div className="bg-gray-900 dark:bg-black rounded-lg p-4 overflow-x-auto">
+                <div className="bg-gray-900 dark:bg-slate-950 rounded-lg p-4 overflow-x-auto">
                   <pre className="text-sm text-gray-100"><code>{`from scapy.all import *
 from collections import defaultdict
 import time
@@ -677,7 +676,7 @@ except KeyboardInterrupt:
             </div>
 
             {/* Lab 3: SSL Strip Detection */}
-            <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-8 border border-gray-200 dark:border-[#1F1F1F] transition-colors">
+            <div className="bg-white dark:bg-slate-900 rounded-xl p-8 border border-gray-200 dark:border-slate-800 transition-colors">
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 flex items-center">
                 <Lock className="w-6 h-6 text-emerald-600 dark:text-emerald-400 mr-3" />
                 Lab 3: SSL Stripping Detection
@@ -691,7 +690,7 @@ except KeyboardInterrupt:
                 <p className="text-sm font-semibold text-green-700 dark:text-green-300 mb-2">
                   DETECTION CODE - SSL Strip Monitor
                 </p>
-                <div className="bg-gray-900 dark:bg-black rounded-lg p-4 overflow-x-auto">
+                <div className="bg-gray-900 dark:bg-slate-950 rounded-lg p-4 overflow-x-auto">
                   <pre className="text-sm text-gray-100"><code>{`from scapy.all import *
 
 # Known HTTPS-only domains (extend with HSTS preload list)
@@ -746,7 +745,7 @@ except KeyboardInterrupt:
             </div>
 
             {/* Lab 4: Certificate Transparency Monitoring */}
-            <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-8 border border-gray-200 dark:border-[#1F1F1F] transition-colors">
+            <div className="bg-white dark:bg-slate-900 rounded-xl p-8 border border-gray-200 dark:border-slate-800 transition-colors">
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 flex items-center">
                 <Server className="w-6 h-6 text-emerald-600 dark:text-emerald-400 mr-3" />
                 Lab 4: Certificate Transparency Monitoring
@@ -760,7 +759,7 @@ except KeyboardInterrupt:
                 <p className="text-sm font-semibold text-green-700 dark:text-green-300 mb-2">
                   MONITORING CODE - Certificate Transparency Log Query
                 </p>
-                <div className="bg-gray-900 dark:bg-black rounded-lg p-4 overflow-x-auto">
+                <div className="bg-gray-900 dark:bg-slate-950 rounded-lg p-4 overflow-x-auto">
                   <pre className="text-sm text-gray-100"><code>{`import requests
 import json
 from datetime import datetime
@@ -842,7 +841,7 @@ for domain in domains_to_monitor:
             </div>
 
             {/* Lab 5: HSTS Implementation */}
-            <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-8 border border-gray-200 dark:border-[#1F1F1F] transition-colors">
+            <div className="bg-white dark:bg-slate-900 rounded-xl p-8 border border-gray-200 dark:border-slate-800 transition-colors">
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 flex items-center">
                 <Shield className="w-6 h-6 text-emerald-600 dark:text-emerald-400 mr-3" />
                 Lab 5: HSTS (HTTP Strict Transport Security) Implementation
@@ -857,7 +856,7 @@ for domain in domains_to_monitor:
                   <p className="text-sm font-semibold text-green-700 dark:text-green-300 mb-2">
                     SECURE CODE - Nginx HSTS Configuration
                   </p>
-                  <div className="bg-gray-900 dark:bg-black rounded-lg p-4 overflow-x-auto">
+                  <div className="bg-gray-900 dark:bg-slate-950 rounded-lg p-4 overflow-x-auto">
                     <pre className="text-sm text-gray-100"><code>{`server {
     listen 443 ssl http2;
     server_name example.com;
@@ -900,7 +899,7 @@ server {
                   <p className="text-sm font-semibold text-blue-700 dark:text-blue-300 mb-2">
                     Python Flask HSTS Implementation
                   </p>
-                  <div className="bg-gray-900 dark:bg-black rounded-lg p-4 overflow-x-auto">
+                  <div className="bg-gray-900 dark:bg-slate-950 rounded-lg p-4 overflow-x-auto">
                     <pre className="text-sm text-gray-100"><code>{`from flask import Flask, request, redirect
 from flask_talisman import Talisman
 
@@ -989,7 +988,7 @@ if __name__ == '__main__':
                 Attack Tools (Authorized Testing Only)
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-6 border border-red-500/30 transition-colors">
+                <div className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-red-500/30 transition-colors">
                   <div className="flex items-center mb-4">
                     <div className="p-3 bg-red-500/20 rounded-lg mr-4">
                       <Network className="w-6 h-6 text-red-600 dark:text-red-400" />
@@ -1003,14 +1002,14 @@ if __name__ == '__main__':
                     Comprehensive suite for network sniffing and MitM attacks. Supports ARP poisoning, DNS spoofing,
                     SSL stripping, and packet manipulation. GUI and CLI modes available.
                   </p>
-                  <div className="bg-gray-50 dark:bg-black/50 rounded-lg p-4 border border-gray-200 dark:border-[#1F1F1F]">
+                  <div className="bg-gray-50 dark:bg-slate-950/50 rounded-lg p-4 border border-gray-200 dark:border-slate-800">
                     <p className="text-sm font-mono text-gray-700 dark:text-gray-300">
                       ettercap -T -M arp:remote /target-ip/ /gateway-ip/
                     </p>
                   </div>
                 </div>
 
-                <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-6 border border-red-500/30 transition-colors">
+                <div className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-red-500/30 transition-colors">
                   <div className="flex items-center mb-4">
                     <div className="p-3 bg-red-500/20 rounded-lg mr-4">
                       <Network className="w-6 h-6 text-red-600 dark:text-red-400" />
@@ -1024,14 +1023,14 @@ if __name__ == '__main__':
                     Powerful, modular framework for network reconnaissance and MitM attacks. Supports WiFi, Bluetooth
                     LE, HID, and Ethernet. Real-time traffic manipulation and credential harvesting.
                   </p>
-                  <div className="bg-gray-50 dark:bg-black/50 rounded-lg p-4 border border-gray-200 dark:border-[#1F1F1F]">
+                  <div className="bg-gray-50 dark:bg-slate-950/50 rounded-lg p-4 border border-gray-200 dark:border-slate-800">
                     <p className="text-sm font-mono text-gray-700 dark:text-gray-300">
                       bettercap -iface eth0
                     </p>
                   </div>
                 </div>
 
-                <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-6 border border-red-500/30 transition-colors">
+                <div className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-red-500/30 transition-colors">
                   <div className="flex items-center mb-4">
                     <div className="p-3 bg-red-500/20 rounded-lg mr-4">
                       <Lock className="w-6 h-6 text-red-600 dark:text-red-400" />
@@ -1045,14 +1044,14 @@ if __name__ == '__main__':
                     Python-based interactive HTTPS proxy for penetration testing. Intercept, inspect, modify, and
                     replay HTTP/HTTPS traffic. Powerful scripting API for custom attacks.
                   </p>
-                  <div className="bg-gray-50 dark:bg-black/50 rounded-lg p-4 border border-gray-200 dark:border-[#1F1F1F]">
+                  <div className="bg-gray-50 dark:bg-slate-950/50 rounded-lg p-4 border border-gray-200 dark:border-slate-800">
                     <p className="text-sm font-mono text-gray-700 dark:text-gray-300">
                       mitmproxy --mode transparent --showhost
                     </p>
                   </div>
                 </div>
 
-                <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-6 border border-red-500/30 transition-colors">
+                <div className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-red-500/30 transition-colors">
                   <div className="flex items-center mb-4">
                     <div className="p-3 bg-red-500/20 rounded-lg mr-4">
                       <Wifi className="w-6 h-6 text-red-600 dark:text-red-400" />
@@ -1066,14 +1065,14 @@ if __name__ == '__main__':
                     Dedicated hardware for wireless auditing. Creates evil twin access points, performs credential
                     harvesting, and enables wireless MitM attacks. Web-based management interface.
                   </p>
-                  <div className="bg-gray-50 dark:bg-black/50 rounded-lg p-4 border border-gray-200 dark:border-[#1F1F1F]">
+                  <div className="bg-gray-50 dark:bg-slate-950/50 rounded-lg p-4 border border-gray-200 dark:border-slate-800">
                     <p className="text-sm text-gray-700 dark:text-gray-300">
                       Hardware device with modules for evil twin, deauth, and packet capture
                     </p>
                   </div>
                 </div>
 
-                <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-6 border border-red-500/30 transition-colors">
+                <div className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-red-500/30 transition-colors">
                   <div className="flex items-center mb-4">
                     <div className="p-3 bg-red-500/20 rounded-lg mr-4">
                       <Lock className="w-6 h-6 text-red-600 dark:text-red-400" />
@@ -1087,14 +1086,14 @@ if __name__ == '__main__':
                     Transparently hijacks HTTP traffic and strips HTTPS connections to HTTP. SSLstrip+ adds IPv6
                     support and HSTS bypass capabilities. Classic tool demonstrating SSL stripping attacks.
                   </p>
-                  <div className="bg-gray-50 dark:bg-black/50 rounded-lg p-4 border border-gray-200 dark:border-[#1F1F1F]">
+                  <div className="bg-gray-50 dark:bg-slate-950/50 rounded-lg p-4 border border-gray-200 dark:border-slate-800">
                     <p className="text-sm font-mono text-gray-700 dark:text-gray-300">
                       sslstrip -l 8080 -w sslstrip.log
                     </p>
                   </div>
                 </div>
 
-                <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-6 border border-red-500/30 transition-colors">
+                <div className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-red-500/30 transition-colors">
                   <div className="flex items-center mb-4">
                     <div className="p-3 bg-red-500/20 rounded-lg mr-4">
                       <Key className="w-6 h-6 text-red-600 dark:text-red-400" />
@@ -1108,7 +1107,7 @@ if __name__ == '__main__':
                     Man-in-the-middle attack framework for phishing credentials and session cookies. Bypasses 2FA
                     by stealing session tokens. Reverse proxy architecture for real-time interception.
                   </p>
-                  <div className="bg-gray-50 dark:bg-black/50 rounded-lg p-4 border border-gray-200 dark:border-[#1F1F1F]">
+                  <div className="bg-gray-50 dark:bg-slate-950/50 rounded-lg p-4 border border-gray-200 dark:border-slate-800">
                     <p className="text-sm text-gray-700 dark:text-gray-300">
                       Advanced phishing platform requiring significant setup and infrastructure
                     </p>
@@ -1124,7 +1123,7 @@ if __name__ == '__main__':
                 Defense & Detection Tools
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-6 border border-emerald-500/30 transition-colors">
+                <div className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-emerald-500/30 transition-colors">
                   <div className="flex items-center mb-4">
                     <div className="p-3 bg-emerald-500/20 rounded-lg mr-4">
                       <Network className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
@@ -1138,14 +1137,14 @@ if __name__ == '__main__':
                     Powerful network analysis framework for detecting MitM attacks. Protocol analysis for TLS, DNS,
                     HTTP. Custom scripting for certificate anomalies, SSL stripping, suspicious connections.
                   </p>
-                  <div className="bg-gray-50 dark:bg-black/50 rounded-lg p-4 border border-gray-200 dark:border-[#1F1F1F]">
+                  <div className="bg-gray-50 dark:bg-slate-950/50 rounded-lg p-4 border border-gray-200 dark:border-slate-800">
                     <p className="text-sm font-mono text-gray-700 dark:text-gray-300">
                       zeek -i eth0 ssl-detect.zeek
                     </p>
                   </div>
                 </div>
 
-                <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-6 border border-emerald-500/30 transition-colors">
+                <div className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-emerald-500/30 transition-colors">
                   <div className="flex items-center mb-4">
                     <div className="p-3 bg-emerald-500/20 rounded-lg mr-4">
                       <Shield className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
@@ -1159,14 +1158,14 @@ if __name__ == '__main__':
                     High-performance IDS/IPS with TLS/SSL inspection capabilities. JA3/JA3S fingerprinting for
                     encrypted traffic analysis. Real-time alerting on certificate validation failures.
                   </p>
-                  <div className="bg-gray-50 dark:bg-black/50 rounded-lg p-4 border border-gray-200 dark:border-[#1F1F1F]">
+                  <div className="bg-gray-50 dark:bg-slate-950/50 rounded-lg p-4 border border-gray-200 dark:border-slate-800">
                     <p className="text-sm font-mono text-gray-700 dark:text-gray-300">
                       suricata -c suricata.yaml -i eth0
                     </p>
                   </div>
                 </div>
 
-                <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-6 border border-emerald-500/30 transition-colors">
+                <div className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-emerald-500/30 transition-colors">
                   <div className="flex items-center mb-4">
                     <div className="p-3 bg-emerald-500/20 rounded-lg mr-4">
                       <Network className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
@@ -1180,14 +1179,14 @@ if __name__ == '__main__':
                     Monitors Ethernet activity and tracks IP/MAC address pairings. Alerts on ARP table changes
                     indicating potential ARP spoofing attacks. Email notification support.
                   </p>
-                  <div className="bg-gray-50 dark:bg-black/50 rounded-lg p-4 border border-gray-200 dark:border-[#1F1F1F]">
+                  <div className="bg-gray-50 dark:bg-slate-950/50 rounded-lg p-4 border border-gray-200 dark:border-slate-800">
                     <p className="text-sm font-mono text-gray-700 dark:text-gray-300">
                       arpwatch -i eth0 -f arp.dat
                     </p>
                   </div>
                 </div>
 
-                <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-6 border border-emerald-500/30 transition-colors">
+                <div className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-emerald-500/30 transition-colors">
                   <div className="flex items-center mb-4">
                     <div className="p-3 bg-emerald-500/20 rounded-lg mr-4">
                       <Server className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
@@ -1201,14 +1200,14 @@ if __name__ == '__main__':
                     Tools like crt.sh, Facebook CT Monitor, CertSpotter (SSLMate) monitor public Certificate
                     Transparency logs for unauthorized certificates issued to your domains.
                   </p>
-                  <div className="bg-gray-50 dark:bg-black/50 rounded-lg p-4 border border-gray-200 dark:border-[#1F1F1F]">
+                  <div className="bg-gray-50 dark:bg-slate-950/50 rounded-lg p-4 border border-gray-200 dark:border-slate-800">
                     <p className="text-sm text-gray-700 dark:text-gray-300">
                       Web-based services with API access for automated monitoring and alerting
                     </p>
                   </div>
                 </div>
 
-                <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-6 border border-emerald-500/30 transition-colors">
+                <div className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-emerald-500/30 transition-colors">
                   <div className="flex items-center mb-4">
                     <div className="p-3 bg-emerald-500/20 rounded-lg mr-4">
                       <Lock className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
@@ -1222,14 +1221,14 @@ if __name__ == '__main__':
                     Modern VPN protocols providing encrypted tunnels resistant to MitM attacks. WireGuard offers
                     superior performance (1000+ Mbps) with 4,000 lines of code vs OpenVPN's 400,000+.
                   </p>
-                  <div className="bg-gray-50 dark:bg-black/50 rounded-lg p-4 border border-gray-200 dark:border-[#1F1F1F]">
+                  <div className="bg-gray-50 dark:bg-slate-950/50 rounded-lg p-4 border border-gray-200 dark:border-slate-800">
                     <p className="text-sm text-gray-700 dark:text-gray-300">
                       Cryptokey routing prevents interception, kernel-level integration (Linux 5.6+)
                     </p>
                   </div>
                 </div>
 
-                <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-6 border border-emerald-500/30 transition-colors">
+                <div className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-emerald-500/30 transition-colors">
                   <div className="flex items-center mb-4">
                     <div className="p-3 bg-emerald-500/20 rounded-lg mr-4">
                       <Globe className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
@@ -1243,7 +1242,7 @@ if __name__ == '__main__':
                     Real-time BGP monitoring services detecting route hijacking and unauthorized prefix announcements.
                     RPKI (Resource Public Key Infrastructure) validates route origin authenticity.
                   </p>
-                  <div className="bg-gray-50 dark:bg-black/50 rounded-lg p-4 border border-gray-200 dark:border-[#1F1F1F]">
+                  <div className="bg-gray-50 dark:bg-slate-950/50 rounded-lg p-4 border border-gray-200 dark:border-slate-800">
                     <p className="text-sm text-gray-700 dark:text-gray-300">
                       Subscription-based monitoring with real-time alerts for BGP anomalies
                     </p>
@@ -1329,9 +1328,9 @@ if __name__ == '__main__':
                 <Database className="w-6 h-6 text-emerald-600 dark:text-emerald-400 mr-3" />
                 Official Documentation & Standards
               </h3>
-              <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-6 border border-gray-200 dark:border-[#1F1F1F] transition-colors">
+              <div className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-gray-200 dark:border-slate-800 transition-colors">
                 <ul className="space-y-4">
-                  <li className="flex items-start pb-4 border-b border-gray-200 dark:border-[#1F1F1F]">
+                  <li className="flex items-start pb-4 border-b border-gray-200 dark:border-slate-800">
                     <div className="flex-shrink-0 w-8 h-8 bg-emerald-500/20 rounded-lg flex items-center justify-center mr-4">
                       <span className="text-emerald-600 dark:text-emerald-400 font-bold">1</span>
                     </div>
@@ -1353,7 +1352,7 @@ if __name__ == '__main__':
                       </a>
                     </div>
                   </li>
-                  <li className="flex items-start pb-4 border-b border-gray-200 dark:border-[#1F1F1F]">
+                  <li className="flex items-start pb-4 border-b border-gray-200 dark:border-slate-800">
                     <div className="flex-shrink-0 w-8 h-8 bg-emerald-500/20 rounded-lg flex items-center justify-center mr-4">
                       <span className="text-emerald-600 dark:text-emerald-400 font-bold">2</span>
                     </div>
@@ -1375,7 +1374,7 @@ if __name__ == '__main__':
                       </a>
                     </div>
                   </li>
-                  <li className="flex items-start pb-4 border-b border-gray-200 dark:border-[#1F1F1F]">
+                  <li className="flex items-start pb-4 border-b border-gray-200 dark:border-slate-800">
                     <div className="flex-shrink-0 w-8 h-8 bg-emerald-500/20 rounded-lg flex items-center justify-center mr-4">
                       <span className="text-emerald-600 dark:text-emerald-400 font-bold">3</span>
                     </div>
@@ -1397,7 +1396,7 @@ if __name__ == '__main__':
                       </a>
                     </div>
                   </li>
-                  <li className="flex items-start pb-4 border-b border-gray-200 dark:border-[#1F1F1F]">
+                  <li className="flex items-start pb-4 border-b border-gray-200 dark:border-slate-800">
                     <div className="flex-shrink-0 w-8 h-8 bg-emerald-500/20 rounded-lg flex items-center justify-center mr-4">
                       <span className="text-emerald-600 dark:text-emerald-400 font-bold">4</span>
                     </div>
@@ -1419,7 +1418,7 @@ if __name__ == '__main__':
                       </a>
                     </div>
                   </li>
-                  <li className="flex items-start pb-4 border-b border-gray-200 dark:border-[#1F1F1F]">
+                  <li className="flex items-start pb-4 border-b border-gray-200 dark:border-slate-800">
                     <div className="flex-shrink-0 w-8 h-8 bg-emerald-500/20 rounded-lg flex items-center justify-center mr-4">
                       <span className="text-emerald-600 dark:text-emerald-400 font-bold">5</span>
                     </div>
@@ -1474,7 +1473,7 @@ if __name__ == '__main__':
                 CWE (Common Weakness Enumeration)
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-6 border border-gray-200 dark:border-[#1F1F1F] transition-colors">
+                <div className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-gray-200 dark:border-slate-800 transition-colors">
                   <p className="font-semibold text-gray-900 dark:text-white mb-2">
                     CWE-300: Channel Accessible by Non-Endpoint
                   </p>
@@ -1491,7 +1490,7 @@ if __name__ == '__main__':
                   </a>
                 </div>
 
-                <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-6 border border-gray-200 dark:border-[#1F1F1F] transition-colors">
+                <div className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-gray-200 dark:border-slate-800 transition-colors">
                   <p className="font-semibold text-gray-900 dark:text-white mb-2">
                     CWE-295: Improper Certificate Validation
                   </p>
@@ -1508,7 +1507,7 @@ if __name__ == '__main__':
                   </a>
                 </div>
 
-                <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-6 border border-gray-200 dark:border-[#1F1F1F] transition-colors">
+                <div className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-gray-200 dark:border-slate-800 transition-colors">
                   <p className="font-semibold text-gray-900 dark:text-white mb-2">
                     CWE-319: Cleartext Transmission of Sensitive Information
                   </p>
@@ -1525,7 +1524,7 @@ if __name__ == '__main__':
                   </a>
                 </div>
 
-                <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-6 border border-gray-200 dark:border-[#1F1F1F] transition-colors">
+                <div className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-gray-200 dark:border-slate-800 transition-colors">
                   <p className="font-semibold text-gray-900 dark:text-white mb-2">
                     CWE-757: Selection of Less-Secure Algorithm During Negotiation
                   </p>
@@ -1550,9 +1549,9 @@ if __name__ == '__main__':
                 <AlertTriangle className="w-6 h-6 text-red-600 dark:text-red-400 mr-3" />
                 Notable CVE Examples
               </h3>
-              <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-6 border border-gray-200 dark:border-[#1F1F1F] transition-colors">
+              <div className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-gray-200 dark:border-slate-800 transition-colors">
                 <ul className="space-y-4">
-                  <li className="flex items-start pb-4 border-b border-gray-200 dark:border-[#1F1F1F]">
+                  <li className="flex items-start pb-4 border-b border-gray-200 dark:border-slate-800">
                     <div className="flex-shrink-0">
                       <span className="inline-block px-3 py-1 bg-red-500/20 text-red-700 dark:text-red-300 rounded-full text-sm font-medium mr-4">
                         CVE-2015-2077
@@ -1568,7 +1567,7 @@ if __name__ == '__main__':
                       </p>
                     </div>
                   </li>
-                  <li className="flex items-start pb-4 border-b border-gray-200 dark:border-[#1F1F1F]">
+                  <li className="flex items-start pb-4 border-b border-gray-200 dark:border-slate-800">
                     <div className="flex-shrink-0">
                       <span className="inline-block px-3 py-1 bg-red-500/20 text-red-700 dark:text-red-300 rounded-full text-sm font-medium mr-4">
                         CVE-2014-3566
@@ -1584,7 +1583,7 @@ if __name__ == '__main__':
                       </p>
                     </div>
                   </li>
-                  <li className="flex items-start pb-4 border-b border-gray-200 dark:border-[#1F1F1F]">
+                  <li className="flex items-start pb-4 border-b border-gray-200 dark:border-slate-800">
                     <div className="flex-shrink-0">
                       <span className="inline-block px-3 py-1 bg-red-500/20 text-red-700 dark:text-red-300 rounded-full text-sm font-medium mr-4">
                         CVE-2015-0204
@@ -1600,7 +1599,7 @@ if __name__ == '__main__':
                       </p>
                     </div>
                   </li>
-                  <li className="flex items-start pb-4 border-b border-gray-200 dark:border-[#1F1F1F]">
+                  <li className="flex items-start pb-4 border-b border-gray-200 dark:border-slate-800">
                     <div className="flex-shrink-0">
                       <span className="inline-block px-3 py-1 bg-red-500/20 text-red-700 dark:text-red-300 rounded-full text-sm font-medium mr-4">
                         CVE-2015-4000
@@ -1616,7 +1615,7 @@ if __name__ == '__main__':
                       </p>
                     </div>
                   </li>
-                  <li className="flex items-start pb-4 border-b border-gray-200 dark:border-[#1F1F1F]">
+                  <li className="flex items-start pb-4 border-b border-gray-200 dark:border-slate-800">
                     <div className="flex-shrink-0">
                       <span className="inline-block px-3 py-1 bg-red-500/20 text-red-700 dark:text-red-300 rounded-full text-sm font-medium mr-4">
                         CVE-2011-3389
@@ -1658,9 +1657,9 @@ if __name__ == '__main__':
                 <BookOpen className="w-6 h-6 text-emerald-600 dark:text-emerald-400 mr-3" />
                 Academic Research Papers
               </h3>
-              <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-6 border border-gray-200 dark:border-[#1F1F1F] transition-colors">
+              <div className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-gray-200 dark:border-slate-800 transition-colors">
                 <ul className="space-y-4">
-                  <li className="pb-4 border-b border-gray-200 dark:border-[#1F1F1F]">
+                  <li className="pb-4 border-b border-gray-200 dark:border-slate-800">
                     <p className="font-semibold text-gray-900 dark:text-white mb-1">
                       "The Security Impact of HTTPS Interception" (2023)
                     </p>
@@ -1672,7 +1671,7 @@ if __name__ == '__main__':
                       Stanford/Google Research
                     </p>
                   </li>
-                  <li className="pb-4 border-b border-gray-200 dark:border-[#1F1F1F]">
+                  <li className="pb-4 border-b border-gray-200 dark:border-slate-800">
                     <p className="font-semibold text-gray-900 dark:text-white mb-1">
                       "BGP Hijacking: A Survey of Recent Attacks" (2022)
                     </p>
@@ -1684,7 +1683,7 @@ if __name__ == '__main__':
                       IEEE Communications Surveys & Tutorials
                     </p>
                   </li>
-                  <li className="pb-4 border-b border-gray-200 dark:border-[#1F1F1F]">
+                  <li className="pb-4 border-b border-gray-200 dark:border-slate-800">
                     <p className="font-semibold text-gray-900 dark:text-white mb-1">
                       "Certificate Transparency at Scale" (2024)
                     </p>
@@ -1696,7 +1695,7 @@ if __name__ == '__main__':
                       USENIX Security 2024
                     </p>
                   </li>
-                  <li className="pb-4 border-b border-gray-200 dark:border-[#1F1F1F]">
+                  <li className="pb-4 border-b border-gray-200 dark:border-slate-800">
                     <p className="font-semibold text-gray-900 dark:text-white mb-1">
                       "WiFi Network Interception in the Wild" (2023)
                     </p>
@@ -1729,7 +1728,7 @@ if __name__ == '__main__':
                 Practice Platforms & Training
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-6 border border-gray-200 dark:border-[#1F1F1F] transition-colors">
+                <div className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-gray-200 dark:border-slate-800 transition-colors">
                   <p className="font-semibold text-gray-900 dark:text-white mb-2">HackTheBox</p>
                   <p className="text-gray-600 dark:text-gray-400 text-sm mb-3">
                     Realistic MitM attack scenarios in penetration testing labs. Practice ARP spoofing, SSL
@@ -1740,7 +1739,7 @@ if __name__ == '__main__':
                   </a>
                 </div>
 
-                <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-6 border border-gray-200 dark:border-[#1F1F1F] transition-colors">
+                <div className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-gray-200 dark:border-slate-800 transition-colors">
                   <p className="font-semibold text-gray-900 dark:text-white mb-2">TryHackMe</p>
                   <p className="text-gray-600 dark:text-gray-400 text-sm mb-3">
                     Guided rooms on network attacks including "Network Security" and "Wireshark" modules.
@@ -1751,7 +1750,7 @@ if __name__ == '__main__':
                   </a>
                 </div>
 
-                <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-6 border border-gray-200 dark:border-[#1F1F1F] transition-colors">
+                <div className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-gray-200 dark:border-slate-800 transition-colors">
                   <p className="font-semibold text-gray-900 dark:text-white mb-2">PentesterLab</p>
                   <p className="text-gray-600 dark:text-gray-400 text-sm mb-3">
                     Hands-on exercises for SSL/TLS attacks including certificate validation bypasses and HTTPS
@@ -1762,7 +1761,7 @@ if __name__ == '__main__':
                   </a>
                 </div>
 
-                <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-6 border border-gray-200 dark:border-[#1F1F1F] transition-colors">
+                <div className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-gray-200 dark:border-slate-800 transition-colors">
                   <p className="font-semibold text-gray-900 dark:text-white mb-2">SANS NetWars</p>
                   <p className="text-gray-600 dark:text-gray-400 text-sm mb-3">
                     Advanced network security challenges including MitM detection and defense. Part of SANS
@@ -1828,25 +1827,7 @@ if __name__ == '__main__':
       </div>
 
       {/* Challenge Button */}
-      {onStartChallenge && (
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
-          <div className="bg-gradient-to-r from-red-500 to-orange-600 rounded-xl p-8 text-center">
-            <h3 className="text-2xl font-bold text-white mb-4">
-              Ready to Test Your Knowledge?
-            </h3>
-            <p className="text-white/90 mb-6">
-              Take the challenge to demonstrate your understanding of Man-in-the-Middle attacks
-            </p>
-            <button
-              onClick={onStartChallenge}
-              className="inline-flex items-center px-8 py-4 bg-white text-red-600 font-bold rounded-lg hover:bg-gray-100 transition-colors text-lg"
-            >
-              <Shield className="w-6 h-6 mr-3" />
-              Start Challenge
-            </button>
-          </div>
-        </div>
-      )}
+      
     </div>
   );
 };

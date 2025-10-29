@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import {
-  Shield, Lock, Unlock, Target, AlertTriangle, Terminal, BookOpen,
+  Shield, Lock, Unlock, AlertTriangle, Terminal, BookOpen,
   Network, Search, Eye, Database, ArrowLeft, Radar
 } from 'lucide-react';
 
@@ -13,10 +13,9 @@ const tabs = [
 
 interface NetworkScanningConceptProps {
   onBack?: () => void;
-  onStartChallenge?: () => void;
 }
 
-export const NetworkScanningConcept = ({ onBack, onStartChallenge }: NetworkScanningConceptProps = {}) => {
+export const NetworkScanningConcept = ({ onBack }: NetworkScanningConceptProps = {}) => {
   const [activeTab, setActiveTab] = useState('theory');
 
   const TheoryTab = () => (
@@ -707,12 +706,7 @@ sudo nmap -sS -r -T1 --randomize-hosts -p80,443 <target>
               Master reconnaissance techniques to discover hosts, services, and vulnerabilities
             </p>
           </div>
-          {onStartChallenge && (
-            <button onClick={onStartChallenge} className="px-6 py-3 bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-600 text-white rounded-lg font-semibold transition-all flex items-center gap-2">
-              <Target className="w-5 h-5" />
-              Take Challenge
-            </button>
-          )}
+          
         </div>
 
         <div className="border-b border-slate-200 dark:border-slate-700 mb-8">

@@ -3,14 +3,13 @@ import { Zap, ArrowLeft, BookOpen, Code, Shield, Database, Server, Activity, Net
 
 interface DoSAttacksConceptProps {
   onBack?: () => void;
-  onStartChallenge?: () => void;
 }
 
-export const DoSAttacksConcept = ({ onBack, onStartChallenge }: DoSAttacksConceptProps = {}) => {
+export const DoSAttacksConcept = ({ onBack }: DoSAttacksConceptProps = {}) => {
   const [activeTab, setActiveTab] = useState('theory');
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-black transition-colors">
+    <div className="min-h-screen bg-gray-50 dark:bg-slate-950 transition-colors">
       {/* Header */}
       <div className="bg-gradient-to-r from-purple-500 to-pink-600 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -54,7 +53,7 @@ export const DoSAttacksConcept = ({ onBack, onStartChallenge }: DoSAttacksConcep
       </div>
 
       {/* Tab Navigation */}
-      <div className="bg-white dark:bg-[#0A0A0A] border-b border-gray-200 dark:border-[#1F1F1F] sticky top-0 z-40 transition-colors">
+      <div className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-slate-800 sticky top-0 z-40 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex space-x-8">
             {[
@@ -89,7 +88,7 @@ export const DoSAttacksConcept = ({ onBack, onStartChallenge }: DoSAttacksConcep
               <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
                 Understanding DoS/DDoS Attacks
               </h2>
-              <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-8 border border-gray-200 dark:border-[#1F1F1F] transition-colors">
+              <div className="bg-white dark:bg-slate-900 rounded-xl p-8 border border-gray-200 dark:border-slate-800 transition-colors">
                 <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
                   Denial of Service (DoS) attacks overwhelm systems with excessive requests, making them unavailable to
                   legitimate users. Distributed Denial of Service (DDoS) attacks amplify this by coordinating attacks
@@ -138,7 +137,7 @@ export const DoSAttacksConcept = ({ onBack, onStartChallenge }: DoSAttacksConcep
               </h2>
               <div className="space-y-6">
                 {/* Attack 1: Microsoft Azure */}
-                <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-8 border border-gray-200 dark:border-[#1F1F1F] transition-colors">
+                <div className="bg-white dark:bg-slate-900 rounded-xl p-8 border border-gray-200 dark:border-slate-800 transition-colors">
                   <div className="flex items-start justify-between mb-4">
                     <div>
                       <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
@@ -188,7 +187,7 @@ export const DoSAttacksConcept = ({ onBack, onStartChallenge }: DoSAttacksConcep
                 </div>
 
                 {/* Attack 2: Google Cloud */}
-                <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-8 border border-gray-200 dark:border-[#1F1F1F] transition-colors">
+                <div className="bg-white dark:bg-slate-900 rounded-xl p-8 border border-gray-200 dark:border-slate-800 transition-colors">
                   <div className="flex items-start justify-between mb-4">
                     <div>
                       <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
@@ -238,7 +237,7 @@ export const DoSAttacksConcept = ({ onBack, onStartChallenge }: DoSAttacksConcep
                 </div>
 
                 {/* Attack 3: AWS */}
-                <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-8 border border-gray-200 dark:border-[#1F1F1F] transition-colors">
+                <div className="bg-white dark:bg-slate-900 rounded-xl p-8 border border-gray-200 dark:border-slate-800 transition-colors">
                   <div className="flex items-start justify-between mb-4">
                     <div>
                       <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
@@ -288,7 +287,7 @@ export const DoSAttacksConcept = ({ onBack, onStartChallenge }: DoSAttacksConcep
                 </div>
 
                 {/* Attack 4: Ransom DDoS */}
-                <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-8 border border-gray-200 dark:border-[#1F1F1F] transition-colors">
+                <div className="bg-white dark:bg-slate-900 rounded-xl p-8 border border-gray-200 dark:border-slate-800 transition-colors">
                   <div className="flex items-start justify-between mb-4">
                     <div>
                       <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
@@ -352,7 +351,7 @@ export const DoSAttacksConcept = ({ onBack, onStartChallenge }: DoSAttacksConcep
                   Layer 3/4 Attacks (Network/Transport)
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-6 border border-gray-200 dark:border-[#1F1F1F] transition-colors">
+                  <div className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-gray-200 dark:border-slate-800 transition-colors">
                     <div className="flex items-center mb-4">
                       <Network className="w-6 h-6 text-purple-600 dark:text-purple-400 mr-3" />
                       <h4 className="text-xl font-bold text-gray-900 dark:text-white">SYN Flood</h4>
@@ -362,7 +361,7 @@ export const DoSAttacksConcept = ({ onBack, onStartChallenge }: DoSAttacksConcep
                       resources waiting for ACK that never arrives. Exhausts connection table (typical limit: 128-1024
                       half-open connections).
                     </p>
-                    <div className="bg-gray-50 dark:bg-black/50 rounded-lg p-4 border border-gray-200 dark:border-[#1F1F1F]">
+                    <div className="bg-gray-50 dark:bg-slate-950/50 rounded-lg p-4 border border-gray-200 dark:border-slate-800">
                       <p className="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-2">MITRE ATT&CK: T1498.001</p>
                       <p className="text-sm text-gray-600 dark:text-gray-400">
                         Mitigation: SYN cookies, rate limiting, increased backlog queue
@@ -370,7 +369,7 @@ export const DoSAttacksConcept = ({ onBack, onStartChallenge }: DoSAttacksConcep
                     </div>
                   </div>
 
-                  <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-6 border border-gray-200 dark:border-[#1F1F1F] transition-colors">
+                  <div className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-gray-200 dark:border-slate-800 transition-colors">
                     <div className="flex items-center mb-4">
                       <Server className="w-6 h-6 text-pink-600 dark:text-pink-400 mr-3" />
                       <h4 className="text-xl font-bold text-gray-900 dark:text-white">DNS Amplification</h4>
@@ -379,7 +378,7 @@ export const DoSAttacksConcept = ({ onBack, onStartChallenge }: DoSAttacksConcep
                       Exploits open DNS resolvers. Sends DNS queries with spoofed source (victim IP). Amplification
                       factor: 28-54x typical, up to 179x with DNSSEC. Query: 60 bytes → Response: 3,000+ bytes.
                     </p>
-                    <div className="bg-gray-50 dark:bg-black/50 rounded-lg p-4 border border-gray-200 dark:border-[#1F1F1F]">
+                    <div className="bg-gray-50 dark:bg-slate-950/50 rounded-lg p-4 border border-gray-200 dark:border-slate-800">
                       <p className="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-2">Amplification: 28-179x</p>
                       <p className="text-sm text-gray-600 dark:text-gray-400">
                         Mitigation: Response Rate Limiting (RRL), DNSSEC validation
@@ -387,7 +386,7 @@ export const DoSAttacksConcept = ({ onBack, onStartChallenge }: DoSAttacksConcep
                     </div>
                   </div>
 
-                  <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-6 border border-gray-200 dark:border-[#1F1F1F] transition-colors">
+                  <div className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-gray-200 dark:border-slate-800 transition-colors">
                     <div className="flex items-center mb-4">
                       <Activity className="w-6 h-6 text-indigo-600 dark:text-indigo-400 mr-3" />
                       <h4 className="text-xl font-bold text-gray-900 dark:text-white">NTP Amplification</h4>
@@ -396,7 +395,7 @@ export const DoSAttacksConcept = ({ onBack, onStartChallenge }: DoSAttacksConcep
                       Exploits NTP monlist command (returns 600 most recent clients). Amplification factor: 556.9x.
                       Query: 234 bytes → Response: 130,000+ bytes. Largely mitigated (monlist disabled in NTP 4.2.7+).
                     </p>
-                    <div className="bg-gray-50 dark:bg-black/50 rounded-lg p-4 border border-gray-200 dark:border-[#1F1F1F]">
+                    <div className="bg-gray-50 dark:bg-slate-950/50 rounded-lg p-4 border border-gray-200 dark:border-slate-800">
                       <p className="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-2">Amplification: 556.9x</p>
                       <p className="text-sm text-gray-600 dark:text-gray-400">
                         Mitigation: Disable monlist, restrict queries, update NTP
@@ -404,7 +403,7 @@ export const DoSAttacksConcept = ({ onBack, onStartChallenge }: DoSAttacksConcep
                     </div>
                   </div>
 
-                  <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-6 border border-gray-200 dark:border-[#1F1F1F] transition-colors">
+                  <div className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-gray-200 dark:border-slate-800 transition-colors">
                     <div className="flex items-center mb-4">
                       <Database className="w-6 h-6 text-red-600 dark:text-red-400 mr-3" />
                       <h4 className="text-xl font-bold text-gray-900 dark:text-white">Memcached Amplification</h4>
@@ -413,7 +412,7 @@ export const DoSAttacksConcept = ({ onBack, onStartChallenge }: DoSAttacksConcep
                       Exploits exposed memcached servers (port 11211). Amplification factor: 51,000x. Query: 15 bytes
                       → Response: 750 KB. Used in GitHub 1.35 Tbps attack (2018). Now rare due to port blocking.
                     </p>
-                    <div className="bg-gray-50 dark:bg-black/50 rounded-lg p-4 border border-gray-200 dark:border-[#1F1F1F]">
+                    <div className="bg-gray-50 dark:bg-slate-950/50 rounded-lg p-4 border border-gray-200 dark:border-slate-800">
                       <p className="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-2">Amplification: 51,000x</p>
                       <p className="text-sm text-gray-600 dark:text-gray-400">
                         Mitigation: Bind to localhost only, firewall rules, ISP port blocking
@@ -428,7 +427,7 @@ export const DoSAttacksConcept = ({ onBack, onStartChallenge }: DoSAttacksConcep
                   Layer 7 Attacks (Application)
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-6 border border-gray-200 dark:border-[#1F1F1F] transition-colors">
+                  <div className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-gray-200 dark:border-slate-800 transition-colors">
                     <div className="flex items-center mb-4">
                       <Cloud className="w-6 h-6 text-blue-600 dark:text-blue-400 mr-3" />
                       <h4 className="text-xl font-bold text-gray-900 dark:text-white">HTTP Flood</h4>
@@ -438,7 +437,7 @@ export const DoSAttacksConcept = ({ onBack, onStartChallenge }: DoSAttacksConcep
                       resource-intensive pages (search, login, database queries). Can bypass volumetric defenses.
                       Modern variant: HTTP/2 Rapid Reset (CVE-2023-44487).
                     </p>
-                    <div className="bg-gray-50 dark:bg-black/50 rounded-lg p-4 border border-gray-200 dark:border-[#1F1F1F]">
+                    <div className="bg-gray-50 dark:bg-slate-950/50 rounded-lg p-4 border border-gray-200 dark:border-slate-800">
                       <p className="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-2">Record: 71M rps (2024)</p>
                       <p className="text-sm text-gray-600 dark:text-gray-400">
                         Mitigation: Rate limiting, CAPTCHA challenges, JavaScript validation
@@ -446,7 +445,7 @@ export const DoSAttacksConcept = ({ onBack, onStartChallenge }: DoSAttacksConcep
                     </div>
                   </div>
 
-                  <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-6 border border-gray-200 dark:border-[#1F1F1F] transition-colors">
+                  <div className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-gray-200 dark:border-slate-800 transition-colors">
                     <div className="flex items-center mb-4">
                       <AlertTriangle className="w-6 h-6 text-yellow-600 dark:text-yellow-400 mr-3" />
                       <h4 className="text-xl font-bold text-gray-900 dark:text-white">Slowloris</h4>
@@ -456,7 +455,7 @@ export const DoSAttacksConcept = ({ onBack, onStartChallenge }: DoSAttacksConcep
                       slowly. Exhausts connection pool without high bandwidth. Effective against Apache, ineffective
                       against Nginx.
                     </p>
-                    <div className="bg-gray-50 dark:bg-black/50 rounded-lg p-4 border border-gray-200 dark:border-[#1F1F1F]">
+                    <div className="bg-gray-50 dark:bg-slate-950/50 rounded-lg p-4 border border-gray-200 dark:border-slate-800">
                       <p className="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-2">Low-bandwidth attack</p>
                       <p className="text-sm text-gray-600 dark:text-gray-400">
                         Mitigation: Connection timeouts, reverse proxy, mod_reqtimeout
@@ -511,7 +510,7 @@ export const DoSAttacksConcept = ({ onBack, onStartChallenge }: DoSAttacksConcep
             </div>
 
             {/* Lab 1: Rate Limiting */}
-            <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-8 border border-gray-200 dark:border-[#1F1F1F] transition-colors">
+            <div className="bg-white dark:bg-slate-900 rounded-xl p-8 border border-gray-200 dark:border-slate-800 transition-colors">
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 flex items-center">
                 <Shield className="w-6 h-6 text-emerald-600 dark:text-emerald-400 mr-3" />
                 Lab 1: Token Bucket Rate Limiting
@@ -525,7 +524,7 @@ export const DoSAttacksConcept = ({ onBack, onStartChallenge }: DoSAttacksConcep
                 <p className="text-sm font-semibold text-green-700 dark:text-green-300 mb-2">
                   SECURE CODE - Production-Ready Rate Limiter
                 </p>
-                <div className="bg-gray-900 dark:bg-black rounded-lg p-4 overflow-x-auto">
+                <div className="bg-gray-900 dark:bg-slate-950 rounded-lg p-4 overflow-x-auto">
                   <pre className="text-sm text-gray-100"><code>{`import time
 from collections import defaultdict
 
@@ -579,7 +578,7 @@ for i in range(15):
             </div>
 
             {/* Lab 2: HTTP Flood Detection */}
-            <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-8 border border-gray-200 dark:border-[#1F1F1F] transition-colors">
+            <div className="bg-white dark:bg-slate-900 rounded-xl p-8 border border-gray-200 dark:border-slate-800 transition-colors">
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 flex items-center">
                 <Activity className="w-6 h-6 text-emerald-600 dark:text-emerald-400 mr-3" />
                 Lab 2: HTTP Flood Detection in Logs
@@ -593,7 +592,7 @@ for i in range(15):
                 <p className="text-sm font-semibold text-green-700 dark:text-green-300 mb-2">
                   DETECTION CODE - Log Analysis for HTTP Floods
                 </p>
-                <div className="bg-gray-900 dark:bg-black rounded-lg p-4 overflow-x-auto">
+                <div className="bg-gray-900 dark:bg-slate-950 rounded-lg p-4 overflow-x-auto">
                   <pre className="text-sm text-gray-100"><code>{`import re
 from collections import defaultdict
 from datetime import datetime
@@ -683,7 +682,7 @@ print("  Recommended action: Block 198.51.100.89 at firewall")`}</code></pre>
             </div>
 
             {/* Lab 3: DNS Amplification Calculator */}
-            <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-8 border border-gray-200 dark:border-[#1F1F1F] transition-colors">
+            <div className="bg-white dark:bg-slate-900 rounded-xl p-8 border border-gray-200 dark:border-slate-800 transition-colors">
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 flex items-center">
                 <Server className="w-6 h-6 text-emerald-600 dark:text-emerald-400 mr-3" />
                 Lab 3: DNS Amplification Factor Demonstration
@@ -697,7 +696,7 @@ print("  Recommended action: Block 198.51.100.89 at firewall")`}</code></pre>
                 <p className="text-sm font-semibold text-blue-700 dark:text-blue-300 mb-2">
                   EDUCATIONAL CODE - DNS Amplification Measurement
                 </p>
-                <div className="bg-gray-900 dark:bg-black rounded-lg p-4 overflow-x-auto">
+                <div className="bg-gray-900 dark:bg-slate-950 rounded-lg p-4 overflow-x-auto">
                   <pre className="text-sm text-gray-100"><code>{`import socket
 import struct
 
@@ -758,7 +757,7 @@ calculate_dns_amplification()`}</code></pre>
             </div>
 
             {/* Lab 4: SYN Flood Defense */}
-            <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-8 border border-gray-200 dark:border-[#1F1F1F] transition-colors">
+            <div className="bg-white dark:bg-slate-900 rounded-xl p-8 border border-gray-200 dark:border-slate-800 transition-colors">
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 flex items-center">
                 <Network className="w-6 h-6 text-emerald-600 dark:text-emerald-400 mr-3" />
                 Lab 4: Configuring SYN Cookies Defense
@@ -772,7 +771,7 @@ calculate_dns_amplification()`}</code></pre>
                 <p className="text-sm font-semibold text-green-700 dark:text-green-300 mb-2">
                   SECURE CONFIGURATION - Linux Kernel Hardening
                 </p>
-                <div className="bg-gray-900 dark:bg-black rounded-lg p-4 overflow-x-auto">
+                <div className="bg-gray-900 dark:bg-slate-950 rounded-lg p-4 overflow-x-auto">
                   <pre className="text-sm text-gray-100"><code>{`# /etc/sysctl.conf - SYN Flood Protection
 
 # Enable SYN cookies (protects against SYN floods)
@@ -813,7 +812,7 @@ net.ipv4.conf.all.log_martians=1
             </div>
 
             {/* Lab 5: Nginx Rate Limiting */}
-            <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-8 border border-gray-200 dark:border-[#1F1F1F] transition-colors">
+            <div className="bg-white dark:bg-slate-900 rounded-xl p-8 border border-gray-200 dark:border-slate-800 transition-colors">
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 flex items-center">
                 <Cloud className="w-6 h-6 text-emerald-600 dark:text-emerald-400 mr-3" />
                 Lab 5: Nginx Rate Limiting Configuration
@@ -827,7 +826,7 @@ net.ipv4.conf.all.log_martians=1
                 <p className="text-sm font-semibold text-green-700 dark:text-green-300 mb-2">
                   SECURE CONFIGURATION - Nginx Rate Limiting
                 </p>
-                <div className="bg-gray-900 dark:bg-black rounded-lg p-4 overflow-x-auto">
+                <div className="bg-gray-900 dark:bg-slate-950 rounded-lg p-4 overflow-x-auto">
                   <pre className="text-sm text-gray-100"><code>{`# nginx.conf - DoS Protection Configuration
 
 http {
@@ -932,7 +931,7 @@ http {
                 Attack Tools (Authorized Testing Only)
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-6 border border-red-500/30 transition-colors">
+                <div className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-red-500/30 transition-colors">
                   <div className="flex items-center mb-4">
                     <div className="p-3 bg-red-500/20 rounded-lg mr-4">
                       <Activity className="w-6 h-6 text-red-600 dark:text-red-400" />
@@ -946,14 +945,14 @@ http {
                     Command-line TCP/IP packet assembler/analyzer. Can perform SYN floods, UDP floods, ICMP floods
                     for testing network resilience. Supports various packet manipulation techniques.
                   </p>
-                  <div className="bg-gray-50 dark:bg-black/50 rounded-lg p-4 border border-gray-200 dark:border-[#1F1F1F]">
+                  <div className="bg-gray-50 dark:bg-slate-950/50 rounded-lg p-4 border border-gray-200 dark:border-slate-800">
                     <p className="text-sm font-mono text-gray-700 dark:text-gray-300">
                       hping3 -S -p 80 --flood target.com
                     </p>
                   </div>
                 </div>
 
-                <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-6 border border-red-500/30 transition-colors">
+                <div className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-red-500/30 transition-colors">
                   <div className="flex items-center mb-4">
                     <div className="p-3 bg-red-500/20 rounded-lg mr-4">
                       <Network className="w-6 h-6 text-red-600 dark:text-red-400" />
@@ -967,14 +966,14 @@ http {
                     Open-source network stress testing tools. LOIC performs TCP/UDP/HTTP floods. HOIC adds HTTP/HTTPS
                     support with randomization. Historical use by Anonymous hacktivist group.
                   </p>
-                  <div className="bg-gray-50 dark:bg-black/50 rounded-lg p-4 border border-gray-200 dark:border-[#1F1F1F]">
+                  <div className="bg-gray-50 dark:bg-slate-950/50 rounded-lg p-4 border border-gray-200 dark:border-slate-800">
                     <p className="text-sm text-gray-700 dark:text-gray-300">
                       GUI-based stress testing with adjustable threads and protocols
                     </p>
                   </div>
                 </div>
 
-                <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-6 border border-red-500/30 transition-colors">
+                <div className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-red-500/30 transition-colors">
                   <div className="flex items-center mb-4">
                     <div className="p-3 bg-red-500/20 rounded-lg mr-4">
                       <Server className="w-6 h-6 text-red-600 dark:text-red-400" />
@@ -988,14 +987,14 @@ http {
                     Perl-based slow HTTP DoS tool. Opens multiple connections sending partial HTTP headers slowly.
                     Exhausts web server connection pools with minimal bandwidth. Effective against Apache.
                   </p>
-                  <div className="bg-gray-50 dark:bg-black/50 rounded-lg p-4 border border-gray-200 dark:border-[#1F1F1F]">
+                  <div className="bg-gray-50 dark:bg-slate-950/50 rounded-lg p-4 border border-gray-200 dark:border-slate-800">
                     <p className="text-sm font-mono text-gray-700 dark:text-gray-300">
                       perl slowloris.pl -dns target.com -port 80 -timeout 30
                     </p>
                   </div>
                 </div>
 
-                <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-6 border border-red-500/30 transition-colors">
+                <div className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-red-500/30 transition-colors">
                   <div className="flex items-center mb-4">
                     <div className="p-3 bg-red-500/20 rounded-lg mr-4">
                       <Cloud className="w-6 h-6 text-red-600 dark:text-red-400" />
@@ -1009,14 +1008,14 @@ http {
                     Open-source IoT botnet code (2016 leak). Scans for devices with default credentials, enslaves
                     routers/cameras/DVRs. Source code study reveals botnet operation mechanics. Variants still active.
                   </p>
-                  <div className="bg-gray-50 dark:bg-black/50 rounded-lg p-4 border border-gray-200 dark:border-[#1F1F1F]">
+                  <div className="bg-gray-50 dark:bg-slate-950/50 rounded-lg p-4 border border-gray-200 dark:border-slate-800">
                     <p className="text-sm text-gray-700 dark:text-gray-300">
                       Educational study of botnet C2 architecture, infection vectors, DDoS capabilities
                     </p>
                   </div>
                 </div>
 
-                <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-6 border border-red-500/30 transition-colors">
+                <div className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-red-500/30 transition-colors">
                   <div className="flex items-center mb-4">
                     <div className="p-3 bg-red-500/20 rounded-lg mr-4">
                       <Zap className="w-6 h-6 text-red-600 dark:text-red-400" />
@@ -1030,14 +1029,14 @@ http {
                     Python-based HTTP DoS tool. Sends legitimate-looking requests to exhaust server resources. Targets
                     resource-intensive pages. Randomizes User-Agent and headers to evade detection.
                   </p>
-                  <div className="bg-gray-50 dark:bg-black/50 rounded-lg p-4 border border-gray-200 dark:border-[#1F1F1F]">
+                  <div className="bg-gray-50 dark:bg-slate-950/50 rounded-lg p-4 border border-gray-200 dark:border-slate-800">
                     <p className="text-sm font-mono text-gray-700 dark:text-gray-300">
                       python goldeneye.py https://target.com -w 500 -s 100
                     </p>
                   </div>
                 </div>
 
-                <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-6 border border-red-500/30 transition-colors">
+                <div className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-red-500/30 transition-colors">
                   <div className="flex items-center mb-4">
                     <div className="p-3 bg-red-500/20 rounded-lg mr-4">
                       <Database className="w-6 h-6 text-red-600 dark:text-red-400" />
@@ -1051,7 +1050,7 @@ http {
                     Slow POST attack tool. Sends form data byte-by-byte, keeping connections open indefinitely.
                     Targets web applications with POST upload handlers. Low-bandwidth, high-impact.
                   </p>
-                  <div className="bg-gray-50 dark:bg-black/50 rounded-lg p-4 border border-gray-200 dark:border-[#1F1F1F]">
+                  <div className="bg-gray-50 dark:bg-slate-950/50 rounded-lg p-4 border border-gray-200 dark:border-slate-800">
                     <p className="text-sm text-gray-700 dark:text-gray-300">
                       Sends POST data at 1 byte per 10 seconds, exhausting server resources
                     </p>
@@ -1067,7 +1066,7 @@ http {
                 Defense & Mitigation Solutions
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-6 border border-emerald-500/30 transition-colors">
+                <div className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-emerald-500/30 transition-colors">
                   <div className="flex items-center mb-4">
                     <div className="p-3 bg-emerald-500/20 rounded-lg mr-4">
                       <Cloud className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
@@ -1081,14 +1080,14 @@ http {
                     Anycast network with global scrubbing centers. Automatic attack detection and mitigation. Unmetered
                     DDoS protection on all plans. Magic Transit for network-layer protection. 330+ PoPs globally.
                   </p>
-                  <div className="bg-gray-50 dark:bg-black/50 rounded-lg p-4 border border-gray-200 dark:border-[#1F1F1F]">
+                  <div className="bg-gray-50 dark:bg-slate-950/50 rounded-lg p-4 border border-gray-200 dark:border-slate-800">
                     <p className="text-sm text-gray-700 dark:text-gray-300">
                       Free tier available; Pro $20/mo; Enterprise custom pricing
                     </p>
                   </div>
                 </div>
 
-                <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-6 border border-emerald-500/30 transition-colors">
+                <div className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-emerald-500/30 transition-colors">
                   <div className="flex items-center mb-4">
                     <div className="p-3 bg-emerald-500/20 rounded-lg mr-4">
                       <Server className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
@@ -1102,14 +1101,14 @@ http {
                     Standard: Free automatic protection for all AWS customers (Layer 3/4). Advanced: $3,000/month +
                     data transfer fees. Includes DDoS Response Team (DRT), cost protection, real-time notifications.
                   </p>
-                  <div className="bg-gray-50 dark:bg-black/50 rounded-lg p-4 border border-gray-200 dark:border-[#1F1F1F]">
+                  <div className="bg-gray-50 dark:bg-slate-950/50 rounded-lg p-4 border border-gray-200 dark:border-slate-800">
                     <p className="text-sm text-gray-700 dark:text-gray-300">
                       Integration with AWS WAF for Layer 7 protection
                     </p>
                   </div>
                 </div>
 
-                <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-6 border border-emerald-500/30 transition-colors">
+                <div className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-emerald-500/30 transition-colors">
                   <div className="flex items-center mb-4">
                     <div className="p-3 bg-emerald-500/20 rounded-lg mr-4">
                       <Network className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
@@ -1123,14 +1122,14 @@ http {
                     Scrubbing center-based mitigation. 24/7 Security Operations Center (SOC). Always-on or on-demand
                     deployment. BGP-based traffic diversion. Custom mitigation policies. Enterprise-grade solution.
                   </p>
-                  <div className="bg-gray-50 dark:bg-black/50 rounded-lg p-4 border border-gray-200 dark:border-[#1F1F1F]">
+                  <div className="bg-gray-50 dark:bg-slate-950/50 rounded-lg p-4 border border-gray-200 dark:border-slate-800">
                     <p className="text-sm text-gray-700 dark:text-gray-300">
                       Enterprise pricing: $5,000-$50,000/month depending on bandwidth
                     </p>
                   </div>
                 </div>
 
-                <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-6 border border-emerald-500/30 transition-colors">
+                <div className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-emerald-500/30 transition-colors">
                   <div className="flex items-center mb-4">
                     <div className="p-3 bg-emerald-500/20 rounded-lg mr-4">
                       <Activity className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
@@ -1144,14 +1143,14 @@ http {
                     High-performance IDS/IPS engine. Multi-threaded architecture. DDoS detection rules for SYN floods,
                     UDP floods, HTTP floods. Real-time traffic analysis and blocking capabilities.
                   </p>
-                  <div className="bg-gray-50 dark:bg-black/50 rounded-lg p-4 border border-gray-200 dark:border-[#1F1F1F]">
+                  <div className="bg-gray-50 dark:bg-slate-950/50 rounded-lg p-4 border border-gray-200 dark:border-slate-800">
                     <p className="text-sm font-mono text-gray-700 dark:text-gray-300">
                       suricata -c suricata.yaml -i eth0
                     </p>
                   </div>
                 </div>
 
-                <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-6 border border-emerald-500/30 transition-colors">
+                <div className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-emerald-500/30 transition-colors">
                   <div className="flex items-center mb-4">
                     <div className="p-3 bg-emerald-500/20 rounded-lg mr-4">
                       <Shield className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
@@ -1165,14 +1164,14 @@ http {
                     Monitors log files and bans IPs showing malicious behavior. Configurable thresholds for request
                     rates. Integrates with iptables/firewalld. Effective against application-layer DoS attacks.
                   </p>
-                  <div className="bg-gray-50 dark:bg-black/50 rounded-lg p-4 border border-gray-200 dark:border-[#1F1F1F]">
+                  <div className="bg-gray-50 dark:bg-slate-950/50 rounded-lg p-4 border border-gray-200 dark:border-slate-800">
                     <p className="text-sm text-gray-700 dark:text-gray-300">
                       Protects SSH, web servers, email servers from brute force and floods
                     </p>
                   </div>
                 </div>
 
-                <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-6 border border-emerald-500/30 transition-colors">
+                <div className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-emerald-500/30 transition-colors">
                   <div className="flex items-center mb-4">
                     <div className="p-3 bg-emerald-500/20 rounded-lg mr-4">
                       <Database className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
@@ -1186,7 +1185,7 @@ http {
                     OWASP Core Rule Set (CRS) provides DoS protection rules. Rate limiting, request size limits, slow
                     attack detection. Integrates with Apache, Nginx, IIS. Customizable rule sets.
                   </p>
-                  <div className="bg-gray-50 dark:bg-black/50 rounded-lg p-4 border border-gray-200 dark:border-[#1F1F1F]">
+                  <div className="bg-gray-50 dark:bg-slate-950/50 rounded-lg p-4 border border-gray-200 dark:border-slate-800">
                     <p className="text-sm text-gray-700 dark:text-gray-300">
                       Free and open-source; enterprise support available via Trustwave
                     </p>
@@ -1272,7 +1271,7 @@ http {
                 <Database className="w-6 h-6 text-emerald-600 dark:text-emerald-400 mr-3" />
                 Official Standards & Documentation
               </h3>
-              <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-6 border border-gray-200 dark:border-[#1F1F1F] transition-colors">
+              <div className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-gray-200 dark:border-slate-800 transition-colors">
                 <ul className="space-y-4">
                   {[
                     {
@@ -1301,7 +1300,7 @@ http {
                       url: "https://www.cisa.gov/news-events/cybersecurity-advisories"
                     }
                   ].map((ref, index) => (
-                    <li key={index} className="flex items-start pb-4 border-b border-gray-200 dark:border-[#1F1F1F] last:border-0">
+                    <li key={index} className="flex items-start pb-4 border-b border-gray-200 dark:border-slate-800 last:border-0">
                       <div className="flex-shrink-0 w-8 h-8 bg-emerald-500/20 rounded-lg flex items-center justify-center mr-4">
                         <span className="text-emerald-600 dark:text-emerald-400 font-bold">{index + 1}</span>
                       </div>
@@ -1356,7 +1355,7 @@ http {
                     severity: "CVSS 7.5 (High)"
                   }
                 ].map((item, index) => (
-                  <div key={index} className="bg-white dark:bg-[#0A0A0A] rounded-xl p-6 border border-gray-200 dark:border-[#1F1F1F] transition-colors">
+                  <div key={index} className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-gray-200 dark:border-slate-800 transition-colors">
                     <div className="flex items-start justify-between mb-3">
                       <span className="px-3 py-1 bg-red-500/20 text-red-700 dark:text-red-300 rounded-full text-sm font-medium">
                         {item.cve}
@@ -1376,7 +1375,7 @@ http {
                 <BookOpen className="w-6 h-6 text-emerald-600 dark:text-emerald-400 mr-3" />
                 Industry Research & Reports
               </h3>
-              <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-6 border border-gray-200 dark:border-[#1F1F1F] transition-colors">
+              <div className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-gray-200 dark:border-slate-800 transition-colors">
                 <ul className="space-y-4">
                   {[
                     {
@@ -1405,7 +1404,7 @@ http {
                       findings: "46M rps HTTPS flood (largest Layer 7). Compromised cloud VMs (not IoT). 5,256 sources, 132 countries. 69 minutes."
                     }
                   ].map((report, index) => (
-                    <li key={index} className="pb-4 border-b border-gray-200 dark:border-[#1F1F1F] last:border-0">
+                    <li key={index} className="pb-4 border-b border-gray-200 dark:border-slate-800 last:border-0">
                       <p className="font-semibold text-gray-900 dark:text-white mb-1">{report.title}</p>
                       <p className="text-sm text-emerald-600 dark:text-emerald-400 mb-2">{report.source}</p>
                       <p className="text-gray-600 dark:text-gray-400 text-sm">{report.findings}</p>
@@ -1444,7 +1443,7 @@ http {
                     url: "https://aws.amazon.com/shield/"
                   }
                 ].map((platform, index) => (
-                  <div key={index} className="bg-white dark:bg-[#0A0A0A] rounded-xl p-6 border border-gray-200 dark:border-[#1F1F1F] transition-colors">
+                  <div key={index} className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-gray-200 dark:border-slate-800 transition-colors">
                     <p className="font-semibold text-gray-900 dark:text-white mb-2">{platform.name}</p>
                     <p className="text-gray-600 dark:text-gray-400 text-sm mb-3">{platform.description}</p>
                     <a
@@ -1510,25 +1509,7 @@ http {
       </div>
 
       {/* Challenge Button */}
-      {onStartChallenge && (
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
-          <div className="bg-gradient-to-r from-purple-500 to-pink-600 rounded-xl p-8 text-center">
-            <h3 className="text-2xl font-bold text-white mb-4">
-              Ready to Test Your Knowledge?
-            </h3>
-            <p className="text-white/90 mb-6">
-              Take the challenge to demonstrate your understanding of DoS/DDoS attacks
-            </p>
-            <button
-              onClick={onStartChallenge}
-              className="inline-flex items-center px-8 py-4 bg-white text-purple-600 font-bold rounded-lg hover:bg-gray-100 transition-colors text-lg"
-            >
-              <Shield className="w-6 h-6 mr-3" />
-              Start Challenge
-            </button>
-          </div>
-        </div>
-      )}
+      
     </div>
   );
 };

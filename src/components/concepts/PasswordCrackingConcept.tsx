@@ -3,14 +3,13 @@ import { KeyRound, ArrowLeft, Target, Shield, Code, BookOpen, Hash, Cpu, Lock, U
 
 interface PasswordCrackingConceptProps {
   onBack?: () => void;
-  onStartChallenge?: () => void;
 }
 
-export const PasswordCrackingConcept = ({ onBack, onStartChallenge }: PasswordCrackingConceptProps = {}) => {
+export const PasswordCrackingConcept = ({ onBack }: PasswordCrackingConceptProps = {}) => {
   const [activeTab, setActiveTab] = useState('theory');
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-black transition-colors">
+    <div className="min-h-screen bg-gray-50 dark:bg-slate-950 transition-colors">
       {/* Header */}
       <div className="bg-gradient-to-r from-red-500 to-pink-600 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -54,7 +53,7 @@ export const PasswordCrackingConcept = ({ onBack, onStartChallenge }: PasswordCr
       </div>
 
       {/* Tab Navigation */}
-      <div className="bg-white dark:bg-[#0A0A0A] border-b border-gray-200 dark:border-[#1F1F1F] sticky top-0 z-40 transition-colors">
+      <div className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-slate-800 sticky top-0 z-40 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex space-x-8">
             {[
@@ -89,7 +88,7 @@ export const PasswordCrackingConcept = ({ onBack, onStartChallenge }: PasswordCr
               <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
                 Understanding Password Cracking
               </h2>
-              <div className="bg-white dark:bg-[#0A0A0A] rounded-xl p-8 border border-gray-200 dark:border-[#1F1F1F] transition-colors">
+              <div className="bg-white dark:bg-slate-900 rounded-xl p-8 border border-gray-200 dark:border-slate-800 transition-colors">
                 <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
                   Password cracking is the process of recovering plaintext passwords from encrypted or hashed credentials.
                   Modern attacks leverage GPU acceleration to test billions of password combinations per second against
@@ -153,7 +152,7 @@ export const PasswordCrackingConcept = ({ onBack, onStartChallenge }: PasswordCr
                       <p><strong className="text-red-400">Speed:</strong> 10 billion hashes/second (GPU)</p>
                       <p><strong className="text-red-400">Security:</strong> Collision attacks demonstrated</p>
                       <p><strong className="text-red-400">Usage:</strong> Still found in 15% of websites (legacy)</p>
-                      <div className="mt-4 p-3 bg-black rounded font-mono text-xs text-green-400">
+                      <div className="mt-4 p-3 bg-slate-950 rounded font-mono text-xs text-green-400">
                         5f4dcc3b5aa765d61d8327deb882cf99
                       </div>
                       <p className="text-xs text-gray-500 dark:text-gray-400">MD5("password")</p>
@@ -172,7 +171,7 @@ export const PasswordCrackingConcept = ({ onBack, onStartChallenge }: PasswordCr
                       <p><strong className="text-red-400">Speed:</strong> 12 billion hashes/second (GPU)</p>
                       <p><strong className="text-red-400">Security:</strong> SHAttered attack (2017)</p>
                       <p><strong className="text-red-400">Usage:</strong> Deprecated by NIST (2011)</p>
-                      <div className="mt-4 p-3 bg-black rounded font-mono text-xs text-green-400">
+                      <div className="mt-4 p-3 bg-slate-950 rounded font-mono text-xs text-green-400">
                         5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8
                       </div>
                       <p className="text-xs text-gray-500 dark:text-gray-400">SHA-1("password")</p>
@@ -191,7 +190,7 @@ export const PasswordCrackingConcept = ({ onBack, onStartChallenge }: PasswordCr
                       <p><strong className="text-orange-400">Speed:</strong> 2-3 billion hashes/second</p>
                       <p><strong className="text-orange-400">Security:</strong> Cryptographically secure</p>
                       <p><strong className="text-orange-400">Usage:</strong> Too fast for passwords without KDF</p>
-                      <div className="mt-4 p-3 bg-black rounded font-mono text-xs text-green-400 break-all">
+                      <div className="mt-4 p-3 bg-slate-950 rounded font-mono text-xs text-green-400 break-all">
                         5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8
                       </div>
                       <p className="text-xs text-gray-500 dark:text-gray-400">SHA-256("password")</p>
@@ -210,7 +209,7 @@ export const PasswordCrackingConcept = ({ onBack, onStartChallenge }: PasswordCr
                       <p><strong className="text-red-400">Speed:</strong> 200 billion hashes/second (GPU)</p>
                       <p><strong className="text-red-400">Security:</strong> No salting, based on broken MD4</p>
                       <p><strong className="text-red-400">Usage:</strong> Windows (backward compatibility)</p>
-                      <div className="mt-4 p-3 bg-black rounded font-mono text-xs text-green-400">
+                      <div className="mt-4 p-3 bg-slate-950 rounded font-mono text-xs text-green-400">
                         8846F7EAEE8FB117AD06BDD830B7586C
                       </div>
                       <p className="text-xs text-gray-500 dark:text-gray-400">NTLM("password")</p>
@@ -239,7 +238,7 @@ export const PasswordCrackingConcept = ({ onBack, onStartChallenge }: PasswordCr
                       <p><strong className="text-green-400">Speed:</strong> 5-10 hashes/second at cost 12</p>
                       <p><strong className="text-green-400">Security:</strong> GPU-resistant, memory-hard</p>
                       <p><strong className="text-green-400">Usage:</strong> Django, Ruby on Rails, PHP</p>
-                      <div className="mt-4 p-3 bg-black rounded font-mono text-xs text-green-400 break-all">
+                      <div className="mt-4 p-3 bg-slate-950 rounded font-mono text-xs text-green-400 break-all">
                         $2a$12$R9h/cIPz0gi.URNNX3kh2OPST9/PgBkqquzi.Ss7KIUgO2t0jWMUW
                       </div>
                       <p className="text-xs text-gray-500 dark:text-gray-400">bcrypt("password", cost=12)</p>
@@ -259,7 +258,7 @@ export const PasswordCrackingConcept = ({ onBack, onStartChallenge }: PasswordCr
                       <p><strong className="text-green-400">Speed:</strong> 1-10 hashes/second (configurable)</p>
                       <p><strong className="text-green-400">Security:</strong> Memory-hard, ASIC-resistant</p>
                       <p><strong className="text-green-400">Usage:</strong> Cryptocurrency wallets, high-security apps</p>
-                      <div className="mt-4 p-3 bg-black rounded font-mono text-xs text-green-400 break-all">
+                      <div className="mt-4 p-3 bg-slate-950 rounded font-mono text-xs text-green-400 break-all">
                         400$8$1$d5ac73b796...(truncated)
                       </div>
                       <p className="text-xs text-gray-500 dark:text-gray-400">scrypt("password", N=16384)</p>
@@ -279,7 +278,7 @@ export const PasswordCrackingConcept = ({ onBack, onStartChallenge }: PasswordCr
                       <p><strong className="text-emerald-400">Speed:</strong> 1-5 hashes/second (configurable)</p>
                       <p><strong className="text-emerald-400">Security:</strong> Resistant to GPU, ASIC, side-channel</p>
                       <p><strong className="text-emerald-400">Usage:</strong> OWASP recommended (2023+)</p>
-                      <div className="mt-4 p-3 bg-black rounded font-mono text-xs text-green-400 break-all">
+                      <div className="mt-4 p-3 bg-slate-950 rounded font-mono text-xs text-green-400 break-all">
                         $argon2id$v=19$m=47104,t=1,p=1$...(truncated)
                       </div>
                       <p className="text-xs text-gray-500 dark:text-gray-400">Argon2id("password")</p>
@@ -299,7 +298,7 @@ export const PasswordCrackingConcept = ({ onBack, onStartChallenge }: PasswordCr
                       <p><strong className="text-blue-400">Speed:</strong> 100-1,000 hashes/second</p>
                       <p><strong className="text-blue-400">Security:</strong> Good if iteration count high enough</p>
                       <p><strong className="text-blue-400">Usage:</strong> Apple iOS, WPA2, TLS</p>
-                      <div className="mt-4 p-3 bg-black rounded font-mono text-xs text-green-400 break-all">
+                      <div className="mt-4 p-3 bg-slate-950 rounded font-mono text-xs text-green-400 break-all">
                         pbkdf2:sha256:260000$...(truncated)
                       </div>
                       <p className="text-xs text-gray-500 dark:text-gray-400">PBKDF2("password", iters=260000)</p>
@@ -315,7 +314,7 @@ export const PasswordCrackingConcept = ({ onBack, onStartChallenge }: PasswordCr
                 Attack Types & Methodologies
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6 transition-colors">
+                <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6 transition-colors">
                   <div className="flex items-center mb-4">
                     <Hash className="w-6 h-6 text-red-400 mr-3" />
                     <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Brute Force</h3>
@@ -331,7 +330,7 @@ export const PasswordCrackingConcept = ({ onBack, onStartChallenge }: PasswordCr
                   </div>
                 </div>
 
-                <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6 transition-colors">
+                <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6 transition-colors">
                   <div className="flex items-center mb-4">
                     <BookOpen className="w-6 h-6 text-orange-400 mr-3" />
                     <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Dictionary Attack</h3>
@@ -347,7 +346,7 @@ export const PasswordCrackingConcept = ({ onBack, onStartChallenge }: PasswordCr
                   </div>
                 </div>
 
-                <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6 transition-colors">
+                <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6 transition-colors">
                   <div className="flex items-center mb-4">
                     <Target className="w-6 h-6 text-yellow-400 mr-3" />
                     <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Mask Attack</h3>
@@ -363,7 +362,7 @@ export const PasswordCrackingConcept = ({ onBack, onStartChallenge }: PasswordCr
                   </div>
                 </div>
 
-                <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6 transition-colors">
+                <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6 transition-colors">
                   <div className="flex items-center mb-4">
                     <Zap className="w-6 h-6 text-green-400 mr-3" />
                     <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Hybrid Attack</h3>
@@ -379,7 +378,7 @@ export const PasswordCrackingConcept = ({ onBack, onStartChallenge }: PasswordCr
                   </div>
                 </div>
 
-                <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6 transition-colors">
+                <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6 transition-colors">
                   <div className="flex items-center mb-4">
                     <Database className="w-6 h-6 text-purple-400 mr-3" />
                     <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Rainbow Table</h3>
@@ -395,7 +394,7 @@ export const PasswordCrackingConcept = ({ onBack, onStartChallenge }: PasswordCr
                   </div>
                 </div>
 
-                <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6 transition-colors">
+                <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6 transition-colors">
                   <div className="flex items-center mb-4">
                     <Code className="w-6 h-6 text-blue-400 mr-3" />
                     <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Rule-Based Attack</h3>
@@ -419,7 +418,7 @@ export const PasswordCrackingConcept = ({ onBack, onStartChallenge }: PasswordCr
                 Real-World Password Breaches
               </h2>
               <div className="space-y-6">
-                <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6 transition-colors">
+                <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6 transition-colors">
                   <div className="flex items-center justify-between mb-4">
                     <h3 className="text-2xl font-semibold text-red-400">RockYou (2009)</h3>
                     <span className="px-4 py-2 bg-red-500/20 text-red-300 rounded-lg text-sm font-semibold">
@@ -440,7 +439,7 @@ export const PasswordCrackingConcept = ({ onBack, onStartChallenge }: PasswordCr
                   </div>
                 </div>
 
-                <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6 transition-colors">
+                <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6 transition-colors">
                   <div className="flex items-center justify-between mb-4">
                     <h3 className="text-2xl font-semibold text-orange-400">LinkedIn (2012)</h3>
                     <span className="px-4 py-2 bg-orange-500/20 text-orange-300 rounded-lg text-sm font-semibold">
@@ -462,7 +461,7 @@ export const PasswordCrackingConcept = ({ onBack, onStartChallenge }: PasswordCr
                   </div>
                 </div>
 
-                <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6 transition-colors">
+                <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6 transition-colors">
                   <div className="flex items-center justify-between mb-4">
                     <h3 className="text-2xl font-semibold text-yellow-400">Adobe (2013)</h3>
                     <span className="px-4 py-2 bg-yellow-500/20 text-yellow-300 rounded-lg text-sm font-semibold">
@@ -484,7 +483,7 @@ export const PasswordCrackingConcept = ({ onBack, onStartChallenge }: PasswordCr
                   </div>
                 </div>
 
-                <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6 transition-colors">
+                <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6 transition-colors">
                   <div className="flex items-center justify-between mb-4">
                     <h3 className="text-2xl font-semibold text-green-400">Ashley Madison (2015)</h3>
                     <span className="px-4 py-2 bg-green-500/20 text-green-300 rounded-lg text-sm font-semibold">
@@ -506,7 +505,7 @@ export const PasswordCrackingConcept = ({ onBack, onStartChallenge }: PasswordCr
                   </div>
                 </div>
 
-                <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6 transition-colors">
+                <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6 transition-colors">
                   <div className="flex items-center justify-between mb-4">
                     <h3 className="text-2xl font-semibold text-purple-400">COMB - Compilation of Many Breaches (2021)</h3>
                     <span className="px-4 py-2 bg-purple-500/20 text-purple-300 rounded-lg text-sm font-semibold">
@@ -528,7 +527,7 @@ export const PasswordCrackingConcept = ({ onBack, onStartChallenge }: PasswordCr
                   </div>
                 </div>
 
-                <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6 transition-colors">
+                <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6 transition-colors">
                   <div className="flex items-center justify-between mb-4">
                     <h3 className="text-2xl font-semibold text-blue-400">LastPass Master Password (2022)</h3>
                     <span className="px-4 py-2 bg-blue-500/20 text-blue-300 rounded-lg text-sm font-semibold">
@@ -562,38 +561,38 @@ export const PasswordCrackingConcept = ({ onBack, onStartChallenge }: PasswordCr
                   NVIDIA RTX 4090 Performance Benchmarks
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  <div className="bg-black/50 rounded-lg p-6 border border-red-500/30">
+                  <div className="bg-slate-950/50 rounded-lg p-6 border border-red-500/30">
                     <p className="text-sm text-red-300 mb-2">NTLM (Windows)</p>
                     <p className="text-3xl font-bold text-white mb-1">200 GH/s</p>
                     <p className="text-xs text-gray-400">200 billion hashes/second</p>
                   </div>
-                  <div className="bg-black/50 rounded-lg p-6 border border-orange-500/30">
+                  <div className="bg-slate-950/50 rounded-lg p-6 border border-orange-500/30">
                     <p className="text-sm text-orange-300 mb-2">MD5</p>
                     <p className="text-3xl font-bold text-white mb-1">10 GH/s</p>
                     <p className="text-xs text-gray-400">10 billion hashes/second</p>
                   </div>
-                  <div className="bg-black/50 rounded-lg p-6 border border-yellow-500/30">
+                  <div className="bg-slate-950/50 rounded-lg p-6 border border-yellow-500/30">
                     <p className="text-sm text-yellow-300 mb-2">SHA-256</p>
                     <p className="text-3xl font-bold text-white mb-1">3 GH/s</p>
                     <p className="text-xs text-gray-400">3 billion hashes/second</p>
                   </div>
-                  <div className="bg-black/50 rounded-lg p-6 border border-green-500/30">
+                  <div className="bg-slate-950/50 rounded-lg p-6 border border-green-500/30">
                     <p className="text-sm text-green-300 mb-2">bcrypt (cost 5)</p>
                     <p className="text-3xl font-bold text-white mb-1">110 KH/s</p>
                     <p className="text-xs text-gray-400">110,000 hashes/second</p>
                   </div>
-                  <div className="bg-black/50 rounded-lg p-6 border border-emerald-500/30">
+                  <div className="bg-slate-950/50 rounded-lg p-6 border border-emerald-500/30">
                     <p className="text-sm text-emerald-300 mb-2">bcrypt (cost 12)</p>
                     <p className="text-3xl font-bold text-white mb-1">8 H/s</p>
                     <p className="text-xs text-gray-400">8 hashes/second</p>
                   </div>
-                  <div className="bg-black/50 rounded-lg p-6 border border-blue-500/30">
+                  <div className="bg-slate-950/50 rounded-lg p-6 border border-blue-500/30">
                     <p className="text-sm text-blue-300 mb-2">Argon2</p>
                     <p className="text-3xl font-bold text-white mb-1">5 H/s</p>
                     <p className="text-xs text-gray-400">5 hashes/second</p>
                   </div>
                 </div>
-                <div className="mt-8 p-6 bg-black/70 rounded-lg border border-red-500/30">
+                <div className="mt-8 p-6 bg-slate-950/70 rounded-lg border border-red-500/30">
                   <h4 className="text-lg font-semibold text-red-400 mb-4">Cloud-Based Cracking Economics</h4>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-300">
                     <p><strong className="text-red-400">AWS EC2 P4d (8× NVIDIA A100):</strong> $32/hour</p>
@@ -611,25 +610,25 @@ export const PasswordCrackingConcept = ({ onBack, onStartChallenge }: PasswordCr
                 MITRE ATT&CK Techniques
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6 transition-colors">
+                <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6 transition-colors">
                   <h3 className="text-lg font-semibold text-emerald-400 mb-3">T1110.001 - Password Guessing</h3>
                   <p className="text-gray-700 dark:text-gray-300">
                     Guessing passwords manually or with limited automation against live authentication systems.
                   </p>
                 </div>
-                <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6 transition-colors">
+                <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6 transition-colors">
                   <h3 className="text-lg font-semibold text-emerald-400 mb-3">T1110.002 - Password Cracking</h3>
                   <p className="text-gray-700 dark:text-gray-300">
                     Offline cracking of stolen password hashes using GPU acceleration and wordlists.
                   </p>
                 </div>
-                <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6 transition-colors">
+                <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6 transition-colors">
                   <h3 className="text-lg font-semibold text-emerald-400 mb-3">T1110.003 - Password Spraying</h3>
                   <p className="text-gray-700 dark:text-gray-300">
                     Testing single common password against many accounts to avoid account lockouts.
                   </p>
                 </div>
-                <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6 transition-colors">
+                <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6 transition-colors">
                   <h3 className="text-lg font-semibold text-emerald-400 mb-3">T1110.004 - Credential Stuffing</h3>
                   <p className="text-gray-700 dark:text-gray-300">
                     Using breached credentials from one service to access other services (password reuse).
@@ -662,7 +661,7 @@ export const PasswordCrackingConcept = ({ onBack, onStartChallenge }: PasswordCr
               </div>
 
               {/* Lab 1: Hash Identification */}
-              <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-8 mb-8 transition-colors">
+              <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-8 mb-8 transition-colors">
                 <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
                   <Hash className="w-6 h-6 mr-3 text-emerald-400" />
                   Lab 1: Hash Identification and Basic Cracking
@@ -759,7 +758,7 @@ hashcat -m 0 md5_hash.txt --show`}</code>
               </div>
 
               {/* Lab 2: Rule-Based Attack */}
-              <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-8 mb-8 transition-colors">
+              <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-8 mb-8 transition-colors">
                 <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
                   <Code className="w-6 h-6 mr-3 text-emerald-400" />
                   Lab 2: Rule-Based Attack with Mutations
@@ -816,7 +815,7 @@ hashcat -m 0 -a 0 hashes.txt wordlist.txt -r /usr/share/hashcat/rules/best64.rul
               </div>
 
               {/* Lab 3: Mask Attack */}
-              <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-8 mb-8 transition-colors">
+              <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-8 mb-8 transition-colors">
                 <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
                   <Target className="w-6 h-6 mr-3 text-emerald-400" />
                   Lab 3: Mask Attack for Targeted Cracking
@@ -869,7 +868,7 @@ hashcat -m 0 -a 3 --keyspace ?u?l?l?l?l?l?l?d?d
               </div>
 
               {/* Lab 4: Secure Password Storage */}
-              <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-8 mb-8 transition-colors">
+              <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-8 mb-8 transition-colors">
                 <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
                   <Lock className="w-6 h-6 mr-3 text-emerald-400" />
                   Lab 4: Implementing Secure Password Storage
@@ -985,7 +984,7 @@ print(f"\\n{test_pass}: {msg}")`}</code>
               </div>
 
               {/* Lab 5: Multi-Factor Authentication */}
-              <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-8 mb-8 transition-colors">
+              <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-8 mb-8 transition-colors">
                 <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
                   <Shield className="w-6 h-6 mr-3 text-emerald-400" />
                   Lab 5: Multi-Factor Authentication (TOTP)
@@ -1120,7 +1119,7 @@ print("Even weak password + MFA > strong password alone")`}</code>
                   Cracking Tools (Attack)
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6 transition-colors">
+                  <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6 transition-colors">
                     <h4 className="text-xl font-semibold text-red-400 mb-3">Hashcat</h4>
                     <p className="text-gray-700 dark:text-gray-300 mb-4">
                       Industry-leading GPU-accelerated password cracking tool with 300+ hash algorithm support.
@@ -1133,7 +1132,7 @@ print("Even weak password + MFA > strong password alone")`}</code>
                     </div>
                   </div>
 
-                  <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6 transition-colors">
+                  <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6 transition-colors">
                     <h4 className="text-xl font-semibold text-red-400 mb-3">John the Ripper</h4>
                     <p className="text-gray-700 dark:text-gray-300 mb-4">
                       Open-source password cracker with automatic hash detection and 400+ format support.
@@ -1146,7 +1145,7 @@ print("Even weak password + MFA > strong password alone")`}</code>
                     </div>
                   </div>
 
-                  <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6 transition-colors">
+                  <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6 transition-colors">
                     <h4 className="text-xl font-semibold text-red-400 mb-3">THC Hydra</h4>
                     <p className="text-gray-700 dark:text-gray-300 mb-4">
                       Fast network login cracker supporting 50+ protocols for online attacks.
@@ -1159,7 +1158,7 @@ print("Even weak password + MFA > strong password alone")`}</code>
                     </div>
                   </div>
 
-                  <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6 transition-colors">
+                  <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6 transition-colors">
                     <h4 className="text-xl font-semibold text-red-400 mb-3">Medusa</h4>
                     <p className="text-gray-700 dark:text-gray-300 mb-4">
                       Modular, parallel brute-force login cracker with better stability than Hydra.
@@ -1172,7 +1171,7 @@ print("Even weak password + MFA > strong password alone")`}</code>
                     </div>
                   </div>
 
-                  <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6 transition-colors">
+                  <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6 transition-colors">
                     <h4 className="text-xl font-semibold text-red-400 mb-3">RainbowCrack</h4>
                     <p className="text-gray-700 dark:text-gray-300 mb-4">
                       Specialized tool for rainbow table attacks against unsalted hashes.
@@ -1185,7 +1184,7 @@ print("Even weak password + MFA > strong password alone")`}</code>
                     </div>
                   </div>
 
-                  <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6 transition-colors">
+                  <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6 transition-colors">
                     <h4 className="text-xl font-semibold text-red-400 mb-3">L0phtCrack</h4>
                     <p className="text-gray-700 dark:text-gray-300 mb-4">
                       Commercial password auditing tool for Windows environments.
@@ -1198,7 +1197,7 @@ print("Even weak password + MFA > strong password alone")`}</code>
                     </div>
                   </div>
 
-                  <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6 transition-colors">
+                  <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6 transition-colors">
                     <h4 className="text-xl font-semibold text-red-400 mb-3">Ophcrack</h4>
                     <p className="text-gray-700 dark:text-gray-300 mb-4">
                       Free Windows password cracker using rainbow tables with bootable LiveCD option.
@@ -1211,7 +1210,7 @@ print("Even weak password + MFA > strong password alone")`}</code>
                     </div>
                   </div>
 
-                  <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6 transition-colors">
+                  <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6 transition-colors">
                     <h4 className="text-xl font-semibold text-red-400 mb-3">CeWL (Custom Word List Generator)</h4>
                     <p className="text-gray-700 dark:text-gray-300 mb-4">
                       Spider tool that crawls websites to generate target-specific wordlists.
@@ -1224,7 +1223,7 @@ print("Even weak password + MFA > strong password alone")`}</code>
                     </div>
                   </div>
 
-                  <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6 transition-colors">
+                  <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6 transition-colors">
                     <h4 className="text-xl font-semibold text-red-400 mb-3">PACK (Password Analysis & Cracking Kit)</h4>
                     <p className="text-gray-700 dark:text-gray-300 mb-4">
                       Suite for password analysis and mask generation optimized for Hashcat.
@@ -1237,7 +1236,7 @@ print("Even weak password + MFA > strong password alone")`}</code>
                     </div>
                   </div>
 
-                  <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6 transition-colors">
+                  <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6 transition-colors">
                     <h4 className="text-xl font-semibold text-red-400 mb-3">pipal</h4>
                     <p className="text-gray-700 dark:text-gray-300 mb-4">
                       Password analysis and statistics tool for understanding password patterns.
@@ -1259,7 +1258,7 @@ print("Even weak password + MFA > strong password alone")`}</code>
                   Defense Tools (Protection)
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6 transition-colors">
+                  <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6 transition-colors">
                     <h4 className="text-xl font-semibold text-green-400 mb-3">PAM (Pluggable Authentication Modules)</h4>
                     <p className="text-gray-700 dark:text-gray-300 mb-4">
                       Linux authentication framework with password complexity enforcement.
@@ -1272,7 +1271,7 @@ print("Even weak password + MFA > strong password alone")`}</code>
                     </div>
                   </div>
 
-                  <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6 transition-colors">
+                  <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6 transition-colors">
                     <h4 className="text-xl font-semibold text-green-400 mb-3">Fail2ban</h4>
                     <p className="text-gray-700 dark:text-gray-300 mb-4">
                       Intrusion prevention tool that monitors logs and blocks IPs after failed login attempts.
@@ -1285,7 +1284,7 @@ print("Even weak password + MFA > strong password alone")`}</code>
                     </div>
                   </div>
 
-                  <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6 transition-colors">
+                  <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6 transition-colors">
                     <h4 className="text-xl font-semibold text-green-400 mb-3">Google Authenticator / Authy (TOTP)</h4>
                     <p className="text-gray-700 dark:text-gray-300 mb-4">
                       Time-based One-Time Password (TOTP) implementations for multi-factor authentication.
@@ -1298,7 +1297,7 @@ print("Even weak password + MFA > strong password alone")`}</code>
                     </div>
                   </div>
 
-                  <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6 transition-colors">
+                  <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6 transition-colors">
                     <h4 className="text-xl font-semibold text-green-400 mb-3">Password Managers (1Password, Bitwarden, KeePass)</h4>
                     <p className="text-gray-700 dark:text-gray-300 mb-4">
                       Secure password storage and generation tools using strong encryption.
@@ -1311,7 +1310,7 @@ print("Even weak password + MFA > strong password alone")`}</code>
                     </div>
                   </div>
 
-                  <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6 transition-colors">
+                  <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6 transition-colors">
                     <h4 className="text-xl font-semibold text-green-400 mb-3">zxcvbn</h4>
                     <p className="text-gray-700 dark:text-gray-300 mb-4">
                       Password strength estimator by Dropbox that detects common patterns.
@@ -1324,7 +1323,7 @@ print("Even weak password + MFA > strong password alone")`}</code>
                     </div>
                   </div>
 
-                  <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6 transition-colors">
+                  <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6 transition-colors">
                     <h4 className="text-xl font-semibold text-green-400 mb-3">Have I Been Pwned (HIBP) API</h4>
                     <p className="text-gray-700 dark:text-gray-300 mb-4">
                       Service by Troy Hunt with 11+ billion breached accounts and 613M+ pwned passwords.
@@ -1337,7 +1336,7 @@ print("Even weak password + MFA > strong password alone")`}</code>
                     </div>
                   </div>
 
-                  <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6 transition-colors">
+                  <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6 transition-colors">
                     <h4 className="text-xl font-semibold text-green-400 mb-3">Microsoft Defender for Identity</h4>
                     <p className="text-gray-700 dark:text-gray-300 mb-4">
                       Enterprise-grade identity threat detection for Active Directory environments.
@@ -1350,7 +1349,7 @@ print("Even weak password + MFA > strong password alone")`}</code>
                     </div>
                   </div>
 
-                  <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6 transition-colors">
+                  <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6 transition-colors">
                     <h4 className="text-xl font-semibold text-green-400 mb-3">DenyHosts</h4>
                     <p className="text-gray-700 dark:text-gray-300 mb-4">
                       SSH-specific log analysis tool that blocks IPs after repeated failed logins.
@@ -1378,7 +1377,7 @@ print("Even weak password + MFA > strong password alone")`}</code>
               {/* Official Standards */}
               <div className="mb-8">
                 <h3 className="text-2xl font-semibold text-emerald-400 mb-4">Official Standards & Guidelines</h3>
-                <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6 transition-colors">
+                <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6 transition-colors">
                   <ul className="space-y-3 text-gray-700 dark:text-gray-300">
                     <li className="flex items-start">
                       <span className="text-emerald-400 mr-3">[1]</span>
@@ -1422,7 +1421,7 @@ print("Even weak password + MFA > strong password alone")`}</code>
               {/* Academic Papers */}
               <div className="mb-8">
                 <h3 className="text-2xl font-semibold text-emerald-400 mb-4">Academic Research Papers</h3>
-                <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6 transition-colors">
+                <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6 transition-colors">
                   <ul className="space-y-3 text-gray-700 dark:text-gray-300">
                     <li className="flex items-start">
                       <span className="text-emerald-400 mr-3">[6]</span>
@@ -1494,7 +1493,7 @@ print("Even weak password + MFA > strong password alone")`}</code>
               {/* Industry Reports */}
               <div className="mb-8">
                 <h3 className="text-2xl font-semibold text-emerald-400 mb-4">Industry Reports & Statistics</h3>
-                <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6 transition-colors">
+                <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6 transition-colors">
                   <ul className="space-y-3 text-gray-700 dark:text-gray-300">
                     <li className="flex items-start">
                       <span className="text-emerald-400 mr-3">[15]</span>
@@ -1538,7 +1537,7 @@ print("Even weak password + MFA > strong password alone")`}</code>
               {/* Case Studies */}
               <div className="mb-8">
                 <h3 className="text-2xl font-semibold text-emerald-400 mb-4">Case Studies & Real-World Analysis</h3>
-                <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6 transition-colors">
+                <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6 transition-colors">
                   <ul className="space-y-3 text-gray-700 dark:text-gray-300">
                     <li className="flex items-start">
                       <span className="text-emerald-400 mr-3">[20]</span>
@@ -1568,7 +1567,7 @@ print("Even weak password + MFA > strong password alone")`}</code>
               {/* Practice Platforms */}
               <div className="mb-8">
                 <h3 className="text-2xl font-semibold text-emerald-400 mb-4">Practice Platforms & Training</h3>
-                <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6 transition-colors">
+                <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6 transition-colors">
                   <ul className="space-y-3 text-gray-700 dark:text-gray-300">
                     <li className="flex items-start">
                       <span className="text-emerald-400 mr-3">[23]</span>
@@ -1605,7 +1604,7 @@ print("Even weak password + MFA > strong password alone")`}</code>
               {/* Legal & Ethical */}
               <div className="mb-8">
                 <h3 className="text-2xl font-semibold text-emerald-400 mb-4">Legal & Ethical Guidelines</h3>
-                <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6 transition-colors">
+                <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6 transition-colors">
                   <ul className="space-y-3 text-gray-700 dark:text-gray-300">
                     <li className="flex items-start">
                       <span className="text-emerald-400 mr-3">[27]</span>
@@ -1642,7 +1641,7 @@ print("Even weak password + MFA > strong password alone")`}</code>
               {/* Technical Resources */}
               <div className="mb-8">
                 <h3 className="text-2xl font-semibold text-emerald-400 mb-4">Technical Documentation & Resources</h3>
-                <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6 transition-colors">
+                <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6 transition-colors">
                   <ul className="space-y-3 text-gray-700 dark:text-gray-300">
                     <li className="flex items-start">
                       <span className="text-emerald-400 mr-3">[31]</span>
@@ -1699,25 +1698,7 @@ print("Even weak password + MFA > strong password alone")`}</code>
       </div>
 
       {/* Challenge CTA */}
-      {onStartChallenge && (
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
-          <div className="bg-gradient-to-r from-red-500 to-pink-600 rounded-xl p-8 text-center text-white">
-            <Target className="w-16 h-16 mx-auto mb-4" />
-            <h3 className="text-2xl font-bold mb-4">Test Your Password Security Knowledge</h3>
-            <p className="text-white/90 mb-6 max-w-2xl mx-auto">
-              Ready to validate your understanding of hash algorithms, GPU acceleration, and modern authentication security?
-              Take the challenge to earn your 200 points!
-            </p>
-            <button
-              onClick={onStartChallenge}
-              className="px-8 py-3 bg-white text-red-600 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center"
-            >
-              <Target className="w-5 h-5 mr-2" />
-              Take Challenge
-            </button>
-          </div>
-        </div>
-      )}
+      
     </div>
   );
 };

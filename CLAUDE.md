@@ -166,18 +166,10 @@ const { progress, saveProgress, getProgressPercent } = useProgress();
 
 **useGameState.ts**
 ```typescript
-const { points, level, awardPoints } = useGameState();
-// Manages points, level calculation (500 points per level)
-// Handles point allocation on challenge completion
-```
-
+const { points, level, awardPoints } = useGameState() - UNUSED (kept for potential future use, gamification removed)
 **useAchievements.ts**
 ```typescript
-const { achievements, checkAchievements, addAchievement } = useAchievements();
-// Detects milestone achievements
-// Examples: "First Steps", "Quick Learner", "Security Expert"
-```
-
+const { achievements, checkAchievements, addAchievement } = useAchievements() - UNUSED (kept for potential future use, gamification removed)
 **useTheme.ts**
 ```typescript
 const { theme, toggleTheme } = useTheme();
@@ -208,11 +200,11 @@ const { theme, toggleTheme } = useThemeContext();
 **Color System:**
 - **Base Colors:**
   - Light mode: Cool gray (#F8FAFC) backgrounds, white (#FFFFFF) cards
-  - Dark mode: Pure black (#000000) backgrounds, near-black (#0A0A0A) cards
+  - Dark mode: Pure black (slate-950) backgrounds, near-black (slate-900) cards
 - **Accent Color:** Emerald (#10B981) - replaces all cyan/blue accents
 - **Borders:**
   - Light mode: #E2E8F0
-  - Dark mode: #1F1F1F
+  - Dark mode: slate-800
 - **Semantic Colors:** Preserved across themes
   - Success: Green (#10B981)
   - Warning: Yellow/Amber
@@ -226,7 +218,7 @@ const { theme, toggleTheme } = useThemeContext();
 **Component Pattern:**
 ```tsx
 // All components follow this pattern:
-<div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F]">
+<div className="bg-white dark:bg-[slate-900] border border-gray-200 dark:border-[slate-800]">
   <h1 className="text-gray-900 dark:text-white">Title</h1>
   <p className="text-gray-600 dark:text-gray-400">Body text</p>
   <button className="bg-emerald-500 hover:bg-emerald-600 text-white">
@@ -243,7 +235,7 @@ const { theme, toggleTheme } = useThemeContext();
 
 **Code Syntax Highlighting:**
 - Code blocks maintain colored syntax in both themes
-- Background: `bg-gray-900 dark:bg-black`
+- Background: `bg-gray-900 dark:bg-slate-950`
 - Syntax colors preserved (green, blue, yellow, etc.)
 
 ### Flagship Concepts Architecture
@@ -255,14 +247,13 @@ const { theme, toggleTheme } = useThemeContext();
 
 interface ConceptProps {
   onBack?: () => void;              // Navigate back to dashboard
-  onStartChallenge?: () => void;    // Launch challenge quiz
 }
 
-export const PromptInjectionConcept = ({ onBack, onStartChallenge }: ConceptProps) => {
+export const PromptInjectionConcept = ({ onBack
   const [activeTab, setActiveTab] = useState('theory');
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-black transition-colors">
+    <div className="min-h-screen bg-gray-50 dark:bg-slate-950 transition-colors">
       {/* Navigation */}
       {onBack && <button onClick={onBack}>Back to Dashboard</button>}
 
@@ -281,7 +272,7 @@ export const PromptInjectionConcept = ({ onBack, onStartChallenge }: ConceptProp
       {activeTab === 'references' && <ReferencesTab />}
 
       {/* Challenge Button */}
-      {onStartChallenge && <button onClick={onStartChallenge}>Take Challenge</button>}
+      {
     </div>
   );
 };
@@ -420,10 +411,9 @@ To enhance one of the 15 basic concepts:
    ```tsx
    interface DataPoisoningConceptProps {
      onBack?: () => void;
-     onStartChallenge?: () => void;
    }
 
-   export const DataPoisoningConcept = ({ onBack, onStartChallenge }: DataPoisoningConceptProps) => {
+   export const DataPoisoningConcept = ({ onBack
      // Use existing flagship concepts as reference
      // 4 tabs: Theory, Lab, Tools, References
    };
@@ -531,9 +521,9 @@ https://colab.research.google.com/github/[user]/[repo]/blob/main/notebooks/[file
   - Text Primary: `gray-900` (#111827)
   - Text Secondary: `gray-600` (#4B5563)
 - **Dark Mode:**
-  - Background: `black` (#000000)
-  - Cards: Custom `#0A0A0A` (near-black)
-  - Borders: Custom `#1F1F1F`
+  - Background: `black` (slate-950)
+  - Cards: Custom `slate-900` (near-black)
+  - Borders: Custom `slate-800`
   - Text Primary: `white` (#FFFFFF)
   - Text Secondary: `gray-400` (#9CA3AF)
 - **Accent Colors (both modes):**
@@ -548,7 +538,7 @@ https://colab.research.google.com/github/[user]/[repo]/blob/main/notebooks/[file
 - Load via Google Fonts CDN
 
 **Theme-Aware Patterns:**
-- Cards: `bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F]`
+- Cards: `bg-white dark:bg-[slate-900] border border-gray-200 dark:border-[slate-800]`
 - Headings: `text-gray-900 dark:text-white`
 - Body text: `text-gray-600 dark:text-gray-400`
 - Buttons: `bg-emerald-500 hover:bg-emerald-600 text-white`

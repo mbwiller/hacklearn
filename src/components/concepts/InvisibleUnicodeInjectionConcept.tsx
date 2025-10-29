@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { AlertTriangle, Code, Shield, BookOpen, Terminal, Eye, EyeOff, Lock, ArrowLeft, Target, ExternalLink, CheckCircle, XCircle, AlertOctagon } from 'lucide-react';
+import { AlertTriangle, Code, Shield, BookOpen, Terminal, Eye, EyeOff, Lock, ArrowLeft, ExternalLink, CheckCircle, XCircle, AlertOctagon } from 'lucide-react';
 
 const tabs = [
   { id: 'theory', name: 'Theory', icon: BookOpen },
@@ -10,10 +10,9 @@ const tabs = [
 
 interface InvisibleUnicodeInjectionConceptProps {
   onBack?: () => void;
-  onStartChallenge?: () => void;
 }
 
-export const InvisibleUnicodeInjectionConcept = ({ onBack, onStartChallenge }: InvisibleUnicodeInjectionConceptProps = {}) => {
+export const InvisibleUnicodeInjectionConcept = ({ onBack }: InvisibleUnicodeInjectionConceptProps = {}) => {
   const [activeTab, setActiveTab] = useState('theory');
 
   return (
@@ -29,7 +28,7 @@ export const InvisibleUnicodeInjectionConcept = ({ onBack, onStartChallenge }: I
           </button>
         )}
 
-        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-2xl p-8 shadow-2xl">
+        <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-2xl p-8 shadow-2xl">
           <div className="flex items-center gap-4 mb-8">
             <div className="p-4 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-xl">
               <EyeOff className="w-12 h-12" />
@@ -38,18 +37,10 @@ export const InvisibleUnicodeInjectionConcept = ({ onBack, onStartChallenge }: I
               <h1 className="text-4xl font-bold">Invisible Unicode Injection</h1>
               <p className="text-emerald-500 mt-2">Master hidden character attacks that exploit AI/ML systems and bypass security filters</p>
             </div>
-            {onStartChallenge && (
-              <button
-                onClick={onStartChallenge}
-                className="px-6 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 rounded-lg font-semibold transition-all flex items-center gap-2"
-              >
-                <Target className="w-5 h-5" />
-                Take Challenge
-              </button>
-            )}
+            
           </div>
 
-          <div className="border-b border-gray-200 dark:border-[#1F1F1F] mb-8">
+          <div className="border-b border-gray-200 dark:border-slate-800 mb-8">
             <nav className="flex gap-2">
               {tabs.map((tab) => {
                 const Icon = tab.icon;
@@ -59,7 +50,7 @@ export const InvisibleUnicodeInjectionConcept = ({ onBack, onStartChallenge }: I
                     onClick={() => setActiveTab(tab.id)}
                     className={`flex items-center gap-2 px-6 py-3 rounded-t-lg transition-all ${
                       activeTab === tab.id
-                        ? 'bg-white dark:bg-[#0A0A0A] text-emerald-500 border-b-2 border-emerald-500'
+                        ? 'bg-white dark:bg-slate-900 text-emerald-500 border-b-2 border-emerald-500'
                         : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-white/5'
                     }`}
                   >
@@ -90,7 +81,7 @@ const TheoryTab = () => (
         <AlertTriangle className="w-6 h-6 text-yellow-400" />
         What is Invisible Unicode Injection?
       </h2>
-      <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6 space-y-4">
+      <div className="bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6 space-y-4">
         <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
           Invisible Unicode injection exploits hidden characters that are processed by AI/ML systems but remain invisible
           to human users. These attacks leverage zero-width characters, Unicode tag characters (U+E0020-U+E007F),
@@ -120,7 +111,7 @@ const TheoryTab = () => (
         How Humans vs AI Systems Perceive Unicode
       </h2>
       <div className="grid md:grid-cols-2 gap-4">
-        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h3 className="font-semibold text-lg mb-3 flex items-center gap-2">
             <Eye className="w-5 h-5 text-blue-500" />
             Human Perception
@@ -144,7 +135,7 @@ const TheoryTab = () => (
             </li>
           </ul>
         </div>
-        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h3 className="font-semibold text-lg mb-3 flex items-center gap-2">
             <Terminal className="w-5 h-5 text-emerald-500" />
             LLM Processing
@@ -174,7 +165,7 @@ const TheoryTab = () => (
     <section>
       <h2 className="text-2xl font-bold mb-4">Attack Categories (80% AI/ML Focus)</h2>
       <div className="space-y-4">
-        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h3 className="text-xl font-semibold text-emerald-500 mb-3">1. Unicode Tag Prompt Injection</h3>
           <p className="text-gray-600 dark:text-gray-400 mb-3">
             <strong className="text-emerald-400">Attack Vector:</strong> Use Unicode tag characters (U+E0020 to U+E007F)
@@ -189,7 +180,7 @@ const TheoryTab = () => (
           </p>
         </div>
 
-        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h3 className="text-xl font-semibold text-emerald-500 mb-3">2. RAG Document Poisoning</h3>
           <p className="text-gray-600 dark:text-gray-400 mb-3">
             <strong className="text-emerald-400">Attack Vector:</strong> Inject documents containing invisible Unicode
@@ -206,7 +197,7 @@ const TheoryTab = () => (
           </p>
         </div>
 
-        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h3 className="text-xl font-semibold text-emerald-500 mb-3">3. Zero-Width Character Attacks</h3>
           <p className="text-gray-600 dark:text-gray-400 mb-3">
             <strong className="text-emerald-400">Attack Vector:</strong> Use zero-width spaces (U+200B), zero-width
@@ -223,7 +214,7 @@ const TheoryTab = () => (
           </p>
         </div>
 
-        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h3 className="text-xl font-semibold text-emerald-500 mb-3">4. Embedding Inversion Attacks</h3>
           <p className="text-gray-600 dark:text-gray-400 mb-3">
             <strong className="text-emerald-400">Attack Vector:</strong> Exploit RAG embedding vulnerabilities to
@@ -238,7 +229,7 @@ const TheoryTab = () => (
           </p>
         </div>
 
-        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h3 className="text-xl font-semibold text-emerald-500 mb-3">5. Token Expansion DoS</h3>
           <p className="text-gray-600 dark:text-gray-400 mb-3">
             <strong className="text-emerald-400">Attack Vector:</strong> Embed excessive content in single Unicode
@@ -270,7 +261,7 @@ const TheoryTab = () => (
     <section>
       <h2 className="text-2xl font-bold mb-4">Real-World Examples & Financial Impact</h2>
       <div className="space-y-4">
-        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h3 className="text-xl font-semibold text-emerald-500 mb-2">Riley Goodside Unicode Tag Discovery (January 2024)</h3>
           <p className="text-gray-600 dark:text-gray-400 mb-2">
             <strong className="text-emerald-400">Discoverer:</strong> Riley Goodside, Security Researcher
@@ -291,7 +282,7 @@ const TheoryTab = () => (
           </p>
         </div>
 
-        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h3 className="text-xl font-semibold text-emerald-500 mb-2">Microsoft Copilot RAG Poisoning (2024)</h3>
           <p className="text-gray-600 dark:text-gray-400 mb-2">
             <strong className="text-emerald-400">Target:</strong> Microsoft 365 Copilot RAG system
@@ -312,7 +303,7 @@ const TheoryTab = () => (
           </p>
         </div>
 
-        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h3 className="text-xl font-semibold text-emerald-500 mb-2">Z-WASP Office 365 Attack (2018-2019)</h3>
           <p className="text-gray-600 dark:text-gray-400 mb-2">
             <strong className="text-emerald-400">Discoverer:</strong> Avanan Security
@@ -337,7 +328,7 @@ const TheoryTab = () => (
           </p>
         </div>
 
-        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h3 className="text-xl font-semibold text-emerald-500 mb-2">PayPal Homograph Phishing (2005)</h3>
           <p className="text-gray-600 dark:text-gray-400 mb-2">
             <strong className="text-emerald-400">Attack Method:</strong> Attackers registered "pаypаl.com" using
@@ -354,7 +345,7 @@ const TheoryTab = () => (
           </p>
         </div>
 
-        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h3 className="text-xl font-semibold text-emerald-500 mb-2">Trojan Source Vulnerability (CVE-2021-42574, CVE-2021-42694)</h3>
           <p className="text-gray-600 dark:text-gray-400 mb-2">
             <strong className="text-emerald-400">Researchers:</strong> Nicholas Boucher and Ross Anderson, Cambridge University
@@ -377,7 +368,7 @@ const TheoryTab = () => (
           </p>
         </div>
 
-        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h3 className="text-xl font-semibold text-emerald-500 mb-2">PostgreSQL Unicode Injection (CVE-2025-1094)</h3>
           <p className="text-gray-600 dark:text-gray-400 mb-2">
             <strong className="text-emerald-400">CVSS Score:</strong> 8.1 (High Severity)
@@ -480,14 +471,14 @@ const LabTab = () => (
         Build a Python tool to detect and visualize invisible Unicode characters that could be used for injection attacks.
       </p>
 
-      <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6 mb-4">
+      <div className="bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6 mb-4">
         <div className="flex items-center justify-between mb-3">
           <h3 className="font-semibold text-lg">Python Detection Tool</h3>
           <span className="text-sm px-3 py-1 bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 rounded-full">
             Production Ready
           </span>
         </div>
-        <pre className="bg-gray-900 dark:bg-black text-gray-100 p-4 rounded-lg overflow-x-auto text-sm">
+        <pre className="bg-gray-900 dark:bg-slate-950 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm">
 {`import unicodedata
 
 INVISIBLE_CHARS = {
@@ -583,7 +574,7 @@ print("Cleaned:", clean_text(test_text))`}
           <AlertOctagon className="w-5 h-5 text-red-500" />
           <h3 className="font-semibold text-lg text-red-600 dark:text-red-400">Educational Demonstration Only</h3>
         </div>
-        <pre className="bg-gray-900 dark:bg-black text-gray-100 p-4 rounded-lg overflow-x-auto text-sm">
+        <pre className="bg-gray-900 dark:bg-slate-950 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm">
 {`def encode_to_unicode_tags(text):
     """Convert ASCII text to invisible Unicode tag characters"""
     encoded = []
@@ -653,7 +644,7 @@ for i, char in enumerate(payload):
           <CheckCircle className="w-5 h-5 text-green-500" />
           <h3 className="font-semibold text-lg text-green-600 dark:text-green-400">Production-Ready Defense</h3>
         </div>
-        <pre className="bg-gray-900 dark:bg-black text-gray-100 p-4 rounded-lg overflow-x-auto text-sm">
+        <pre className="bg-gray-900 dark:bg-slate-950 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm">
 {`import re
 import unicodedata
 
@@ -810,7 +801,7 @@ if not is_safe or issues['risk'] != 'LOW':
           <Shield className="w-5 h-5 text-green-500" />
           <h3 className="font-semibold text-lg text-green-600 dark:text-green-400">Multi-Layer Defense</h3>
         </div>
-        <pre className="bg-gray-900 dark:bg-black text-gray-100 p-4 rounded-lg overflow-x-auto text-sm">
+        <pre className="bg-gray-900 dark:bg-slate-950 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm">
 {`import unicodedata
 
 def llm_safe_normalize(text):
@@ -916,7 +907,7 @@ const ToolsTab = () => (
       </div>
 
       <div className="grid md:grid-cols-2 gap-4">
-        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h3 className="font-semibold text-lg mb-2">ASCII Smuggler</h3>
           <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
             <strong>Type:</strong> Web-based tool
@@ -932,7 +923,7 @@ const ToolsTab = () => (
           </p>
         </div>
 
-        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h3 className="font-semibold text-lg mb-2">ZWSP-Tool</h3>
           <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
             <strong>Platform:</strong> GitHub (TwistAtom/ZWSP-Tool)
@@ -949,13 +940,13 @@ const ToolsTab = () => (
           </p>
         </div>
 
-        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h3 className="font-semibold text-lg mb-2">Promptfoo RAG Poisoning</h3>
           <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
             <strong>Type:</strong> Security testing framework
           </p>
           <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
-            <strong>Command:</strong> <code className="bg-gray-900 dark:bg-black px-2 py-1 rounded text-xs">promptfoo redteam poison document1.txt --goal "Extract API keys"</code>
+            <strong>Command:</strong> <code className="bg-gray-900 dark:bg-slate-950 px-2 py-1 rounded text-xs">promptfoo redteam poison document1.txt --goal "Extract API keys"</code>
           </p>
           <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
             <strong>Features:</strong> Automated RAG poisoning testing, custom attack goal specification, multi-document
@@ -963,7 +954,7 @@ const ToolsTab = () => (
           </p>
         </div>
 
-        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h3 className="font-semibold text-lg mb-2">confusable_homoglyphs (Python)</h3>
           <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
             <strong>Package:</strong> PyPI (pip install confusable_homoglyphs)
@@ -979,7 +970,7 @@ const ToolsTab = () => (
           </p>
         </div>
 
-        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h3 className="font-semibold text-lg mb-2">PoisonedRAG Framework</h3>
           <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
             <strong>Repository:</strong> github.com/sleeepeer/PoisonedRAG
@@ -996,7 +987,7 @@ const ToolsTab = () => (
           </p>
         </div>
 
-        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h3 className="font-semibold text-lg mb-2">Unicode Confusables Utility</h3>
           <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
             <strong>URL:</strong> util.unicode.org/UnicodeJsps/confusables.jsp
@@ -1021,7 +1012,7 @@ const ToolsTab = () => (
       </h2>
 
       <div className="grid md:grid-cols-2 gap-4">
-        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h3 className="font-semibold text-lg mb-2">Python unicodedata Module</h3>
           <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
             <strong>Type:</strong> Standard library (built-in)
@@ -1031,16 +1022,16 @@ const ToolsTab = () => (
             character name lookup
           </p>
           <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
-            <strong>Key Functions:</strong> <code className="bg-gray-900 dark:bg-black px-2 py-1 rounded text-xs">normalize()</code>,
-            <code className="bg-gray-900 dark:bg-black px-2 py-1 rounded text-xs ml-1">category()</code>,
-            <code className="bg-gray-900 dark:bg-black px-2 py-1 rounded text-xs ml-1">name()</code>
+            <strong>Key Functions:</strong> <code className="bg-gray-900 dark:bg-slate-950 px-2 py-1 rounded text-xs">normalize()</code>,
+            <code className="bg-gray-900 dark:bg-slate-950 px-2 py-1 rounded text-xs ml-1">category()</code>,
+            <code className="bg-gray-900 dark:bg-slate-950 px-2 py-1 rounded text-xs ml-1">name()</code>
           </p>
           <p className="text-sm text-gray-600 dark:text-gray-400">
             <strong>Usage:</strong> Primary defense - normalize all input before processing
           </p>
         </div>
 
-        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h3 className="font-semibold text-lg mb-2">pyunormalize</h3>
           <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
             <strong>Package:</strong> PyPI (pip install pyunormalize)
@@ -1057,7 +1048,7 @@ const ToolsTab = () => (
           </p>
         </div>
 
-        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h3 className="font-semibold text-lg mb-2">UnicodeCleaner.com</h3>
           <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
             <strong>Type:</strong> Free online tool
@@ -1074,7 +1065,7 @@ const ToolsTab = () => (
           </p>
         </div>
 
-        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h3 className="font-semibold text-lg mb-2">Invisible Character Viewer</h3>
           <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
             <strong>URL:</strong> invisiblecharacterviewer.com
@@ -1088,7 +1079,7 @@ const ToolsTab = () => (
           </p>
         </div>
 
-        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h3 className="font-semibold text-lg mb-2">Originality.AI Invisible Text Detector</h3>
           <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
             <strong>Type:</strong> Free web tool
@@ -1102,7 +1093,7 @@ const ToolsTab = () => (
           </p>
         </div>
 
-        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h3 className="font-semibold text-lg mb-2">Invisible AI Character Detector (Extension)</h3>
           <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
             <strong>Platforms:</strong> Chrome, VS Code
@@ -1116,13 +1107,13 @@ const ToolsTab = () => (
           </p>
         </div>
 
-        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h3 className="font-semibold text-lg mb-2">GCC Bidirectional Warnings</h3>
           <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
             <strong>Version:</strong> GCC 12+ (January 2022)
           </p>
           <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
-            <strong>Flag:</strong> <code className="bg-gray-900 dark:bg-black px-2 py-1 rounded text-xs">-Wbidi-chars=any</code>
+            <strong>Flag:</strong> <code className="bg-gray-900 dark:bg-slate-950 px-2 py-1 rounded text-xs">-Wbidi-chars=any</code>
           </p>
           <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
             <strong>Purpose:</strong> Detect Trojan Source vulnerabilities (CVE-2021-42574)
@@ -1132,7 +1123,7 @@ const ToolsTab = () => (
           </p>
         </div>
 
-        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h3 className="font-semibold text-lg mb-2">Rust Default Protection</h3>
           <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
             <strong>Version:</strong> Rust 1.56.1+
@@ -1213,7 +1204,7 @@ const ReferencesTab = () => (
     <section>
       <h2 className="text-2xl font-bold mb-4">Official Unicode Standards</h2>
       <div className="space-y-4">
-        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h3 className="font-semibold text-lg mb-2 flex items-center gap-2">
             <Code className="w-5 h-5 text-emerald-500" />
             UTS #39: Unicode Security Mechanisms
@@ -1240,7 +1231,7 @@ const ReferencesTab = () => (
           </a>
         </div>
 
-        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h3 className="font-semibold text-lg mb-2 flex items-center gap-2">
             <Code className="w-5 h-5 text-emerald-500" />
             UTS #55: Unicode Source Code Handling
@@ -1268,7 +1259,7 @@ const ReferencesTab = () => (
     <section>
       <h2 className="text-2xl font-bold mb-4">Academic Research Papers</h2>
       <div className="space-y-4">
-        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h3 className="font-semibold text-lg mb-2">Trojan Source: Invisible Vulnerabilities</h3>
           <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
             <strong>Authors:</strong> Nicholas Boucher, Ross Anderson (Cambridge University)
@@ -1286,7 +1277,7 @@ const ReferencesTab = () => (
           </p>
         </div>
 
-        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h3 className="font-semibold text-lg mb-2">PoisonedRAG: Knowledge Corruption Attacks to Retrieval-Augmented Generation</h3>
           <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
             <strong>Publication:</strong> USENIX Security 2025
@@ -1300,7 +1291,7 @@ const ReferencesTab = () => (
           </p>
         </div>
 
-        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h3 className="font-semibold text-lg mb-2">Impact of Non-Standard Unicode Characters on Security and Comprehension in LLMs</h3>
           <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
             <strong>Publication:</strong> arXiv:2405.14490 (May 2024)
@@ -1312,7 +1303,7 @@ const ReferencesTab = () => (
           </p>
         </div>
 
-        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h3 className="font-semibold text-lg mb-2">Special-Character Adversarial Attacks on Open-Source Language Models</h3>
           <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
             <strong>Publication:</strong> arXiv:2508.14070
@@ -1329,7 +1320,7 @@ const ReferencesTab = () => (
     <section>
       <h2 className="text-2xl font-bold mb-4">Industry Security Reports</h2>
       <div className="space-y-4">
-        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h3 className="font-semibold text-lg mb-2">Trend Micro: Invisible Prompt Injection</h3>
           <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
             <strong>Date:</strong> January 2025
@@ -1350,7 +1341,7 @@ const ReferencesTab = () => (
           </a>
         </div>
 
-        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h3 className="font-semibold text-lg mb-2">AWS Security Blog: Defending LLM Applications Against Unicode Character Smuggling</h3>
           <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
             <strong>Organization:</strong> Amazon Web Services Security
@@ -1370,7 +1361,7 @@ const ReferencesTab = () => (
           </a>
         </div>
 
-        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h3 className="font-semibold text-lg mb-2">Robust Intelligence: Understanding and Mitigating Unicode Tag Prompt Injection</h3>
           <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
             <strong>Date:</strong> January 2024
@@ -1395,7 +1386,7 @@ const ReferencesTab = () => (
     <section>
       <h2 className="text-2xl font-bold mb-4">OWASP Guidance</h2>
       <div className="space-y-4">
-        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h3 className="font-semibold text-lg mb-2">OWASP Unicode Encoding Attack Page</h3>
           <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
             <strong>Key Points:</strong> Attackers encode character sequences (e.g., "../") using Unicode to bypass
@@ -1413,7 +1404,7 @@ const ReferencesTab = () => (
           </a>
         </div>
 
-        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h3 className="font-semibold text-lg mb-2">OWASP Input Validation Cheat Sheet</h3>
           <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
             <strong>Recommendations:</strong> Ensure canonical encoding across all text. Use character category
@@ -1436,7 +1427,7 @@ const ReferencesTab = () => (
     <section>
       <h2 className="text-2xl font-bold mb-4">CVE Database</h2>
       <div className="space-y-4">
-        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h3 className="font-semibold text-lg mb-2">CVE-2021-42574: Trojan Source Bidirectional Attack</h3>
           <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
             <strong>Severity:</strong> High
@@ -1459,7 +1450,7 @@ const ReferencesTab = () => (
           </a>
         </div>
 
-        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h3 className="font-semibold text-lg mb-2">CVE-2021-42694: Trojan Source Homoglyph Attack</h3>
           <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
             <strong>Severity:</strong> High
@@ -1481,7 +1472,7 @@ const ReferencesTab = () => (
           </a>
         </div>
 
-        <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h3 className="font-semibold text-lg mb-2">CVE-2025-1094: PostgreSQL psql SQL Injection</h3>
           <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
             <strong>Severity:</strong> CVSS 8.1 (High)
@@ -1506,7 +1497,7 @@ const ReferencesTab = () => (
           href="https://util.unicode.org/UnicodeJsps/confusables.jsp"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-between p-4 bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg hover:border-emerald-500/50 transition-all"
+          className="flex items-center justify-between p-4 bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg hover:border-emerald-500/50 transition-all"
         >
           <span className="text-gray-900 dark:text-white">Unicode Confusables Utility (Official Tool)</span>
           <ExternalLink className="w-4 h-4 text-emerald-500" />
@@ -1515,7 +1506,7 @@ const ReferencesTab = () => (
           href="https://embracethered.com/blog/"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-between p-4 bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg hover:border-emerald-500/50 transition-all"
+          className="flex items-center justify-between p-4 bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg hover:border-emerald-500/50 transition-all"
         >
           <span className="text-gray-900 dark:text-white">Embrace The Red (Riley Goodside Research Blog)</span>
           <ExternalLink className="w-4 h-4 text-emerald-500" />
@@ -1524,7 +1515,7 @@ const ReferencesTab = () => (
           href="https://promptfoo.dev/blog/invisible-unicode-threats/"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-between p-4 bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg hover:border-emerald-500/50 transition-all"
+          className="flex items-center justify-between p-4 bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg hover:border-emerald-500/50 transition-all"
         >
           <span className="text-gray-900 dark:text-white">Promptfoo: The Invisible Threat</span>
           <ExternalLink className="w-4 h-4 text-emerald-500" />
@@ -1533,7 +1524,7 @@ const ReferencesTab = () => (
           href="https://github.com/sleeepeer/PoisonedRAG"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-between p-4 bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg hover:border-emerald-500/50 transition-all"
+          className="flex items-center justify-between p-4 bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg hover:border-emerald-500/50 transition-all"
         >
           <span className="text-gray-900 dark:text-white">PoisonedRAG Research Framework (GitHub)</span>
           <ExternalLink className="w-4 h-4 text-emerald-500" />

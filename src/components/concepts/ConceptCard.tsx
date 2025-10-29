@@ -1,4 +1,4 @@
-import { CheckCircle, Star, ChevronRight } from 'lucide-react';
+import { CheckCircle, ChevronRight } from 'lucide-react';
 import type { Concept } from '../../types';
 import { DifficultyBadge } from '../ui/DifficultyBadge';
 
@@ -32,10 +32,7 @@ export const ConceptCard = ({ concept, isCompleted, onClick }: ConceptCardProps)
 
       <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 line-clamp-2">{concept.description}</p>
 
-      <div className="flex items-center justify-between">
-        <span className="text-emerald-500 flex items-center gap-1 font-medium">
-          <Star className="w-4 h-4" /> {concept.points} pts
-        </span>
+      <div className="flex items-center justify-end">
         <ChevronRight className="w-5 h-5 text-emerald-500 group-hover:translate-x-1 transition-transform" />
       </div>
     </div>

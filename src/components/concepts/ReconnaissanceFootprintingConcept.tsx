@@ -3,10 +3,9 @@ import { ArrowLeft, BookOpen, Code, Wrench, ExternalLink, AlertTriangle } from '
 
 interface ReconnaissanceFootprintingConceptProps {
   onBack?: () => void;
-  onStartChallenge?: () => void;
 }
 
-export const ReconnaissanceFootprintingConcept = ({ onBack, onStartChallenge }: ReconnaissanceFootprintingConceptProps = {}) => {
+export const ReconnaissanceFootprintingConcept = ({ onBack }: ReconnaissanceFootprintingConceptProps = {}) => {
   const [activeTab, setActiveTab] = useState('theory');
 
   const TheoryTab = () => (
@@ -32,7 +31,7 @@ export const ReconnaissanceFootprintingConcept = ({ onBack, onStartChallenge }: 
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Passive Reconnaissance */}
-          <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+          <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
             <h4 className="text-xl font-semibold text-emerald-400 mb-3">Passive Reconnaissance</h4>
             <p className="text-gray-700 dark:text-gray-300 mb-4">
               Information gathering without directly interacting with the target. Passive recon is stealthy and leaves no traces in target logs.
@@ -66,7 +65,7 @@ export const ReconnaissanceFootprintingConcept = ({ onBack, onStartChallenge }: 
           </div>
 
           {/* Active Reconnaissance */}
-          <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+          <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
             <h4 className="text-xl font-semibold text-emerald-400 mb-3">Active Reconnaissance</h4>
             <p className="text-gray-700 dark:text-gray-300 mb-4">
               Direct interaction with target systems to gather information. Active recon is detectable and may trigger security alerts.
@@ -111,28 +110,28 @@ export const ReconnaissanceFootprintingConcept = ({ onBack, onStartChallenge }: 
         </p>
 
         <div className="space-y-4">
-          <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-5">
+          <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-5">
             <h4 className="text-lg font-semibold text-emerald-400 mb-2">1. Footprinting (Initial Discovery)</h4>
             <p className="text-gray-700 dark:text-gray-300">
               Collect basic information about the target: domain names, IP ranges, organizational structure, physical locations, employee names/emails. Sources include WHOIS databases, DNS records, corporate websites, job postings, and social media profiles.
             </p>
           </div>
 
-          <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-5">
+          <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-5">
             <h4 className="text-lg font-semibold text-emerald-400 mb-2">2. Network Enumeration</h4>
             <p className="text-gray-700 dark:text-gray-300">
               Map the target's network topology, identify live hosts, discover network services, and enumerate accessible systems. Tools include Nmap for port scanning, traceroute for path discovery, and DNS enumeration for subdomain identification.
             </p>
           </div>
 
-          <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-5">
+          <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-5">
             <h4 className="text-lg font-semibold text-emerald-400 mb-2">3. Service Identification</h4>
             <p className="text-gray-700 dark:text-gray-300">
               Determine what services are running on discovered hosts, identify software versions, detect operating systems, and find potential vulnerabilities. Banner grabbing and service fingerprinting reveal version-specific exploits.
             </p>
           </div>
 
-          <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-5">
+          <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-5">
             <h4 className="text-lg font-semibold text-emerald-400 mb-2">4. Information Consolidation</h4>
             <p className="text-gray-700 dark:text-gray-300">
               Organize collected data into a comprehensive attack surface map. Identify high-value targets, potential entry points, security gaps, and relationships between systems. Prioritize targets based on criticality and exploitability.
@@ -149,7 +148,7 @@ export const ReconnaissanceFootprintingConcept = ({ onBack, onStartChallenge }: 
 
         <div className="space-y-6">
           {/* Target Corporation (2013) */}
-          <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+          <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
             <h4 className="text-xl font-semibold text-emerald-400 mb-3">Target Corporation (2013)</h4>
             <div className="space-y-2 text-gray-700 dark:text-gray-300">
               <p><strong className="text-emerald-400">Reconnaissance Method:</strong> Attackers researched Target's third-party vendors through OSINT, identifying Fazio Mechanical Services (HVAC contractor) as a weak link.</p>
@@ -161,7 +160,7 @@ export const ReconnaissanceFootprintingConcept = ({ onBack, onStartChallenge }: 
           </div>
 
           {/* SolarWinds Supply Chain Attack (2020) */}
-          <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+          <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
             <h4 className="text-xl font-semibold text-emerald-400 mb-3">SolarWinds Supply Chain Attack (2020)</h4>
             <div className="space-y-2 text-gray-700 dark:text-gray-300">
               <p><strong className="text-emerald-400">Reconnaissance Method:</strong> APT29 (Cozy Bear) conducted extensive passive reconnaissance of SolarWinds' software development infrastructure, identifying the Orion platform as a high-value target used by 18,000+ customers including Fortune 500 companies and government agencies.</p>
@@ -173,7 +172,7 @@ export const ReconnaissanceFootprintingConcept = ({ onBack, onStartChallenge }: 
           </div>
 
           {/* OPM Data Breach (2015) */}
-          <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+          <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
             <h4 className="text-xl font-semibold text-emerald-400 mb-3">US Office of Personnel Management (2015)</h4>
             <div className="space-y-2 text-gray-700 dark:text-gray-300">
               <p><strong className="text-emerald-400">Reconnaissance Method:</strong> Chinese APT conducted extensive reconnaissance of OPM's network architecture, identifying outdated systems and unpatched vulnerabilities. Attackers mapped network topology over several months.</p>
@@ -185,7 +184,7 @@ export const ReconnaissanceFootprintingConcept = ({ onBack, onStartChallenge }: 
           </div>
 
           {/* Colonial Pipeline (2021) */}
-          <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+          <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
             <h4 className="text-xl font-semibold text-emerald-400 mb-3">Colonial Pipeline Ransomware (2021)</h4>
             <div className="space-y-2 text-gray-700 dark:text-gray-300">
               <p><strong className="text-emerald-400">Reconnaissance Method:</strong> DarkSide ransomware group discovered Colonial Pipeline's exposed VPN credentials in dark web credential dumps. No 2FA was required for VPN access.</p>
@@ -197,7 +196,7 @@ export const ReconnaissanceFootprintingConcept = ({ onBack, onStartChallenge }: 
           </div>
 
           {/* Equifax Breach (2017) */}
-          <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+          <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
             <h4 className="text-xl font-semibold text-emerald-400 mb-3">Equifax Data Breach (2017)</h4>
             <div className="space-y-2 text-gray-700 dark:text-gray-300">
               <p><strong className="text-emerald-400">Reconnaissance Method:</strong> Attackers scanned internet-facing Equifax systems for known vulnerabilities, identifying unpatched Apache Struts CVE-2017-5638.</p>
@@ -220,42 +219,42 @@ export const ReconnaissanceFootprintingConcept = ({ onBack, onStartChallenge }: 
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4">
+          <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-4">
             <h4 className="text-lg font-semibold text-emerald-400 mb-2">T1589: Gather Victim Identity Information</h4>
             <p className="text-sm text-gray-700 dark:text-gray-300">Employee names, email addresses, credentials from breaches, organizational hierarchy.</p>
           </div>
 
-          <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4">
+          <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-4">
             <h4 className="text-lg font-semibold text-emerald-400 mb-2">T1590: Gather Victim Network Information</h4>
             <p className="text-sm text-gray-700 dark:text-gray-300">IP ranges, domain names, network topology, DNS records, certificate data.</p>
           </div>
 
-          <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4">
+          <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-4">
             <h4 className="text-lg font-semibold text-emerald-400 mb-2">T1591: Gather Victim Org Information</h4>
             <p className="text-sm text-gray-700 dark:text-gray-300">Business relationships, physical locations, organizational structure, business operations.</p>
           </div>
 
-          <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4">
+          <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-4">
             <h4 className="text-lg font-semibold text-emerald-400 mb-2">T1592: Gather Victim Host Information</h4>
             <p className="text-sm text-gray-700 dark:text-gray-300">Operating systems, software versions, hardware configurations, security software.</p>
           </div>
 
-          <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4">
+          <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-4">
             <h4 className="text-lg font-semibold text-emerald-400 mb-2">T1593: Search Open Websites/Domains</h4>
             <p className="text-sm text-gray-700 dark:text-gray-300">Social media, search engines, code repositories, business directories.</p>
           </div>
 
-          <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4">
+          <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-4">
             <h4 className="text-lg font-semibold text-emerald-400 mb-2">T1594: Search Victim-Owned Websites</h4>
             <p className="text-sm text-gray-700 dark:text-gray-300">Corporate websites, job postings, technical blogs, partner portals.</p>
           </div>
 
-          <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4">
+          <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-4">
             <h4 className="text-lg font-semibold text-emerald-400 mb-2">T1595: Active Scanning</h4>
             <p className="text-sm text-gray-700 dark:text-gray-300">Port scanning, vulnerability scanning, IP address scanning.</p>
           </div>
 
-          <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4">
+          <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-4">
             <h4 className="text-lg font-semibold text-emerald-400 mb-2">T1596: Search Open Technical Databases</h4>
             <p className="text-sm text-gray-700 dark:text-gray-300">WHOIS, DNS databases, certificate transparency logs, Shodan/Censys.</p>
           </div>
@@ -329,9 +328,9 @@ export const ReconnaissanceFootprintingConcept = ({ onBack, onStartChallenge }: 
           Gather information about a target domain using only passive techniques that leave no traces.
         </p>
 
-        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6 mb-4">
+        <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6 mb-4">
           <h4 className="text-lg font-semibold text-emerald-400 mb-3">WHOIS Lookup</h4>
-          <div className="bg-gray-900 dark:bg-black rounded-lg p-4 font-mono text-sm overflow-x-auto">
+          <div className="bg-gray-900 dark:bg-slate-950 rounded-lg p-4 font-mono text-sm overflow-x-auto">
             <pre className="text-gray-300">
 <span className="text-green-400"># Query domain registration details</span>
 <span className="text-blue-400">whois</span> example.com
@@ -345,9 +344,9 @@ export const ReconnaissanceFootprintingConcept = ({ onBack, onStartChallenge }: 
           </div>
         </div>
 
-        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6 mb-4">
+        <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6 mb-4">
           <h4 className="text-lg font-semibold text-emerald-400 mb-3">DNS Enumeration (Passive)</h4>
-          <div className="bg-gray-900 dark:bg-black rounded-lg p-4 font-mono text-sm overflow-x-auto">
+          <div className="bg-gray-900 dark:bg-slate-950 rounded-lg p-4 font-mono text-sm overflow-x-auto">
             <pre className="text-gray-300">
 <span className="text-green-400"># DNS record lookups (A, AAAA, MX, TXT, NS)</span>
 <span className="text-blue-400">dig</span> example.com ANY
@@ -364,9 +363,9 @@ export const ReconnaissanceFootprintingConcept = ({ onBack, onStartChallenge }: 
           </div>
         </div>
 
-        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6 mb-4">
+        <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6 mb-4">
           <h4 className="text-lg font-semibold text-emerald-400 mb-3">Certificate Transparency Logs</h4>
-          <div className="bg-gray-900 dark:bg-black rounded-lg p-4 font-mono text-sm overflow-x-auto">
+          <div className="bg-gray-900 dark:bg-slate-950 rounded-lg p-4 font-mono text-sm overflow-x-auto">
             <pre className="text-gray-300">
 <span className="text-green-400"># Search certificate transparency logs for subdomains</span>
 <span className="text-green-400"># Using crt.sh web interface or API</span>
@@ -383,9 +382,9 @@ export const ReconnaissanceFootprintingConcept = ({ onBack, onStartChallenge }: 
           </div>
         </div>
 
-        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h4 className="text-lg font-semibold text-emerald-400 mb-3">Shodan & Censys (Internet Scanning Databases)</h4>
-          <div className="bg-gray-900 dark:bg-black rounded-lg p-4 font-mono text-sm overflow-x-auto">
+          <div className="bg-gray-900 dark:bg-slate-950 rounded-lg p-4 font-mono text-sm overflow-x-auto">
             <pre className="text-gray-300">
 <span className="text-green-400"># Shodan search syntax</span>
 <span className="text-gray-500"># Search for organization's assets</span>
@@ -413,9 +412,9 @@ hostname:<span className="text-yellow-400">"example.com"</span> port:<span class
           Direct interaction with target systems to enumerate services and identify vulnerabilities. Active reconnaissance is detectable.
         </p>
 
-        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6 mb-4">
+        <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6 mb-4">
           <h4 className="text-lg font-semibold text-emerald-400 mb-3">Nmap Port Scanning</h4>
-          <div className="bg-gray-900 dark:bg-black rounded-lg p-4 font-mono text-sm overflow-x-auto">
+          <div className="bg-gray-900 dark:bg-slate-950 rounded-lg p-4 font-mono text-sm overflow-x-auto">
             <pre className="text-gray-300">
 <span className="text-green-400"># Quick scan: Top 1000 ports</span>
 <span className="text-blue-400">nmap</span> -T4 -F 192.168.1.10
@@ -438,9 +437,9 @@ hostname:<span className="text-yellow-400">"example.com"</span> port:<span class
           </div>
         </div>
 
-        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6 mb-4">
+        <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6 mb-4">
           <h4 className="text-lg font-semibold text-emerald-400 mb-3">Banner Grabbing (Service Identification)</h4>
-          <div className="bg-gray-900 dark:bg-black rounded-lg p-4 font-mono text-sm overflow-x-auto">
+          <div className="bg-gray-900 dark:bg-slate-950 rounded-lg p-4 font-mono text-sm overflow-x-auto">
             <pre className="text-gray-300">
 <span className="text-green-400"># HTTP banner grabbing</span>
 <span className="text-blue-400">curl</span> -I http://example.com
@@ -460,9 +459,9 @@ hostname:<span className="text-yellow-400">"example.com"</span> port:<span class
           </div>
         </div>
 
-        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+        <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
           <h4 className="text-lg font-semibold text-emerald-400 mb-3">DNS Zone Transfer (AXFR)</h4>
-          <div className="bg-gray-900 dark:bg-black rounded-lg p-4 font-mono text-sm overflow-x-auto">
+          <div className="bg-gray-900 dark:bg-slate-950 rounded-lg p-4 font-mono text-sm overflow-x-auto">
             <pre className="text-gray-300">
 <span className="text-green-400"># Attempt DNS zone transfer (often misconfigured)</span>
 <span className="text-blue-400">dig</span> axfr @ns1.example.com example.com
@@ -489,8 +488,8 @@ hostname:<span className="text-yellow-400">"example.com"</span> port:<span class
           theHarvester automates OSINT gathering from multiple sources (search engines, Shodan, certificate transparency).
         </p>
 
-        <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
-          <div className="bg-gray-900 dark:bg-black rounded-lg p-4 font-mono text-sm overflow-x-auto">
+        <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
+          <div className="bg-gray-900 dark:bg-slate-950 rounded-lg p-4 font-mono text-sm overflow-x-auto">
             <pre className="text-gray-300">
 <span className="text-green-400"># Install theHarvester</span>
 <span className="text-blue-400">pip3 install</span> theHarvester
@@ -549,7 +548,7 @@ hostname:<span className="text-yellow-400">"example.com"</span> port:<span class
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Nmap */}
-          <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+          <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
             <h4 className="text-xl font-semibold text-emerald-400 mb-3">Nmap (Network Mapper)</h4>
             <p className="text-gray-700 dark:text-gray-300 mb-3">
               Industry-standard network scanning tool for port discovery, service identification, OS fingerprinting, and vulnerability detection.
@@ -562,7 +561,7 @@ hostname:<span className="text-yellow-400">"example.com"</span> port:<span class
           </div>
 
           {/* theHarvester */}
-          <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+          <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
             <h4 className="text-xl font-semibold text-emerald-400 mb-3">theHarvester</h4>
             <p className="text-gray-700 dark:text-gray-300 mb-3">
               Automated OSINT framework gathering emails, subdomains, IPs, and employee data from search engines, Shodan, certificate transparency, and more.
@@ -575,7 +574,7 @@ hostname:<span className="text-yellow-400">"example.com"</span> port:<span class
           </div>
 
           {/* Shodan */}
-          <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+          <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
             <h4 className="text-xl font-semibold text-emerald-400 mb-3">Shodan</h4>
             <p className="text-gray-700 dark:text-gray-300 mb-3">
               Internet-wide scanning database cataloging exposed devices, services, and vulnerabilities. Query 600+ million devices without scanning.
@@ -588,7 +587,7 @@ hostname:<span className="text-yellow-400">"example.com"</span> port:<span class
           </div>
 
           {/* Censys */}
-          <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+          <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
             <h4 className="text-xl font-semibold text-emerald-400 mb-3">Censys</h4>
             <p className="text-gray-700 dark:text-gray-300 mb-3">
               Similar to Shodan, maintained by University of Michigan researchers. Daily scans of IPv4 space, certificate transparency, and cloud infrastructure.
@@ -601,7 +600,7 @@ hostname:<span className="text-yellow-400">"example.com"</span> port:<span class
           </div>
 
           {/* Recon-ng */}
-          <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+          <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
             <h4 className="text-xl font-semibold text-emerald-400 mb-3">Recon-ng</h4>
             <p className="text-gray-700 dark:text-gray-300 mb-3">
               Metasploit-style OSINT framework with modular reconnaissance capabilities. Automates queries to 80+ data sources.
@@ -614,7 +613,7 @@ hostname:<span className="text-yellow-400">"example.com"</span> port:<span class
           </div>
 
           {/* Maltego */}
-          <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+          <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
             <h4 className="text-xl font-semibold text-emerald-400 mb-3">Maltego</h4>
             <p className="text-gray-700 dark:text-gray-300 mb-3">
               Visual OSINT platform mapping relationships between people, companies, domains, and infrastructure. Used by law enforcement and intelligence agencies.
@@ -627,7 +626,7 @@ hostname:<span className="text-yellow-400">"example.com"</span> port:<span class
           </div>
 
           {/* Amass */}
-          <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+          <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
             <h4 className="text-xl font-semibold text-emerald-400 mb-3">OWASP Amass</h4>
             <p className="text-gray-700 dark:text-gray-300 mb-3">
               Advanced subdomain enumeration and attack surface mapping tool. Integrates 50+ data sources for comprehensive asset discovery.
@@ -640,7 +639,7 @@ hostname:<span className="text-yellow-400">"example.com"</span> port:<span class
           </div>
 
           {/* SpiderFoot */}
-          <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+          <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
             <h4 className="text-xl font-semibold text-emerald-400 mb-3">SpiderFoot</h4>
             <p className="text-gray-700 dark:text-gray-300 mb-3">
               Automated OSINT reconnaissance tool with web UI. Queries 200+ data sources and presents findings in interactive dashboard.
@@ -662,7 +661,7 @@ hostname:<span className="text-yellow-400">"example.com"</span> port:<span class
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Attack Surface Management */}
-          <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+          <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
             <h4 className="text-xl font-semibold text-emerald-400 mb-3">Attack Surface Management (ASM)</h4>
             <p className="text-gray-700 dark:text-gray-300 mb-3">
               Continuous discovery and monitoring of internet-facing assets. Commercial platforms include CyCognito, Censys ASM, Palo Alto Cortex Xpanse.
@@ -675,7 +674,7 @@ hostname:<span className="text-yellow-400">"example.com"</span> port:<span class
           </div>
 
           {/* Honeypots */}
-          <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+          <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
             <h4 className="text-xl font-semibold text-emerald-400 mb-3">Honeypots & Canary Tokens</h4>
             <p className="text-gray-700 dark:text-gray-300 mb-3">
               Deploy decoy systems and fake credentials to detect reconnaissance activities. Thinkst Canary, HoneyDB, OpenCanary provide early warning.
@@ -688,7 +687,7 @@ hostname:<span className="text-yellow-400">"example.com"</span> port:<span class
           </div>
 
           {/* Certificate Transparency Monitoring */}
-          <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+          <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
             <h4 className="text-xl font-semibold text-emerald-400 mb-3">Certificate Transparency Monitoring</h4>
             <p className="text-gray-700 dark:text-gray-300 mb-3">
               Monitor certificate transparency logs for unauthorized certificate issuance. CertStream, crt.sh, Facebook Certificate Transparency Monitoring.
@@ -701,7 +700,7 @@ hostname:<span className="text-yellow-400">"example.com"</span> port:<span class
           </div>
 
           {/* IDS/IPS */}
-          <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+          <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
             <h4 className="text-xl font-semibold text-emerald-400 mb-3">Intrusion Detection/Prevention (IDS/IPS)</h4>
             <p className="text-gray-700 dark:text-gray-300 mb-3">
               Detect active reconnaissance like port scanning and probing. Snort, Suricata, Zeek monitor network traffic for scanning signatures.
@@ -714,7 +713,7 @@ hostname:<span className="text-yellow-400">"example.com"</span> port:<span class
           </div>
 
           {/* SIEM */}
-          <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+          <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
             <h4 className="text-xl font-semibold text-emerald-400 mb-3">SIEM (Security Information & Event Management)</h4>
             <p className="text-gray-700 dark:text-gray-300 mb-3">
               Aggregate and correlate security logs to identify reconnaissance patterns. Splunk, Elastic SIEM, IBM QRadar, Microsoft Sentinel.
@@ -727,7 +726,7 @@ hostname:<span className="text-yellow-400">"example.com"</span> port:<span class
           </div>
 
           {/* Threat Intelligence */}
-          <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-6">
+          <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-6">
             <h4 className="text-xl font-semibold text-emerald-400 mb-3">Threat Intelligence Platforms</h4>
             <p className="text-gray-700 dark:text-gray-300 mb-3">
               Subscribe to threat feeds tracking reconnaissance infrastructure (scanners, OSINT tools, APT infrastructure). Recorded Future, Anomali, ThreatConnect.
@@ -761,7 +760,7 @@ hostname:<span className="text-yellow-400">"example.com"</span> port:<span class
             href="https://attack.mitre.org/tactics/TA0043/"
             target="_blank"
             rel="noopener noreferrer"
-            className="block bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4 hover:border-emerald-500 transition-colors"
+            className="block bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-4 hover:border-emerald-500 transition-colors"
           >
             <div className="flex items-center justify-between">
               <div>
@@ -778,7 +777,7 @@ hostname:<span className="text-yellow-400">"example.com"</span> port:<span class
             href="http://www.pentest-standard.org/index.php/Pre-engagement"
             target="_blank"
             rel="noopener noreferrer"
-            className="block bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4 hover:border-emerald-500 transition-colors"
+            className="block bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-4 hover:border-emerald-500 transition-colors"
           >
             <div className="flex items-center justify-between">
               <div>
@@ -795,7 +794,7 @@ hostname:<span className="text-yellow-400">"example.com"</span> port:<span class
             href="https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-115.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="block bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4 hover:border-emerald-500 transition-colors"
+            className="block bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-4 hover:border-emerald-500 transition-colors"
           >
             <div className="flex items-center justify-between">
               <div>
@@ -812,7 +811,7 @@ hostname:<span className="text-yellow-400">"example.com"</span> port:<span class
             href="https://owasp.org/www-project-web-security-testing-guide/"
             target="_blank"
             rel="noopener noreferrer"
-            className="block bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4 hover:border-emerald-500 transition-colors"
+            className="block bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-4 hover:border-emerald-500 transition-colors"
           >
             <div className="flex items-center justify-between">
               <div>
@@ -833,7 +832,7 @@ hostname:<span className="text-yellow-400">"example.com"</span> port:<span class
           Research & Case Studies
         </h3>
         <div className="space-y-4">
-          <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4">
+          <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-4">
             <p className="text-sm font-mono text-gray-600 dark:text-gray-400 mb-2">[1]</p>
             <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
               "The Role of OSINT in Targeted Attacks" (2022)
@@ -843,7 +842,7 @@ hostname:<span className="text-yellow-400">"example.com"</span> port:<span class
             </p>
           </div>
 
-          <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4">
+          <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-4">
             <p className="text-sm font-mono text-gray-600 dark:text-gray-400 mb-2">[2]</p>
             <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
               Target Corporation Data Breach Investigation Report (2014)
@@ -853,7 +852,7 @@ hostname:<span className="text-yellow-400">"example.com"</span> port:<span class
             </p>
           </div>
 
-          <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4">
+          <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-4">
             <p className="text-sm font-mono text-gray-600 dark:text-gray-400 mb-2">[3]</p>
             <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
               "SolarWinds Supply Chain Attack: Lessons Learned" (2021)
@@ -863,7 +862,7 @@ hostname:<span className="text-yellow-400">"example.com"</span> port:<span class
             </p>
           </div>
 
-          <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4">
+          <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-4">
             <p className="text-sm font-mono text-gray-600 dark:text-gray-400 mb-2">[4]</p>
             <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
               "Certificate Transparency: Attack Surface Analysis" (2020)
@@ -873,7 +872,7 @@ hostname:<span className="text-yellow-400">"example.com"</span> port:<span class
             </p>
           </div>
 
-          <div className="bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4">
+          <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-4">
             <p className="text-sm font-mono text-gray-600 dark:text-gray-400 mb-2">[5]</p>
             <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
               "Passive Network Reconnaissance: Techniques and Detection" (2023)
@@ -895,7 +894,7 @@ hostname:<span className="text-yellow-400">"example.com"</span> port:<span class
             href="https://nmap.org/"
             target="_blank"
             rel="noopener noreferrer"
-            className="block bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4 hover:border-emerald-500 transition-colors"
+            className="block bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-4 hover:border-emerald-500 transition-colors"
           >
             <div className="flex items-center justify-between">
               <div>
@@ -910,7 +909,7 @@ hostname:<span className="text-yellow-400">"example.com"</span> port:<span class
             href="https://www.shodan.io/"
             target="_blank"
             rel="noopener noreferrer"
-            className="block bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4 hover:border-emerald-500 transition-colors"
+            className="block bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-4 hover:border-emerald-500 transition-colors"
           >
             <div className="flex items-center justify-between">
               <div>
@@ -925,7 +924,7 @@ hostname:<span className="text-yellow-400">"example.com"</span> port:<span class
             href="https://censys.io/"
             target="_blank"
             rel="noopener noreferrer"
-            className="block bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4 hover:border-emerald-500 transition-colors"
+            className="block bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-4 hover:border-emerald-500 transition-colors"
           >
             <div className="flex items-center justify-between">
               <div>
@@ -940,7 +939,7 @@ hostname:<span className="text-yellow-400">"example.com"</span> port:<span class
             href="https://github.com/OWASP/Amass"
             target="_blank"
             rel="noopener noreferrer"
-            className="block bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4 hover:border-emerald-500 transition-colors"
+            className="block bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-4 hover:border-emerald-500 transition-colors"
           >
             <div className="flex items-center justify-between">
               <div>
@@ -955,7 +954,7 @@ hostname:<span className="text-yellow-400">"example.com"</span> port:<span class
             href="https://www.maltego.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="block bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4 hover:border-emerald-500 transition-colors"
+            className="block bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-4 hover:border-emerald-500 transition-colors"
           >
             <div className="flex items-center justify-between">
               <div>
@@ -970,7 +969,7 @@ hostname:<span className="text-yellow-400">"example.com"</span> port:<span class
             href="https://crt.sh/"
             target="_blank"
             rel="noopener noreferrer"
-            className="block bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4 hover:border-emerald-500 transition-colors"
+            className="block bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-4 hover:border-emerald-500 transition-colors"
           >
             <div className="flex items-center justify-between">
               <div>
@@ -993,7 +992,7 @@ hostname:<span className="text-yellow-400">"example.com"</span> port:<span class
             href="https://www.hackthebox.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="block bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4 hover:border-emerald-500 transition-colors"
+            className="block bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-4 hover:border-emerald-500 transition-colors"
           >
             <div className="flex items-center justify-between">
               <div>
@@ -1010,7 +1009,7 @@ hostname:<span className="text-yellow-400">"example.com"</span> port:<span class
             href="https://tryhackme.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="block bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4 hover:border-emerald-500 transition-colors"
+            className="block bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-4 hover:border-emerald-500 transition-colors"
           >
             <div className="flex items-center justify-between">
               <div>
@@ -1027,7 +1026,7 @@ hostname:<span className="text-yellow-400">"example.com"</span> port:<span class
             href="https://www.offensive-security.com/labs/"
             target="_blank"
             rel="noopener noreferrer"
-            className="block bg-white dark:bg-[#0A0A0A] border border-gray-200 dark:border-[#1F1F1F] rounded-lg p-4 hover:border-emerald-500 transition-colors"
+            className="block bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-lg p-4 hover:border-emerald-500 transition-colors"
           >
             <div className="flex items-center justify-between">
               <div>
@@ -1080,10 +1079,10 @@ hostname:<span className="text-yellow-400">"example.com"</span> port:<span class
   );
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-black transition-colors">
+    <div className="min-h-screen bg-gray-50 dark:bg-slate-950 transition-colors">
       {/* Navigation */}
       {onBack && (
-        <div className="bg-white dark:bg-[#0A0A0A] border-b border-gray-200 dark:border-[#1F1F1F] sticky top-0 z-10">
+        <div className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-slate-800 sticky top-0 z-10">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
             <button
               onClick={onBack}
@@ -1109,7 +1108,7 @@ hostname:<span className="text-yellow-400">"example.com"</span> port:<span class
       </div>
 
       {/* Tab Navigation */}
-      <div className="bg-white dark:bg-[#0A0A0A] border-b border-gray-200 dark:border-[#1F1F1F] sticky top-[73px] z-10">
+      <div className="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-slate-800 sticky top-[73px] z-10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex space-x-8">
             {[
@@ -1144,18 +1143,7 @@ hostname:<span className="text-yellow-400">"example.com"</span> port:<span class
       </div>
 
       {/* Challenge Button */}
-      {onStartChallenge && (
-        <div className="bg-white dark:bg-[#0A0A0A] border-t border-gray-200 dark:border-[#1F1F1F] sticky bottom-0">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <button
-              onClick={onStartChallenge}
-              className="w-full bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white py-4 rounded-lg font-bold text-lg transition-all transform hover:scale-[1.02]"
-            >
-              Take the Challenge
-            </button>
-          </div>
-        </div>
-      )}
+      
     </div>
   );
 };

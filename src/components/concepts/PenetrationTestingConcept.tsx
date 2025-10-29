@@ -7,7 +7,6 @@ import {
 
 interface PenetrationTestingConceptProps {
   onBack: () => void;
-  onStartChallenge: () => void;
 }
 
 export const PenetrationTestingConcept = ({ onBack }: PenetrationTestingConceptProps) => {
@@ -1290,7 +1289,7 @@ echo "[!] Document all findings in your report"
           <Terminal className="w-8 h-8 text-green-400" />
         </div>
 
-        <div className="bg-black rounded-lg p-4 overflow-x-auto">
+        <div className="bg-slate-950 rounded-lg p-4 overflow-x-auto">
           <pre className="text-green-400 text-sm font-mono">
             <code>{examples[activeExample].code}</code>
           </pre>

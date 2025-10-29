@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Database, Code, Shield, BookOpen, AlertTriangle, Terminal, Lock, Unlock, ArrowLeft, Target } from 'lucide-react';
+import { Database, Code, Shield, BookOpen, AlertTriangle, Terminal, Lock, Unlock, ArrowLeft } from 'lucide-react';
 
 const tabs = [
   { id: 'theory', name: 'Theory', icon: BookOpen },
@@ -10,10 +10,9 @@ const tabs = [
 
 interface SQLInjectionConceptProps {
   onBack?: () => void;
-  onStartChallenge?: () => void;
 }
 
-export const SQLInjectionConcept = ({ onBack, onStartChallenge }: SQLInjectionConceptProps = {}) => {
+export const SQLInjectionConcept = ({ onBack }: SQLInjectionConceptProps = {}) => {
   const [activeTab, setActiveTab] = useState('theory');
 
   return (
@@ -38,15 +37,7 @@ export const SQLInjectionConcept = ({ onBack, onStartChallenge }: SQLInjectionCo
               <h1 className="text-4xl font-bold">SQL Injection</h1>
               <p className="text-emerald-600 dark:text-emerald-400 mt-2">Master one of the most dangerous web vulnerabilities</p>
             </div>
-            {onStartChallenge && (
-              <button
-                onClick={onStartChallenge}
-                className="px-6 py-3 bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-600 text-white rounded-lg font-semibold transition-all flex items-center gap-2"
-              >
-                <Target className="w-5 h-5" />
-                Take Challenge
-              </button>
-            )}
+            
           </div>
 
           <div className="border-b border-slate-200 dark:border-slate-700 mb-8">
@@ -394,7 +385,7 @@ app.get('/user/:id', (req, res) => {
         <div className="space-y-4">
           <div>
             <p className="text-sm text-slate-600 dark:text-slate-400 mb-2">Original SQL Query:</p>
-            <div className="bg-black/50 rounded p-3 font-mono text-sm">
+            <div className="bg-slate-950/50 rounded p-3 font-mono text-sm">
               <code className="text-slate-600 dark:text-slate-400">
                 SELECT * FROM users WHERE username = '<span className="text-yellow-400">[INPUT]</span>' AND password = '<span className="text-yellow-400">[INPUT]</span>'
               </code>
@@ -403,7 +394,7 @@ app.get('/user/:id', (req, res) => {
 
           <div>
             <p className="text-sm text-slate-600 dark:text-slate-400 mb-2">After Injection (username field):</p>
-            <div className="bg-black/50 rounded p-3 font-mono text-sm">
+            <div className="bg-slate-950/50 rounded p-3 font-mono text-sm">
               <code className="text-slate-600 dark:text-slate-400">
                 SELECT * FROM users WHERE username = '<span className="text-red-400">' OR '1'='1' --</span>' AND password = ''
               </code>
@@ -435,7 +426,7 @@ app.get('/user/:id', (req, res) => {
         <div className="space-y-3">
           <div>
             <p className="text-sm font-semibold mb-2">Step 1: Determine number of columns</p>
-            <div className="bg-black/50 rounded p-3 font-mono text-sm">
+            <div className="bg-slate-950/50 rounded p-3 font-mono text-sm">
               <code className="text-green-600 dark:text-green-400">' ORDER BY 1 --</code><br />
               <code className="text-green-600 dark:text-green-400">' ORDER BY 2 --</code><br />
               <code className="text-gray-500">// Continue until error occurs</code>
@@ -444,7 +435,7 @@ app.get('/user/:id', (req, res) => {
 
           <div>
             <p className="text-sm font-semibold mb-2">Step 2: Find injectable column</p>
-            <div className="bg-black/50 rounded p-3 font-mono text-sm">
+            <div className="bg-slate-950/50 rounded p-3 font-mono text-sm">
               <code className="text-green-600 dark:text-green-400">' UNION SELECT NULL, NULL, NULL --</code><br />
               <code className="text-green-600 dark:text-green-400">' UNION SELECT 'test', NULL, NULL --</code>
             </div>
@@ -452,7 +443,7 @@ app.get('/user/:id', (req, res) => {
 
           <div>
             <p className="text-sm font-semibold mb-2">Step 3: Extract database information</p>
-            <div className="bg-black/50 rounded p-3 font-mono text-sm">
+            <div className="bg-slate-950/50 rounded p-3 font-mono text-sm">
               <code className="text-green-600 dark:text-green-400">' UNION SELECT table_name, NULL, NULL FROM information_schema.tables --</code><br />
               <code className="text-green-600 dark:text-green-400">' UNION SELECT username, password, NULL FROM users --</code>
             </div>
@@ -608,7 +599,7 @@ const ToolsTab = () => (
                 Automated SQL injection and database takeover tool. Detects and exploits SQLi vulnerabilities
                 with support for all major database systems.
               </p>
-              <div className="bg-black/50 rounded p-3 font-mono text-sm mb-3">
+              <div className="bg-slate-950/50 rounded p-3 font-mono text-sm mb-3">
                 <code className="text-green-600 dark:text-green-400">
                   sqlmap -u "http://target.com/page?id=1" --dbs
                 </code>
@@ -723,7 +714,7 @@ const ToolsTab = () => (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="bg-slate-100 dark:bg-slate-900 rounded p-4">
               <p className="text-sm font-semibold mb-2 text-emerald-600 dark:text-emerald-400">PHP PDO</p>
-              <div className="bg-black/50 rounded p-2 font-mono text-xs">
+              <div className="bg-slate-950/50 rounded p-2 font-mono text-xs">
                 <code className="text-slate-600 dark:text-slate-400">
                   $stmt = $pdo-&gt;prepare("SELECT * FROM users WHERE id = ?");<br />
                   $stmt-&gt;execute([$id]);
@@ -732,7 +723,7 @@ const ToolsTab = () => (
             </div>
             <div className="bg-slate-100 dark:bg-slate-900 rounded p-4">
               <p className="text-sm font-semibold mb-2 text-emerald-600 dark:text-emerald-400">Python</p>
-              <div className="bg-black/50 rounded p-2 font-mono text-xs">
+              <div className="bg-slate-950/50 rounded p-2 font-mono text-xs">
                 <code className="text-slate-600 dark:text-slate-400">
                   cursor.execute("SELECT * FROM users WHERE id = ?", (id,))
                 </code>
@@ -740,7 +731,7 @@ const ToolsTab = () => (
             </div>
             <div className="bg-slate-100 dark:bg-slate-900 rounded p-4">
               <p className="text-sm font-semibold mb-2 text-emerald-600 dark:text-emerald-400">Node.js</p>
-              <div className="bg-black/50 rounded p-2 font-mono text-xs">
+              <div className="bg-slate-950/50 rounded p-2 font-mono text-xs">
                 <code className="text-slate-600 dark:text-slate-400">
                   connection.query("SELECT * FROM users WHERE id = ?", [id])
                 </code>
@@ -764,7 +755,7 @@ const ToolsTab = () => (
                 <li>Reject unexpected characters</li>
               </ul>
             </div>
-            <div className="bg-black/50 rounded p-3 font-mono text-xs">
+            <div className="bg-slate-950/50 rounded p-3 font-mono text-xs">
               <code className="text-slate-600 dark:text-slate-400">
                 // JavaScript example<br />
                 const userId = parseInt(req.params.id);<br />
@@ -802,7 +793,7 @@ const ToolsTab = () => (
           <p className="text-slate-700 dark:text-slate-300 mb-3">
             Database accounts should have minimum necessary permissions. Never use admin credentials for web applications.
           </p>
-          <div className="bg-black/50 rounded p-4">
+          <div className="bg-slate-950/50 rounded p-4">
             <p className="text-sm font-semibold mb-2 text-yellow-400">Best Practices:</p>
             <ul className="list-disc list-inside space-y-1 text-sm text-slate-600 dark:text-slate-400">
               <li>Create separate DB users for different application components</li>

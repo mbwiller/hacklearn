@@ -1,15 +1,15 @@
-# 🛡️ HackLearn Pro - Gamified Ethical Hacking Platform
+# 🛡️ HackLearn Pro - Ethical Hacking Education Platform
 
-A comprehensive, interactive learning platform designed to teach the 20 most critical concepts in ethical hacking, with special focus on AI/ML security. Built for Docker deployment with an engaging gamification system.
+A comprehensive, interactive learning platform designed to teach the 20 most critical concepts in ethical hacking, with special focus on AI/ML security. Built for Docker deployment with professional, content-focused UI.
 
 ## 🎯 Overview
 
 HackLearn Pro combines traditional ethical hacking fundamentals with cutting-edge AI/ML security concepts, providing:
 - **20 Core Concepts**: 10 AI/ML security + 10 traditional hacking concepts
-- **Gamification**: Points, levels, achievements, and progress tracking
-- **Interactive Challenges**: Test your knowledge with scenario-based questions
+- **Hands-On Labs**: Interactive Jupyter notebooks with practical exercises
 - **Real-World Examples**: Learn from actual security breaches and vulnerabilities
 - **Defense Strategies**: Practical mitigation techniques for each attack vector
+- **Professional UI**: Clean, focused interface with light/dark mode support
 
 ## 🚀 Quick Start with Docker
 
@@ -193,24 +193,6 @@ See [DEVELOPMENT.md](./DEVELOPMENT.md) for complete git workflow and standards.
 
 ---
 
-## 🎮 Gamification Features
-
-### Progression System
-- **Points**: Earn points by completing concepts and challenges
-- **Levels**: Advance through levels (500 points per level)
-- **Achievements**: Unlock special badges for milestones
-
-### Achievements
-- 🌟 **First Steps** - Complete your first concept
-- 🚀 **Quick Learner** - Complete 5 concepts
-- ⚡ **Half Way There** - Complete 10 concepts
-- 🛡️ **Security Expert** - Complete 15 concepts
-- 🏆 **Ethical Hacking Master** - Complete all 20 concepts
-- 🤖 **AI Security Specialist** - Master all AI/ML concepts
-- 💻 **Traditional Hacking Pro** - Master all traditional concepts
-- 💎 **Point Collector** - Earn 1000+ points
-- 💰 **Point Master** - Earn 2000+ points
-
 ## 🎓 Learning Features
 
 ### For Each Concept
@@ -218,15 +200,9 @@ See [DEVELOPMENT.md](./DEVELOPMENT.md) for complete git workflow and standards.
 - **Real-World Examples**: Actual breaches and incidents
 - **Key Takeaways**: Essential points to remember
 - **Defense Strategies**: Practical mitigation techniques
-- **Interactive Challenge**: Test your understanding
+- **Hands-On Labs**: Interactive Jupyter notebooks with code examples
 - **Difficulty Rating**: Beginner, Intermediate, or Advanced
-- **Point Value**: Rewards based on difficulty
-
-### Challenge System
-- Multiple-choice questions based on real scenarios
-- Immediate feedback with explanations
-- Points awarded only on first completion
-- Comprehensive explanations for incorrect answers
+- **Professional Tools**: Attack and defense tool documentation
 
 ## 🔧 Technical Details
 
@@ -238,9 +214,9 @@ See [DEVELOPMENT.md](./DEVELOPMENT.md) for complete git workflow and standards.
 - **Container**: Docker
 
 ### Theme System
-- **Design**: Professional black/white base with emerald (#10B981) accents
+- **Design**: Professional Slate/white base with emerald (#10B981) accents
 - **Light Mode**: Cool gray backgrounds (#F8FAFC), white cards
-- **Dark Mode**: Pure black (#000000), near-black cards (#0A0A0A)
+- **Dark Mode**: Slate backgrounds (slate-950), dark cards (slate-900)
 - **Toggle**: Fixed position button (top-right) with persistent state
 - **Storage**: LocalStorage for theme preference across sessions
 - **Syntax**: Code blocks maintain colored syntax in both modes
@@ -293,8 +269,8 @@ This platform is designed for **EDUCATIONAL PURPOSES ONLY**. All techniques taug
 - Clear difficulty progression
 - Builds on previous concepts
 
-### Engaging Design
-- Modern black/white theme with emerald accents
+### Professional Design
+- Modern Slate theme with emerald accents
 - Light/Dark mode toggle for user preference
 - Professional Inter font for technical readability
 - Smooth animations and transitions
@@ -332,10 +308,7 @@ docker-compose up --build -d
 
 Your progress is tracked locally in the browser:
 - Completed concepts
-- Points earned
-- Current level
-- Unlocked achievements
-- Challenge results
+- Module completion status
 
 ## 🔄 Updates
 
@@ -350,7 +323,7 @@ docker-compose up -d
 
 1. **Start with Reconnaissance** - Foundation of ethical hacking
 2. **Focus on AI concepts** - Critical for modern security
-3. **Complete challenges** - Reinforce understanding
+3. **Work through labs** - Hands-on practice reinforces understanding
 4. **Read real-world examples** - Learn from actual incidents
 5. **Practice defenses** - Apply what you learn
 6. **Take notes** - Create your own reference

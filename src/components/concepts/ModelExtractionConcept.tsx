@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Search, Code, Shield, BookOpen, AlertTriangle, Terminal, Target, ArrowLeft, ExternalLink, CheckCircle, Copy } from 'lucide-react';
+import { Search, Code, Shield, BookOpen, AlertTriangle, Terminal, ArrowLeft, ExternalLink, CheckCircle, Copy } from 'lucide-react';
 
 const tabs = [
   { id: 'theory', name: 'Theory', icon: BookOpen },
@@ -10,10 +10,9 @@ const tabs = [
 
 interface ModelExtractionConceptProps {
   onBack?: () => void;
-  onStartChallenge?: () => void;
 }
 
-export const ModelExtractionConcept = ({ onBack, onStartChallenge }: ModelExtractionConceptProps = {}) => {
+export const ModelExtractionConcept = ({ onBack }: ModelExtractionConceptProps = {}) => {
   const [activeTab, setActiveTab] = useState('theory');
 
   return (
@@ -38,15 +37,7 @@ export const ModelExtractionConcept = ({ onBack, onStartChallenge }: ModelExtrac
               <h1 className="text-4xl font-bold">Model Extraction</h1>
               <p className="text-emerald-600 dark:text-emerald-400 mt-2">Discover how attackers steal proprietary AI models through strategic querying</p>
             </div>
-            {onStartChallenge && (
-              <button
-                onClick={onStartChallenge}
-                className="px-6 py-3 bg-emerald-500 hover:bg-emerald-600 rounded-lg font-semibold transition-all flex items-center gap-2 text-white"
-              >
-                <Target className="w-5 h-5" />
-                Take Challenge
-              </button>
-            )}
+            
           </div>
 
           <div className="border-b border-gray-200 dark:border-gray-800 mb-8">

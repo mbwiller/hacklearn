@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import type { ChallengeResult } from '../types';
 
+// Hook kept for potential future use (currently unused after challenge system removal)
 export const useGameState = () => {
   const [currentConcept, setCurrentConcept] = useState<number | null>(null);
   const [showChallenge, setShowChallenge] = useState(false);
   const [challengeAnswer, setChallengeAnswer] = useState('');
-  const [challengeResult, setChallengeResult] = useState<ChallengeResult | null>(null);
+  const [challengeResult, setChallengeResult] = useState<{ success: boolean; message: string } | null>(null);
 
   const resetChallenge = () => {
     setChallengeAnswer('');

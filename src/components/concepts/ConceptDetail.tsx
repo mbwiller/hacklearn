@@ -1,4 +1,4 @@
-import { CheckCircle, Star, BookOpen, AlertTriangle, Brain, Shield, Target } from 'lucide-react';
+import { CheckCircle, BookOpen, AlertTriangle, Brain, Shield } from 'lucide-react';
 import type { Concept } from '../../types';
 import { DifficultyBadge } from '../ui/DifficultyBadge';
 
@@ -6,13 +6,12 @@ interface ConceptDetailProps {
   concept: Concept;
   isCompleted: boolean;
   onBack: () => void;
-  onStartChallenge: () => void;
 }
 
-export const ConceptDetail = ({ concept, isCompleted, onBack, onStartChallenge }: ConceptDetailProps) => {
+export const ConceptDetail = ({ concept, isCompleted, onBack }: ConceptDetailProps) => {
   // If concept has a detailed component, render that instead
   if (concept.detailedComponent) {
-    return <>{concept.detailedComponent({ onBack, onStartChallenge })}</>;
+    return <>{concept.detailedComponent({ onBack })}</>;
   }
 
   return (
@@ -38,9 +37,6 @@ export const ConceptDetail = ({ concept, isCompleted, onBack, onStartChallenge }
               <div className="flex items-center gap-3">
                 <span className="text-sm text-emerald-500">{concept.category}</span>
                 <DifficultyBadge difficulty={concept.difficulty} />
-                <span className="text-emerald-500 flex items-center gap-1">
-                  <Star className="w-4 h-4" /> {concept.points} pts
-                </span>
               </div>
             </div>
           </div>
@@ -88,14 +84,6 @@ export const ConceptDetail = ({ concept, isCompleted, onBack, onStartChallenge }
                 ))}
               </div>
             </div>
-
-            <button
-              onClick={onStartChallenge}
-              className="w-full py-4 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 rounded-xl font-semibold text-lg transition-all transform hover:scale-105 flex items-center justify-center gap-2 text-white"
-            >
-              <Target className="w-6 h-6" />
-              Take the Challenge!
-            </button>
           </div>
         </div>
       </div>

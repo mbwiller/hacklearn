@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Read(//c/Users/Matt Willer/Ongoing Projects/hacklearn-pro/**)"
+      "Read(//c/Users/Matt Willer/Ongoing Projects/hacklearn-pro/**)",
+      "WebSearch"
     ],
     "deny": [],
     "ask": []

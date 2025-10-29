@@ -13,10 +13,9 @@ const tabs = [
 
 interface SocialEngineeringConceptProps {
   onBack?: () => void;
-  onStartChallenge?: () => void;
 }
 
-export const SocialEngineeringConcept = ({ onBack, onStartChallenge }: SocialEngineeringConceptProps = {}) => {
+export const SocialEngineeringConcept = ({ onBack }: SocialEngineeringConceptProps = {}) => {
   const [activeTab, setActiveTab] = useState('theory');
 
   const TheoryTab = () => (
@@ -1305,15 +1304,7 @@ for email in emails:
               Master the psychology of manipulation and defend against human-targeted attacks
             </p>
           </div>
-          {onStartChallenge && (
-            <button
-              onClick={onStartChallenge}
-              className="px-6 py-3 bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-600 text-white rounded-lg font-semibold transition-all flex items-center gap-2"
-            >
-              <Target className="w-5 h-5" />
-              Take Challenge
-            </button>
-          )}
+          
         </div>
 
         {/* Tab Navigation */}
