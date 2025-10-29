@@ -13,6 +13,9 @@ HackLearn Pro is a professional, engineer-focused ethical hacking education plat
 - Research-backed with academic citations
 - Production-ready Docker deployment
 
+**Known Limitation:**
+All 20 modules are complete and functional, but UI/UX formatting is approximately 85-90% consistent. Minor variations exist in section spacing, typography sizing, tab styling, and code block presentation. This does not affect functionality but requires future refinement for perfect visual harmony. Modules share the same structure (4-tab layout, Slate color system) but have implementation differences that developed organically during the week-long build process.
+
 ## Development Commands
 
 ### Modern Development (Vite)
@@ -85,58 +88,58 @@ docker-compose down
 
 ```
 Hacklearn/
-├── src/
-│   ├── components/
-│   │   ├── concepts/              # Detailed concept components
-│   │   │   ├── PromptInjectionConcept.tsx      (825 lines)
-│   │   │   ├── AdversarialMLConcept.tsx        (1,208 lines)
-│   │   │   ├── SQLInjectionConcept.tsx         (1,105 lines)
-│   │   │   ├── XSSConcept.tsx                  (1,194 lines)
-│   │   │   ├── PenetrationTestingConcept.tsx   (1,741 lines)
-│   │   │   ├── ConceptCard.tsx                 # Concept grid card
-│   │   │   ├── ConceptDetail.tsx               # Default concept view
-│   │   │   ├── ChallengeView.tsx               # Challenge quiz
-│   │   │   └── index.ts                        # Barrel exports
-│   │   ├── ui/                    # Reusable UI components
-│   │   │   ├── AchievementCard.tsx
-│   │   │   ├── DifficultyBadge.tsx
-│   │   │   ├── ProgressBar.tsx
-│   │   │   ├── StatsCard.tsx
-│   │   │   ├── CodeBlock.tsx                   # Syntax-highlighted code
-│   │   │   ├── ColabButton.tsx                 # Google Colab integration
-│   │   │   ├── CopyCodeButton.tsx              # Copy to clipboard
-│   │   │   └── ThemeToggle.tsx                 # Light/dark mode toggle
-│   │   └── Dashboard.tsx          # Main dashboard
-│   ├── contexts/
-│   │   └── ThemeContext.tsx       # Theme state provider
-│   ├── data/
-│   │   └── concepts.tsx           # All 20 concept definitions (TypeScript/JSX)
-│   ├── hooks/
-│   │   ├── useAchievements.ts     # Achievement detection logic
-│   │   ├── useGameState.ts        # Points, levels, state management
-│   │   ├── useProgress.ts         # LocalStorage progress tracking
-│   │   └── useTheme.ts            # Theme state management
-│   ├── types/
-│   │   └── index.ts               # TypeScript interfaces
-│   ├── styles/
-│   │   └── index.css              # Tailwind imports + custom CSS
-│   ├── App.tsx                    # Main app component with routing
-│   └── main.tsx                   # React entry point
-├── public/
-│   └── notebooks/                 # Jupyter notebooks for hands-on labs
-│       ├── 01-prompt-injection.ipynb
-│       ├── 02-adversarial-ml.ipynb
-│       ├── 12-sql-injection.ipynb
-│       ├── 13-xss.ipynb
-│       └── 20-penetration-testing.ipynb
-├── dist/                          # Production build output
-├── Dockerfile                     # Two-stage Docker build
-├── docker-compose.yml
-├── nginx.conf                     # Production web server config
-├── vite.config.ts                 # Vite build configuration
-├── tsconfig.json                  # TypeScript configuration
-├── tailwind.config.js             # Tailwind CSS configuration
-└── package.json                   # Dependencies and scripts
+ src/
+    components/
+       concepts/              # Detailed concept components
+          PromptInjectionConcept.tsx      (825 lines)
+          AdversarialMLConcept.tsx        (1,208 lines)
+          SQLInjectionConcept.tsx         (1,105 lines)
+          XSSConcept.tsx                  (1,194 lines)
+          PenetrationTestingConcept.tsx   (1,741 lines)
+          ConceptCard.tsx                 # Concept grid card
+          ConceptDetail.tsx               # Default concept view
+          ChallengeView.tsx               # Challenge quiz
+          index.ts                        # Barrel exports
+       ui/                    # Reusable UI components
+          AchievementCard.tsx
+          DifficultyBadge.tsx
+          ProgressBar.tsx
+          StatsCard.tsx
+          CodeBlock.tsx                   # Syntax-highlighted code
+          ColabButton.tsx                 # Google Colab integration
+          CopyCodeButton.tsx              # Copy to clipboard
+          ThemeToggle.tsx                 # Light/dark mode toggle
+       Dashboard.tsx          # Main dashboard
+    contexts/
+       ThemeContext.tsx       # Theme state provider
+    data/
+       concepts.tsx           # All 20 concept definitions (TypeScript/JSX)
+    hooks/
+       useAchievements.ts     # Achievement detection logic
+       useGameState.ts        # Points, levels, state management
+       useProgress.ts         # LocalStorage progress tracking
+       useTheme.ts            # Theme state management
+    types/
+       index.ts               # TypeScript interfaces
+    styles/
+       index.css              # Tailwind imports + custom CSS
+    App.tsx                    # Main app component with routing
+    main.tsx                   # React entry point
+ public/
+    notebooks/                 # Jupyter notebooks for hands-on labs
+        01-prompt-injection.ipynb
+        02-adversarial-ml.ipynb
+        12-sql-injection.ipynb
+        13-xss.ipynb
+        20-penetration-testing.ipynb
+ dist/                          # Production build output
+ Dockerfile                     # Two-stage Docker build
+ docker-compose.yml
+ nginx.conf                     # Production web server config
+ vite.config.ts                 # Vite build configuration
+ tsconfig.json                  # TypeScript configuration
+ tailwind.config.js             # Tailwind CSS configuration
+ package.json                   # Dependencies and scripts
 ```
 
 ### Component Architecture
@@ -369,7 +372,7 @@ export const PromptInjectionConcept = ({ onBack
 // Always mark vulnerable code clearly
 <div className="bg-red-500/20 border border-red-500/50 rounded-lg p-4">
   <p className="text-sm font-semibold text-red-300 mb-2">
-    ⚠️ VULNERABLE CODE - Educational Only
+     VULNERABLE CODE - Educational Only
   </p>
   <CodeBlock
     language="php"
@@ -490,12 +493,12 @@ https://colab.research.google.com/github/[user]/[repo]/blob/main/notebooks/[file
 - All 8 flagship concepts: ZERO emojis
 - All achievement messages: Text only
 - All UI labels: Professional text
-- All feedback: "Correct" not "Correct! 🎉"
+- All feedback: "Correct" not "Correct! "
 
 **Replacing Emojis:**
 ```tsx
 // ❌ BAD
-<span>Completed! 🎉</span>
+<span>Completed! </span>
 
 // ✓ GOOD
 <span>Completed</span>
@@ -852,29 +855,29 @@ Co-Authored-By: Claude <noreply@anthropic.com>
 **Structure:**
 ```
 docs/content-source/
-├── ai-ml-security/              # 10 files (concepts #1-10)
-│   ├── 01-prompt-injection.md
-│   ├── 02-adversarial-ml.md
-│   ├── 03-data-poisoning.md
-│   ├── 04-model-extraction.md
-│   ├── 05-jailbreaking.md
-│   ├── 06-rag-security.md
-│   ├── 07-multi-agent-attacks.md
-│   ├── 08-link-traps.md
-│   ├── 09-unicode-injection.md
-│   └── 10-ai-command-injection.md
-├── traditional-hacking/         # 10 files (concepts #11-20)
-│   ├── 11-reconnaissance.md
-│   ├── 12-sql-injection.md
-│   ├── 13-xss.md
-│   ├── 14-social-engineering.md
-│   ├── 15-network-scanning.md
-│   ├── 16-password-cracking.md
-│   ├── 17-mitm-attacks.md
-│   ├── 18-dos-attacks.md
-│   ├── 19-web-vulnerabilities.md
-│   └── 20-penetration-testing.md
-└── README.md
+ ai-ml-security/              # 10 files (concepts #1-10)
+    01-prompt-injection.md
+    02-adversarial-ml.md
+    03-data-poisoning.md
+    04-model-extraction.md
+    05-jailbreaking.md
+    06-rag-security.md
+    07-multi-agent-attacks.md
+    08-link-traps.md
+    09-unicode-injection.md
+    10-ai-command-injection.md
+ traditional-hacking/         # 10 files (concepts #11-20)
+    11-reconnaissance.md
+    12-sql-injection.md
+    13-xss.md
+    14-social-engineering.md
+    15-network-scanning.md
+    16-password-cracking.md
+    17-mitm-attacks.md
+    18-dos-attacks.md
+    19-web-vulnerabilities.md
+    20-penetration-testing.md
+ README.md
 ```
 
 **When developing modules:**
