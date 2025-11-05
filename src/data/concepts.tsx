@@ -1,25 +1,25 @@
 import { Code, Users, Globe, Database, Key, Search, Brain, Shield, Unlock, AlertTriangle, Trophy, Target, Zap } from 'lucide-react';
 import type { Concept } from '../types';
-import { PromptInjectionConcept } from '../components/concepts/PromptInjectionConcept';
-import { AdversarialMLConcept } from '../components/concepts/AdversarialMLConcept';
-import { DataPoisoningConcept } from '../components/concepts/DataPoisoningConcept';
-import { ModelExtractionConcept } from '../components/concepts/ModelExtractionConcept';
-import { JailbreakingConcept } from '../components/concepts/JailbreakingConcept';
-import { RAGSecurityConcept } from '../components/concepts/RAGSecurityConcept';
-import { MultiAgentSecurityConcept } from '../components/concepts/MultiAgentSecurityConcept';
-import { LinkTrapsSecurityConcept } from '../components/concepts/LinkTrapsSecurityConcept';
-import { InvisibleUnicodeInjectionConcept } from '../components/concepts/InvisibleUnicodeInjectionConcept';
-import { AIAgentCommandInjectionConcept } from '../components/concepts/AIAgentCommandInjectionConcept';
-import { ReconnaissanceFootprintingConcept } from '../components/concepts/ReconnaissanceFootprintingConcept';
-import { SQLInjectionConcept } from '../components/concepts/SQLInjectionConcept';
-import { XSSConcept } from '../components/concepts/XSSConcept';
-import { SocialEngineeringConcept } from '../components/concepts/SocialEngineeringConcept';
-import { NetworkScanningConcept } from '../components/concepts/NetworkScanningConcept';
-import { PasswordCrackingConcept } from '../components/concepts/PasswordCrackingConcept';
-import { MitMAttacksConcept } from '../components/concepts/MitMAttacksConcept';
-import { DoSAttacksConcept } from '../components/concepts/DoSAttacksConcept';
-import { WebAppVulnerabilitiesConcept } from '../components/concepts/WebAppVulnerabilitiesConcept';
-import { PenetrationTestingConcept } from '../components/concepts/PenetrationTestingConcept';
+import { PromptInjectionConcept } from '../components/concepts/detailed/PromptInjectionConcept';
+import { AdversarialMLConcept } from '../components/concepts/detailed/AdversarialMLConcept';
+import { DataPoisoningConcept } from '../components/concepts/detailed/DataPoisoningConcept';
+import { ModelExtractionConcept } from '../components/concepts/detailed/ModelExtractionConcept';
+import { JailbreakingConcept } from '../components/concepts/detailed/JailbreakingConcept';
+import { RAGSecurityConcept } from '../components/concepts/detailed/RAGSecurityConcept';
+import { MultiAgentSecurityConcept } from '../components/concepts/detailed/MultiAgentSecurityConcept';
+import { LinkTrapsSecurityConcept } from '../components/concepts/detailed/LinkTrapsSecurityConcept';
+import { InvisibleUnicodeInjectionConcept } from '../components/concepts/detailed/InvisibleUnicodeInjectionConcept';
+import { AIAgentCommandInjectionConcept } from '../components/concepts/detailed/AIAgentCommandInjectionConcept';
+import { ReconnaissanceFootprintingConcept } from '../components/concepts/detailed/ReconnaissanceFootprintingConcept';
+import { SQLInjectionConcept } from '../components/concepts/detailed/SQLInjectionConcept';
+import { XSSConcept } from '../components/concepts/detailed/XSSConcept';
+import { SocialEngineeringConcept } from '../components/concepts/detailed/SocialEngineeringConcept';
+import { NetworkScanningConcept } from '../components/concepts/detailed/NetworkScanningConcept';
+import { PasswordCrackingConcept } from '../components/concepts/detailed/PasswordCrackingConcept';
+import { MitMAttacksConcept } from '../components/concepts/detailed/MitMAttacksConcept';
+import { DoSAttacksConcept } from '../components/concepts/detailed/DoSAttacksConcept';
+import { WebAppVulnerabilitiesConcept } from '../components/concepts/detailed/WebAppVulnerabilitiesConcept';
+import { PenetrationTestingConcept } from '../components/concepts/detailed/PenetrationTestingConcept';
 
 export const concepts: Concept[] = [
   // AI/ML Security Concepts

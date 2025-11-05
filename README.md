@@ -5,11 +5,12 @@ A comprehensive, interactive learning platform designed to teach the 20 most cri
 ## Overview
 
 HackLearn Pro combines traditional ethical hacking fundamentals with cutting-edge AI/ML security concepts, providing:
-- **20 Core Concepts**: 10 AI/ML security + 10 traditional hacking concepts
+- **30 Total Modules**: 10 AI/ML security + 10 traditional hacking + 10 prompt engineering concepts
+- **Professional Platform**: Full-featured web application with splash page, navigation, and user accounts
 - **Hands-On Labs**: Interactive Jupyter notebooks with practical exercises
 - **Real-World Examples**: Learn from actual security breaches and vulnerabilities
 - **Defense Strategies**: Practical mitigation techniques for each attack vector
-- **Professional UI**: Clean, focused interface with light/dark mode support
+- **Modern UI**: Clean, focused interface with light/dark mode support and responsive design
 
 ## Quick Start with Docker
 
@@ -54,6 +55,30 @@ docker stop hacklearn
 docker rm hacklearn
 ```
 
+## Platform Navigation
+
+### Routes
+
+**Public Routes:**
+- `/` - Splash page (landing page with platform overview)
+
+**App Routes (with header navigation):**
+- `/app/dashboard` - Main dashboard with AI/ML and Traditional Hacking modules
+- `/app/prompt-engineering` - Prompt Engineering modules (10 placeholders, content coming soon)
+- `/app/account` - User account page with progress statistics
+- `/app/concepts/:id` - Individual module detail pages
+
+### User Flow
+
+1. **Visit splash page** at http://localhost:8080 (Docker) or http://localhost:3000 (development)
+2. **Click "Enter Platform"** to access the main dashboard
+3. **Navigate between sections** using the header menu
+   - Dashboard: View and access all 20 ethical hacking modules
+   - Prompt Engineering: View 10 placeholder modules (content in development)
+   - Account: Track your progress and statistics
+4. **Click any module card** to access detailed content, labs, tools, and references
+5. **Use browser back button** or "Back to Dashboard" to navigate
+
 ## Learning Path
 
 ### AI/ML Security Concepts (10)
@@ -80,7 +105,31 @@ docker rm hacklearn
 19. **Web Application Vulnerabilities** - OWASP Top 10
 20. **Penetration Testing Methodology** - Professional testing lifecycle
 
+### Prompt Engineering for LLMs (10)
+21. **Fundamentals of Prompt Design** - Core principles and structure (COMING SOON)
+22. **Advanced Prompting Techniques** - Few-shot and chain-of-thought (COMING SOON)
+23. **Prompt Optimization** - Maximizing output quality (COMING SOON)
+24. **Role-Based Prompting** - Persona engineering (COMING SOON)
+25. **Creative Prompting** - Content generation techniques (COMING SOON)
+26. **Multi-Step Reasoning** - Complex task decomposition (COMING SOON)
+27. **Safety & Alignment** - Responsible AI outputs (COMING SOON)
+28. **Code Generation Prompting** - Technical prompting (COMING SOON)
+29. **Enterprise Prompt Engineering** - Production deployment (COMING SOON)
+30. **Agentic Workflows** - Autonomous AI systems (COMING SOON)
+
 ## Development Status
+
+### Platform Status: Full-Stack Architecture Complete
+
+**Frontend:** 100% Complete
+- Splash page with bold marketing design
+- Full React Router navigation
+- Header with responsive menu
+- User account page with progress tracking
+- Theme toggle (light/dark mode)
+- 30 module cards across 3 sections
+
+**Content:** 20/30 Modules Complete (67%)
 
 ### Flagship Concepts: 20/20 Complete (100%)
 
@@ -108,7 +157,12 @@ docker rm hacklearn
 - #19 Web Application Vulnerabilities - Complete (1,400 lines, notebook ready) **NEW!**
 - #20 Penetration Testing Methodology - Complete (1,741 lines, notebook ready)
 
-** Project Complete!** All 20 flagship modules with comprehensive content, interactive labs, and professional UI.
+**Prompt Engineering for LLMs (0/10 - Placeholders ready):**
+- #101-110 - Placeholder modules ready for content development
+- All modules follow standard structure with key takeaways and defense strategies
+- Topics: Fundamentals, Advanced Techniques, Optimization, Role-Based, Creative, Multi-Step, Safety, Code Generation, Enterprise, Agentic Workflows
+
+** 20/20 Ethical Hacking modules complete!** All flagship modules with comprehensive content, interactive labs, and professional UI.
 
 ### UI/UX Harmonization Complete
 

@@ -90,41 +90,56 @@ docker-compose down
 Hacklearn/
  src/
  components/
- concepts/ # Detailed concept components
+ common/ # Page-level shared components
+ Dashboard.tsx # Main dashboard (uses React Router)
+ ConceptDetailRouter.tsx # Route-based concept renderer
+ index.ts # Barrel exports
+ concepts/ # Concept-related components
+ detailed/ # All 20 flagship ethical hacking concept modules
  PromptInjectionConcept.tsx (825 lines)
  AdversarialMLConcept.tsx (1,208 lines)
  SQLInjectionConcept.tsx (1,105 lines)
  XSSConcept.tsx (1,194 lines)
  PenetrationTestingConcept.tsx (1,741 lines)
+ ... (15 more concept files)
+ index.ts # Barrel exports for detailed concepts
  ConceptCard.tsx # Concept grid card
- ConceptDetail.tsx # Default concept view
- ChallengeView.tsx # Challenge quiz
- index.ts # Barrel exports
+ ConceptDetail.tsx # Default concept view (for placeholders)
+ index.ts # Main barrel exports
+ layouts/ # Layout wrapper components
+ AppLayout.tsx # App wrapper with Header + Outlet
+ navigation/ # Navigation components
+ Header.tsx # Persistent header with nav links
  ui/ # Reusable UI components
- AchievementCard.tsx
+ Button.tsx # Standardized button component
+ Card.tsx # Reusable card component
+ Input.tsx # Form input component
+ Container.tsx # Max-width wrappers
  DifficultyBadge.tsx
- ProgressBar.tsx
- StatsCard.tsx
- CodeBlock.tsx # Syntax-highlighted code
- ColabButton.tsx # Google Colab integration
- CopyCodeButton.tsx # Copy to clipboard
  ThemeToggle.tsx # Light/dark mode toggle
- Dashboard.tsx # Main dashboard
  contexts/
  ThemeContext.tsx # Theme state provider
  data/
- concepts.tsx # All 20 concept definitions (TypeScript/JSX)
+ concepts.tsx # 20 ethical hacking concept definitions
+ promptEngineeringConcepts.tsx # 10 prompt engineering placeholders
  hooks/
- useAchievements.ts # Achievement detection logic
- useGameState.ts # Points, levels, state management
  useProgress.ts # LocalStorage progress tracking
  useTheme.ts # Theme state management
+ pages/ # Page-level components
+ SplashPage.tsx # Landing page with bold gradient design
+ AccountPage.tsx # User profile & progress stats
+ PromptEngineeringPage.tsx # Prompt engineering dashboard
  types/
  index.ts # TypeScript interfaces
  styles/
  index.css # Tailwind imports + custom CSS
- App.tsx # Main app component with routing
+ codeblock.css # Code syntax highlighting
+ utils/ # Utility functions (placeholder)
+ index.ts # Barrel exports
+ App.tsx # React Router configuration
  main.tsx # React entry point
+ scripts/ # Development/maintenance scripts
+ README.md # Scripts documentation
  public/
  notebooks/ # Jupyter notebooks for hands-on labs
  01-prompt-injection.ipynb
@@ -132,31 +147,94 @@ Hacklearn/
  12-sql-injection.ipynb
  13-xss.ipynb
  20-penetration-testing.ipynb
- dist/ # Production build output
+ dist/ # Production build output (249 KB gzipped)
  Dockerfile # Two-stage Docker build
  docker-compose.yml
  nginx.conf # Production web server config
  vite.config.ts # Vite build configuration
  tsconfig.json # TypeScript configuration
  tailwind.config.js # Tailwind CSS configuration
- package.json # Dependencies and scripts
+ package.json # Dependencies (includes react-router-dom)
 ```
+
+### Routing Architecture (React Router v6)
+
+**Route Structure:**
+```
+/ (SplashPage - public)
+  └─ /app (AppLayout with Header)
+      ├─ /app/dashboard (Dashboard - ethical hacking modules)
+      ├─ /app/prompt-engineering (PromptEngineeringPage - 10 placeholders)
+      ├─ /app/account (AccountPage - user profile & progress)
+      ├─ /app/concepts/:id (ConceptDetailRouter - ethical hacking detail pages)
+      └─ /app/prompt-concepts/:id (ConceptDetailRouter - prompt engineering detail pages)
+```
+
+**Navigation Flow:**
+1. User visits `/` → **SplashPage** (bold gradient design, theme toggle in fixed position)
+2. User clicks "Enter Platform" → Navigate to `/app/dashboard`
+3. **AppLayout** wraps all `/app/*` routes with persistent Header
+4. **Header** includes: Logo, Dashboard link, Prompt Engineering link, Account link, Theme Toggle (inline)
+5. User clicks module card → Navigate to `/app/concepts/:id` or `/app/prompt-concepts/:id`
+6. **ConceptDetailRouter** reads `:id` param, finds concept, renders detailed component or fallback
+
+**Key Components:**
+
+**AppLayout** (`src/components/layouts/AppLayout.tsx`):
+- Wraps all authenticated routes
+- Renders Header component
+- Contains React Router `<Outlet />` for nested routes
+- Applies theme-aware background
+
+**Header** (`src/components/navigation/Header.tsx`):
+- Sticky positioning (z-40)
+- Logo with navigation to `/app/dashboard`
+- NavLinks with active state highlighting (emerald accent)
+- Inline ThemeToggle
+- Responsive design (mobile/tablet/desktop)
+
+**ConceptDetailRouter** (`src/components/common/ConceptDetailRouter.tsx`):
+- Reads `:id` parameter from URL
+- Searches both `concepts` and `promptEngineeringConcepts` arrays
+- Renders `concept.detailedComponent` if available
+- Falls back to `ConceptDetail.tsx` for basic concepts
+- Navigates back to appropriate dashboard based on category
 
 ### Component Architecture
 
-#### Dashboard (src/components/Dashboard.tsx)
-- Grid of 20 concept cards
-- Stats bar: Level, Points, Completed, Achievements
-- Progress bar visualization
+#### Dashboard (src/components/common/Dashboard.tsx)
+- Grid of 30 concept cards (20 ethical hacking + 10 prompt engineering when viewing from /app/dashboard)
+- Uses React Router's `useNavigate()` hook for navigation
 - Category sections: AI/ML Security, Traditional Hacking
+- Clicking card navigates to `/app/concepts/:id`
 
-#### Concept Flow
-1. **User clicks concept card** `App.tsx` sets `currentConcept`
-2. **App.tsx checks** if concept has `detailedComponent`
-3. **If yes**: Render detailed component (8 flagship concepts)
-4. **If no**: Render default `ConceptDetail.tsx` (12 basic concepts)
-5. **User clicks "Take Challenge"** `ChallengeView.tsx` with quiz
-6. **On correct answer**: Award points, update progress, unlock achievements
+#### PromptEngineeringPage (src/pages/PromptEngineeringPage.tsx)
+- Grid of 10 placeholder modules (IDs 101-110)
+- "Coming Soon" badge and informational message
+- Uses same ConceptCard components as Dashboard
+- Clicking card navigates to `/app/prompt-concepts/:id`
+
+#### AccountPage (src/pages/AccountPage.tsx)
+- Profile section: Avatar (initials), email, join date
+- Progress statistics: Overall completion, by category (AI/ML, Traditional, Prompt Engineering)
+- Gamification stats: Current level, total points
+- Uses `useProgress()` hook for data
+- Calculates completion percentages across all 30 modules
+
+#### SplashPage (src/pages/SplashPage.tsx)
+- Bold gradient design: `from-slate-950 via-emerald-950 to-slate-950`
+- Hero section with large typography and CTA button
+- Module categories preview (3-column grid)
+- Minimal footer with GitHub link
+- Fixed ThemeToggle in top-right
+- CTA navigates to `/app/dashboard`
+
+#### Concept Flow (Updated)
+1. **User clicks concept card** → React Router navigates to `/app/concepts/:id`
+2. **ConceptDetailRouter** extracts `:id`, finds concept
+3. **If concept.detailedComponent exists**: Render detailed component (all 20 ethical hacking concepts)
+4. **If no detailedComponent**: Render default `ConceptDetail.tsx` (10 prompt engineering placeholders)
+5. **Back button** → Navigate to appropriate dashboard (`/app/dashboard` or `/app/prompt-engineering`)
 
 #### State Management (Custom Hooks)
 
@@ -167,12 +245,6 @@ const { progress, saveProgress, getProgressPercent } = useProgress();
 // Returns: { [conceptId: number]: boolean }
 ```
 
-**useGameState.ts**
-```typescript
-const { points, level, awardPoints } = useGameState() - UNUSED (kept for potential future use, gamification removed)
-**useAchievements.ts**
-```typescript
-const { achievements, checkAchievements, addAchievement } = useAchievements() - UNUSED (kept for potential future use, gamification removed)
 **useTheme.ts**
 ```typescript
 const { theme, toggleTheme } = useTheme();
@@ -660,7 +732,7 @@ npm run build
 
 **Missing imports:**
 ```bash
-# Check src/components/concepts/index.ts
+# Check src/components/concepts/detailed/index.ts
 # Ensure all flagship concepts are exported
 ```
 
@@ -747,18 +819,18 @@ docker logs hacklearn
 
 ### Key Files to Know
 
-- `src/App.tsx` (lines 79-82): Concept routing logic
+- `src/App.tsx`: React Router configuration and routing logic
 - `src/data/concepts.tsx`: All 20 concept definitions
-- `src/hooks/useGameState.ts`: Points and level calculation
-- `src/components/concepts/index.ts`: Component exports
+- `src/hooks/useProgress.ts`: Progress tracking and localStorage persistence
+- `src/components/concepts/detailed/index.ts`: Concept component exports
 - `vite.config.ts`: Build configuration
 - `Dockerfile`: Production deployment
 
 ### Important Line Numbers
 
-- **Level calculation:** `src/hooks/useGameState.ts` (~line 20)
-- **Achievement logic:** `src/hooks/useAchievements.ts` (~line 30)
-- **Concept routing:** `src/App.tsx` (lines 79-82)
+- **Progress tracking:** `src/hooks/useProgress.ts` (localStorage-based)
+- **Theme management:** `src/hooks/useTheme.ts` (light/dark mode)
+- **Concept routing:** `src/App.tsx` (React Router configuration)
 
 ### External Resources
 
@@ -908,7 +980,7 @@ Develop concepts in batches of 3-5 modules for efficiency:
 - Plan unique features
 
 **2. Create React Component (90-120 min)**
-- File: `src/components/concepts/[Name]Concept.tsx`
+- File: `src/components/concepts/detailed/[Name]Concept.tsx`
 - Follow flagship template structure (use existing as reference)
 - Implement 4 tabs with consistent styling (Theory, Lab, Tools, References)
 - Use existing UI components from `/src/components/ui/`
@@ -925,7 +997,7 @@ Develop concepts in batches of 3-5 modules for efficiency:
 **4. Integration (10 min)**
 - Import component in `src/data/concepts.tsx`
 - Add `detailedComponent: (props) => <ComponentName {...props} />`
-- Export from `src/components/concepts/index.ts`
+- Export from `src/components/concepts/detailed/index.ts`
 - Verify concept ID matches
 
 **5. Testing (15 min)**

@@ -1,21 +1,6 @@
-// Export all concept detail components
-export { PromptInjectionConcept } from './PromptInjectionConcept';
-export { AdversarialMLConcept } from './AdversarialMLConcept';
-export { DataPoisoningConcept } from './DataPoisoningConcept';
-export { ModelExtractionConcept } from './ModelExtractionConcept';
-export { JailbreakingConcept } from './JailbreakingConcept';
-export { RAGSecurityConcept } from './RAGSecurityConcept';
-export { MultiAgentSecurityConcept } from './MultiAgentSecurityConcept';
-export { LinkTrapsSecurityConcept } from './LinkTrapsSecurityConcept';
-export { InvisibleUnicodeInjectionConcept } from './InvisibleUnicodeInjectionConcept';
-export { AIAgentCommandInjectionConcept } from './AIAgentCommandInjectionConcept';
-export { ReconnaissanceFootprintingConcept } from './ReconnaissanceFootprintingConcept';
-export { SQLInjectionConcept } from './SQLInjectionConcept';
-export { XSSConcept } from './XSSConcept';
-export { SocialEngineeringConcept } from './SocialEngineeringConcept';
-export { NetworkScanningConcept } from './NetworkScanningConcept';
-export { PasswordCrackingConcept } from './PasswordCrackingConcept';
-export { MitMAttacksConcept } from './MitMAttacksConcept';
-export { DoSAttacksConcept } from './DoSAttacksConcept';
-export { WebAppVulnerabilitiesConcept } from './WebAppVulnerabilitiesConcept';
-export { PenetrationTestingConcept } from './PenetrationTestingConcept';
+// Export all concept components (re-export from detailed subfolder)
+export * from './detailed';
+
+// Export card and detail components
+export { ConceptCard } from './ConceptCard';
+export { ConceptDetail } from './ConceptDetail';

@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 
 export interface Concept {
   id: number;
-  category: 'AI/ML Security' | 'Traditional Hacking';
+  category: 'AI/ML Security' | 'Traditional Hacking' | 'Prompt Engineering';
   title: string;
   icon: ReactNode;
   difficulty: 'Beginner' | 'Intermediate' | 'Advanced';

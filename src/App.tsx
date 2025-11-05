@@ -1,59 +1,55 @@
-import { useState } from 'react';
-import { useProgress } from './hooks/useProgress';
-import { concepts } from './data/concepts';
-import { Dashboard } from './components/Dashboard';
-import { ConceptDetail } from './components/concepts/ConceptDetail';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { ThemeProvider } from './contexts/ThemeContext';
-import { ThemeToggle } from './components/ui/ThemeToggle';
+import { AppLayout } from './components/layouts/AppLayout';
+import { SplashPage } from './pages/SplashPage';
+import { AccountPage } from './pages/AccountPage';
+import { PromptEngineeringPage } from './pages/PromptEngineeringPage';
+import { Dashboard } from './components/common/Dashboard';
+import { ConceptDetailRouter } from './components/common/ConceptDetailRouter';
+import { concepts } from './data/concepts';
+import { useProgress } from './hooks/useProgress';
 
 function App() {
   const { progress } = useProgress();
-  const [currentConcept, setCurrentConcept] = useState<number | null>(null);
 
-  const goBackToDashboard = () => setCurrentConcept(null);
-
-  // Render Concept Detail View
-  if (currentConcept) {
-    const concept = concepts.find(c => c.id === currentConcept);
-    if (!concept) return null;
-
-    // If concept has a detailed component, render that instead
-    if (concept.detailedComponent) {
-      return (
-        <ThemeProvider>
-          <div className="min-h-screen bg-gray-50 dark:bg-black transition-colors">
-            <ThemeToggle />
-            {concept.detailedComponent({ onBack: goBackToDashboard })}
-          </div>
-        </ThemeProvider>
-      );
-    }
-
-    return (
-      <ThemeProvider>
-        <div className="min-h-screen bg-gray-50 dark:bg-black transition-colors">
-          <ThemeToggle />
-          <ConceptDetail
-            concept={concept}
-            isCompleted={!!progress[concept.id]}
-            onBack={goBackToDashboard}
-          />
-        </div>
-      </ThemeProvider>
-    );
-  }
-
-  // Render Dashboard
   return (
     <ThemeProvider>
-      <div className="min-h-screen bg-gray-50 dark:bg-black transition-colors">
-        <ThemeToggle />
-        <Dashboard
-          concepts={concepts}
-          progress={progress}
-          onConceptClick={setCurrentConcept}
-        />
-      </div>
+      <BrowserRouter>
+        <Routes>
+          {/* Splash Page */}
+          <Route path="/" element={<SplashPage />} />
+
+          {/* App Routes (with Header/Layout) */}
+          <Route path="/app" element={<AppLayout />}>
+            {/* Dashboard - Default app route */}
+            <Route index element={<Navigate to="dashboard" replace />} />
+
+            <Route
+              path="dashboard"
+              element={
+                <Dashboard
+                  concepts={concepts}
+                  progress={progress}
+                  onConceptClick={() => {}} // Navigation now handled by ConceptDetailRouter
+                />
+              }
+            />
+
+            {/* Prompt Engineering Section */}
+            <Route path="prompt-engineering" element={<PromptEngineeringPage />} />
+
+            {/* Account Page */}
+            <Route path="account" element={<AccountPage />} />
+
+            {/* Concept Detail Pages */}
+            <Route path="concepts/:id" element={<ConceptDetailRouter />} />
+            <Route path="prompt-concepts/:id" element={<ConceptDetailRouter />} />
+          </Route>
+
+          {/* Catch all - redirect to splash */}
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </BrowserRouter>
     </ThemeProvider>
   );
 }

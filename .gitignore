@@ -35,3 +35,12 @@ dist-ssr
 # Legacy files
 hacklearn.jsx
 hacklearn-pro/
+start.bat
+start.sh
+docker_compse.yml
+
+# Harmonization scripts (one-time operations completed)
+harmonize-*.sh
+
+# VS Code workspace files (IDE-specific)
+*.code-workspace

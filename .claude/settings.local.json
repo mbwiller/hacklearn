@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Read(//c/Users/Matt Willer/Ongoing Projects/hacklearn-pro/**)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(tree:*)"
     ],
     "deny": [],
     "ask": []
