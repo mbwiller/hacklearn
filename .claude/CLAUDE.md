@@ -9,6 +9,11 @@ Educational platform teaching ethical hacking + AI/ML security with interactive 
   - Module 111 (CoT): Currently basic, needs premium redesign
   - Modules 112-115: Will copy patterns from perfected Module 111
 
+## Recent Fixes (2025-11-07)
+- ✅ Fixed `LucideIcon` import errors in module templates (now uses `import type`)
+- ✅ Fixed `Tab` interface export error in `StandardModuleLayout`
+- ✅ Platform builds and runs without errors
+
 ## Tech Stack
 - **Frontend**: React 18.3.1 + Vite 7 + TypeScript 5.9 (strict mode)
 - **Styling**: Tailwind CSS 3.3.2 + Framer Motion (for animations)

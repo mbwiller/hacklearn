@@ -1,8 +1,9 @@
 import React from 'react';
-import { LucideIcon } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 import { BackToDashboardButton } from './BackToDashboardButton';
 import { ModuleHeader } from './ModuleHeader';
-import { ModuleTabNavigation, Tab } from './ModuleTabNavigation';
+import { ModuleTabNavigation } from './ModuleTabNavigation';
+import type { Tab } from './ModuleTabNavigation';
 import { designTokens, combineTokens } from '../../design-system/tokens';
 
 export interface StandardModuleLayoutProps {
