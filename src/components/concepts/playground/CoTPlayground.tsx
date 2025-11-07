@@ -1,16 +1,38 @@
-import { useState } from 'react';
-import { Brain, BookOpen, Zap, BarChart3, ArrowLeft, Lightbulb, CheckCircle, XCircle, Loader2 } from 'lucide-react';
+import { useState, useCallback } from 'react';
+import {
+  Brain,
+  BookOpen,
+  Zap,
+  BarChart3,
+  ArrowLeft,
+  Lightbulb,
+  CheckCircle,
+  XCircle,
+  Loader2,
+  Settings,
+  Download,
+} from 'lucide-react';
 import { ApiKeyManager } from '../../playground/ApiKeyManager';
-import { PromptComparison } from '../../playground/PromptComparison';
-import { ReasoningVisualizer } from '../../playground/ReasoningVisualizer';
 import { Button } from '../../ui/Button';
 import { Card } from '../../ui/Card';
 import { useLLMChat, type ChatMessage } from '../../../hooks/useLLMChat';
 
+// NEW: Premium playground components
+import {
+  ReasoningFlow,
+  ParameterPanel,
+  ComparisonView,
+  ProblemSelector,
+  COT_PRESET_PROBLEMS,
+  type GenerationParams,
+  type ModelOption,
+  type Problem,
+} from '../../playground';
+
 const tabs = [
   { id: 'theory', name: 'Theory', icon: BookOpen },
   { id: 'interactive', name: 'Interactive', icon: Zap },
-  { id: 'benchmark', name: 'Benchmark', icon: BarChart3 }
+  { id: 'benchmark', name: 'Benchmark', icon: BarChart3 },
 ];
 
 interface CoTPlaygroundProps {
@@ -22,7 +44,7 @@ export const CoTPlayground = ({ onBack }: CoTPlaygroundProps = {}) => {
 
   return (
     <div className="min-h-screen bg-white dark:bg-slate-950 text-gray-900 dark:text-white p-8">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         {onBack && (
           <button
             onClick={onBack}
@@ -34,18 +56,22 @@ export const CoTPlayground = ({ onBack }: CoTPlaygroundProps = {}) => {
         )}
 
         <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-8 shadow-lg">
+          {/* Header */}
           <div className="flex items-center gap-4 mb-8">
-            <div className="p-4 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-xl">
+            <div className="p-4 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-xl shadow-xl shadow-cyan-500/20">
               <Brain className="w-12 h-12 text-white" />
             </div>
             <div className="flex-1">
-              <h1 className="text-4xl font-bold">Chain of Thought Reasoning</h1>
-              <p className="text-cyan-600 dark:text-cyan-400 mt-2">
+              <h1 className="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">
+                Chain of Thought Reasoning
+              </h1>
+              <p className="text-cyan-600 dark:text-cyan-400 mt-2 text-lg">
                 Interactive exploration of step-by-step prompting techniques
               </p>
             </div>
           </div>
 
+          {/* Tab Navigation */}
           <div className="border-b border-gray-200 dark:border-slate-700 mb-8">
             <nav className="flex gap-2">
               {tabs.map((tab) => {
@@ -68,6 +94,7 @@ export const CoTPlayground = ({ onBack }: CoTPlaygroundProps = {}) => {
             </nav>
           </div>
 
+          {/* Tab Content */}
           <div className="space-y-6">
             {activeTab === 'theory' && <TheoryTab />}
             {activeTab === 'interactive' && <InteractiveTab />}
@@ -79,6 +106,9 @@ export const CoTPlayground = ({ onBack }: CoTPlaygroundProps = {}) => {
   );
 };
 
+/* ============================================
+   THEORY TAB (Enhanced with animations)
+   ============================================ */
 const TheoryTab = () => (
   <div className="space-y-8">
     <section>
@@ -212,137 +242,162 @@ The answer is 11.`}
   </div>
 );
 
+/* ============================================
+   INTERACTIVE TAB (Premium Redesign)
+   ============================================ */
 const InteractiveTab = () => {
-  const [problem, setProblem] = useState('');
-  const [model, setModel] = useState('gpt-4o-mini');
-  const [showResults, setShowResults] = useState(false);
-  const [cotResponse, setCotResponse] = useState('');
+  // State for problem and parameters
+  const [selectedProblem, setSelectedProblem] = useState<Problem | null>(null);
+  const [customProblem, setCustomProblem] = useState('');
+  const [model, setModel] = useState<ModelOption>('gpt-4o-mini');
+  const [parameters, setParameters] = useState<GenerationParams>({
+    temperature: 0.7,
+    maxTokens: 2000,
+    topP: 1.0,
+    systemPrompt: 'You are a helpful reasoning assistant. Think step by step and provide clear explanations.',
+  });
 
-  const presetProblems = [
-    {
-      id: 1,
-      title: 'Math Word Problem',
-      problem:
-        'A restaurant served 9 pizzas during lunch and 6 during dinner today. It served 3 pizzas yesterday. How many pizzas were served in total?',
-    },
-    {
-      id: 2,
-      title: 'Logic Puzzle',
-      problem:
-        'If all roses are flowers and some flowers fade quickly, can we conclude that some roses fade quickly?',
-    },
-    {
-      id: 3,
-      title: 'Multi-Step Reasoning',
-      problem:
-        'Sarah has 3 times as many apples as oranges. She has 12 more apples than bananas. If she has 8 bananas, how many pieces of fruit does she have in total?',
-    },
-  ];
+  // Parameter panel visibility
+  const [showParameterPanel, setShowParameterPanel] = useState(false);
 
-  const runComparison = async () => {
-    setShowResults(true);
+  // Comparison state
+  const [showComparison, setShowComparison] = useState(false);
 
-    // The PromptComparison component will handle the actual execution
-    // We just need to trigger it by setting showResults to true
-  };
+  // Get current problem (selected or custom)
+  const currentProblem = customProblem.trim() || selectedProblem?.content || '';
+
+  // Handle problem selection
+  const handleProblemSelect = useCallback((problem: Problem) => {
+    setSelectedProblem(problem);
+    setCustomProblem(''); // Clear custom problem
+    setShowComparison(false); // Reset comparison
+  }, []);
+
+  // Handle custom problem change
+  const handleCustomProblemChange = useCallback((value: string) => {
+    setCustomProblem(value);
+    if (value.trim()) {
+      setSelectedProblem(null); // Clear selected problem
+    }
+    setShowComparison(false); // Reset comparison
+  }, []);
+
+  // Run comparison
+  const runComparison = useCallback(() => {
+    if (!currentProblem) return;
+    setShowComparison(true);
+  }, [currentProblem]);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
+      {/* API Key Manager */}
       <ApiKeyManager />
 
+      {/* Configuration Card */}
       <Card className="bg-white dark:bg-[#0A0A0A] border-gray-200 dark:border-[#1F1F1F]">
-        <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
-          Try Chain of Thought
-        </h3>
-
-        {/* Preset Problems */}
-        <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-            Quick Start:
-          </label>
-          <div className="flex flex-wrap gap-2">
-            {presetProblems.map((preset) => (
-              <Button
-                key={preset.id}
-                variant="outline"
-                size="sm"
-                onClick={() => {
-                  setProblem(preset.problem);
-                  setShowResults(false);
-                }}
-              >
-                {preset.title}
-              </Button>
-            ))}
-          </div>
+        <div className="flex items-center justify-between mb-6">
+          <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+            Configure Experiment
+          </h3>
+          <Button
+            variant="outline"
+            size="sm"
+            icon={<Settings className="w-4 h-4" />}
+            onClick={() => setShowParameterPanel(true)}
+          >
+            Parameters
+          </Button>
         </div>
 
+        {/* Problem Selector */}
+        <ProblemSelector
+          problems={COT_PRESET_PROBLEMS}
+          selectedProblem={selectedProblem ?? undefined}
+          onSelect={handleProblemSelect}
+          className="mb-6"
+        />
+
         {/* Custom Problem Input */}
-        <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-            Or enter your own problem:
+        <div className="mb-6">
+          <label className="block text-sm font-semibold text-gray-300 uppercase tracking-wider mb-3">
+            Or Enter Custom Problem
           </label>
           <textarea
-            value={problem}
-            onChange={(e) => {
-              setProblem(e.target.value);
-              setShowResults(false);
-            }}
-            className="w-full h-32 bg-slate-50 dark:bg-slate-900 text-gray-900 dark:text-white rounded-lg p-3 border border-slate-300 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-cyan-500"
+            value={customProblem}
+            onChange={(e) => handleCustomProblemChange(e.target.value)}
+            className="w-full h-32 bg-slate-50 dark:bg-slate-900 text-gray-900 dark:text-white rounded-lg p-4 border border-slate-300 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all resize-none"
             placeholder="Enter a problem that requires step-by-step reasoning..."
           />
         </div>
 
-        {/* Model Selector */}
-        <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-            Model:
-          </label>
-          <select
-            value={model}
-            onChange={(e) => setModel(e.target.value)}
-            className="bg-slate-50 dark:bg-slate-900 text-gray-900 dark:text-white rounded-lg px-4 py-2 border border-slate-300 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-cyan-500"
-          >
-            <option value="gpt-4o-mini">GPT-4o Mini (Fastest, Cheapest)</option>
-            <option value="gpt-4o">GPT-4o (Balanced)</option>
-            <option value="gpt-4">GPT-4 (Most Capable)</option>
-          </select>
-        </div>
+        {/* Model and Execute */}
+        <div className="flex items-end gap-4">
+          <div className="flex-1">
+            <label className="block text-sm font-semibold text-gray-300 uppercase tracking-wider mb-2">
+              Model
+            </label>
+            <select
+              value={model}
+              onChange={(e) => setModel(e.target.value as ModelOption)}
+              className="w-full bg-slate-50 dark:bg-slate-900 text-gray-900 dark:text-white rounded-lg px-4 py-3 border border-slate-300 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-cyan-500"
+            >
+              <option value="gpt-4o-mini">GPT-4o Mini (Fastest, Cheapest)</option>
+              <option value="gpt-4o">GPT-4o (Balanced)</option>
+              <option value="gpt-4">GPT-4 (Most Capable)</option>
+            </select>
+          </div>
 
-        {/* Execute Button */}
-        <Button
-          onClick={runComparison}
-          disabled={!problem.trim()}
-          variant="primary"
-          fullWidth
-        >
-          Compare Standard vs CoT
-        </Button>
+          <Button
+            onClick={runComparison}
+            disabled={!currentProblem}
+            variant="primary"
+            className="px-8"
+          >
+            <Zap className="w-5 h-5" />
+            Compare Strategies
+          </Button>
+        </div>
       </Card>
 
-      {/* Results */}
-      {showResults && problem && (
-        <>
-          <PromptComparison
-            strategyA={{ name: 'Standard Prompting', prompt: problem }}
-            strategyB={{
-              name: 'Chain of Thought',
-              prompt: `${problem}\n\nLet's think step by step.`,
-            }}
-            problem={problem}
-            model={model}
-            onComplete={(results) => {
-              setCotResponse(results.strategyB);
-            }}
-          />
-
-          {cotResponse && <ReasoningVisualizer response={cotResponse} />}
-        </>
+      {/* Results: Premium ComparisonView */}
+      {showComparison && currentProblem && (
+        <ComparisonView
+          problem={currentProblem}
+          standardStrategy={{
+            name: 'Standard Prompting',
+            prompt: currentProblem,
+            model,
+            parameters,
+          }}
+          enhancedStrategy={{
+            name: 'Chain of Thought',
+            prompt: `${currentProblem}\n\nLet's think step by step.`,
+            model,
+            parameters,
+          }}
+          expectedAnswer={selectedProblem?.expectedAnswer}
+          enhancedRenderer={(response, isStreaming) => (
+            <ReasoningFlow response={response} isStreaming={isStreaming} />
+          )}
+        />
       )}
+
+      {/* Parameter Panel (Side Drawer) */}
+      <ParameterPanel
+        model={model}
+        parameters={parameters}
+        onModelChange={setModel}
+        onParametersChange={(newParams) => setParameters({ ...parameters, ...newParams })}
+        isOpen={showParameterPanel}
+        onClose={() => setShowParameterPanel(false)}
+      />
     </div>
   );
 };
 
+/* ============================================
+   BENCHMARK TAB (Enhanced with export)
+   ============================================ */
 const BenchmarkTab = () => {
   const [isRunning, setIsRunning] = useState(false);
   const [results, setResults] = useState<BenchmarkResult[]>([]);
@@ -385,13 +440,12 @@ const BenchmarkTab = () => {
     {
       id: 5,
       question:
-        'Every day, Wendi feeds each of her chickens three cups of mixed chicken feed, containing seeds, mealworms and vegetables to help keep them healthy. She gives the chickens their feed in three separate meals. In the morning, she gives her flock of chickens 15 cups of feed. In the afternoon, she gives her chickens another 25 cups of feed. How many cups of feed does she need to give her chickens in the final meal of the day if the size of Wendi\'s flock is 20 chickens?',
+        "Every day, Wendi feeds each of her chickens three cups of mixed chicken feed, containing seeds, mealworms and vegetables to help keep them healthy. She gives the chickens their feed in three separate meals. In the morning, she gives her flock of chickens 15 cups of feed. In the afternoon, she gives her chickens another 25 cups of feed. How many cups of feed does she need to give her chickens in the final meal of the day if the size of Wendi's flock is 20 chickens?",
       answer: '20',
     },
   ];
 
   const extractAnswer = (response: string): string => {
-    // Try to extract the final answer from the response
     const patterns = [
       /(?:the answer is|answer:|final answer:)\s*\$?(\d+(?:,\d{3})*(?:\.\d+)?)/i,
       /\$?(\d+(?:,\d{3})*(?:\.\d+)?)\s*(?:dollars?|bolts?|meters?|cups?)/i,
@@ -405,7 +459,6 @@ const BenchmarkTab = () => {
       }
     }
 
-    // Fallback: find the last number in the response
     const numbers = response.match(/\b\d+(?:,\d{3})*(?:\.\d+)?\b/g);
     if (numbers && numbers.length > 0) {
       return numbers[numbers.length - 1].replace(/,/g, '');
@@ -425,15 +478,12 @@ const BenchmarkTab = () => {
     const newResults: BenchmarkResult[] = [];
 
     for (const sample of gsm8kSamples) {
-      // Test standard prompting
       const standardMessages: ChatMessage[] = [{ role: 'user', content: sample.question }];
       const standardResult = await sendMessage(standardMessages, { model: 'gpt-4o-mini' });
       const standardResponse = standardResult?.message || '';
 
-      // Wait briefly
       await new Promise((resolve) => setTimeout(resolve, 300));
 
-      // Test CoT prompting
       const cotMessages: ChatMessage[] = [
         { role: 'user', content: `${sample.question}\n\nLet's think step by step.` },
       ];
@@ -455,6 +505,29 @@ const BenchmarkTab = () => {
     setIsRunning(false);
   };
 
+  // Export results to JSON
+  const exportResults = useCallback(() => {
+    const data = {
+      timestamp: new Date().toISOString(),
+      totalProblems: results.length,
+      accuracy: {
+        standard: results.length > 0 ? (results.filter((r) => r.standardCorrect).length / results.length) * 100 : 0,
+        cot: results.length > 0 ? (results.filter((r) => r.cotCorrect).length / results.length) * 100 : 0,
+      },
+      results,
+    };
+
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `cot-benchmark-${Date.now()}.json`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  }, [results]);
+
   const accuracy = {
     standard: results.length > 0 ? (results.filter((r) => r.standardCorrect).length / results.length) * 100 : 0,
     cot: results.length > 0 ? (results.filter((r) => r.cotCorrect).length / results.length) * 100 : 0,
@@ -472,16 +545,24 @@ const BenchmarkTab = () => {
           language models.
         </p>
 
-        <Button onClick={runBenchmark} disabled={isRunning} variant="primary" fullWidth>
-          {isRunning ? (
-            <>
-              <Loader2 className="w-5 h-5 animate-spin" />
-              Running Benchmark... ({results.length}/5)
-            </>
-          ) : (
-            'Run Benchmark (5 problems)'
+        <div className="flex gap-3">
+          <Button onClick={runBenchmark} disabled={isRunning} variant="primary" fullWidth>
+            {isRunning ? (
+              <>
+                <Loader2 className="w-5 h-5 animate-spin" />
+                Running Benchmark... ({results.length}/5)
+              </>
+            ) : (
+              'Run Benchmark (5 problems)'
+            )}
+          </Button>
+
+          {results.length > 0 && (
+            <Button onClick={exportResults} variant="outline" icon={<Download />}>
+              Export
+            </Button>
           )}
-        </Button>
+        </div>
       </Card>
 
       {results.length > 0 && (
@@ -490,9 +571,7 @@ const BenchmarkTab = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <Card className="bg-gradient-to-br from-red-500/10 to-red-600/10 border-red-500/30">
               <div className="text-center">
-                <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
-                  Standard Prompting
-                </p>
+                <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">Standard Prompting</p>
                 <p className="text-4xl font-bold text-gray-900 dark:text-white mb-1">
                   {accuracy.standard.toFixed(0)}%
                 </p>
@@ -502,9 +581,7 @@ const BenchmarkTab = () => {
 
             <Card className="bg-gradient-to-br from-green-500/10 to-green-600/10 border-green-500/30">
               <div className="text-center">
-                <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
-                  Chain of Thought
-                </p>
+                <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">Chain of Thought</p>
                 <p className="text-4xl font-bold text-gray-900 dark:text-white mb-1">
                   {accuracy.cot.toFixed(0)}%
                 </p>
@@ -528,17 +605,11 @@ const BenchmarkTab = () => {
                     {idx + 1}. {result.question}
                   </p>
                   <div className="flex items-center gap-4 text-sm">
-                    <span
-                      className={
-                        result.standardCorrect ? 'text-green-400' : 'text-red-400'
-                      }
-                    >
+                    <span className={result.standardCorrect ? 'text-green-400' : 'text-red-400'}>
                       Standard: {result.standardCorrect ? '✓ Correct' : '✗ Incorrect'}
                     </span>
                     <span className="text-gray-500 dark:text-gray-600">|</span>
-                    <span
-                      className={result.cotCorrect ? 'text-green-400' : 'text-red-400'}
-                    >
+                    <span className={result.cotCorrect ? 'text-green-400' : 'text-red-400'}>
                       CoT: {result.cotCorrect ? '✓ Correct' : '✗ Incorrect'}
                     </span>
                     <span className="text-gray-500 dark:text-gray-600">|</span>
