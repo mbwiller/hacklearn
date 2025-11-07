@@ -19,3 +19,6 @@ export { MitMAttacksConcept } from './MitMAttacksConcept';
 export { DoSAttacksConcept } from './DoSAttacksConcept';
 export { WebAppVulnerabilitiesConcept } from './WebAppVulnerabilitiesConcept';
 export { PenetrationTestingConcept } from './PenetrationTestingConcept';
+
+// Playground modules (LLM interactive components)
+export { CoTPlayground } from '../playground/CoTPlayground';

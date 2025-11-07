@@ -1,7 +1,32 @@
 import { Brain, Sparkles, Target, Zap, Lightbulb, Layers, Shield, Code, FileText, Workflow } from 'lucide-react';
 import type { Concept } from '../types';
+import { CoTPlayground } from '../components/concepts/playground/CoTPlayground';
 
 export const promptEngineeringConcepts: Concept[] = [
+  {
+    id: 111,
+    category: 'Prompt Engineering',
+    title: 'Chain of Thought (CoT) Reasoning',
+    icon: <Brain className="w-8 h-8" />,
+    difficulty: 'Beginner',
+    description: 'Learn how step-by-step reasoning improves LLM accuracy on complex tasks. Explore the power of explicit reasoning chains through interactive experiments with real-time LLM API integration.',
+    realWorldExample: 'Chain of Thought prompting improved GSM8K math problem accuracy from 17.7% to 78.7% on PaLM 540B (Wei et al., 2022) - a 4.4x improvement in performance by simply asking the model to show its work.',
+    keyTakeaways: [
+      'CoT prompting encourages models to show explicit reasoning steps',
+      'Dramatically improves accuracy on math, logic, and multi-step problems',
+      'Simply adding "Let\'s think step by step" can boost performance',
+      'Works best on larger models (>100B parameters)',
+      'Emergent capability - not effective on small models',
+      'Enables interpretability of model decision-making'
+    ],
+    defenses: [
+      'Use CoT for transparent reasoning in high-stakes decisions',
+      'Validate each reasoning step for logical consistency',
+      'Compare standard vs CoT outputs to identify reasoning errors',
+      'Implement step-by-step verification in production systems'
+    ],
+    detailedComponent: (props) => <CoTPlayground {...props} />
+  },
   {
     id: 101,
     category: 'Prompt Engineering',

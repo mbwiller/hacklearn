@@ -65,7 +65,7 @@ docker rm hacklearn
 **App Routes (with header navigation):**
 - `/app/dashboard` - Main dashboard with AI/ML and Traditional Hacking modules
 - `/app/prompt-engineering` - Prompt Engineering modules (10 placeholders, content coming soon)
-- `/app/account` - User account page with progress statistics
+- `/app/account` - Professional analytics dashboard with activity tracking, achievements, and progress visualization
 - `/app/concepts/:id` - Individual module detail pages
 
 ### User Flow
@@ -75,7 +75,12 @@ docker rm hacklearn
 3. **Navigate between sections** using the header menu
    - Dashboard: View and access all 20 ethical hacking modules
    - Prompt Engineering: View 10 placeholder modules (content in development)
-   - Account: Track your progress and statistics
+   - Account: View professional analytics dashboard with:
+     - 52-week activity heatmap (GitHub-style)
+     - Progress rings by category
+     - Achievement badges and milestones
+     - Streak tracking and XP progression
+     - Recent activity timeline
 4. **Click any module card** to access detailed content, labs, tools, and references
 5. **Use browser back button** or "Back to Dashboard" to navigate
 
@@ -125,44 +130,16 @@ docker rm hacklearn
 - Splash page with bold marketing design
 - Full React Router navigation
 - Header with responsive menu
-- User account page with progress tracking
+- Professional analytics dashboard (Account Page) with ML/engineering aesthetic **NEW!**
+  - GitHub-style 52-week activity heatmap
+  - Circular progress visualization by category
+  - Achievement badge system (6 achievements)
+  - Streak tracking and XP progression
+  - Recent activity timeline
 - Theme toggle (light/dark mode)
 - 30 module cards across 3 sections
 
-**Content:** 20/30 Modules Complete (67%)
-
-### Flagship Concepts: 20/20 Complete (100%)
-
-**AI/ML Security (10/10 complete!):**
-- #1 Prompt Injection Attacks - Complete (825 lines, notebook ready)
-- #2 Adversarial Machine Learning - Complete (1,208 lines, notebook ready)
-- #3 Data Poisoning - Complete (1,100 lines, notebook ready)
-- #4 Model Extraction - Complete (1,000 lines, notebook ready)
-- #5 Jailbreaking & Safety Bypassing - Complete (1,050 lines, notebook ready)
-- #6 RAG Security Vulnerabilities - Complete (1,150 lines, notebook ready)
-- #7 Multi-Agent System Attacks - Complete (1,200 lines, notebook ready)
-- #8 Link Traps & Malicious URLs - Complete (1,180 lines, notebook ready)
-- #9 Invisible Unicode Injection - Complete (1,200 lines, notebook ready)
-- #10 AI Agent Command Injection - Complete (1,400 lines, notebook ready)
-
-**Traditional Hacking (10/10 complete!):**
-- #11 Reconnaissance & Footprinting - Complete (1,650 lines, notebook ready)
-- #12 SQL Injection - Complete (1,105 lines, notebook ready)
-- #13 Cross-Site Scripting (XSS) - Complete (1,194 lines, notebook ready)
-- #14 Social Engineering & Phishing - Complete (1,377 lines, notebook ready)
-- #15 Network Scanning & Enumeration - Complete (1,250 lines, notebook ready)
-- #16 Password Cracking & Credential Attacks - Complete (1,555 lines, notebook ready)
-- #17 Man-in-the-Middle (MitM) Attacks - Complete (1,332 lines, notebook ready) **NEW!**
-- #18 Denial of Service (DoS) Attacks - Complete (1,250 lines, notebook ready) **NEW!**
-- #19 Web Application Vulnerabilities - Complete (1,400 lines, notebook ready) **NEW!**
-- #20 Penetration Testing Methodology - Complete (1,741 lines, notebook ready)
-
-**Prompt Engineering for LLMs (0/10 - Placeholders ready):**
-- #101-110 - Placeholder modules ready for content development
-- All modules follow standard structure with key takeaways and defense strategies
-- Topics: Fundamentals, Advanced Techniques, Optimization, Role-Based, Creative, Multi-Step, Safety, Code Generation, Enterprise, Agentic Workflows
-
-** 20/20 Ethical Hacking modules complete!** All flagship modules with comprehensive content, interactive labs, and professional UI.
+**Content:** 20/30 Modules Complete (67%) - See "Learning Path" section above for full module listing.
 
 ### UI/UX Harmonization Complete
 
@@ -180,86 +157,22 @@ All modules now follow the standardized design system:
 
 **Documentation:** See [HARMONIZATION_SUMMARY.md](./HARMONIZATION_SUMMARY.md) for complete details of the harmonization effort.
 
+### Account Page: Professional Analytics Dashboard
+
+The Account Page provides comprehensive progress tracking with ML/engineering-focused aesthetic:
+- GitHub-style 52-week activity heatmap
+- Circular progress visualization by category
+- Achievement badges and milestone tracking
+- Streak tracking and XP progression
+- Recent activity timeline with timestamps
+
 ---
 
 ## ‍ For Developers
 
-### Contributing to Development
-
-HackLearn Pro follows a systematic batch development process. Each concept includes:
-- React component with 4-tab structure (Theory, Lab, Tools, References)
-- Jupyter notebook with hands-on exercises
-- Real-world examples and academic citations
-- Professional UI with zero emojis
-
-**See [DEVELOPMENT.md](./DEVELOPMENT.md) for:**
-- Complete development workflow
-- Module creation guide (step-by-step)
-- Testing procedures
-- Git workflow and commit standards
-- Code redundancy prevention
-- Documentation requirements
-
-### GitHub Repository
-
 **Repository:** https://github.com/mbwiller/hacklearn
-**Branch:** master (main development)
-**Remote:** origin
 
-### Quick Development Setup
-
-```bash
-# Clone repository
-git clone https://github.com/mbwiller/hacklearn.git
-cd hacklearn
-
-# Install dependencies
-npm install
-
-# Start development server (fast HMR)
-npm run dev
-# Opens at http://localhost:3000
-
-# Build for production
-npm run build
-# Output in dist/ (~116 KB gzipped)
-
-# Preview production build
-npm run preview
-# Opens at http://localhost:4173
-
-# Run linting
-npm run lint
-```
-
-### Pushing Updates
-
-```bash
-# Check current status
-git status
-git diff
-
-# Stage changes
-git add .
-
-# Commit with proper format
-git commit -m "[Type] Description
-
-Details...
-
-Generated with [Claude Code](https://claude.com/claude-code)
-
-Co-Authored-By: Claude <noreply@anthropic.com>"
-
-# Push to GitHub
-git push origin master
-
-# Verify at: https://github.com/mbwiller/hacklearn
-```
-
-**Commit Types:** `[Feature]` `[Content]` `[Fix]` `[Docs]` `[Refactor]` `[Test]`
-
-See [DEVELOPMENT.md](./DEVELOPMENT.md) for complete git workflow and standards.
+For complete development workflow, module creation guide, testing procedures, and git standards, see **[DEVELOPMENT.md](./DEVELOPMENT.md)**.
 
 ---
 
@@ -274,34 +187,64 @@ See [DEVELOPMENT.md](./DEVELOPMENT.md) for complete git workflow and standards.
 - **Difficulty Rating**: Beginner, Intermediate, or Advanced
 - **Professional Tools**: Attack and defense tool documentation
 
-## Technical Details
+## Technology Stack
 
-### Architecture
-- **Frontend**: React 18 with Lucide icons
-- **Styling**: Tailwind CSS with custom theme system
-- **Typography**: Inter font family (400-700 weights)
-- **Web Server**: Nginx (Alpine Linux)
-- **Container**: Docker
+### Frontend
+- **Framework**: React 18 + Vite + TypeScript
+- **Styling**: Tailwind CSS with dark/light themes
+- **Icons**: Lucide React
+- **Routing**: React Router DOM v7
+- **State Management**: React Context API + custom hooks
+- **Bundle Size**: 116KB gzipped
 
-### Theme System
-- **Design**: Professional Slate/white base with emerald (#10B981) accents
-- **Light Mode**: Cool gray backgrounds (#F8FAFC), white cards
-- **Dark Mode**: Slate backgrounds (slate-950), dark cards (slate-900)
-- **Toggle**: Fixed position button (top-right) with persistent state
-- **Storage**: LocalStorage for theme preference across sessions
-- **Syntax**: Code blocks maintain colored syntax in both modes
+### Backend (NEW)
+- **Framework**: Express.js 4.18 + TypeScript
+- **LLM Integration**: OpenAI SDK 4.20
+- **Features**: Rate limiting, streaming responses, token tracking
+- **API Endpoint**: POST `/api/llm/chat`
+- **Documentation**: See `server/README.md`
 
-### Files
-- `index.html` - Application entry point
-- `hacklearn.jsx` - React application with all logic
-- `Dockerfile` - Container configuration
-- `docker-compose.yml` - Simplified deployment
-- `nginx.conf` - Web server configuration
-- `README.md` - Documentation
+### Deployment
+- **Production**: Docker + Nginx
+- **Development**: Vite dev server (frontend) + Express server (backend)
 
 ### Port Configuration
-- Default: `8080`
+- **Frontend (Dev)**: `3000` (Vite)
+- **Backend (Dev)**: `3001` (Express)
+- **Production**: `8080` (Nginx + Docker)
 - Change in `docker-compose.yml` to customize
+
+## Development
+
+### Running Full Stack (Frontend + Backend)
+
+**Terminal 1 - Backend:**
+```bash
+npm run dev:backend
+```
+
+**Terminal 2 - Frontend:**
+```bash
+npm run dev
+```
+
+Frontend will automatically proxy `/api` requests to the backend on port 3001.
+
+### Running Frontend Only
+
+```bash
+npm run dev
+```
+
+Access at: `http://localhost:3000`
+
+### Backend Documentation
+
+For complete backend API documentation, setup instructions, and testing:
+- See `server/README.md`
+- API endpoint: `POST /api/llm/chat`
+- Rate limiting: 10 requests/minute
+- Supports streaming and non-streaming responses
 
 ## Use Cases
 
@@ -359,80 +302,19 @@ This platform is designed for **EDUCATIONAL PURPOSES ONLY**. All techniques taug
 - Theory and practical application
 - Industry-standard methodologies
 
-## Customization
+## Recommended Learning Path
 
-### Change Port
-Edit `docker-compose.yml`:
-```yaml
-ports:
- - "YOUR_PORT:80"
-```
+**For Beginners:** Start with Reconnaissance → Social Engineering → Password Cracking → SQL Injection → XSS → Then AI/ML concepts
 
-### Rebuild After Changes
-```bash
-docker-compose down
-docker-compose up --build -d
-```
+**For ML/AI Engineers:** Jump to AI/ML Security section (concepts #1-10) → Then explore traditional hacking
 
-## Progress Tracking
+**For Security Professionals:** Comprehensive coverage of both AI/ML and traditional threats
 
-Your progress is tracked locally in the browser:
-- Completed concepts
-- Module completion status
+## Additional Resources
 
-## Updates
-
-To update to the latest version:
-```bash
-docker-compose down
-docker-compose pull
-docker-compose up -d
-```
-
-## Tips for Learning
-
-1. **Start with Reconnaissance** - Foundation of ethical hacking
-2. **Focus on AI concepts** - Critical for modern security
-3. **Work through labs** - Hands-on practice reinforces understanding
-4. **Read real-world examples** - Learn from actual incidents
-5. **Practice defenses** - Apply what you learn
-6. **Take notes** - Create your own reference
-
-## Recommended Learning Order
-
-### For Zero Experience:
-1. Reconnaissance & Footprinting
-2. Social Engineering & Phishing
-3. Password Cracking
-4. Network Scanning
-5. SQL Injection
-6. XSS
-7. Web Application Vulnerabilities
-8. Prompt Injection (transition to AI)
-9. Continue with remaining AI concepts
-10. Complete with Penetration Testing Methodology
-
-### For ML/SWE Background:
-1. Prompt Injection Attacks
-2. Adversarial Machine Learning
-3. RAG Security
-4. Jailbreaking & Safety Bypassing
-5. Other AI concepts
-6. Then explore traditional concepts
-
-## Contributing to Your Learning
-
-### Additional Resources
 - **OWASP**: https://owasp.org
 - **NIST**: https://www.nist.gov/cybersecurity
-- **Anthropic Safety**: https://www.anthropic.com/safety
-- **CVE Database**: https://cve.mitre.org
-
-### Practice Platforms
-- HackTheBox
-- TryHackMe
-- PentesterLab
-- DVWA (Damn Vulnerable Web Application)
+- **Practice Platforms**: HackTheBox, TryHackMe, PentesterLab
 
 ## License
 

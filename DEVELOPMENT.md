@@ -14,15 +14,24 @@ This comprehensive guide provides systematic workflows for developing HackLearn 
 - React Router v6 integration: Complete
 - Splash page with bold gradient design: Complete
 - Navigation header with active state highlighting: Complete
-- User account page with progress tracking: Complete
+- User account page with progress tracking: Complete **REDESIGNED 2025-11-05**
 - 30 module structure (20 complete + 10 placeholders): Complete
 - Responsive design across all new pages: Complete
+
+**Account Page Professional Redesign (2025-11-05):**
+- ML/engineering-focused aesthetic with cyan/blue/purple palette
+- GitHub-style 52-week activity heatmap
+- Circular progress rings by category
+- Achievement badge system (6 milestones)
+- Streak tracking and XP progression
+- Recent activity timeline
+- Four new reusable UI components created
 
 **Route Structure:**
 - `/` - SplashPage (public landing page)
 - `/app/dashboard` - Ethical hacking modules (20 complete)
 - `/app/prompt-engineering` - Prompt engineering modules (10 placeholders)
-- `/app/account` - User profile & statistics
+- `/app/account` - Professional analytics dashboard with activity tracking **REDESIGNED**
 - `/app/concepts/:id` - Dynamic concept detail pages
 
 ### Content Status: 20/30 Modules Complete (67%)
@@ -175,270 +184,44 @@ Co-Authored-By: Claude <noreply@anthropic.com>
 
 ## Module Development Workflow
 
-### Time Estimate Per Module
-- **Preparation:** 15 min (read content, plan structure)
-- **Component Development:** 90-120 min (React component with 4 tabs)
-- **Notebook Creation:** 30-45 min (Jupyter notebook with exercises)
-- **Integration:** 15 min (update concepts.tsx, exports)
-- **Testing:** 15 min (local + production build)
-- **Documentation:** 10 min (update README, CLAUDE, DEVELOPMENT)
+**Time:** ~3-4 hours per module
 
-**Total:** ~3-4 hours per module
+### Development Checklist
 
-### Development Process (Step-by-Step)
+**Preparation (15 min):**
+- [ ] Read content from `docs/content-source/[category]/[id]-[name].md`
+- [ ] Review existing concept patterns in `/src/components/concepts/`
+- [ ] Plan 4-tab structure (Theory, Lab, Tools, References)
 
-#### Step 1: Preparation (15 min)
+**Component Development (90-120 min):**
+- [ ] Create `src/components/concepts/[Name]Concept.tsx`
+- [ ] Implement Theory tab (400-600 words, real-world examples)
+- [ ] Implement Lab tab (3-5 code examples, notebook link)
+- [ ] Implement Tools tab (8-12 tools: attack + defense)
+- [ ] Implement References tab (20-30 citations)
+- [ ] Use existing UI components from `/src/components/ui/`
 
-**Read Content Source:**
-```bash
-# Located in:
-docs/content-source/ai-ml-security/[id]-[name].md
-# or
-docs/content-source/traditional-hacking/[id]-[name].md
-```
+**Notebook Creation (30-45 min):**
+- [ ] Create `public/notebooks/[id]-[name].ipynb`
+- [ ] Test all cells execute without errors
+- [ ] Add markdown explanations between code cells
 
-**Review Existing Patterns:**
-- Check `/src/components/concepts/` for existing flagship concepts
-- Review `/src/components/ui/` for reusable components
-- Note unique features needed
+**Integration (15 min):**
+- [ ] Import component in `src/data/concepts.tsx`
+- [ ] Add `detailedComponent` prop to concept definition
+- [ ] Export from `src/components/concepts/index.ts`
 
-**Plan Structure:**
-- Map content sections to tabs (Theory, Lab, Tools, References)
-- Identify code examples for Lab tab
-- List tools for Tools tab
-- Gather citations for References tab
+**Testing (15 min):**
+- [ ] `npm run dev` - Verify all tabs, navigation, links
+- [ ] `npm run build` - Verify production build succeeds
+- [ ] `npm run lint` - Fix any warnings
 
-#### Step 2: Create React Component (90-120 min)
-
-**Create File:**
-```bash
-src/components/concepts/[Name]Concept.tsx
-```
-
-**Template Structure:**
-```typescript
-import { useState } from 'react';
-import { ArrowLeft, BookOpen, Code, Shield, FileText } from 'lucide-react';
-
-interface [Name]ConceptProps {
- onBack?: () => void;
- onStartChallenge?: () => void;
-}
-
-export const [Name]Concept = ({ onBack, onStartChallenge }: [Name]ConceptProps) => {
- const [activeTab, setActiveTab] = useState('theory');
-
- return (
- <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
- {/* Header */}
- {/* Tab Navigation */}
- {/* Tab Content */}
- {/* Challenge Button */}
- </div>
- );
-};
-```
-
-**Tab Content Requirements:**
-
-**Theory Tab (400-600 words):**
-- Opening explanation
-- Technical breakdown (2-3 subsections)
-- 2-3 real-world breaches with details (company, year, impact, cost)
-- 6-8 key takeaways
-
-**Lab Tab (3-5 code examples):**
-- Introduction
-- Vulnerable code example (with warning)
-- Secure code example (production-ready label)
-- Advanced scenario
-- Link to Jupyter notebook
-
-**Tools Tab (8-12 tools):**
-- Attack Tools section (4-6 tools)
-- Defense Tools section (4-6 tools)
-- Implementation examples
-
-**References Tab (20-30 citations):**
-- Official docs (OWASP, NIST, CWE)
-- Academic papers [1][2][3]
-- Real-world case studies
-- Practice platforms
-- Legal/ethical disclaimers
-
-#### Step 3: Create Jupyter Notebook (30-45 min)
-
-**Create File:**
-```bash
-public/notebooks/[id]-[name].ipynb
-```
-
-**Structure:**
-```json
-{
- "cells": [
- {"cell_type": "markdown", "source": ["# [Name] - Hands-On Lab"]},
- {"cell_type": "markdown", "source": ["## Setup"]},
- {"cell_type": "code", "source": ["!pip install ..."]},
- {"cell_type": "markdown", "source": ["## Exercise 1"]},
- {"cell_type": "code", "source": ["# Code"]}
- ]
-}
-```
-
-**Quality Standards:**
-- All code cells execute without errors
-- Include expected outputs
-- Add explanatory markdown between code
-- Include summary at end
-
-#### Step 4: Integration (15 min)
-
-**Update concepts.tsx:**
-```typescript
-// 1. Import at top
-import { DataPoisoningConcept } from '../components/concepts/DataPoisoningConcept';
-
-// 2. Add detailedComponent to concept definition
-{
- id: 3,
- // ... existing properties
- detailedComponent: (props) => <DataPoisoningConcept {...props} />
-}
-```
-
-**Export from index.ts:**
-```typescript
-// src/components/concepts/index.ts
-export { DataPoisoningConcept } from './DataPoisoningConcept';
-```
-
-#### Step 5: Testing (15 min)
-
-```bash
-# Development server
-npm run dev
-# Test: All tabs, navigation, code blocks, notebook link
-
-# Production build
-npm run build
-# Verify: Build succeeds, no errors
-
-# Lint
-npm run lint
-# Fix: Any warnings or errors
-```
-
-**Testing Checklist:**
-- [ ] Component renders without errors
-- [ ] All 4 tabs display correctly
-- [ ] Tab switching smooth
-- [ ] Back button works
-- [ ] Challenge button works
-- [ ] Code blocks have syntax highlighting
-- [ ] Notebook link opens
-- [ ] Responsive design (mobile/tablet/desktop)
-- [ ] No console errors
-- [ ] TypeScript compiles
-
-#### Step 6: Documentation & Commit (10 min)
-
-**Update README.md:**
-- Module status (5/20 6/20)
-- Any new features
-- Installation/usage changes
-
-**Update CLAUDE.md:**
-- New component patterns
-- Architecture changes
-- Development process updates
-
-**Update DEVELOPMENT.md:**
-- Status dashboard
-- New common issues/solutions
-
-**Commit:**
-```bash
-git add .
-git commit -m "[Feature] Add [Name] flagship concept (#[X])
-
-- Component structure details
-- Notebook details
-- Status update
-
-Generated with [Claude Code](https://claude.com/claude-code)
-
-Co-Authored-By: Claude <noreply@anthropic.com>"
-
-git push origin master
-```
-
----
-
-## Batch Development (3-5 Modules)
-
-### Planning Phase
-
-**Select Batch:**
-```
-Example: Concepts #3, #4, #5
-- Data Poisoning (Intermediate, 150 pts)
-- Model Extraction (Advanced, 200 pts)
-- Jailbreaking (Intermediate, 150 pts)
-```
-
-**Estimate Timeline:**
-```
-3 concepts × 3.5 hours = ~10.5 hours development
-+ 2-3 hours testing/refinement
-= ~13 hours total
-```
-
-**Create Branch (Optional):**
-```bash
-git checkout -b batch-1-concepts-3-4-5
-```
-
-### Development Phase
-
-1. Develop concepts sequentially
-2. Test each before moving to next
-3. Commit after each concept
-4. Update DEVELOPMENT.md status after each
-
-### Completion Phase
-
-**Final Testing:**
-```bash
-npm run dev # Test all new concepts
-npm run build # Verify production
-npm run lint # Fix all warnings
-```
-
-**Update All Documentation:**
-- README.md: Module status, features
-- CLAUDE.md: Patterns, architecture
-- DEVELOPMENT.md: Status dashboard
-
-**Final Commit:**
-```bash
-git add .
-git commit -m "[Feature] Complete Batch 1 - Concepts #3, #4, #5
-
-- Add Data Poisoning flagship concept (#3)
-- Add Model Extraction flagship concept (#4)
-- Add Jailbreaking & Safety Bypassing (#5)
-- Create 3 Jupyter notebooks
-- Update all documentation
-
-Batch 1 completion: 8/20 concepts (40%)
-
-Generated with [Claude Code](https://claude.com/claude-code)
-
-Co-Authored-By: Claude <noreply@anthropic.com>"
-
-git push origin master
-```
+**Documentation & Commit (10 min):**
+- [ ] Update README.md status
+- [ ] Update CLAUDE.md (if new patterns)
+- [ ] Update DEVELOPMENT.md dashboard
+- [ ] Commit with proper format: `[Feature] Add [Name] concept (#X)`
+- [ ] Push to GitHub
 
 ---
 
@@ -451,11 +234,19 @@ git push origin master
 
 **Location:** `src/components/ui/`
 
-- `CodeBlock` - Syntax-highlighted code display
+**Core Components:**
+- `Card` - Reusable card container (variants: default, hover, interactive)
+- `Button` - Standardized button (variants: primary, secondary, outline, ghost)
+- `Container` - Max-width layout wrapper
 - `DifficultyBadge` - Beginner/Intermediate/Advanced badges
-- `ProgressBar` - Progress visualization
-- `StatsCard` - Statistics display
-- `AchievementCard` - Achievement display
+- `Input` - Form input with validation
+- `ThemeToggle` - Light/dark mode toggle
+
+**Analytics Components (NEW - 2025-11-05):**
+- `ActivityHeatmap` - GitHub-style 52-week contribution calendar
+- `StatsCard` - Metric display with icons, values, and trends
+- `ProgressRing` - Circular SVG progress indicator (donut chart)
+- `AchievementBadge` - Badge component with earned/locked states
 
 **DO NOT recreate these!**
 
@@ -501,75 +292,15 @@ git push origin master
 | Bug fix | No | Maybe | No |
 | Workflow change | No | Process | Workflow |
 
-### Update Checklist Template
-
-```markdown
-## Updated Documentation
-
-### README.md
-- [x] Module status (5/20 8/20)
-- [x] Batch completion notice
-- [ ] No changes needed
-
-### CLAUDE.md
-- [x] New tab pattern
-- [x] Code redundancy notes
-- [ ] No changes needed
-
-### DEVELOPMENT.md
-- [x] Status dashboard
-- [x] Common pitfalls section
-- [ ] No changes needed
-```
-
 ---
 
 ## Common Issues & Solutions
 
-### Build Errors
+**Build Errors:** "Cannot find module" → Check `src/components/concepts/index.ts` exports. "Module not found" → Verify import path matches filename.
 
-**"Cannot find module" error:**
-```bash
-# Check: src/components/concepts/index.ts
-export { NewConcept } from './NewConcept';
-```
+**Runtime Errors:** Tab not rendering → Check tab name matches state value. Notebook 404 → Verify file in `public/notebooks/`, run `npm run build`.
 
-**"Module not found" in concepts.tsx:**
-```typescript
-// Verify import path matches filename exactly
-import { DataPoisoningConcept } from '../components/concepts/DataPoisoningConcept';
-```
-
-### Runtime Errors
-
-**Tab not rendering:**
-- Check tab name matches state value
-- Verify no typos in onClick
-- Ensure tab component exists
-
-**Notebook link 404:**
-- Verify file in `public/notebooks/`
-- Check filename matches link
-- Rebuild: `npm run build`
-
-### Git Issues
-
-**Merge conflicts:**
-```bash
-git status # Check conflicts
-# Edit files
-git add .
-git commit -m "[Fix] Resolve merge conflicts"
-```
-
-**Wrong branch commit:**
-```bash
-git log # Copy hash
-git checkout correct-branch
-git cherry-pick <hash>
-git checkout wrong-branch
-git reset --hard HEAD~1
-```
+**Git Issues:** Merge conflicts → `git status`, edit files, `git add .`, commit. Wrong branch commit → `git cherry-pick <hash>` to correct branch, reset wrong branch.
 
 ---
 
@@ -588,29 +319,25 @@ git reset --hard HEAD~1
 
 ---
 
-## Next Steps
+## Future Enhancements
 
-### Immediate
-1. Complete Phase 1-5 reorganization
-2. Begin Batch 1: #3, #4, #5
-3. Use MODULE_DEVELOPMENT_CHECKLIST.md
+**Note:** All 20 flagship concepts are complete. These are optional future enhancements.
 
-### Short-Term (2-3 Weeks)
-- Complete 5 batches (15 concepts)
-- Establish development rhythm
-- Refine workflow
-
-### Medium-Term (1 Month)
-- Deploy to production hosting
+**Near-Term:**
+- Deploy to production hosting (Vercel, Netlify, or AWS)
 - CI/CD with GitHub Actions
-- Analytics tracking
-- Backend API for progress sync
+- Develop 10 Prompt Engineering modules (content placeholders ready)
 
-### Long-Term (3 Months)
-- User authentication
-- Community features
-- Video tutorials
+**Medium-Term:**
+- Backend API for progress sync across devices
+- User authentication and cloud profiles
+- Analytics tracking
+
+**Long-Term:**
+- Community features and discussion forums
+- Video tutorials and interactive sandboxes
 - Mobile app (React Native)
+- Certification system
 
 ---
 
@@ -637,19 +364,4 @@ git reset --hard HEAD~1
 
 ---
 
-## Project Timeline
-
-### Target: 100% Complete in 10 Weeks
-
-**Week 1-2:** Batch 1 (#3, #4, #5) 40% complete
-**Week 3-4:** Batch 2 (#6, #7, #8) 55% complete
-**Week 5-6:** Batch 3 (#9, #10, #11) 70% complete
-**Week 7-8:** Batch 4 (#14, #15, #16) 85% complete
-**Week 9-10:** Batch 5 (#17, #18, #19) 100% complete
-
-**Comfortable pace:** ~5 hours/week
-**Total time investment:** ~52.5 hours
-
----
-
-**Happy Hacking! Stay Systematic. Stay Professional. **
+**Happy Hacking! Stay Systematic. Stay Professional.**
