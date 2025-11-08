@@ -46,6 +46,10 @@ app.use('/api', rateLimiter);
 import llmRouter from './routes/llm';
 app.use('/api/llm', llmRouter);
 
+// Import and use IDE code execution routes
+import { executeRouter } from './routes/execute';
+app.use('/api', executeRouter);
+
 // Error handlers (must be last)
 app.use(notFoundHandler);
 app.use(errorHandler);
