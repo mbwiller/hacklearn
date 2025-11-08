@@ -4,6 +4,7 @@ import { AppLayout } from './components/layouts/AppLayout';
 import { SplashPage } from './pages/SplashPage';
 import { AccountPage } from './pages/AccountPage';
 import { PromptEngineeringPage } from './pages/PromptEngineeringPage';
+import { IDEPage } from './pages/IDEPage';
 import { Dashboard } from './components/common/Dashboard';
 import { ConceptDetailRouter } from './components/common/ConceptDetailRouter';
 import { concepts } from './data/concepts';
@@ -45,6 +46,9 @@ function App() {
             <Route path="concepts/:id" element={<ConceptDetailRouter />} />
             <Route path="prompt-concepts/:id" element={<ConceptDetailRouter />} />
           </Route>
+
+          {/* IDE Route (Full-screen, no header) */}
+          <Route path="/app/ide/:moduleId" element={<IDEPage />} />
 
           {/* Catch all - redirect to splash */}
           <Route path="*" element={<Navigate to="/" replace />} />
