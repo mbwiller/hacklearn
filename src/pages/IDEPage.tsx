@@ -1,24 +1,24 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { Navbar, ResizableLayout } from '@/components/ide';
 import { executeCode } from '@/api/codeExecutor';
-import { getLabProblem } from '@/data/lab-problems';
+import { getLabProblem, hasLabProblem } from '@/data/lab-problems';
 import type { Language, TestResult } from '@/types/ide';
 
 export const IDEPage = () => {
   const { moduleId } = useParams<{ moduleId: string }>();
   const navigate = useNavigate();
 
-  // Load problem data
-  let problem;
-  try {
-    problem = getLabProblem(Number(moduleId));
-  } catch (error) {
-    // If problem not found, redirect back
+  // Validate problem exists before loading
+  const moduleIdNum = Number(moduleId);
+  if (!hasLabProblem(moduleIdNum)) {
     navigate(`/app/concepts/${moduleId}`);
     return null;
   }
+
+  // Load problem data (safe because we validated above)
+  const problem = getLabProblem(moduleIdNum);
 
   const [language, setLanguage] = useState<Language>('python');
   const [code, setCode] = useState<string>(problem.starterCode.python);
@@ -30,21 +30,7 @@ export const IDEPage = () => {
     setCode(problem.starterCode[language]);
   }, [language, problem]);
 
-  // Handle keyboard shortcuts
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      // Ctrl/Cmd + Enter to run code
-      if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
-        e.preventDefault();
-        handleRunCode();
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [code, language]);
-
-  const handleRunCode = async () => {
+  const handleRunCode = useCallback(async () => {
     if (isRunning) return;
 
     setIsRunning(true);
@@ -71,7 +57,21 @@ export const IDEPage = () => {
     } finally {
       setIsRunning(false);
     }
-  };
+  }, [code, language, problem.id, isRunning]);
+
+  // Handle keyboard shortcuts
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Ctrl/Cmd + Enter to run code
+      if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+        e.preventDefault();
+        handleRunCode();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [handleRunCode]);
 
   const handleSubmit = () => {
     if (isRunning) return;
