@@ -420,7 +420,7 @@ export const ComparisonView = ({
               </div>
             ) : standardResponse ? (
               <div className="space-y-4">
-                <pre className="whitespace-pre-wrap text-sm text-gray-300 leading-relaxed">
+                <pre className="whitespace-pre-wrap text-sm text-white leading-relaxed">
                   {standardResponse}
                   {standardState === 'running' && <span className="inline-block w-2 h-4 ml-1 bg-cyan-400 animate-pulse" />}
                 </pre>
@@ -499,7 +499,7 @@ export const ComparisonView = ({
                 {enhancedRenderer ? (
                   enhancedRenderer(enhancedResponse, enhancedState === 'running')
                 ) : (
-                  <pre className="whitespace-pre-wrap text-sm text-gray-300 leading-relaxed">
+                  <pre className="whitespace-pre-wrap text-sm text-white leading-relaxed">
                     {enhancedResponse}
                     {enhancedState === 'running' && <span className="inline-block w-2 h-4 ml-1 bg-emerald-400 animate-pulse" />}
                   </pre>

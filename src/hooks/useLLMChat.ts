@@ -13,7 +13,7 @@ export interface TokenUsage {
 }
 
 export interface ChatOptions {
-  model?: 'gpt-4o-mini' | 'gpt-4o' | 'gpt-4';
+  model?: 'gpt-3.5-turbo' | 'gpt-4o-mini' | 'gpt-4o' | 'gpt-4';
   stream?: boolean;
   systemPrompt?: string;
 }
@@ -39,6 +39,7 @@ interface UseLLMChatReturn {
   error: string | null;
   usage: TokenUsage | null;
   cost: number;
+  duration: number;
   clearResponse: () => void;
   clearError: () => void;
 }
@@ -60,6 +61,7 @@ export const useLLMChat = (): UseLLMChatReturn => {
   const [error, setError] = useState<string | null>(null);
   const [usage, setUsage] = useState<TokenUsage | null>(null);
   const [cost, setCost] = useState(0);
+  const [duration, setDuration] = useState<number>(0);
 
   // Get API key from localStorage
   const getApiKey = (): string | null => {
@@ -163,6 +165,8 @@ export const useLLMChat = (): UseLLMChatReturn => {
       setError(null);
       setResponse(''); // Clear previous response
 
+      const startTime = performance.now();
+
       try {
         const requestBody = {
           model: options.model || 'gpt-4o-mini',
@@ -235,6 +239,9 @@ export const useLLMChat = (): UseLLMChatReturn => {
           }
         }
 
+        const endTime = performance.now();
+        setDuration((endTime - startTime) / 1000); // Convert to seconds
+
         return {
           message: accumulated,
           usage: finalUsage || { prompt_tokens: 0, completion_tokens: 0, total_tokens: 0 },
@@ -259,6 +266,7 @@ export const useLLMChat = (): UseLLMChatReturn => {
     error,
     usage,
     cost,
+    duration,
     clearResponse,
     clearError,
   };

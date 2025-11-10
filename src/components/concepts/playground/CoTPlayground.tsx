@@ -19,15 +19,15 @@ import { useLLMChat, type ChatMessage } from '../../../hooks/useLLMChat';
 
 // NEW: Premium playground components
 import {
-  ReasoningFlow,
   ParameterPanel,
-  ComparisonView,
   ProblemSelector,
   COT_PRESET_PROBLEMS,
   type GenerationParams,
   type ModelOption,
   type Problem,
 } from '../../playground';
+import { RawOutputComparison } from '../../playground/comparison/RawOutputComparison';
+import { CoTVisualizationSection } from '../../playground/comparison/CoTVisualizationSection';
 
 const tabs = [
   { id: 'theory', name: 'Theory', icon: BookOpen },
@@ -243,13 +243,17 @@ The answer is 11.`}
 );
 
 /* ============================================
-   INTERACTIVE TAB (Premium Redesign)
+   INTERACTIVE TAB (Premium Redesign with Dual Streaming)
    ============================================ */
 const InteractiveTab = () => {
+  // Dual LLM hooks for parallel streaming
+  const standardChat = useLLMChat();
+  const cotChat = useLLMChat();
+
   // State for problem and parameters
   const [selectedProblem, setSelectedProblem] = useState<Problem | null>(null);
   const [customProblem, setCustomProblem] = useState('');
-  const [model, setModel] = useState<ModelOption>('gpt-4o-mini');
+  const [model, setModel] = useState<ModelOption>('gpt-3.5-turbo'); // DEFAULT: GPT-3.5-turbo
   const [parameters, setParameters] = useState<GenerationParams>({
     temperature: 0.7,
     maxTokens: 2000,
@@ -261,7 +265,10 @@ const InteractiveTab = () => {
   const [showParameterPanel, setShowParameterPanel] = useState(false);
 
   // Comparison state
-  const [showComparison, setShowComparison] = useState(false);
+  const [isComparing, setIsComparing] = useState(false);
+
+  // Get API key from localStorage
+  const apiKey = localStorage.getItem('openai_api_key') || '';
 
   // Get current problem (selected or custom)
   const currentProblem = customProblem.trim() || selectedProblem?.content || '';
@@ -270,7 +277,6 @@ const InteractiveTab = () => {
   const handleProblemSelect = useCallback((problem: Problem) => {
     setSelectedProblem(problem);
     setCustomProblem(''); // Clear custom problem
-    setShowComparison(false); // Reset comparison
   }, []);
 
   // Handle custom problem change
@@ -279,14 +285,33 @@ const InteractiveTab = () => {
     if (value.trim()) {
       setSelectedProblem(null); // Clear selected problem
     }
-    setShowComparison(false); // Reset comparison
   }, []);
 
-  // Run comparison
-  const runComparison = useCallback(() => {
-    if (!currentProblem) return;
-    setShowComparison(true);
-  }, [currentProblem]);
+  // Run comparison with parallel streaming
+  const runComparison = useCallback(async () => {
+    if (!currentProblem || !apiKey) return;
+
+    setIsComparing(true);
+
+    const standardMessages: ChatMessage[] = [{ role: 'user', content: currentProblem }];
+    const cotMessages: ChatMessage[] = [
+      { role: 'user', content: `${currentProblem}\n\nLet's think step by step.` },
+    ];
+
+    // Fire both in parallel - Promise.all ensures simultaneous streaming
+    await Promise.all([
+      standardChat.sendStreamingMessage(standardMessages, {
+        model,
+        systemPrompt: parameters.systemPrompt,
+      }),
+      cotChat.sendStreamingMessage(cotMessages, {
+        model,
+        systemPrompt: parameters.systemPrompt,
+      }),
+    ]);
+
+    setIsComparing(false);
+  }, [currentProblem, model, apiKey, parameters, standardChat, cotChat]);
 
   return (
     <div className="space-y-8">
@@ -341,6 +366,7 @@ const InteractiveTab = () => {
               onChange={(e) => setModel(e.target.value as ModelOption)}
               className="w-full bg-slate-50 dark:bg-slate-900 text-gray-900 dark:text-white rounded-lg px-4 py-3 border border-slate-300 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-cyan-500"
             >
+              <option value="gpt-3.5-turbo">GPT-3.5-turbo (Legacy, Cheap)</option>
               <option value="gpt-4o-mini">GPT-4o Mini (Fastest, Cheapest)</option>
               <option value="gpt-4o">GPT-4o (Balanced)</option>
               <option value="gpt-4">GPT-4 (Most Capable)</option>
@@ -349,7 +375,7 @@ const InteractiveTab = () => {
 
           <Button
             onClick={runComparison}
-            disabled={!currentProblem}
+            disabled={!currentProblem || !apiKey || isComparing}
             variant="primary"
             className="px-8"
           >
@@ -359,26 +385,43 @@ const InteractiveTab = () => {
         </div>
       </Card>
 
-      {/* Results: Premium ComparisonView */}
-      {showComparison && currentProblem && (
-        <ComparisonView
-          problem={currentProblem}
-          standardStrategy={{
-            name: 'Standard Prompting',
-            prompt: currentProblem,
-            model,
-            parameters,
-          }}
-          enhancedStrategy={{
-            name: 'Chain of Thought',
-            prompt: `${currentProblem}\n\nLet's think step by step.`,
-            model,
-            parameters,
-          }}
-          expectedAnswer={selectedProblem?.expectedAnswer}
-          enhancedRenderer={(response, isStreaming) => (
-            <ReasoningFlow response={response} isStreaming={isStreaming} />
-          )}
+      {/* Results: Raw Output Comparison (side-by-side) */}
+      {isComparing && (
+        <RawOutputComparison
+          standardResponse={standardChat.response}
+          cotResponse={cotChat.response}
+          standardState={standardChat.isLoading ? 'streaming' : standardChat.error ? 'error' : 'complete'}
+          cotState={cotChat.isLoading ? 'streaming' : cotChat.error ? 'error' : 'complete'}
+          standardMetrics={
+            standardChat.isLoading
+              ? null
+              : {
+                  tokens: standardChat.usage?.total_tokens || 0,
+                  cost: standardChat.cost,
+                  time: standardChat.duration,
+                }
+          }
+          cotMetrics={
+            cotChat.isLoading
+              ? null
+              : {
+                  tokens: cotChat.usage?.total_tokens || 0,
+                  cost: cotChat.cost,
+                  time: cotChat.duration,
+                }
+          }
+          standardError={standardChat.error || undefined}
+          cotError={cotChat.error || undefined}
+          model={model}
+        />
+      )}
+
+      {/* CoT Visualization Section (full-width, below comparison) */}
+      {isComparing && !cotChat.isLoading && cotChat.response && (
+        <CoTVisualizationSection
+          cotResponse={cotChat.response}
+          isVisible={!cotChat.isLoading}
+          apiKey={apiKey}
         />
       )}
 

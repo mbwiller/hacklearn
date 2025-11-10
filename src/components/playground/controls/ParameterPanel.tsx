@@ -11,7 +11,7 @@ export interface GenerationParams {
 }
 
 /** Available model options */
-export type ModelOption = 'gpt-4o-mini' | 'gpt-4o' | 'gpt-4';
+export type ModelOption = 'gpt-3.5-turbo' | 'gpt-4o-mini' | 'gpt-4o' | 'gpt-4';
 
 /** Parameter panel props */
 export interface ParameterPanelProps {
@@ -31,6 +31,7 @@ export interface ParameterPanelProps {
 
 /** Model pricing information (per 1M tokens) */
 const MODEL_PRICING = {
+  'gpt-3.5-turbo': { input: 0.50, output: 1.50, speed: 'Very Fast' },
   'gpt-4o-mini': { input: 0.15, output: 0.60, speed: 'Fastest' },
   'gpt-4o': { input: 2.50, output: 10.00, speed: 'Fast' },
   'gpt-4': { input: 30.00, output: 60.00, speed: 'Moderate' },
@@ -272,6 +273,7 @@ export const ParameterPanel = ({
                   onChange={(e) => onModelChange(e.target.value as ModelOption)}
                   className="w-full bg-slate-800 text-white rounded-lg px-4 py-3 border border-slate-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all"
                 >
+                  <option value="gpt-3.5-turbo">GPT-3.5 Turbo</option>
                   <option value="gpt-4o-mini">GPT-4o Mini</option>
                   <option value="gpt-4o">GPT-4o</option>
                   <option value="gpt-4">GPT-4</option>

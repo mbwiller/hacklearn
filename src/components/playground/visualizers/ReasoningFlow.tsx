@@ -431,7 +431,7 @@ export const ReasoningFlow = ({
                               transition={{ duration: 0.3, ease: 'easeInOut' }}
                               className="overflow-hidden"
                             >
-                              <p className="text-sm text-gray-300 leading-relaxed whitespace-pre-wrap mb-4">
+                              <p className="text-sm text-white leading-relaxed whitespace-pre-wrap mb-4">
                                 {step.content}
                                 {step.isCurrent && <span className="inline-block w-2 h-4 ml-1 bg-cyan-400 animate-pulse" />}
                               </p>

@@ -4,6 +4,7 @@ export { Button } from './Button';
 export { Container } from './Container';
 export { DifficultyBadge } from './DifficultyBadge';
 export { Input } from './Input';
+export { LaTeXRenderer } from './LaTeXRenderer';
 export { ThemeToggle } from './ThemeToggle';
 
 // New components for Account Page redesign
