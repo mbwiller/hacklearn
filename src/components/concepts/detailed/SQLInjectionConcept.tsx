@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Database, Code, Shield, BookOpen, AlertTriangle, Terminal, Lock, Unlock, ArrowLeft } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const tabs = [
   { id: 'theory', name: 'Theory', icon: BookOpen },
@@ -574,12 +575,12 @@ app.get('/user/:id', (req, res) => {
         <p className="text-slate-700 dark:text-slate-300 mb-4">
           Ready to practice SQL injection techniques in a safe environment?
         </p>
-        <a
-          href="/notebooks/12-sql-injection.ipynb"
-          className="inline-block px-6 py-3 bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-600 text-white rounded-lg font-semibold transition-all"
+        <Link
+          to="/app/ide/12"
+          className="inline-block px-6 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 rounded-lg font-semibold transition-all"
         >
-          Open Interactive Jupyter Notebook
-        </a>
+          Open Interactive Lab Playground
+        </Link>
       </div>
     </section>
   </div>

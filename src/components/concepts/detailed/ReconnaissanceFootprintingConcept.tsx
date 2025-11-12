@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Radar, BookOpen, Terminal, Shield, Code, AlertTriangle, ExternalLink, ArrowLeft, Search } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const tabs = [
   { id: 'theory', name: 'Theory', icon: BookOpen },
@@ -608,12 +609,12 @@ hostname:<span className="text-yellow-400">"example.com"</span> port:<span class
         <p className="text-gray-600 dark:text-gray-300 mb-4">
           Ready to practice reconnaissance techniques in a safe, interactive environment with pre-built examples and challenges?
         </p>
-        <a
-          href="/notebooks/11-reconnaissance-footprinting.ipynb"
+        <Link
+          to="/app/ide/11"
           className="inline-block px-6 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 rounded-lg font-semibold transition-all"
         >
-          Open Interactive Lab Notebook
-        </a>
+          Open Interactive Lab Playground
+        </Link>
       </div>
     </section>
   </div>

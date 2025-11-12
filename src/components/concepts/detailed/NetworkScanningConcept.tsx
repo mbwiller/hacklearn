@@ -3,6 +3,7 @@ import {
   Shield, Lock, Unlock, AlertTriangle, Terminal, BookOpen,
   Network, Search, Eye, Database, ArrowLeft, Radar
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const tabs = [
   { id: 'theory', name: 'Theory', icon: BookOpen },
@@ -463,14 +464,12 @@ sudo nmap -sS -r -T1 --randomize-hosts -p80,443 <target>
             <li>Vulnerability scanning with OpenVAS/Nessus APIs</li>
             <li>IDS evasion technique demonstrations with detection rate analysis</li>
           </ul>
-          <a
-            href="/notebooks/15-network-scanning.ipynb"
-            className="inline-block px-6 py-3 bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-600 text-white rounded-lg font-semibold transition-all"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            to="/app/ide/15"
+            className="inline-block px-6 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 rounded-lg font-semibold transition-all"
           >
-            Open Interactive Jupyter Notebook
-          </a>
+            Open Interactive Lab Playground
+          </Link>
         </div>
       </section>
     </div>

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Shield, Code, BookOpen, Terminal, AlertTriangle, Lock, ArrowLeft, ExternalLink, CheckCircle, AlertOctagon, Database, Server } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const tabs = [
   { id: 'theory', name: 'Theory', icon: BookOpen },
@@ -459,16 +460,12 @@ CMD ["python", "app/agent.py"]
         <p className="text-gray-600 dark:text-gray-300 mb-4">
           Practice SQL injection defense, shell command sanitization, MCP security, and multi-layer defense systems with executable code cells and step-by-step explanations.
         </p>
-        <a
-          href="/notebooks/10-ai-agent-command-injection.ipynb"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white rounded-lg font-semibold transition-all"
+        <Link
+          to="/app/ide/10"
+          className="inline-block px-6 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 rounded-lg font-semibold transition-all"
         >
-          <Terminal className="w-5 h-5" />
-          Open Interactive Lab Notebook
-          <ExternalLink className="w-4 h-4" />
-        </a>
+          Open Interactive Lab Playground
+        </Link>
       </div>
     </section>
   </div>

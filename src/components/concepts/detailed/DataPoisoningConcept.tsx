@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Database, Code, Shield, BookOpen, AlertTriangle, Terminal, Skull, ArrowLeft, ExternalLink, CheckCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const tabs = [
   { id: 'theory', name: 'Theory', icon: BookOpen },
@@ -549,15 +550,12 @@ print(f"These samples should be audited before production deployment")`}
               <li>Data validation pipeline construction</li>
               <li>Challenge: Build your own anomaly detector</li>
             </ul>
-            <a
-              href="/notebooks/03-data-poisoning.ipynb"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-lg hover:from-emerald-600 hover:to-emerald-700 transition-all"
+            <Link
+              to="/app/ide/3"
+              className="inline-block px-6 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 rounded-lg font-semibold transition-all"
             >
-              <ExternalLink className="w-4 h-4" />
-              Open Interactive Notebook
-            </a>
+              Open Interactive Lab Playground
+            </Link>
           </div>
         </div>
       </div>

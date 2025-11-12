@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Database, Code, Shield, BookOpen, AlertTriangle, Terminal, Lock, ArrowLeft, ExternalLink, CheckCircle, Search } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const tabs = [
   { id: 'theory', name: 'Theory', icon: BookOpen },
@@ -524,15 +525,12 @@ Answer:"""
               <li>Multi-layered defense implementation</li>
               <li>Application-layer encryption for embeddings</li>
             </ul>
-            <a
-              href="/notebooks/06-rag-security.ipynb"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-lg hover:from-emerald-600 hover:to-emerald-700 transition-all"
+            <Link
+              to="/app/ide/6"
+              className="inline-block px-6 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 rounded-lg font-semibold transition-all"
             >
-              <ExternalLink className="w-4 h-4" />
-              Open Interactive Notebook
-            </a>
+              Open Interactive Lab Playground
+            </Link>
           </div>
         </div>
       </div>

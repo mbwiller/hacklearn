@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Search, Code, Shield, BookOpen, AlertTriangle, Terminal, ArrowLeft, ExternalLink, CheckCircle, Copy } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const tabs = [
   { id: 'theory', name: 'Theory', icon: BookOpen },
@@ -630,15 +631,12 @@ print(f"Query reduction: {(1 - (50 + 10*30)/len(X_test)):.1%}")`}
               <li>Watermarking techniques for theft detection</li>
               <li>Challenge: Build a robust API defense system</li>
             </ul>
-            <a
-              href="/notebooks/04-model-extraction.ipynb"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500 rounded-lg hover:bg-emerald-600 transition-all text-white"
+            <Link
+              to="/app/ide/4"
+              className="inline-block px-6 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 rounded-lg font-semibold transition-all"
             >
-              <ExternalLink className="w-4 h-4" />
-              Open Interactive Notebook
-            </a>
+              Open Interactive Lab Playground
+            </Link>
           </div>
         </div>
       </div>

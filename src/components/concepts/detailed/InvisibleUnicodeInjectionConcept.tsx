@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { AlertTriangle, Code, Shield, BookOpen, Terminal, Eye, EyeOff, Lock, ArrowLeft, ExternalLink, CheckCircle, XCircle, AlertOctagon } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const tabs = [
   { id: 'theory', name: 'Theory', icon: BookOpen },
@@ -877,16 +878,12 @@ print("Safe for LLM:", safe_input)`}
           Practice these techniques in a hands-on environment with executable code cells, step-by-step explanations,
           and additional exercises including homoglyph detection and Trojan Source demonstrations.
         </p>
-        <a
-          href="/notebooks/09-invisible-unicode-injection.ipynb"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white rounded-lg font-semibold transition-all"
+        <Link
+          to="/app/ide/9"
+          className="inline-block px-6 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 rounded-lg font-semibold transition-all"
         >
-          <Terminal className="w-5 h-5" />
-          Open Interactive Lab Notebook
-          <ExternalLink className="w-4 h-4" />
-        </a>
+          Open Interactive Lab Playground
+        </Link>
       </div>
     </section>
   </div>

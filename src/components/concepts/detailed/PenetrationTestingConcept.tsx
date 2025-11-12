@@ -4,6 +4,7 @@ import {
   Lock, AlertTriangle, CheckCircle, Code,
   Eye, Network, BookOpen, Award, ExternalLink
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 interface PenetrationTestingConceptProps {
   onBack: () => void;
@@ -1304,13 +1305,12 @@ echo "[!] Document all findings in your report"
         <p className="text-slate-700 dark:text-slate-300 mb-4">
           For interactive hands-on exercises, check out our comprehensive Jupyter notebook:
         </p>
-        <a
-          href="/notebooks/20-penetration-testing.ipynb"
-          className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500 hover:bg-emerald-600 text-white rounded-lg transition-colors"
+        <Link
+          to="/app/ide/20"
+          className="inline-block px-6 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 rounded-lg font-semibold transition-all"
         >
-          <ExternalLink className="w-5 h-5" />
-          Open Interactive Notebook
-        </a>
+          Open Interactive Lab Playground
+        </Link>
       </div>
     </div>
   );

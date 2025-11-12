@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ArrowLeft, Shield, AlertTriangle, Code, BookOpen, Wrench, ExternalLink } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 interface WebAppVulnerabilitiesConceptProps {
   onBack?: () => void;
@@ -910,15 +911,12 @@ def dashboard_v2():
                 Explore additional hands-on labs including XXE injection, file upload bypasses, and comprehensive
                 security header configurations. Practice exploiting vulnerabilities in controlled environments.
               </p>
-              <a
-                href="/notebooks/19-web-app-vulnerabilities.ipynb"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center px-6 py-3 bg-white text-indigo-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors"
+              <Link
+                to="/app/ide/19"
+                className="inline-block px-6 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 rounded-lg font-semibold transition-all"
               >
-                <Code className="w-5 h-5 mr-2" />
-                Open Interactive Lab Notebook
-              </a>
+                Open Interactive Lab Playground
+              </Link>
             </section>
           </div>
         )}

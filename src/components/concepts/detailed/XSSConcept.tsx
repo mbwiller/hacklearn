@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Code, Shield, BookOpen, AlertTriangle, Terminal, Lock, Unlock, Globe, Eye, ArrowLeft } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const tabs = [
   { id: 'theory', name: 'Theory', icon: BookOpen },
@@ -661,12 +662,12 @@ app.use(helmet.contentSecurityPolicy({
         <p className="text-gray-700 dark:text-gray-300 mb-4">
           Ready to practice XSS attack and defense techniques in a safe environment?
         </p>
-        <a
-          href="/notebooks/13-xss.ipynb"
-          className="inline-block px-6 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-cyan-600 hover:to-blue-600 rounded-lg font-semibold transition-all"
+        <Link
+          to="/app/ide/13"
+          className="inline-block px-6 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 rounded-lg font-semibold transition-all"
         >
-          Open Interactive Jupyter Notebook
-        </a>
+          Open Interactive Lab Playground
+        </Link>
       </div>
     </section>
   </div>

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { KeyRound, ArrowLeft, Target, Shield, Code, BookOpen, Hash, Cpu, Lock, Unlock, Database, Zap, AlertTriangle } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 interface PasswordCrackingConceptProps {
   onBack?: () => void;
@@ -1091,15 +1092,12 @@ print("Even weak password + MFA > strong password alone")`}</code>
                   covering hash cracking, GPU benchmarking, custom wordlist generation, secure password storage, MFA
                   implementation, and credential stuffing detection.
                 </p>
-                <a
-                  href="/notebooks/16-password-cracking.ipynb"
-                  className="inline-flex items-center px-6 py-3 bg-white text-red-600 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  to="/app/ide/16"
+                  className="inline-block px-6 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 rounded-lg font-semibold transition-all"
                 >
-                  <Code className="w-5 h-5 mr-2" />
-                  Open Interactive Lab Notebook
-                </a>
+                  Open Interactive Lab Playground
+                </Link>
               </div>
             </section>
           </div>

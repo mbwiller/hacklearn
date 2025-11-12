@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Unlock, Code, Shield, BookOpen, AlertTriangle, Terminal, Zap, ArrowLeft, ExternalLink, CheckCircle, Key } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const tabs = [
   { id: 'theory', name: 'Theory', icon: BookOpen },
@@ -642,15 +643,12 @@ for turn, prompt in enumerate(crescendo):
               <li>Context-aware filtering with RLHF principles</li>
               <li>Challenge: Build a robust safety system</li>
             </ul>
-            <a
-              href="/notebooks/05-jailbreaking.ipynb"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-lg hover:from-emerald-600 hover:to-emerald-700 transition-all"
+            <Link
+              to="/app/ide/5"
+              className="inline-block px-6 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 rounded-lg font-semibold transition-all"
             >
-              <ExternalLink className="w-4 h-4" />
-              Open Interactive Notebook
-            </a>
+              Open Interactive Lab Playground
+            </Link>
           </div>
         </div>
       </div>

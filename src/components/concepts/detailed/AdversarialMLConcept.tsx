@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Brain, Code, Shield, BookOpen, AlertTriangle, Terminal, Eye, Target, Zap, ArrowLeft } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const tabs = [
   { id: 'theory', name: 'Theory', icon: BookOpen },
@@ -602,14 +603,14 @@ print(f"  Percentage of pixels modified: {(np.abs(perturbations) > 0.01).mean()*
           Interactive Jupyter Notebook
         </h3>
         <p className="text-gray-600 dark:text-gray-300 mb-4">
-          Ready to experiment with adversarial attacks in an interactive environment?
+          Ready to experiment with adversarial attacks in an interactive environment with pre-built examples and challenges?
         </p>
-        <a
-          href="/notebooks/02-adversarial-ml.ipynb"
+        <Link
+          to="/app/ide/2"
           className="inline-block px-6 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 rounded-lg font-semibold transition-all"
         >
-          Open Adversarial ML Lab Notebook
-        </a>
+          Open Interactive Lab Playground
+        </Link>
         <p className="text-sm text-gray-300 mt-3">
           Includes: FGSM attacks, PGD attacks, adversarial training, and defense mechanisms
         </p>

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { AlertTriangle, ArrowLeft, BookOpen, Code, Shield, Database, Lock, Wifi, Network, Server, Key, Globe } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 interface MitMAttacksConceptProps {
   onBack?: () => void;
@@ -956,15 +957,12 @@ if __name__ == '__main__':
                   </p>
                 </div>
               </div>
-              <a
-                href="/notebooks/17-mitm-attacks.ipynb"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-emerald-400 to-emerald-600 text-white font-semibold rounded-lg hover:from-red-600 hover:to-orange-700 transition-all"
+              <Link
+                to="/app/ide/17"
+                className="inline-block px-6 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 rounded-lg font-semibold transition-all"
               >
-                <Code className="w-5 h-5 mr-2" />
-                Open Interactive Lab Notebook
-              </a>
+                Open Interactive Lab Playground
+              </Link>
             </div>
           </div>
         )}

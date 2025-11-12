@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Globe, Code, Shield, BookOpen, AlertTriangle, Terminal, Link, ArrowLeft, ExternalLink, CheckCircle, Eye } from 'lucide-react';
+import { Globe, Code, Shield, BookOpen, AlertTriangle, Terminal, Link as LinkIcon, ArrowLeft, ExternalLink, CheckCircle, Eye } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const tabs = [
   { id: 'theory', name: 'Theory', icon: BookOpen },
@@ -442,15 +443,12 @@ print("- Data exfiltration prevented")`}
               <li>Base64 encoding/decoding for DLP bypass</li>
               <li>Polymorphic phishing detection</li>
             </ul>
-            <a
-              href="/notebooks/08-link-traps.ipynb"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-lg hover:from-emerald-600 hover:to-emerald-700 transition-all"
+            <Link
+              to="/app/ide/8"
+              className="inline-block px-6 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 rounded-lg font-semibold transition-all"
             >
-              <ExternalLink className="w-4 h-4" />
-              Open Interactive Notebook
-            </a>
+              Open Interactive Lab Playground
+            </Link>
           </div>
         </div>
       </div>

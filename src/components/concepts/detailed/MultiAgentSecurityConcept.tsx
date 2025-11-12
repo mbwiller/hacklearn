@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Users, Code, Shield, BookOpen, AlertTriangle, Terminal, Network, ArrowLeft, ExternalLink, CheckCircle, Zap } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const tabs = [
   { id: 'theory', name: 'Theory', icon: BookOpen },
@@ -438,15 +439,12 @@ print(f"Secure Agent B response: {secure_output}")
               <li>Secure agent communication patterns</li>
               <li>Challenge: Build multi-layer agent security</li>
             </ul>
-            <a
-              href="/notebooks/07-multi-agent-attacks.ipynb"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-lg hover:from-emerald-600 hover:to-emerald-700 transition-all"
+            <Link
+              to="/app/ide/7"
+              className="inline-block px-6 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 rounded-lg font-semibold transition-all"
             >
-              <ExternalLink className="w-4 h-4" />
-              Open Interactive Notebook
-            </a>
+              Open Interactive Lab Playground
+            </Link>
           </div>
         </div>
       </div>

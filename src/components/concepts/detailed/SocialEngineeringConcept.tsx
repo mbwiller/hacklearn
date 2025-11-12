@@ -3,6 +3,7 @@ import {
   Shield, Lock, Unlock, Target, AlertTriangle, Terminal, BookOpen, Mail,
   Phone, MessageSquare, Users, Brain, Eye, Database, Globe, ArrowLeft
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const tabs = [
   { id: 'theory', name: 'Theory', icon: BookOpen },
@@ -665,14 +666,12 @@ for email in emails:
             <li>Email authentication (SPF/DKIM/DMARC) validation scripts</li>
             <li>Defensive scripting for automated phishing detection</li>
           </ul>
-          <a
-            href="/notebooks/14-social-engineering.ipynb"
-            className="inline-block px-6 py-3 bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-600 text-white rounded-lg font-semibold transition-all"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            to="/app/ide/14"
+            className="inline-block px-6 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 rounded-lg font-semibold transition-all"
           >
-            Open Interactive Jupyter Notebook
-          </a>
+            Open Interactive Lab Playground
+          </Link>
         </div>
       </section>
     </div>
