@@ -18,8 +18,8 @@ import type { Problem } from '@/types/ide';
 
 // AI/ML Security Modules (1-10)
 import { promptInjectionProblem } from './01-prompt-injection';
-// import { adversarialMLProblem } from './02-adversarial-ml';
-// import { dataPoisoningProblem } from './03-data-poisoning';
+import { adversarialMLProblem } from './02-adversarial-ml';
+import { dataPoisoningProblem } from './03-data-poisoning';
 // import { modelExtractionProblem } from './04-model-extraction';
 // import { jailbreakingProblem } from './05-jailbreaking';
 // import { ragSecurityProblem } from './06-rag-security';
@@ -47,8 +47,8 @@ import { promptInjectionProblem } from './01-prompt-injection';
 const labProblems: Record<number, Problem> = {
   // AI/ML Security Labs
   1: promptInjectionProblem,
-  // 2: adversarialMLProblem,
-  // 3: dataPoisoningProblem,
+  2: adversarialMLProblem,
+  3: dataPoisoningProblem,
   // 4: modelExtractionProblem,
   // 5: jailbreakingProblem,
   // 6: ragSecurityProblem,
