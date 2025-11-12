@@ -29,16 +29,16 @@ import { invisibleUnicodeProblem } from './09-invisible-unicode';
 import { aiAgentCommandInjectionProblem } from './10-ai-agent-command-injection';
 
 // Traditional Hacking Modules (11-20)
-// import { reconnaissanceProblem } from './11-reconnaissance';
-// import { sqlInjectionProblem } from './12-sql-injection';
-// import { xssProblem } from './13-xss';
-// import { socialEngineeringProblem } from './14-social-engineering';
-// import { networkScanningProblem } from './15-network-scanning';
-// import { passwordCrackingProblem } from './16-password-cracking';
-// import { mitmAttacksProblem } from './17-mitm-attacks';
-// import { dosAttacksProblem } from './18-dos-attacks';
-// import { webAppVulnerabilitiesProblem } from './19-web-app-vulnerabilities';
-// import { penetrationTestingProblem } from './20-penetration-testing';
+import { reconnaissanceProblem } from './11-reconnaissance';
+import { sqlInjectionProblem } from './12-sql-injection';
+import { xssProblem } from './13-xss';
+import { socialEngineeringProblem } from './14-social-engineering';
+import { networkScanningProblem } from './15-network-scanning';
+import { passwordCrackingProblem } from './16-password-cracking';
+import { mitmAttacksProblem } from './17-mitm-attacks';
+import { dosAttacksProblem } from './18-dos-attacks';
+import { webAppVulnerabilitiesProblem } from './19-web-app-vulnerabilities';
+import { penetrationTestingProblem } from './20-penetration-testing';
 
 // ============================================================================
 // LAB PROBLEMS REGISTRY
@@ -58,16 +58,16 @@ const labProblems: Record<number, Problem> = {
   10: aiAgentCommandInjectionProblem,
 
   // Traditional Hacking Labs
-  // 11: reconnaissanceProblem,
-  // 12: sqlInjectionProblem,
-  // 13: xssProblem,
-  // 14: socialEngineeringProblem,
-  // 15: networkScanningProblem,
-  // 16: passwordCrackingProblem,
-  // 17: mitmAttacksProblem,
-  // 18: dosAttacksProblem,
-  // 19: webAppVulnerabilitiesProblem,
-  // 20: penetrationTestingProblem,
+  11: reconnaissanceProblem,
+  12: sqlInjectionProblem,
+  13: xssProblem,
+  14: socialEngineeringProblem,
+  15: networkScanningProblem,
+  16: passwordCrackingProblem,
+  17: mitmAttacksProblem,
+  18: dosAttacksProblem,
+  19: webAppVulnerabilitiesProblem,
+  20: penetrationTestingProblem,
 };
 
 // ============================================================================
