@@ -18,27 +18,27 @@ import type { Problem } from '@/types/ide';
 
 // AI/ML Security Modules (1-10)
 import { promptInjectionProblem } from './01-prompt-injection';
-// import { adversarialMLProblem } from './02-adversarial-ml';
-// import { dataPoisoningProblem } from './03-data-poisoning';
-// import { modelExtractionProblem } from './04-model-extraction';
-// import { jailbreakingProblem } from './05-jailbreaking';
-// import { ragSecurityProblem } from './06-rag-security';
-// import { multiAgentSecurityProblem } from './07-multi-agent-security';
-// import { linkTrapsProblem } from './08-link-traps';
-// import { invisibleUnicodeProblem } from './09-invisible-unicode';
-// import { aiAgentCommandInjectionProblem } from './10-ai-agent-command-injection';
+import { adversarialMLProblem } from './02-adversarial-ml';
+import { dataPoisoningProblem } from './03-data-poisoning';
+import { modelExtractionProblem } from './04-model-extraction';
+import { jailbreakingProblem } from './05-jailbreaking';
+import { ragSecurityProblem } from './06-rag-security';
+import { multiAgentSecurityProblem } from './07-multi-agent-security';
+import { linkTrapsProblem } from './08-link-traps';
+import { invisibleUnicodeProblem } from './09-invisible-unicode';
+import { aiAgentCommandInjectionProblem } from './10-ai-agent-command-injection';
 
 // Traditional Hacking Modules (11-20)
-// import { reconnaissanceProblem } from './11-reconnaissance';
-// import { sqlInjectionProblem } from './12-sql-injection';
-// import { xssProblem } from './13-xss';
-// import { socialEngineeringProblem } from './14-social-engineering';
-// import { networkScanningProblem } from './15-network-scanning';
-// import { passwordCrackingProblem } from './16-password-cracking';
-// import { mitmAttacksProblem } from './17-mitm-attacks';
-// import { dosAttacksProblem } from './18-dos-attacks';
-// import { webAppVulnerabilitiesProblem } from './19-web-app-vulnerabilities';
-// import { penetrationTestingProblem } from './20-penetration-testing';
+import { reconnaissanceProblem } from './11-reconnaissance';
+import { sqlInjectionProblem } from './12-sql-injection';
+import { xssProblem } from './13-xss';
+import { socialEngineeringProblem } from './14-social-engineering';
+import { networkScanningProblem } from './15-network-scanning';
+import { passwordCrackingProblem } from './16-password-cracking';
+import { mitmAttacksProblem } from './17-mitm-attacks';
+import { dosAttacksProblem } from './18-dos-attacks';
+import { webAppVulnerabilitiesProblem } from './19-web-app-vulnerabilities';
+import { penetrationTestingProblem } from './20-penetration-testing';
 
 // ============================================================================
 // LAB PROBLEMS REGISTRY
@@ -47,27 +47,27 @@ import { promptInjectionProblem } from './01-prompt-injection';
 const labProblems: Record<number, Problem> = {
   // AI/ML Security Labs
   1: promptInjectionProblem,
-  // 2: adversarialMLProblem,
-  // 3: dataPoisoningProblem,
-  // 4: modelExtractionProblem,
-  // 5: jailbreakingProblem,
-  // 6: ragSecurityProblem,
-  // 7: multiAgentSecurityProblem,
-  // 8: linkTrapsProblem,
-  // 9: invisibleUnicodeProblem,
-  // 10: aiAgentCommandInjectionProblem,
+  2: adversarialMLProblem,
+  3: dataPoisoningProblem,
+  4: modelExtractionProblem,
+  5: jailbreakingProblem,
+  6: ragSecurityProblem,
+  7: multiAgentSecurityProblem,
+  8: linkTrapsProblem,
+  9: invisibleUnicodeProblem,
+  10: aiAgentCommandInjectionProblem,
 
   // Traditional Hacking Labs
-  // 11: reconnaissanceProblem,
-  // 12: sqlInjectionProblem,
-  // 13: xssProblem,
-  // 14: socialEngineeringProblem,
-  // 15: networkScanningProblem,
-  // 16: passwordCrackingProblem,
-  // 17: mitmAttacksProblem,
-  // 18: dosAttacksProblem,
-  // 19: webAppVulnerabilitiesProblem,
-  // 20: penetrationTestingProblem,
+  11: reconnaissanceProblem,
+  12: sqlInjectionProblem,
+  13: xssProblem,
+  14: socialEngineeringProblem,
+  15: networkScanningProblem,
+  16: passwordCrackingProblem,
+  17: mitmAttacksProblem,
+  18: dosAttacksProblem,
+  19: webAppVulnerabilitiesProblem,
+  20: penetrationTestingProblem,
 };
 
 // ============================================================================
