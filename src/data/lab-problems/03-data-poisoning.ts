@@ -14,7 +14,7 @@ export const dataPoisoningProblem: Problem = {
 
   id: 3,
   title: "Data Poisoning: Training Dataset Backdoor Injection",
-  difficulty: "Intermediate",
+  difficulty: "Medium",
   topics: ["AI Security", "Data Poisoning", "OWASP LLM03", "Backdoor Attacks"],
 
   // ============================================================================
@@ -248,56 +248,18 @@ console.log("Result:", result4);`,
 
   testCases: [
     {
-      id: 1,
-      input: {
-        cleanSamples: 1000,
-        poisonedSamples: 0,
-        attackType: 'none'
-      },
-      expected: {
-        totalSamples: 1000,
-        poisonedSamples: 0,
-        poisoningRate: 0.0,
-        estimatedAccuracy: 0.95,
-        backdoorSuccessRate: 0.0,
-        attackEffectiveness: 'none',
-        detectionDifficulty: 'easy'
-      },
+      input: '{"cleanSamples": 1000, "poisonedSamples": 0, "attackType": "none"}',
+      expected: '{"totalSamples": 1000, "poisonedSamples": 0, "poisoningRate": 0.0, "estimatedAccuracy": 0.95, "backdoorSuccessRate": 0.0, "attackEffectiveness": "none", "detectionDifficulty": "easy"}',
       explanation: 'Clean baseline with no poisoning should maintain full accuracy and have no backdoor capability. This establishes the control condition.'
     },
     {
-      id: 2,
-      input: {
-        cleanSamples: 1000,
-        poisonedSamples: 10,
-        attackType: 'mislabel'
-      },
-      expected: {
-        totalSamples: 1010,
-        poisonedSamples: 10,
-        poisoningRate: 0.0099,
-        accuracyDropRange: [0.03, 0.06],
-        backdoorSuccessRate: 0.0,
-        attackEffectiveness: 'moderate'
-      },
+      input: '{"cleanSamples": 1000, "poisonedSamples": 10, "attackType": "mislabel"}',
+      expected: '{"totalSamples": 1010, "poisonedSamples": 10, "poisoningRate": 0.0099, "accuracyDrop": 0.05, "backdoorSuccessRate": 0.0, "attackEffectiveness": "moderate"}',
       explanation: 'Mislabeling 1% of data causes measurable accuracy degradation (3-6% drop). This demonstrates indiscriminate availability attacks where the goal is to reduce overall model quality.'
     },
     {
-      id: 3,
-      input: {
-        cleanSamples: 1000,
-        poisonedSamples: 5,
-        attackType: 'backdoor'
-      },
-      expected: {
-        totalSamples: 1005,
-        poisonedSamples: 5,
-        poisoningRate: 0.005,
-        estimatedAccuracyRange: [0.93, 0.95],
-        backdoorSuccessRate: 0.85,
-        attackEffectiveness: 'high',
-        detectionDifficulty: 'hard'
-      },
+      input: '{"cleanSamples": 1000, "poisonedSamples": 5, "attackType": "backdoor"}',
+      expected: '{"totalSamples": 1005, "poisonedSamples": 5, "poisoningRate": 0.005, "estimatedAccuracy": 0.94, "backdoorSuccessRate": 0.85, "attackEffectiveness": "high", "detectionDifficulty": "hard"}',
       explanation: 'Backdoor attack with only 0.5% poisoning maintains near-baseline accuracy but achieves 85%+ backdoor success. This is extremely dangerous because the model appears to work correctly on benign inputs but fails predictably when triggered.'
     }
   ],

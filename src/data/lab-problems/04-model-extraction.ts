@@ -14,7 +14,7 @@ export const modelExtractionProblem: Problem = {
 
   id: 4,
   title: "Model Extraction: Black-Box API Stealing",
-  difficulty: "Advanced",
+  difficulty: "Hard",
   topics: ["AI Security", "Model Theft", "OWASP LLM10", "MLaaS Security"],
 
   // ============================================================================
@@ -132,12 +132,12 @@ This lab demonstrates why API rate limiting, query monitoring, and watermarking 
 
     # TODO: Calculate extraction cost
     # Cost = queries * COST_PER_QUERY
-    # Format as string: f"${cost:.2f}"
+    # Format as string: f"$\{cost:.2f}"
 
     # TODO: Calculate attack efficiency
     # Efficiency = queries needed per 0.1 fidelity gain
     # Formula: queries / (fidelity * 10)
-    # Format as string: f"{efficiency:.0f} queries per 0.1 fidelity"
+    # Format as string: f"\{efficiency:.0f} queries per 0.1 fidelity"
 
     # TODO: Determine if attack was successful
     # Success if fidelity >= SUCCESS_THRESHOLD (0.85)
@@ -158,21 +158,21 @@ This lab demonstrates why API rate limiting, query monitoring, and watermarking 
 if __name__ == "__main__":
     print("Test 1: Random strategy with minimal queries")
     result1 = simulate_model_extraction(100, "random")
-    print(f"Result: {result1}\\n")
+    print(f"Result: \{result1}\\n")
 
     print("Test 2: Active learning with moderate queries")
     result2 = simulate_model_extraction(1000, "active_learning")
-    print(f"Result: {result2}\\n")
+    print(f"Result: \{result2}\\n")
 
     print("Test 3: Active learning with extensive queries")
     result3 = simulate_model_extraction(10000, "active_learning")
-    print(f"Result: {result3}\\n")
+    print(f"Result: \{result3}\\n")
 
     print("Test 4: Comparison - same queries, different strategies")
     result4a = simulate_model_extraction(5000, "random")
     result4b = simulate_model_extraction(5000, "active_learning")
-    print(f"Random (5000): Fidelity {result4a['model_fidelity']:.2f}")
-    print(f"Active (5000): Fidelity {result4b['model_fidelity']:.2f}")`,
+    print(f"Random (5000): Fidelity \{result4a['model_fidelity']:.2f}")
+    print(f"Active (5000): Fidelity \{result4b['model_fidelity']:.2f}")`,
 
     javascript: `function simulateModelExtraction(queries, strategy) {
     /**
@@ -254,48 +254,18 @@ console.log(\`Active (5000): Fidelity \${result4b.modelFidelity.toFixed(2)}\`);`
 
   testCases: [
     {
-      id: 1,
-      input: {
-        queries: 100,
-        strategy: 'random'
-      },
-      expected: {
-        queriesUsed: 100,
-        modelFidelityRange: [0.35, 0.50],
-        extractionCost: '$0.10',
-        success: false,
-        theftViability: 'not_viable'
-      },
+      input: '{"queries": 100, "strategy": "random"}',
+      expected: '{"queriesUsed": 100, "modelFidelity": 0.40, "extractionCost": "$0.10", "success": false, "theftViability": "not_viable"}',
       explanation: 'Minimal random querying achieves poor fidelity (<50%). This demonstrates why unsophisticated attacks fail—random sampling is inefficient at capturing decision boundaries.'
     },
     {
-      id: 2,
-      input: {
-        queries: 1000,
-        strategy: 'active_learning'
-      },
-      expected: {
-        queriesUsed: 1000,
-        modelFidelityRange: [0.85, 0.90],
-        extractionCost: '$1.00',
-        success: true,
-        theftViability: 'highly_viable'
-      },
+      input: '{"queries": 1000, "strategy": "active_learning"}',
+      expected: '{"queriesUsed": 1000, "modelFidelity": 0.87, "extractionCost": "$1.00", "success": true, "theftViability": "highly_viable"}',
       explanation: 'Active learning with 1000 queries crosses the success threshold (≥85%). This shows how strategic querying can steal proprietary models for as little as $1—a model that may have cost millions to develop.'
     },
     {
-      id: 3,
-      input: {
-        queries: 10000,
-        strategy: 'active_learning'
-      },
-      expected: {
-        queriesUsed: 10000,
-        modelFidelityRange: [0.94, 0.98],
-        extractionCost: '$10.00',
-        success: true,
-        theftViability: 'near_perfect'
-      },
+      input: '{"queries": 10000, "strategy": "active_learning"}',
+      expected: '{"queriesUsed": 10000, "modelFidelity": 0.95, "extractionCost": "$10.00", "success": true, "theftViability": "near_perfect"}',
       explanation: 'With 10,000 strategic queries, attackers achieve near-perfect model replication (94-98% fidelity). This demonstrates the severe economic threat of model extraction: intellectual property worth millions stolen for pocket change.'
     }
   ],

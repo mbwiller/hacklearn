@@ -14,7 +14,7 @@ export const adversarialMLProblem: Problem = {
 
   id: 2,
   title: "Adversarial ML: FGSM Attack Simulator",
-  difficulty: "Intermediate",
+  difficulty: "Medium",
   topics: ["AI Security", "Adversarial Examples", "FGSM", "Model Robustness"],
 
   // ============================================================================
@@ -242,50 +242,18 @@ console.log("Result:", result3);`,
 
   testCases: [
     {
-      id: 1,
-      input: {
-        imageClass: 'panda',
-        perturbation: 0.0
-      },
-      expected: {
-        originalClass: 'panda',
-        perturbedClass: 'panda',
-        originalConfidence: 0.987,
-        perturbedConfidence: 0.987,
-        attackSuccess: false,
-        perturbationLevel: 0.0
-      },
+      input: '{"imageClass": "panda", "perturbation": 0.0}',
+      expected: '{"originalClass": "panda", "perturbedClass": "panda", "originalConfidence": 0.987, "perturbedConfidence": 0.987, "attackSuccess": false, "perturbationLevel": 0.0}',
       explanation: 'With zero perturbation, the model should maintain original classification with no confidence change. This is the baseline.'
     },
     {
-      id: 2,
-      input: {
-        imageClass: 'panda',
-        perturbation: 0.007
-      },
-      expected: {
-        originalClass: 'panda',
-        perturbedClass: 'gibbon',
-        originalConfidenceRange: [0.95, 0.99],
-        perturbedConfidenceRange: [0.90, 0.99],
-        attackSuccess: true,
-        perturbationLevel: 0.007
-      },
+      input: '{"imageClass": "panda", "perturbation": 0.007}',
+      expected: '{"originalClass": "panda", "perturbedClass": "gibbon", "originalConfidence": 0.987, "perturbedConfidence": 0.993, "attackSuccess": true, "perturbationLevel": 0.007}',
       explanation: 'Small FGSM-style perturbation (0.7%) should cause misclassification to adversarial class (panda→gibbon) with high confidence. This demonstrates successful adversarial attack with imperceptible changes.'
     },
     {
-      id: 3,
-      input: {
-        imageClass: 'cat',
-        perturbation: 0.15
-      },
-      expected: {
-        originalClass: 'cat',
-        originalConfidence: 0.953,
-        confidenceDropThreshold: 0.5,
-        attackSuccess: true,
-        perturbationLevel: 0.15
-      },
+      input: '{"imageClass": "cat", "perturbation": 0.15}',
+      expected: '{"originalClass": "cat", "originalConfidence": 0.953, "perturbedConfidence": 0.25, "attackSuccess": true, "perturbationLevel": 0.15}',
       explanation: 'Large perturbation (15%) causes significant confidence drop, making the image unrecognizable. While "successful" as an attack, this level of perturbation would be visible to humans, defeating the purpose of adversarial examples.'
     }
   ],

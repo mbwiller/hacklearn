@@ -21,12 +21,12 @@ import { promptInjectionProblem } from './01-prompt-injection';
 import { adversarialMLProblem } from './02-adversarial-ml';
 import { dataPoisoningProblem } from './03-data-poisoning';
 import { modelExtractionProblem } from './04-model-extraction';
-// import { jailbreakingProblem } from './05-jailbreaking';
-// import { ragSecurityProblem } from './06-rag-security';
-// import { multiAgentSecurityProblem } from './07-multi-agent-security';
-// import { linkTrapsProblem } from './08-link-traps';
-// import { invisibleUnicodeProblem } from './09-invisible-unicode';
-// import { aiAgentCommandInjectionProblem } from './10-ai-agent-command-injection';
+import { jailbreakingProblem } from './05-jailbreaking';
+import { ragSecurityProblem } from './06-rag-security';
+import { multiAgentSecurityProblem } from './07-multi-agent-security';
+import { linkTrapsProblem } from './08-link-traps';
+import { invisibleUnicodeProblem } from './09-invisible-unicode';
+import { aiAgentCommandInjectionProblem } from './10-ai-agent-command-injection';
 
 // Traditional Hacking Modules (11-20)
 // import { reconnaissanceProblem } from './11-reconnaissance';
@@ -50,12 +50,12 @@ const labProblems: Record<number, Problem> = {
   2: adversarialMLProblem,
   3: dataPoisoningProblem,
   4: modelExtractionProblem,
-  // 5: jailbreakingProblem,
-  // 6: ragSecurityProblem,
-  // 7: multiAgentSecurityProblem,
-  // 8: linkTrapsProblem,
-  // 9: invisibleUnicodeProblem,
-  // 10: aiAgentCommandInjectionProblem,
+  5: jailbreakingProblem,
+  6: ragSecurityProblem,
+  7: multiAgentSecurityProblem,
+  8: linkTrapsProblem,
+  9: invisibleUnicodeProblem,
+  10: aiAgentCommandInjectionProblem,
 
   // Traditional Hacking Labs
   // 11: reconnaissanceProblem,
