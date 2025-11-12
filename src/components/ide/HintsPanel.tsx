@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Lightbulb, ChevronRight, ChevronDown, Sparkles } from 'lucide-react';
 
 interface HintsPanelProps {
@@ -21,26 +22,34 @@ export const HintsPanel = ({ hints }: HintsPanelProps) => {
   return (
     <div className="h-full bg-slate-900 p-4 overflow-y-auto">
       {/* Header */}
-      <div className="mb-6">
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3 }}
+        className="mb-6"
+      >
         <div className="flex items-center gap-2 mb-3">
           <Lightbulb className="w-6 h-6 text-emerald-400" />
           <h3 className="text-lg font-semibold text-white">Hints</h3>
         </div>
-        <p className="text-gray-400 text-sm leading-relaxed">
+        <p className="text-slate-400 text-sm leading-relaxed">
           Stuck? Reveal hints one at a time to guide you through the solution.
         </p>
-      </div>
+      </motion.div>
 
       {/* Hints List */}
       <div className="space-y-3 mb-8">
         {hints.map((hint, index) => (
-          <div
+          <motion.div
             key={index}
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: index * 0.05, duration: 0.3 }}
             className="bg-slate-800 rounded-lg overflow-hidden border border-transparent hover:border-cyan-400/30 transition-all"
           >
             <button
               onClick={() => toggleHint(index)}
-              className="w-full flex items-center justify-between p-4 text-left hover:bg-opacity-80 transition-colors"
+              className="w-full flex items-center justify-between p-4 text-left hover:bg-slate-800/80 transition-colors"
             >
               <div className="flex items-center gap-3">
                 <span className="flex items-center justify-center w-6 h-6 rounded-full bg-cyan-400/20 text-cyan-400 text-xs font-semibold">
@@ -50,19 +59,34 @@ export const HintsPanel = ({ hints }: HintsPanelProps) => {
                   Hint {index + 1}
                 </span>
               </div>
-              {expandedHints.has(index) ? (
-                <ChevronDown className="w-4 h-4 text-gray-400" />
-              ) : (
-                <ChevronRight className="w-4 h-4 text-gray-400" />
-              )}
+              <motion.div
+                animate={{ rotate: expandedHints.has(index) ? 90 : 0 }}
+                transition={{ duration: 0.2 }}
+              >
+                {expandedHints.has(index) ? (
+                  <ChevronDown className="w-4 h-4 text-slate-400" />
+                ) : (
+                  <ChevronRight className="w-4 h-4 text-slate-400" />
+                )}
+              </motion.div>
             </button>
 
-            {expandedHints.has(index) && (
-              <div className="px-4 pb-4 text-sm text-gray-300 leading-relaxed border-t border-slate-700">
-                <p className="pt-3">{hint}</p>
-              </div>
-            )}
-          </div>
+            <AnimatePresence>
+              {expandedHints.has(index) && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: 'auto', opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.2, ease: 'easeInOut' }}
+                  className="overflow-hidden"
+                >
+                  <div className="px-4 pb-4 text-sm text-slate-300 leading-relaxed border-t border-slate-700">
+                    <p className="pt-3">{hint}</p>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
         ))}
       </div>
 

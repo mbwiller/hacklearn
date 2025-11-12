@@ -1,5 +1,6 @@
 import { CheckCircle2, XCircle, AlertCircle } from 'lucide-react';
 import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import type { TestResult, ConsoleTab } from '@/types/ide';
 
 interface ConsoleOutputProps {
@@ -21,7 +22,7 @@ export const ConsoleOutput = ({ testResult, isRunning }: ConsoleOutputProps) => 
       case 'runtime_error':
         return <AlertCircle className="w-5 h-5 text-orange-400" />;
       default:
-        return <AlertCircle className="w-5 h-5 text-gray-400" />;
+        return <AlertCircle className="w-5 h-5 text-slate-400" />;
     }
   };
 
@@ -51,7 +52,7 @@ export const ConsoleOutput = ({ testResult, isRunning }: ConsoleOutputProps) => 
       case 'runtime_error':
         return 'text-orange-400';
       default:
-        return 'text-gray-400';
+        return 'text-slate-400';
     }
   };
 
@@ -64,7 +65,7 @@ export const ConsoleOutput = ({ testResult, isRunning }: ConsoleOutputProps) => 
           className={`px-2 py-2.5 text-sm font-medium border-b-2 transition-colors ${
             activeTab === 'testcase'
               ? 'border-cyan-400 text-white'
-              : 'border-transparent text-gray-400 hover:text-gray-300'
+              : 'border-transparent text-slate-400 hover:text-slate-300'
           }`}
         >
           Testcase
@@ -74,7 +75,7 @@ export const ConsoleOutput = ({ testResult, isRunning }: ConsoleOutputProps) => 
           className={`px-2 py-2.5 text-sm font-medium border-b-2 transition-colors ${
             activeTab === 'result'
               ? 'border-cyan-400 text-white'
-              : 'border-transparent text-gray-400 hover:text-gray-300'
+              : 'border-transparent text-slate-400 hover:text-slate-300'
           }`}
         >
           Test Result
@@ -84,32 +85,46 @@ export const ConsoleOutput = ({ testResult, isRunning }: ConsoleOutputProps) => 
       {/* Content */}
       <div className="flex-1 overflow-y-auto p-4">
         {activeTab === 'testcase' && (
-          <div className="space-y-4">
-            <div className="text-sm text-gray-300">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+            className="space-y-4"
+          >
+            <div className="text-sm text-slate-300">
               <div className="mb-3">
-                <span className="text-gray-400">Case 1</span>
+                <span className="text-slate-400">Case 1</span>
               </div>
               <div className="space-y-2">
                 <div>
-                  <span className="text-gray-400">Input:</span>
+                  <span className="text-slate-400">Input:</span>
                   <div className="mt-1 bg-slate-800 rounded p-2 font-mono text-xs">
                     See problem description
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         )}
 
         {activeTab === 'result' && (
           <div className="space-y-4">
             {isRunning ? (
-              <div className="text-center py-8">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="text-center py-8"
+              >
                 <div className="inline-block animate-spin rounded-full h-8 w-8 border-4 border-cyan-400 border-t-transparent"></div>
-                <p className="mt-3 text-gray-400 text-sm">Running test cases...</p>
-              </div>
+                <p className="mt-3 text-slate-400 text-sm">Running test cases...</p>
+              </motion.div>
             ) : testResult ? (
-              <div className="space-y-4">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.3 }}
+                className="space-y-4"
+              >
                 {/* Status */}
                 <div className="flex items-center gap-2">
                   {getStatusIcon()}
@@ -122,14 +137,14 @@ export const ConsoleOutput = ({ testResult, isRunning }: ConsoleOutputProps) => 
                 {testResult.status === 'accepted' && (
                   <div className="bg-slate-800 rounded-lg p-4 space-y-2">
                     <div className="flex justify-between text-sm">
-                      <span className="text-gray-400">Runtime</span>
-                      <span className="text-gray-300 font-medium">
+                      <span className="text-slate-400">Runtime</span>
+                      <span className="text-slate-300 font-medium">
                         {testResult.runtime}
                       </span>
                     </div>
                     <div className="flex justify-between text-sm">
-                      <span className="text-gray-400">Memory</span>
-                      <span className="text-gray-300 font-medium">
+                      <span className="text-slate-400">Memory</span>
+                      <span className="text-slate-300 font-medium">
                         {testResult.memory}
                       </span>
                     </div>
@@ -139,7 +154,7 @@ export const ConsoleOutput = ({ testResult, isRunning }: ConsoleOutputProps) => 
                 {/* Test Results */}
                 <div className="space-y-2">
                   <div className="flex items-center justify-between text-sm">
-                    <span className="text-gray-400">Test Cases Passed</span>
+                    <span className="text-slate-400">Test Cases Passed</span>
                     <span className={`font-semibold ${testResult.status === 'accepted' ? 'text-emerald-400' : 'text-red-400'}`}>
                       {testResult.testsPassed} / {testResult.testsTotal}
                     </span>
@@ -148,8 +163,8 @@ export const ConsoleOutput = ({ testResult, isRunning }: ConsoleOutputProps) => 
 
                 {/* Output */}
                 <div>
-                  <div className="text-gray-400 text-sm mb-2">Output</div>
-                  <div className="bg-slate-800 rounded p-3 font-mono text-xs text-gray-300 whitespace-pre-wrap">
+                  <div className="text-slate-400 text-sm mb-2">Output</div>
+                  <div className="bg-slate-800 rounded p-3 font-mono text-xs text-slate-300 whitespace-pre-wrap">
                     {testResult.output}
                   </div>
                 </div>
@@ -163,13 +178,17 @@ export const ConsoleOutput = ({ testResult, isRunning }: ConsoleOutputProps) => 
                     </div>
                   </div>
                 )}
-              </div>
+              </motion.div>
             ) : (
-              <div className="text-center py-12">
-                <p className="text-gray-400 text-sm">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="text-center py-12"
+              >
+                <p className="text-slate-400 text-sm">
                   You must run your code first
                 </p>
-              </div>
+              </motion.div>
             )}
           </div>
         )}

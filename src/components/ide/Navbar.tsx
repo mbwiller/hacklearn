@@ -1,4 +1,6 @@
 import { ChevronLeft, ChevronRight, Play, Upload, Settings, Timer, User } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Button } from '@/components/ui/Button';
 
 interface NavbarProps {
   onRun: () => void;
@@ -8,11 +10,16 @@ interface NavbarProps {
 
 export const Navbar = ({ onRun, onSubmit, isRunning }: NavbarProps) => {
   return (
-    <nav className="h-12 bg-slate-900 border-b border-slate-800 flex items-center justify-between px-3 z-50">
+    <motion.nav
+      initial={{ opacity: 0, y: -10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3 }}
+      className="h-12 bg-slate-900 border-b border-slate-800 flex items-center justify-between px-3 z-50"
+    >
       {/* Left Section */}
       <div className="flex items-center gap-3">
         <button
-          className="flex items-center gap-2 px-3 py-1.5 text-gray-300 hover:text-white text-sm font-medium transition-colors"
+          className="flex items-center gap-2 px-3 py-1.5 text-slate-300 hover:text-white text-sm font-medium transition-colors"
           onClick={() => window.history.back()}
         >
           <ChevronLeft className="w-4 h-4" />
@@ -21,13 +28,13 @@ export const Navbar = ({ onRun, onSubmit, isRunning }: NavbarProps) => {
 
         <div className="flex items-center gap-1 ml-2">
           <button
-            className="p-2 text-gray-400 hover:text-white hover:bg-slate-800 rounded transition-colors"
+            className="p-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded transition-colors"
             aria-label="Previous problem"
           >
             <ChevronLeft className="w-4 h-4" />
           </button>
           <button
-            className="p-2 text-gray-400 hover:text-white hover:bg-slate-800 rounded transition-colors"
+            className="p-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded transition-colors"
             aria-label="Next problem"
           >
             <ChevronRight className="w-4 h-4" />
@@ -37,19 +44,21 @@ export const Navbar = ({ onRun, onSubmit, isRunning }: NavbarProps) => {
 
       {/* Center Section - Run & Submit Buttons */}
       <div className="flex items-center gap-2">
-        <button
+        <Button
           onClick={onRun}
           disabled={isRunning}
-          className="flex items-center gap-2 px-4 py-1.5 bg-emerald-500 hover:bg-emerald-600 text-white rounded font-medium text-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+          variant="primary"
+          size="sm"
+          icon={<Play className="w-4 h-4" />}
+          className="shadow-lg shadow-emerald-500/20"
         >
-          <Play className="w-4 h-4" />
-          <span>{isRunning ? 'Running...' : 'Run'}</span>
-        </button>
+          {isRunning ? 'Running...' : 'Run Code'}
+        </Button>
 
         <button
           onClick={onSubmit}
           disabled={isRunning}
-          className="flex items-center gap-2 px-4 py-1.5 bg-cyan-500 hover:bg-cyan-600 text-white rounded font-medium text-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+          className="flex items-center gap-2 px-4 py-1.5 bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700 text-white rounded-lg font-medium text-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-cyan-500/20"
         >
           <Upload className="w-4 h-4" />
           <span>Submit</span>
@@ -59,13 +68,13 @@ export const Navbar = ({ onRun, onSubmit, isRunning }: NavbarProps) => {
       {/* Right Section */}
       <div className="flex items-center gap-3">
         <button
-          className="p-2 text-gray-400 hover:text-white hover:bg-slate-800 rounded transition-colors"
+          className="p-2 text-slate-400 hover:text-white hover:bg-slate-800 rounded transition-colors"
           aria-label="Settings"
         >
           <Settings className="w-5 h-5" />
         </button>
 
-        <div className="flex items-center gap-2 px-3 py-1 bg-slate-800 rounded text-gray-300 text-sm">
+        <div className="flex items-center gap-2 px-3 py-1 bg-slate-800 rounded text-slate-300 text-sm">
           <Timer className="w-4 h-4" />
           <span>00:00</span>
         </div>
@@ -74,9 +83,9 @@ export const Navbar = ({ onRun, onSubmit, isRunning }: NavbarProps) => {
           className="p-1.5 bg-slate-800 rounded-full hover:bg-opacity-80 transition-colors"
           aria-label="User profile"
         >
-          <User className="w-5 h-5 text-gray-300" />
+          <User className="w-5 h-5 text-slate-300" />
         </button>
       </div>
-    </nav>
+    </motion.nav>
   );
 };

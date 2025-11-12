@@ -1,4 +1,5 @@
 import { Panel, PanelGroup, PanelResizeHandle } from 'react-resizable-panels';
+import { motion } from 'framer-motion';
 import type { Language, TestResult, Problem } from '@/types/ide';
 import { ProblemPanel } from './ProblemPanel';
 import { EditorPanel } from './EditorPanel';
@@ -15,6 +16,19 @@ interface ResizableLayoutProps {
   onReset: () => void;
 }
 
+const panelVariants = {
+  hidden: { opacity: 0, scale: 0.98 },
+  visible: (custom: number) => ({
+    opacity: 1,
+    scale: 1,
+    transition: {
+      delay: custom * 0.1,
+      duration: 0.3,
+      ease: 'easeOut',
+    },
+  }),
+};
+
 export const ResizableLayout = ({
   problem,
   code,
@@ -30,7 +44,15 @@ export const ResizableLayout = ({
       <PanelGroup direction="horizontal">
         {/* Left Panel - Problem Description */}
         <Panel defaultSize={35} minSize={25} maxSize={50}>
-          <ProblemPanel problem={problem} />
+          <motion.div
+            className="h-full"
+            custom={0}
+            initial="hidden"
+            animate="visible"
+            variants={panelVariants}
+          >
+            <ProblemPanel problem={problem} />
+          </motion.div>
         </Panel>
 
         {/* Resize Handle */}
@@ -38,15 +60,23 @@ export const ResizableLayout = ({
 
         {/* Middle Panel - Code Editor */}
         <Panel defaultSize={45} minSize={30}>
-          <EditorPanel
-            code={code}
-            language={language}
-            onCodeChange={onCodeChange}
-            onLanguageChange={onLanguageChange}
-            testResult={testResult}
-            isRunning={isRunning}
-            onReset={onReset}
-          />
+          <motion.div
+            className="h-full"
+            custom={1}
+            initial="hidden"
+            animate="visible"
+            variants={panelVariants}
+          >
+            <EditorPanel
+              code={code}
+              language={language}
+              onCodeChange={onCodeChange}
+              onLanguageChange={onLanguageChange}
+              testResult={testResult}
+              isRunning={isRunning}
+              onReset={onReset}
+            />
+          </motion.div>
         </Panel>
 
         {/* Resize Handle */}
@@ -54,7 +84,15 @@ export const ResizableLayout = ({
 
         {/* Right Panel - Hints */}
         <Panel defaultSize={20} minSize={15} maxSize={30}>
-          <HintsPanel hints={problem.hints} />
+          <motion.div
+            className="h-full"
+            custom={2}
+            initial="hidden"
+            animate="visible"
+            variants={panelVariants}
+          >
+            <HintsPanel hints={problem.hints} />
+          </motion.div>
         </Panel>
       </PanelGroup>
     </div>
