@@ -20,7 +20,7 @@ import type { Problem } from '@/types/ide';
 import { promptInjectionProblem } from './01-prompt-injection';
 import { adversarialMLProblem } from './02-adversarial-ml';
 import { dataPoisoningProblem } from './03-data-poisoning';
-// import { modelExtractionProblem } from './04-model-extraction';
+import { modelExtractionProblem } from './04-model-extraction';
 // import { jailbreakingProblem } from './05-jailbreaking';
 // import { ragSecurityProblem } from './06-rag-security';
 // import { multiAgentSecurityProblem } from './07-multi-agent-security';
@@ -49,7 +49,7 @@ const labProblems: Record<number, Problem> = {
   1: promptInjectionProblem,
   2: adversarialMLProblem,
   3: dataPoisoningProblem,
-  // 4: modelExtractionProblem,
+  4: modelExtractionProblem,
   // 5: jailbreakingProblem,
   // 6: ragSecurityProblem,
   // 7: multiAgentSecurityProblem,
