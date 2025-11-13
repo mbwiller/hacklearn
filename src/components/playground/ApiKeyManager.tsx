@@ -4,7 +4,9 @@ import { Card } from '../ui/Card';
 import { Input } from '../ui/Input';
 import { Button } from '../ui/Button';
 
-const API_BASE_URL = 'http://localhost:3001/api/llm';
+// Supabase Edge Function URL (environment-aware)
+const SUPABASE_FUNCTIONS_URL = import.meta.env.VITE_SUPABASE_FUNCTIONS_URL || 'https://ajigpytercayzftfjtle.supabase.co/functions/v1';
+const API_BASE_URL = `${SUPABASE_FUNCTIONS_URL}/llm-chat`;
 
 export const ApiKeyManager = () => {
   const [apiKey, setApiKey] = useState<string>(() => {
