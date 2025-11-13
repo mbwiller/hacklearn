@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Users, Code, Shield, BookOpen, AlertTriangle, Terminal, Network, ArrowLeft, ExternalLink, CheckCircle, Zap } from 'lucide-react';
+import { Users, Code, Shield, BookOpen, AlertTriangle, Terminal, Network, ArrowLeft, CheckCircle, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const tabs = [

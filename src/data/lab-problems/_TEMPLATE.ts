@@ -183,35 +183,20 @@ WHERE condition;
 
   testCases: [
     {
-      id: 1,
-      input: {
-        // REPLACE: Test input object structure
-        param1: 'value1',
-      },
-      expected: {
-        // REPLACE: Expected output object structure
-        result: 'expected value',
-      },
+      // REPLACE: Test input as string (can be JSON string for complex data)
+      input: 'test input value',
+      // REPLACE: Expected output as string (can be JSON string for complex data)
+      expected: '{"result": "expected value"}',
       explanation: 'REPLACE: What this test validates'
     },
     {
-      id: 2,
-      input: {
-        param1: 'edge case value',
-      },
-      expected: {
-        result: 'expected edge case result',
-      },
+      input: 'edge case value',
+      expected: '{"result": "expected edge case result"}',
       explanation: 'REPLACE: Edge case explanation'
     },
     {
-      id: 3,
-      input: {
-        param1: 'attack/complex case value',
-      },
-      expected: {
-        result: 'expected attack handling result',
-      },
+      input: 'attack/complex case value',
+      expected: '{"result": "expected attack handling result"}',
       explanation: 'REPLACE: Attack case explanation'
     }
   ],

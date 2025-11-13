@@ -40,9 +40,9 @@ This demonstrates why applications need Unicode normalization and validation.`,
   },
 
   testCases: [
-    { id: 1, input: 'Hello world', expected: '{"clean": true, "risk_score": 0.0, "invisible_chars": 0}', explanation: 'Clean ASCII.' },
-    { id: 2, input: 'Hello\u200Bworld', expected: '{"clean": false, "risk_score": 0.65, "invisible_chars": 1}', explanation: 'Zero-width space.' },
-    { id: 3, input: 'Gооgle', expected: '{"clean": false, "risk_score": 0.78}', explanation: 'Homoglyph attack.' }
+    { input: 'Hello world', expected: '{"clean": true, "risk_score": 0.0, "invisible_chars": 0}', explanation: 'Clean ASCII.' },
+    { input: 'Hello\u200Bworld', expected: '{"clean": false, "risk_score": 0.65, "invisible_chars": 1}', explanation: 'Zero-width space.' },
+    { input: 'Gооgle', expected: '{"clean": false, "risk_score": 0.78}', explanation: 'Homoglyph attack.' }
   ],
 
   hints: ['Check Unicode codepoints > U+0080', 'Zero-width chars: U+200B, U+200C, U+200D, U+FEFF', 'Each invisible char adds 0.25-0.35 to risk']

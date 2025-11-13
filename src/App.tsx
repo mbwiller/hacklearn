@@ -1,5 +1,9 @@
+import { LoginPage } from './pages/LoginPage';
+import { RegisterPage } from './pages/RegisterPage';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { ThemeProvider } from './contexts/ThemeContext';
+import { AuthProvider } from './contexts/AuthContext';
+import { ProtectedRoute } from './components/auth/ProtectedRoute';
 import { AppLayout } from './components/layouts/AppLayout';
 import { SplashPage } from './pages/SplashPage';
 import { AccountPage } from './pages/AccountPage';
@@ -15,45 +19,55 @@ function App() {
 
   return (
     <ThemeProvider>
-      <BrowserRouter>
-        <Routes>
-          {/* Splash Page */}
-          <Route path="/" element={<SplashPage />} />
+      <AuthProvider>
+        <BrowserRouter>
+          <Routes>
+            {/* Splash Page */}
+            <Route path="/" element={<SplashPage />} />
 
-          {/* App Routes (with Header/Layout) */}
-          <Route path="/app" element={<AppLayout />}>
-            {/* Dashboard - Default app route */}
-            <Route index element={<Navigate to="dashboard" replace />} />
+            {/* Authentication Pages */}
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
 
-            <Route
-              path="dashboard"
-              element={
-                <Dashboard
-                  concepts={concepts}
-                  progress={progress}
-                  onConceptClick={() => {}} // Navigation now handled by ConceptDetailRouter
-                />
-              }
-            />
+            {/* App Routes (with Header/Layout) - PROTECTED */}
+            <Route path="/app" element={
+              <ProtectedRoute>
+                <AppLayout />
+              </ProtectedRoute>
+            }>
+              {/* Dashboard - Default app route */}
+              <Route index element={<Navigate to="dashboard" replace />} />
 
-            {/* Prompt Engineering Section */}
-            <Route path="prompt-engineering" element={<PromptEngineeringPage />} />
+              <Route
+                path="dashboard"
+                element={
+                  <Dashboard
+                    concepts={concepts}
+                    progress={progress}
+                    onConceptClick={() => {}} // Navigation now handled by ConceptDetailRouter
+                  />
+                }
+              />
 
-            {/* Account Page */}
-            <Route path="account" element={<AccountPage />} />
+              {/* Prompt Engineering Section */}
+              <Route path="prompt-engineering" element={<PromptEngineeringPage />} />
 
-            {/* Concept Detail Pages */}
-            <Route path="concepts/:id" element={<ConceptDetailRouter />} />
-            <Route path="prompt-concepts/:id" element={<ConceptDetailRouter />} />
-          </Route>
+              {/* Account Page */}
+              <Route path="account" element={<AccountPage />} />
 
-          {/* IDE Route (Full-screen, no header) */}
-          <Route path="/app/ide/:moduleId" element={<IDEPage />} />
+              {/* Concept Detail Pages */}
+              <Route path="concepts/:id" element={<ConceptDetailRouter />} />
+              <Route path="prompt-concepts/:id" element={<ConceptDetailRouter />} />
+            </Route>
 
-          {/* Catch all - redirect to splash */}
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-      </BrowserRouter>
+            {/* IDE Route (Full-screen, no header) */}
+            <Route path="/app/ide/:moduleId" element={<IDEPage />} />
+
+            {/* Catch all - redirect to splash */}
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </BrowserRouter>
+      </AuthProvider>
     </ThemeProvider>
   );
 }

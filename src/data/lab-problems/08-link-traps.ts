@@ -40,9 +40,9 @@ This demonstrates why LLM outputs need URL validation before user exposure.`,
   },
 
   testCases: [
-    { id: 1, input: 'https://github.com', expected: '{"safe": true, "risk_score": 0.08}', explanation: 'Trusted domain.' },
-    { id: 2, input: 'http://bit.ly/x', expected: '{"safe": false, "risk_score": 0.72}', explanation: 'URL shortener obfuscation.' },
-    { id: 3, input: 'https://g00gle.com', expected: '{"safe": false, "risk_score": 0.89}', explanation: 'Typosquatting attack.' }
+    { input: 'https://github.com', expected: '{"safe": true, "risk_score": 0.08}', explanation: 'Trusted domain.' },
+    { input: 'http://bit.ly/x', expected: '{"safe": false, "risk_score": 0.72}', explanation: 'URL shortener obfuscation.' },
+    { input: 'https://g00gle.com', expected: '{"safe": false, "risk_score": 0.89}', explanation: 'Typosquatting attack.' }
   ],
 
   hints: ['Check for bit.ly, tinyurl, goo.gl', 'Detect common typos: g00gle, micr0soft', 'Weight multiple indicators']

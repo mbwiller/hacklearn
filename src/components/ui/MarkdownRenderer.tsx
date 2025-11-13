@@ -36,67 +36,67 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ text, classN
         rehypePlugins={[rehypeKatex]}
         components={{
           // Headers with cyan accent
-          h1: ({ children }) => (
+          h1: ({ children }: { children?: React.ReactNode }) => (
             <h1 className="text-3xl font-bold text-cyan-400 mb-4 mt-6 first:mt-0">
               {children}
             </h1>
           ),
-          h2: ({ children }) => (
+          h2: ({ children }: { children?: React.ReactNode }) => (
             <h2 className="text-2xl font-semibold text-cyan-400 mb-3 mt-5">
               {children}
             </h2>
           ),
-          h3: ({ children }) => (
+          h3: ({ children }: { children?: React.ReactNode }) => (
             <h3 className="text-xl font-semibold text-cyan-300 mb-2 mt-4">
               {children}
             </h3>
           ),
-          h4: ({ children }) => (
+          h4: ({ children }: { children?: React.ReactNode }) => (
             <h4 className="text-lg font-semibold text-slate-200 mb-2 mt-3">
               {children}
             </h4>
           ),
-          h5: ({ children }) => (
+          h5: ({ children }: { children?: React.ReactNode }) => (
             <h5 className="text-base font-semibold text-slate-300 mb-2 mt-3">
               {children}
             </h5>
           ),
-          h6: ({ children }) => (
+          h6: ({ children }: { children?: React.ReactNode }) => (
             <h6 className="text-sm font-semibold text-slate-400 mb-2 mt-2">
               {children}
             </h6>
           ),
 
           // Paragraphs with proper spacing
-          p: ({ children }) => (
+          p: ({ children }: { children?: React.ReactNode }) => (
             <p className="text-slate-300 mb-4 leading-relaxed">
               {children}
             </p>
           ),
 
           // Strong (bold) text
-          strong: ({ children }) => (
+          strong: ({ children }: { children?: React.ReactNode }) => (
             <strong className="font-bold text-slate-100">
               {children}
             </strong>
           ),
 
           // Emphasis (italic) text
-          em: ({ children }) => (
+          em: ({ children }: { children?: React.ReactNode }) => (
             <em className="italic text-slate-200">
               {children}
             </em>
           ),
 
           // Strikethrough
-          del: ({ children }) => (
+          del: ({ children }: { children?: React.ReactNode }) => (
             <del className="line-through text-slate-400">
               {children}
             </del>
           ),
 
           // Inline code
-          code: ({ inline, children }) => {
+          code: ({ inline, children }: { inline?: boolean; children?: React.ReactNode }) => {
             if (inline) {
               return (
                 <code className="px-1.5 py-0.5 rounded bg-slate-800 text-emerald-400 font-mono text-sm">
@@ -108,7 +108,7 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ text, classN
           },
 
           // Code blocks with syntax highlighting
-          pre: ({ children }) => {
+          pre: ({ children }: { children?: React.ReactNode }) => {
             const codeElement = React.Children.toArray(children)[0] as React.ReactElement;
             const codeProps = codeElement?.props;
             const className = codeProps?.className || '';
@@ -141,35 +141,35 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ text, classN
           },
 
           // Unordered lists
-          ul: ({ children }) => (
+          ul: ({ children }: { children?: React.ReactNode }) => (
             <ul className="list-disc list-inside mb-4 space-y-1 text-slate-300">
               {children}
             </ul>
           ),
 
           // Ordered lists
-          ol: ({ children }) => (
+          ol: ({ children }: { children?: React.ReactNode }) => (
             <ol className="list-decimal list-inside mb-4 space-y-1 text-slate-300">
               {children}
             </ol>
           ),
 
           // List items
-          li: ({ children }) => (
+          li: ({ children }: { children?: React.ReactNode }) => (
             <li className="ml-4 leading-relaxed">
               {children}
             </li>
           ),
 
           // Blockquotes with purple accent
-          blockquote: ({ children }) => (
+          blockquote: ({ children }: { children?: React.ReactNode }) => (
             <blockquote className="border-l-4 border-purple-500 pl-4 py-2 my-4 bg-purple-500/5 text-slate-300 italic">
               {children}
             </blockquote>
           ),
 
           // Tables with glassmorphism
-          table: ({ children }) => (
+          table: ({ children }: { children?: React.ReactNode }) => (
             <div className="my-4 overflow-x-auto">
               <table className="min-w-full border-collapse border border-slate-700">
                 {children}
@@ -178,35 +178,35 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ text, classN
           ),
 
           // Table headers
-          thead: ({ children }) => (
+          thead: ({ children }: { children?: React.ReactNode }) => (
             <thead className="bg-slate-800/50">
               {children}
             </thead>
           ),
 
           // Table body
-          tbody: ({ children }) => (
+          tbody: ({ children }: { children?: React.ReactNode }) => (
             <tbody className="divide-y divide-slate-700">
               {children}
             </tbody>
           ),
 
           // Table rows
-          tr: ({ children }) => (
+          tr: ({ children }: { children?: React.ReactNode }) => (
             <tr className="hover:bg-slate-800/30 transition-colors">
               {children}
             </tr>
           ),
 
           // Table header cells
-          th: ({ children }) => (
+          th: ({ children }: { children?: React.ReactNode }) => (
             <th className="px-4 py-3 text-left text-sm font-semibold text-cyan-400 border border-slate-700">
               {children}
             </th>
           ),
 
           // Table data cells
-          td: ({ children }) => (
+          td: ({ children }: { children?: React.ReactNode }) => (
             <td className="px-4 py-3 text-sm text-slate-300 border border-slate-700">
               {children}
             </td>
@@ -218,7 +218,7 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ text, classN
           ),
 
           // Links with hover effect
-          a: ({ href, children }) => (
+          a: ({ href, children }: { href?: string; children?: React.ReactNode }) => (
             <a
               href={href}
               target="_blank"

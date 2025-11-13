@@ -7,7 +7,7 @@ interface DoSAttacksConceptProps {
   onBack?: () => void;
 }
 
-export const DoSAttacksConcept = ({ onBack }: DoSAttacksConceptProps = {}) => {
+export const DoSAttacksConcept = (_props?: DoSAttacksConceptProps) => {
   const [activeTab, setActiveTab] = useState('theory');
 
   const tabs = [

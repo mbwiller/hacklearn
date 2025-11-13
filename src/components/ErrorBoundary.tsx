@@ -5,7 +5,7 @@
  * instead of crashing the entire application.
  */
 
-import React, { Component, ReactNode } from 'react';
+import React, { Component, type ReactNode } from 'react';
 import { AlertTriangle, RefreshCw } from 'lucide-react';
 import { Button } from './ui/Button';
 

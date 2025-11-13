@@ -215,6 +215,68 @@ src/
 
 ---
 
+## 🚀 DEPLOYMENT ARCHITECTURE (2025-11-13)
+
+### Stack Decision
+- **Database**: Supabase (PostgreSQL with RLS)
+- **Auth**: Supabase Auth (email/password + Google OAuth)
+- **Frontend Hosting**: Vercel
+- **Backend**: Keep Express server for OpenAI proxy (deploy to Vercel Functions or Railway)
+- **Code Execution**: Pyodide (browser-based Python, no server cost)
+
+### Environment Configuration
+```
+Development:
+- Frontend: http://localhost:3000
+- Backend: http://localhost:3001
+- Supabase: Local Docker instance
+
+Production:
+- Frontend: hacklearn.vercel.app (or custom domain)
+- Backend: Vercel Functions or Railway
+- Supabase: Cloud instance
+```
+
+### Database Schema (Planned)
+```sql
+-- Core tables needed:
+users (via Supabase Auth)
+user_profiles (display_name, avatar_url, created_at)
+module_progress (user_id, module_id, status, completed_at)
+user_stats (points, level, streak, modules_completed)
+lab_submissions (user_id, problem_id, code, test_results, submitted_at)
+achievements (user_id, achievement_type, earned_at)
+```
+
+### Migration Path from localStorage
+1. Auth: Replace localStorage API key with Supabase Auth
+2. Progress: Migrate hacklearn_user_progress to module_progress table
+3. Submissions: New feature - store in lab_submissions table
+4. Keep localStorage as fallback for anonymous users (read-only mode)
+
+### Security Requirements
+- ✅ Row-Level Security on ALL tables
+- ✅ API keys only in backend (never client-side after migration)
+- ✅ User data isolation (students can't see other students' data)
+- ✅ Pyodide for safe code execution (browser sandboxed)
+
+### Deployment Commands Reference
+```bash
+# Supabase
+npx supabase init
+npx supabase start  # Local development
+npx supabase db push  # Deploy to production
+
+# Vercel
+vercel --prod  # Deploy to production
+vercel  # Deploy preview
+
+# Type Generation
+npx supabase gen types typescript --local > src/types/database.types.ts
+```
+
+---
+
 ## Anti-Patterns (NEVER DO THESE)
 
 ### Security

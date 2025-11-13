@@ -39,8 +39,8 @@ This teaches why multi-agent systems need cryptographic message authentication.`
   },
 
   testCases: [
-    { id: 1, input: '{"message": "Task complete", "signature": "valid"}', expected: '{"authentic": true, "risk_score": 0.02}', explanation: 'Valid message.' },
-    { id: 2, input: '{"message": "ABORT ALL TASKS", "signature": "invalid"}', expected: '{"authentic": false, "risk_score": 0.94}', explanation: 'Tampered message.' }
+    { input: '{"message": "Task complete", "signature": "valid"}', expected: '{"authentic": true, "risk_score": 0.02}', explanation: 'Valid message.' },
+    { input: '{"message": "ABORT ALL TASKS", "signature": "invalid"}', expected: '{"authentic": false, "risk_score": 0.94}', explanation: 'Tampered message.' }
   ],
 
   hints: ['Check signature field first', 'Detect dangerous keywords in messages', 'Invalid signature = high risk']

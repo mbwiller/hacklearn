@@ -1,6 +1,6 @@
 import { CheckCircle2, XCircle, AlertCircle } from 'lucide-react';
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import type { TestResult, ConsoleTab } from '@/types/ide';
 
 interface ConsoleOutputProps {
