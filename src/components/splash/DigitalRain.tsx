@@ -1,16 +1,8 @@
 // src/components/splash/DigitalRain.tsx
 import React from 'react';
 import Sketch from 'react-p5';
-import p5Types from 'p5';
 
-// Based on the user's high-end monitor, we can use a higher density of streams
-const FADE_INTERVAL = 1.6;
 const STREAM_FONT_SIZE = 20;
-const STREAMS_PER_INCH = 1.5; // Density control
-
-// Estimate streams based on a common high-res screen width (e.g., 2560px) and density
-const screenWidthInches = 27; // common monitor size
-const estimatedStreams = Math.floor(screenWidthInches * STREAMS_PER_INCH * 5); // Heuristic multiplier
 
 class Symbol {
     private x: number;
@@ -39,13 +31,12 @@ class Symbol {
         }
     }
 
-    public rain(p5: p5Types, streamLength: number) {
+    public rain(p5: any) {
         this.y = (this.y >= p5.height) ? 0 : this.y + this.speed;
     }
 
-    public render(p5: p5Types, streamLength: number) {
-        const isLast = this.y > p5.height - (p5.height / streamLength) * 2;
-        if (this.first && !isLast) {
+    public render(p5: any) {
+        if (this.first) {
             p5.fill(180, 255, 180);
         } else {
             p5.fill(0, 255, 70);
@@ -63,13 +54,13 @@ class Stream {
     private totalSymbols: number;
     private speed: number;
 
-    constructor(p5: p5Types, x: number) {
+    constructor(x: number) {
         this.totalSymbols = Math.round(Math.random() * 20 + 5);
         this.speed = Math.random() * 5 + 2;
-        this.generateSymbols(p5, x, Math.random() * -1000);
+        this.generateSymbols(x, Math.random() * -1000);
     }
 
-    private generateSymbols(p5: p5Types, x: number, y: number) {
+    private generateSymbols(x: number, y: number) {
         let first = Math.random() > 0.7;
         for (let i = 0; i <= this.totalSymbols; i++) {
             const symbol = new Symbol(x, y, this.speed, first);
@@ -80,10 +71,10 @@ class Stream {
         }
     }
 
-    public render(p5: p5Types) {
+    public render(p5: any) {
         this.symbols.forEach(symbol => {
-            symbol.render(p5, this.totalSymbols);
-            symbol.rain(p5, this.totalSymbols);
+            symbol.render(p5);
+            symbol.rain(p5);
         });
     }
 }
@@ -92,27 +83,27 @@ class Stream {
 export const DigitalRain: React.FC = () => {
     let streams: Stream[] = [];
 
-    const setup = (p5: p5Types, canvasParentRef: Element) => {
+    const setup = (p5: any, canvasParentRef: Element) => {
         p5.createCanvas(p5.windowWidth, p5.windowHeight).parent(canvasParentRef);
         p5.background(0);
         p5.textSize(STREAM_FONT_SIZE);
 
         let x = 0;
         for (let i = 0; i <= p5.width / STREAM_FONT_SIZE; i++) {
-            const stream = new Stream(p5, x);
+            const stream = new Stream(x);
             streams.push(stream);
             x += STREAM_FONT_SIZE;
         }
     };
 
-    const draw = (p5: p5Types) => {
+    const draw = (p5: any) => {
         p5.background(0, 150);
         streams.forEach(stream => {
             stream.render(p5);
         });
     };
 
-    const windowResized = (p5: p5Types) => {
+    const windowResized = (p5: any) => {
         p5.resizeCanvas(p5.windowWidth, p5.windowHeight);
     };
 

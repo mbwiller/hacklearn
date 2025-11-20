@@ -5,14 +5,11 @@
  * Designed for Chain of Thought and other reasoning strategy modules.
  */
 
-// NEW: Premium components
+// Premium modular components
 export * from './visualizers';
 export * from './controls';
 export * from './comparison';
 export * from './shared';
 
-// LEGACY: Keeping for backward compatibility during migration
+// Shared utility components
 export { ApiKeyManager } from './ApiKeyManager';
-export { PlaygroundShell } from './PlaygroundShell';
-export { PromptComparison } from './PromptComparison';
-export { ReasoningVisualizer } from './ReasoningVisualizer';

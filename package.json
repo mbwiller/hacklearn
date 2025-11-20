@@ -16,7 +16,6 @@
     "@supabase/ssr": "^0.7.0",
     "@supabase/supabase-js": "^2.81.1",
     "@types/katex": "^0.16.7",
-    "@types/p5": "^1.7.7",
     "axios": "^1.13.2",
     "diff": "^8.0.2",
     "framer-motion": "^12.23.24",

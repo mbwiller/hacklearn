@@ -27,6 +27,7 @@ dist-ssr
 .env
 .env.local
 .env.production
+.env.vercel
 
 # Build outputs
 /dist
@@ -44,3 +45,4 @@ harmonize-*.sh
 
 # VS Code workspace files (IDE-specific)
 *.code-workspace
+.vercel

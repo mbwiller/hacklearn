@@ -265,8 +265,12 @@ export async function parseCoTSteps(
     // Generate extraction prompt
     const extractionPrompt = generateExtractionPrompt(cotResponse);
 
-    // Make API call to /api/llm/chat
-    const response = await fetch('/api/llm/chat', {
+    // Supabase Edge Function URL (same pattern as useLLMChat hook)
+    const SUPABASE_FUNCTIONS_URL = import.meta.env.VITE_SUPABASE_FUNCTIONS_URL || 'https://ajigpytercayzftfjtle.supabase.co/functions/v1';
+    const API_URL = `${SUPABASE_FUNCTIONS_URL}/llm-chat/chat`;
+
+    // Make API call to Supabase Edge Function
+    const response = await fetch(API_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

@@ -12,3 +12,8 @@ export { ActivityHeatmap } from './ActivityHeatmap';
 export { StatsCard } from './StatsCard';
 export { ProgressRing } from './ProgressRing';
 export { AchievementBadge } from './AchievementBadge';
+
+// Utility components
+export { ConfirmationDialog } from './ConfirmationDialog';
+export { MarkdownRenderer } from './MarkdownRenderer';
+export { Toast } from './Toast';
