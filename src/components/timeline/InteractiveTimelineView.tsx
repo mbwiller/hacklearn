@@ -23,7 +23,7 @@ export const InteractiveTimelineView: React.FC<InteractiveTimelineViewProps> = (
   className = ''
 }) => {
   // Load timeline data
-  const { events, eras, statistics } = useTimelineData();
+  const { events, eras } = useTimelineData();
 
   // Initialize filters
   const {
@@ -37,8 +37,7 @@ export const InteractiveTimelineView: React.FC<InteractiveTimelineViewProps> = (
   // Initialize selection state
   const {
     selectedEventId,
-    selectEvent,
-    clearSelection
+    selectEvent
   } = useTimelineSelection();
 
   // Initialize view mode
@@ -56,8 +55,8 @@ export const InteractiveTimelineView: React.FC<InteractiveTimelineViewProps> = (
   // Related events (events from same era, limited to 4)
   const relatedEvents = selectedEvent
     ? events
-        .filter(e => e.era === selectedEvent.era && e.id !== selectedEvent.id)
-        .slice(0, 4)
+      .filter(e => e.era === selectedEvent.era && e.id !== selectedEvent.id)
+      .slice(0, 4)
     : [];
 
   // CTA Handlers

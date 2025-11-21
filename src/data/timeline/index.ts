@@ -151,5 +151,9 @@ export function getStatistics() {
       acc[event.category] = (acc[event.category] || 0) + 1;
       return acc;
     }, {} as Record<string, number>),
-  };
+    eventsByEra: events.reduce((acc, event) => {
+      acc[event.era] = (acc[event.era] || 0) + 1;
+      return acc;
+    }, {} as Record<string, number>),
+  } as any;
 }

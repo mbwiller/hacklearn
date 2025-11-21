@@ -3,7 +3,10 @@
  * Additional UI-specific types for the Interactive Timeline component
  */
 
-import type { TimelineEvent, Era, AttackTechnique, ImpactLevel, EventCategory } from '@/data/timeline/types';
+import type { Era, ImpactLevel, EventCategory } from '@/data/timeline/types';
+
+// Re-export types that are used in UI components
+export type { TimelineEvent, AttackTechnique } from '@/data/timeline/types';
 
 export type ViewMode = 'timeline' | 'era-focus' | 'techniques' | 'statistics';
 

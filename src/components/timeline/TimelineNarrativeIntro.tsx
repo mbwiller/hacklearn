@@ -6,7 +6,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Lightbulb, TrendingUp, BarChart3, Zap } from 'lucide-react';
-import { TIMELINE_INTRODUCTION_NARRATIVE, key_insights } from '@/data/timeline';
+import { key_insights } from '@/data/timeline';
 
 interface TimelineNarrativeIntroProps {
   onExploreTimeline?: () => void;
@@ -47,7 +47,7 @@ export const TimelineNarrativeIntro: React.FC<TimelineNarrativeIntroProps> = ({
 
           <p className="text-xl font-semibold text-white mt-6">
             The problem is deceptively simple: <span className="text-red-400">transformer models cannot reliably distinguish
-            instructions from data</span>. When an LLM processes text, it treats your question, the system prompt defining
+              instructions from data</span>. When an LLM processes text, it treats your question, the system prompt defining
             its behavior, and external content scraped from the web as a single, undifferentiated stream of tokens. This
             architectural debt—inherited from models designed for language understanding, not adversarial robustness—would
             become the attack surface for an escalating campaign of exploitation.

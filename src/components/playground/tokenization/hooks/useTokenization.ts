@@ -1,12 +1,7 @@
-/**
- * Main tokenization hook for managing state and real-time tokenization
- */
-
-import { useState, useCallback, useMemo, useEffect } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import type { TokenizerResult, TokenizerModel } from '../types/tokenization';
 import { tokenizeText } from '../utils/tokenizers';
 
-// Debounce delay for tokenization (150ms balances responsiveness with performance)
 const DEBOUNCE_DELAY = 150;
 
 export const useTokenization = (initialText: string = '') => {

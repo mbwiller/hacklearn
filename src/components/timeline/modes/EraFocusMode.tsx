@@ -43,7 +43,7 @@ const cardVariants = {
     transition: {
       duration: 0.4,
       ease: 'easeOut'
-    }
+    } as const
   },
   exit: { y: 20, opacity: 0 }
 };

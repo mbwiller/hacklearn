@@ -15,7 +15,6 @@ interface BPEMergeVisualizerProps {
 }
 
 export const BPEMergeVisualizer = ({
-  text,
   mergeSteps,
   autoPlay = false,
 }: BPEMergeVisualizerProps) => {

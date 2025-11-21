@@ -4,7 +4,7 @@
  */
 
 import { encode as gptEncode, decode as gptDecode } from 'gpt-tokenizer';
-import { encode as llamaEncode, decode as llamaDecode } from 'llama3-tokenizer-js';
+import llama3Tokenizer from 'llama3-tokenizer-js';
 import type { Token, TokenType, TokenizerResult, TokenizerModel } from '../types/tokenization';
 import { GLITCH_TOKEN_IDS } from './attackPatterns';
 
@@ -76,10 +76,10 @@ const tokenizeLlama3 = (text: string): TokenizerResult => {
     };
   }
 
-  const tokenIds = llamaEncode(text);
+  const tokenIds = llama3Tokenizer.encode(text);
 
-  const tokens: Token[] = tokenIds.map((id, idx) => {
-    const tokenText = llamaDecode([id]);
+  const tokens: Token[] = tokenIds.map((id: number, idx: number) => {
+    const tokenText = llama3Tokenizer.decode([id]);
     const bytes = Array.from(new TextEncoder().encode(tokenText));
 
     return {

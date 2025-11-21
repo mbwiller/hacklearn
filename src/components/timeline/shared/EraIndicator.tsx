@@ -1,10 +1,5 @@
-/**
- * EraIndicator Component
- * Displays era badge with color coding
- */
 
 import React from 'react';
-import type { Era } from '@/data/timeline/types';
 import type { EraBadgeProps } from '../types/timeline-ui';
 
 const sizeClasses = {

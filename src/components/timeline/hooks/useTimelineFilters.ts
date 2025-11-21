@@ -4,7 +4,7 @@
  */
 
 import { useReducer, useMemo, useCallback } from 'react';
-import { searchEvents, getEventsByEra, getEventsByCategory, getEventsByImpact, type TimelineEvent } from '@/data/timeline';
+import { searchEvents, type TimelineEvent } from '@/data/timeline';
 import type { TimelineFilters, FilterAction, FilterPresetType } from '../types/timeline-ui';
 
 const initialFilters: TimelineFilters = {

@@ -13,7 +13,7 @@ import { TokenMetadataPanel } from './components/TokenMetadataPanel';
 import { TheoryContent } from './content/TheoryContent';
 import { useTokenization } from './hooks/useTokenization';
 import { generateBPEMergeSteps } from './utils/tokenizers';
-import type { TokenMetadata, TokenizerModel } from './types/tokenization';
+import type { TokenMetadata } from './types/tokenization';
 
 type TabType = 'visualizer' | 'attacks' | 'theory';
 
