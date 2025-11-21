@@ -4,7 +4,7 @@
  */
 
 import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, type Variants } from 'framer-motion';
 import { X, ExternalLink, ChevronLeft, ChevronRight, Calendar } from 'lucide-react';
 import type { TimelineEvent, Era } from '@/data/timeline/types';
 import { ImpactBadge } from './ImpactBadge';
@@ -31,7 +31,7 @@ function formatDate(dateStr: string): string {
   return date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
 }
 
-const backdropVariants = {
+const backdropVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -43,7 +43,7 @@ const backdropVariants = {
   }
 };
 
-const modalVariants = {
+const modalVariants: Variants = {
   hidden: {
     opacity: 0,
     scale: 0.95,
@@ -54,7 +54,7 @@ const modalVariants = {
     scale: 1,
     y: 0,
     transition: {
-      type: 'spring' as const,
+      type: 'spring',
       damping: 25,
       stiffness: 400,
       mass: 1

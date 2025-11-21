@@ -5,8 +5,8 @@
 
 import type { Era, ImpactLevel, EventCategory } from '@/data/timeline/types';
 
-// Re-export types that are used in UI components
-export type { TimelineEvent, AttackTechnique } from '@/data/timeline/types';
+// Re-export types for external use
+export type { Era, TimelineEvent, AttackTechnique } from '@/data/timeline/types';
 
 export type ViewMode = 'timeline' | 'era-focus' | 'techniques' | 'statistics';
 

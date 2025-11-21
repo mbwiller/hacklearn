@@ -1,0 +1,11 @@
+src/components/playground/tokenization/components/BPEMergeVisualizer.tsx(18,3): error TS6133: 'text' is declared but its value is never read.
+src/components/playground/tokenization/hooks/useTokenization.ts(5,33): error TS6133: 'useMemo' is declared but its value is never read.
+src/components/playground/tokenization/TokenizationVisualizer.tsx(16,30): error TS6196: 'TokenizerModel' is declared but never used.
+src/components/playground/tokenization/utils/tokenizers.ts(7,10): error TS2614: Module '"llama3-tokenizer-js"' has no exported member 'encode'. Did you mean to use 'import encode from "llama3-tokenizer-js"' instead?
+src/components/playground/tokenization/utils/tokenizers.ts(7,33): error TS2614: Module '"llama3-tokenizer-js"' has no exported member 'decode'. Did you mean to use 'import decode from "llama3-tokenizer-js"' instead?
+src/components/playground/tokenization/utils/tokenizers.ts(81,41): error TS7006: Parameter 'id' implicitly has an 'any' type.
+src/components/playground/tokenization/utils/tokenizers.ts(81,45): error TS7006: Parameter 'idx' implicitly has an 'any' type.
+src/components/timeline/hooks/useTimelineData.ts(63,5): error TS2741: Property 'eventsByEra' is missing in type '{ totalEvents: number; totalEras: number; totalAttackTechniques: number; totalVulnerabilities: number; eventsByImpact: { foundational: number; critical: number; high: number; medium: number; low: number; }; eventsByCategory: Record<...>; }' but required in type 'TimelineStatistics'.
+src/components/timeline/hooks/useTimelineFilters.ts(7,24): error TS6133: 'getEventsByEra' is declared but its value is never read.
+src/components/timeline/hooks/useTimelineFilters.ts(7,40): error TS6133: 'getEventsByCategory' is declared but its value is never read.
+src/components/timeline/hooks/useTimelineFilters.ts(7,61): error TS6133: 'getEventsByImpact' is declared but its value is never read.

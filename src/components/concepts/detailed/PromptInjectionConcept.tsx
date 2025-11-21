@@ -5,7 +5,6 @@ import { AdvancedTaxonomiesSection } from './AdvancedTaxonomies';
 import { InteractiveTimelineView } from '../../timeline';
 import { ContextWindowVisualizer } from '../../playground/visualizers/ContextWindowVisualizer';
 import { TokenizationVisualizer } from '../../playground/tokenization/TokenizationVisualizer';
-import { InjectionSpectrumVisualizer } from './visualizations/InjectionSpectrumVisualizer';
 
 const tabs = [
   { id: 'theory', name: 'Theory', icon: BookOpen },
