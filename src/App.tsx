@@ -8,6 +8,7 @@ import { AppLayout } from './components/layouts/AppLayout';
 import { SplashPage } from './pages/SplashPage';
 import { AccountPage } from './pages/AccountPage';
 import { PromptEngineeringPage } from './pages/PromptEngineeringPage';
+import { TokenizationPage } from './pages/TokenizationPage';
 import { IDEPage } from './pages/IDEPage';
 import { Dashboard } from './components/common/Dashboard';
 import { ConceptDetailRouter } from './components/common/ConceptDetailRouter';
@@ -51,6 +52,9 @@ function App() {
 
               {/* Prompt Engineering Section */}
               <Route path="prompt-engineering" element={<PromptEngineeringPage />} />
+
+              {/* Tokenization Deep Dive */}
+              <Route path="tokenization" element={<TokenizationPage />} />
 
               {/* Account Page */}
               <Route path="account" element={<AccountPage />} />

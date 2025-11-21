@@ -1,13 +1,34 @@
 /**
- * Visualizers for LLM Playground modules
- *
- * These components provide beautiful, interactive visualizations
- * for different reasoning strategies and LLM outputs.
+ * Context Window Visualizer - Main exports
+ * Educational visualization tool for LLM attention mechanics
  */
 
-export { ReasoningFlow, type ReasoningFlowProps, type ReasoningStep } from './ReasoningFlow';
+// Main component
+export { ContextWindowVisualizer } from './ContextWindowVisualizer';
 
-// Future visualizers (Modules 112-115)
-// export { ReActFlow } from './ReActFlow';
-// export { TreeOfThought } from './TreeOfThought';
-// export { FewShotExamples } from './FewShotExamples';
+// Individual modules (for custom layouts)
+export { ContextStream } from './modules/ContextStream';
+export { AttentionSpotlight } from './modules/AttentionSpotlight';
+export { SemanticTugOfWar } from './modules/SemanticTugOfWar';
+export { InfluenceHorizon } from './modules/InfluenceHorizon';
+
+// Controls (for custom configurations)
+export { TimelineScrubber } from './controls/TimelineScrubber';
+export { LayerSelector } from './controls/LayerSelector';
+export { InjectionSimulator } from './controls/InjectionSimulator';
+
+// Hooks (for building custom visualizations)
+export { useAttentionData } from '@/hooks/useAttentionData';
+export { useContextState } from '@/hooks/useContextState';
+export { useInjectionDetection } from '@/hooks/useInjectionDetection';
+
+// Types (for TypeScript consumers)
+export type {
+  ContextToken,
+  AttentionMatrix,
+  ContextWindowState,
+  VisualizationConfig,
+  InjectionSimulation,
+  ContextWindowVisualizerProps,
+  MockDataConfig,
+} from '@/types/context-visualizer';
