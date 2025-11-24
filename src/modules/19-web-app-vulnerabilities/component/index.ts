@@ -1,0 +1,1 @@
+export { WebAppVulnerabilitiesConcept } from './WebAppVulnerabilitiesConcept';

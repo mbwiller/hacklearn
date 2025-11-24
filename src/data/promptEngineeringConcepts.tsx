@@ -1,6 +1,6 @@
 import { Brain, Sparkles, Target, Zap, Lightbulb, Layers, Shield, Code, FileText, Workflow } from 'lucide-react';
 import type { Concept } from '../types';
-import { CoTPlayground } from '../components/concepts/playground/CoTPlayground';
+import { CoTPlayground } from '../modules/111-chain-of-thought';
 
 export const promptEngineeringConcepts: Concept[] = [
   {

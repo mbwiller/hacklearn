@@ -1,0 +1,1 @@
+export { LinkTrapsSecurityConcept } from './LinkTrapsSecurityConcept';

@@ -10,7 +10,8 @@
       "Bash(curl:*)",
       "Bash(done)",
       "Bash(git pull:*)",
-      "Bash(npx supabase functions:*)"
+      "Bash(npx supabase functions:*)",
+      "Bash(npm run build:*)"
     ],
     "deny": [],
     "ask": []
