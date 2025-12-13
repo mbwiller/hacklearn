@@ -1,6 +1,7 @@
-import { Brain, Sparkles, Target, Zap, Lightbulb, Layers, Shield, Code, FileText, Workflow } from 'lucide-react';
+import { Brain, Target, Zap, Lightbulb, Layers, Shield, Code, FileText, Workflow, Cpu } from 'lucide-react';
 import type { Concept } from '../types';
 import { CoTPlayground } from '../modules/111-chain-of-thought';
+import { TransformerModule } from '../modules/102-transformers';
 
 export const promptEngineeringConcepts: Concept[] = [
   {
@@ -51,23 +52,26 @@ export const promptEngineeringConcepts: Concept[] = [
   {
     id: 102,
     category: 'Prompt Engineering',
-    title: 'Prompt Engineering Module #2 - INCOMPLETE',
-    icon: <Sparkles className="w-8 h-8" />,
-    difficulty: 'Beginner',
-    description: 'Placeholder module - Advanced prompting techniques including few-shot learning and chain-of-thought prompting for improved model performance.',
-    realWorldExample: 'Content coming soon. This module will demonstrate advanced prompting strategies with real examples.',
+    title: 'Transformers: Attention Is All You Need',
+    icon: <Cpu className="w-8 h-8" />,
+    difficulty: 'Intermediate',
+    description: 'Master the revolutionary Transformer architecture through interactive visualizations. Explore self-attention, multi-head attention, positional encoding, and the complete encoder-decoder pipeline that powers GPT, BERT, and modern LLMs.',
+    realWorldExample: 'The Transformer architecture from "Attention Is All You Need" (Vaswani et al., 2017) achieved 28.4 BLEU on English-German translation, trained in just 3.5 days on 8 GPUs, revolutionizing NLP.',
     keyTakeaways: [
-      'Few-shot learning principles',
-      'Chain-of-thought reasoning',
-      'Zero-shot vs few-shot comparison',
-      'Example selection strategies'
+      'Self-attention allows each token to attend to all other tokens in parallel',
+      'Scaled dot-product attention: Attention(Q,K,V) = softmax(QK^T/sqrt(d_k))V',
+      'Multi-head attention captures different relationship types simultaneously',
+      'Positional encoding adds sequence order information to embeddings',
+      '6 encoder layers + 6 decoder layers with residual connections',
+      'No recurrence required - enables massive parallelization'
     ],
     defenses: [
-      'Optimizing few-shot examples',
-      'Handling edge cases in prompts',
-      'Balancing prompt length and clarity',
-      'Performance measurement techniques'
-    ]
+      'Understanding attention patterns helps interpret model decisions',
+      'Transformer architecture is the foundation of GPT, BERT, Claude, etc.',
+      'Knowledge of architecture enables better prompt engineering',
+      'Attention visualization reveals what the model focuses on'
+    ],
+    detailedComponent: (props) => <TransformerModule {...props} />
   },
   {
     id: 103,

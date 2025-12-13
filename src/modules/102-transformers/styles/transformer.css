@@ -1,0 +1,214 @@
+/* Transformer Module - Scoped Styles */
+/* All styles scoped to .transformer-module to prevent conflicts with main app */
+
+/* Module-scoped CSS variables */
+.transformer-module {
+  /* Surface colors for dark theme */
+  --color-surface: 15 23 42;
+  --color-surface-alt: 30 41 59;
+  --color-surface-elevated: 51 65 85;
+
+  /* Text colors */
+  --color-text-primary: 248 250 252;
+  --color-text-secondary: 148 163 184;
+
+  /* Visualization colors */
+  --color-query: 96 165 250;      /* Blue - Questions/Queries */
+  --color-key: 251 146 60;        /* Orange - Keys */
+  --color-value: 74 222 128;      /* Green - Values */
+  --color-attention: 192 132 252; /* Purple - Attention weights */
+  --color-encoder: 125 211 252;   /* Sky - Encoder */
+  --color-decoder: 253 186 116;   /* Orange - Decoder */
+  --color-positive: 34 197 94;
+  --color-negative: 239 68 68;
+
+  /* Smooth scrolling within module */
+  scroll-behavior: smooth;
+}
+
+/* Section layout */
+.transformer-module .section-container {
+  @apply min-h-screen flex flex-col justify-center py-20 px-4 sm:px-6 lg:px-8;
+}
+
+.transformer-module .section-content {
+  @apply max-w-4xl mx-auto w-full;
+}
+
+.transformer-module .section-title {
+  @apply text-4xl sm:text-5xl font-bold tracking-tight mb-6;
+}
+
+.transformer-module .section-subtitle {
+  @apply text-xl sm:text-2xl text-slate-400 mb-12;
+}
+
+/* Visualization containers */
+.transformer-module .viz-container {
+  @apply relative bg-slate-800/50 rounded-2xl p-6 sm:p-8 border border-slate-700;
+}
+
+.transformer-module .equation-block {
+  @apply my-8 py-6 px-4 bg-slate-800/50 rounded-xl overflow-x-auto flex justify-center;
+}
+
+/* Prose styling */
+.transformer-module .prose-custom {
+  @apply text-lg leading-relaxed text-slate-400;
+}
+
+.transformer-module .prose-custom strong {
+  @apply text-slate-200 font-semibold;
+}
+
+.transformer-module .prose-custom code {
+  @apply bg-slate-800 px-1.5 py-0.5 rounded text-sm font-mono;
+}
+
+/* KaTeX customizations */
+.transformer-module .katex {
+  font-size: 1.1em;
+}
+
+.transformer-module .katex-display {
+  margin: 0 !important;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+/* Interactive elements */
+.transformer-module .interactive-element {
+  @apply transition-all duration-200 ease-out;
+}
+
+.transformer-module .interactive-element:hover {
+  @apply scale-[1.02];
+}
+
+/* Selection color */
+.transformer-module ::selection {
+  background: rgba(192, 132, 252, 0.3);
+}
+
+/* Text color utilities using CSS variables */
+.transformer-module .text-text-primary {
+  color: rgb(var(--color-text-primary));
+}
+
+.transformer-module .text-text-secondary {
+  color: rgb(var(--color-text-secondary));
+}
+
+/* Background utilities */
+.transformer-module .bg-surface {
+  background-color: rgb(var(--color-surface));
+}
+
+.transformer-module .bg-surface-alt {
+  background-color: rgb(var(--color-surface-alt));
+}
+
+.transformer-module .bg-surface-elevated {
+  background-color: rgb(var(--color-surface-elevated));
+}
+
+/* Accent color utilities */
+.transformer-module .text-accent-query {
+  color: rgb(var(--color-query));
+}
+
+.transformer-module .text-accent-key {
+  color: rgb(var(--color-key));
+}
+
+.transformer-module .text-accent-value {
+  color: rgb(var(--color-value));
+}
+
+.transformer-module .text-accent-attention {
+  color: rgb(var(--color-attention));
+}
+
+.transformer-module .bg-accent-query {
+  background-color: rgb(var(--color-query));
+}
+
+.transformer-module .bg-accent-key {
+  background-color: rgb(var(--color-key));
+}
+
+.transformer-module .bg-accent-value {
+  background-color: rgb(var(--color-value));
+}
+
+.transformer-module .bg-accent-attention {
+  background-color: rgb(var(--color-attention));
+}
+
+/* Accent with opacity */
+.transformer-module .bg-accent-query\/10 {
+  background-color: rgb(var(--color-query) / 0.1);
+}
+
+.transformer-module .bg-accent-key\/10 {
+  background-color: rgb(var(--color-key) / 0.1);
+}
+
+.transformer-module .bg-accent-value\/10 {
+  background-color: rgb(var(--color-value) / 0.1);
+}
+
+.transformer-module .bg-accent-attention\/20 {
+  background-color: rgb(var(--color-attention) / 0.2);
+}
+
+.transformer-module .bg-accent-query\/30 {
+  background-color: rgb(var(--color-query) / 0.3);
+}
+
+.transformer-module .bg-accent-key\/30 {
+  background-color: rgb(var(--color-key) / 0.3);
+}
+
+.transformer-module .bg-accent-value\/30 {
+  background-color: rgb(var(--color-value) / 0.3);
+}
+
+/* Border colors */
+.transformer-module .border-accent-query {
+  border-color: rgb(var(--color-query));
+}
+
+.transformer-module .border-accent-key {
+  border-color: rgb(var(--color-key));
+}
+
+.transformer-module .border-accent-value {
+  border-color: rgb(var(--color-value));
+}
+
+.transformer-module .border-accent-attention {
+  border-color: rgb(var(--color-attention));
+}
+
+.transformer-module .border-accent-query\/30 {
+  border-color: rgb(var(--color-query) / 0.3);
+}
+
+.transformer-module .border-accent-key\/30 {
+  border-color: rgb(var(--color-key) / 0.3);
+}
+
+.transformer-module .border-accent-value\/30 {
+  border-color: rgb(var(--color-value) / 0.3);
+}
+
+/* Ring colors for focus/highlight states */
+.transformer-module .ring-accent-attention {
+  --tw-ring-color: rgb(var(--color-attention));
+}
+
+/* Fill colors for SVG */
+.transformer-module .fill-text-secondary {
+  fill: rgb(var(--color-text-secondary));
+}
