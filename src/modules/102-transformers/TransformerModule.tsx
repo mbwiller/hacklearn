@@ -67,14 +67,16 @@ export function TransformerModule({ onBack }: TransformerModuleProps) {
   const { activeSection, progress, scrollToSection } = useActiveSection([...SECTION_IDS]);
 
   return (
-    <div className="transformer-module min-h-screen bg-slate-950">
+    <div className="transformer-module min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-50 transition-colors">
       {/* Back button */}
       {onBack && (
         <button
           onClick={onBack}
           className="fixed top-4 left-4 z-50 flex items-center gap-2 px-4 py-2
-                     bg-slate-800/90 backdrop-blur-sm rounded-lg border border-slate-700
-                     text-slate-200 hover:bg-slate-700 transition-colors"
+                     bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-lg
+                     border border-slate-200 dark:border-slate-700
+                     text-slate-700 dark:text-slate-200
+                     hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
           Back to Prompt Engineering
@@ -107,8 +109,8 @@ export function TransformerModule({ onBack }: TransformerModuleProps) {
         {/* Section 12 with error boundary */}
         <Section12ErrorBoundary
           fallback={
-            <section className="min-h-screen flex items-center justify-center bg-slate-900">
-              <div className="text-center text-slate-400">
+            <section className="min-h-screen flex items-center justify-center bg-slate-50 dark:bg-slate-900">
+              <div className="text-center text-slate-500 dark:text-slate-400">
                 <p className="text-xl mb-2">3D Visualization Unavailable</p>
                 <p className="text-sm">Your browser may not support WebGL or encountered an error.</p>
               </div>
@@ -117,8 +119,8 @@ export function TransformerModule({ onBack }: TransformerModuleProps) {
         >
           <Suspense
             fallback={
-              <section className="min-h-screen flex items-center justify-center bg-slate-900">
-                <div className="text-slate-400 animate-pulse">Loading 3D visualization...</div>
+              <section className="min-h-screen flex items-center justify-center bg-slate-50 dark:bg-slate-900">
+                <div className="text-slate-500 dark:text-slate-400 animate-pulse">Loading 3D visualization...</div>
               </section>
             }
           >
@@ -140,7 +142,7 @@ export function TransformerModule({ onBack }: TransformerModuleProps) {
           >
             <polygon
               points="0 0, 10 3.5, 0 7"
-              className="fill-slate-400"
+              className="fill-slate-500 dark:fill-slate-400"
             />
           </marker>
         </defs>

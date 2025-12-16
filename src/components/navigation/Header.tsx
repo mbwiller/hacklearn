@@ -55,7 +55,7 @@ export const Header = () => {
 
           {/* Right side - User info & actions */}
           <div className="flex items-center gap-4">
-            <ThemeToggle />
+            <ThemeToggle variant="inline" />
             
             {user && (
               <div className="flex items-center gap-3">

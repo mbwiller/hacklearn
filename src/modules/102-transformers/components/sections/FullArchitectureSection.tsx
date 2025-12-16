@@ -152,171 +152,271 @@ function ArchitectureDiagram({
   hoveredComponent: ArchComponent
   onHover: (c: ArchComponent) => void
 }) {
+  // Layer positions for visual stacking
+  const encoderLayerY = [155, 245, 335]
+  const decoderLayerY = [155, 265, 375]
+
   return (
-    <svg viewBox="0 0 500 600" className="w-full max-w-2xl mx-auto">
-      {/* Background sections */}
-      <rect x="30" y="100" width="180" height="380" rx="8"
-            className="fill-accent-encoder/5 stroke-accent-encoder/30" strokeWidth="2" />
-      <rect x="290" y="100" width="180" height="380" rx="8"
-            className="fill-accent-decoder/5 stroke-accent-decoder/30" strokeWidth="2" />
+    <svg viewBox="0 0 620 720" className="w-full max-w-3xl mx-auto">
+      {/* Definitions */}
+      <defs>
+        <marker id="arrow-down" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+          <path d="M 0 0 L 8 4 L 0 8 z" className="fill-slate-400 dark:fill-slate-500" />
+        </marker>
+        <marker id="arrow-right" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+          <path d="M 0 0 L 8 4 L 0 8 z" className="fill-accent-encoder" />
+        </marker>
+        {/* Gradient for stacked layers indication */}
+        <linearGradient id="stack-fade" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stopColor="currentColor" stopOpacity="0.3" />
+          <stop offset="100%" stopColor="currentColor" stopOpacity="0.05" />
+        </linearGradient>
+      </defs>
 
-      {/* Labels */}
-      <text x="120" y="90" textAnchor="middle" className="fill-accent-encoder font-semibold text-sm">
-        Encoder
-      </text>
-      <text x="380" y="90" textAnchor="middle" className="fill-accent-decoder font-semibold text-sm">
-        Decoder
-      </text>
-
-      {/* Output */}
-      <DiagramBlock
-        x={380} y={30} width={100} height={30}
-        label="Output Probs"
-        component="softmax"
-        hovered={hoveredComponent}
-        onHover={onHover}
-        color="slate"
-      />
-      <Arrow x={380} y1={60} y2={75} />
-
-      <DiagramBlock
-        x={380} y={75} width={100} height={25}
-        label="Linear"
-        component="linear"
-        hovered={hoveredComponent}
-        onHover={onHover}
-        color="slate"
-      />
-
-      {/* Decoder stack */}
-      <g transform="translate(290, 110)">
-        <text x="90" y={10} textAnchor="middle" className="fill-text-secondary text-[10px]">×N</text>
-
-        {/* Decoder FFN */}
+      {/* ========== OUTPUT SECTION ========== */}
+      <g transform="translate(430, 15)">
         <DiagramBlock
-          x={90} y={20} width={160} height={35}
-          label="Feed Forward"
-          component="decoder-ffn"
+          x={0} y={0} width={130} height={35}
+          label="Output Probabilities"
+          component="softmax"
           hovered={hoveredComponent}
           onHover={onHover}
-          color="value"
+          color="slate"
         />
-        <text x={170} y={42} className="fill-text-secondary text-[8px]">Add & Norm</text>
+        <line x1="0" y1="35" x2="0" y2="55" className="stroke-slate-400 dark:stroke-slate-500" strokeWidth="2" markerEnd="url(#arrow-down)" />
 
-        {/* Cross attention */}
         <DiagramBlock
-          x={90} y={70} width={160} height={35}
-          label="Cross-Attention"
-          component="decoder-cross-attn"
+          x={0} y={55} width={130} height={35}
+          label="Linear Layer"
+          component="linear"
           hovered={hoveredComponent}
           onHover={onHover}
-          color="encoder"
+          color="slate"
         />
-        <text x={170} y={92} className="fill-text-secondary text-[8px]">Add & Norm</text>
-
-        {/* Masked self attention */}
-        <DiagramBlock
-          x={90} y={120} width={160} height={35}
-          label="Masked Self-Attention"
-          component="decoder-masked-attn"
-          hovered={hoveredComponent}
-          onHover={onHover}
-          color="decoder"
-        />
-        <text x={170} y={142} className="fill-text-secondary text-[8px]">Add & Norm</text>
+        <line x1="0" y1="90" x2="0" y2="110" className="stroke-slate-400 dark:stroke-slate-500" strokeWidth="2" markerEnd="url(#arrow-down)" />
       </g>
 
-      {/* Arrow from encoder to decoder (cross attention) */}
+      {/* ========== ENCODER SECTION ========== */}
+      <g transform="translate(20, 110)">
+        {/* Encoder background */}
+        <rect x="30" y="10" width="200" height="430" rx="12"
+              className="fill-accent-encoder/5 stroke-accent-encoder/30" strokeWidth="2" />
+
+        {/* Encoder title */}
+        <text x="130" y="35" textAnchor="middle" className="fill-accent-encoder font-bold text-base">
+          Encoder
+        </text>
+        <text x="130" y="52" textAnchor="middle" className="fill-text-secondary text-xs">
+          N = 6 layers
+        </text>
+
+        {/* Stacked layers representation */}
+        {encoderLayerY.map((y, layerIdx) => (
+          <g key={`enc-layer-${layerIdx}`} transform={`translate(130, ${y})`}>
+            {/* Layer container */}
+            <rect x="-75" y="-5" width="150" height="80" rx="8"
+                  className="fill-white dark:fill-slate-800/50 stroke-slate-200 dark:stroke-slate-700"
+                  strokeWidth="1" />
+
+            {/* FFN */}
+            <DiagramBlock
+              x={0} y={0} width={130} height={30}
+              label="Feed-Forward"
+              component="encoder-ffn"
+              hovered={hoveredComponent}
+              onHover={onHover}
+              color="value"
+            />
+            <text x="75" y="18" className="fill-text-secondary text-[10px]">Add & Norm</text>
+
+            {/* Self-Attention */}
+            <DiagramBlock
+              x={0} y={40} width={130} height={30}
+              label="Multi-Head Attention"
+              component="encoder-self-attn"
+              hovered={hoveredComponent}
+              onHover={onHover}
+              color="attention"
+            />
+            <text x="75" y="58" className="fill-text-secondary text-[10px]">Add & Norm</text>
+
+            {/* Layer number */}
+            <text x="-85" y="40" className="fill-text-secondary text-xs font-mono">
+              L{layerIdx === 0 ? '1' : layerIdx === 1 ? '...' : '6'}
+            </text>
+          </g>
+        ))}
+
+        {/* Arrows between layers */}
+        <line x1="130" y1="230" x2="130" y2="240" className="stroke-slate-400 dark:stroke-slate-500" strokeWidth="2" markerEnd="url(#arrow-down)" />
+        <line x1="130" y1="320" x2="130" y2="330" className="stroke-slate-400 dark:stroke-slate-500" strokeWidth="2" markerEnd="url(#arrow-down)" />
+
+        {/* Positional Encoding */}
+        <DiagramBlock
+          x={130} y={450} width={130} height={30}
+          label="+ Positional Encoding"
+          component="positional-encoding"
+          hovered={hoveredComponent}
+          onHover={onHover}
+          color="key"
+        />
+        <line x1="130" y1="410" x2="130" y2="445" className="stroke-slate-400 dark:stroke-slate-500" strokeWidth="2" markerEnd="url(#arrow-down)" />
+
+        {/* Input Embedding */}
+        <DiagramBlock
+          x={130} y={500} width={130} height={35}
+          label="Input Embedding"
+          component="input-embedding"
+          hovered={hoveredComponent}
+          onHover={onHover}
+          color="query"
+        />
+        <line x1="130" y1="480" x2="130" y2="495" className="stroke-slate-400 dark:stroke-slate-500" strokeWidth="2" markerEnd="url(#arrow-down)" />
+
+        {/* Input label */}
+        <text x="130" y="555" textAnchor="middle" className="fill-text-secondary text-sm font-medium">
+          Input Sequence
+        </text>
+        <line x1="130" y1="535" x2="130" y2="545" className="stroke-slate-400 dark:stroke-slate-500" strokeWidth="2" markerEnd="url(#arrow-down)" />
+      </g>
+
+      {/* ========== DECODER SECTION ========== */}
+      <g transform="translate(340, 110)">
+        {/* Decoder background */}
+        <rect x="30" y="10" width="200" height="430" rx="12"
+              className="fill-accent-decoder/5 stroke-accent-decoder/30" strokeWidth="2" />
+
+        {/* Decoder title */}
+        <text x="130" y="35" textAnchor="middle" className="fill-accent-decoder font-bold text-base">
+          Decoder
+        </text>
+        <text x="130" y="52" textAnchor="middle" className="fill-text-secondary text-xs">
+          N = 6 layers
+        </text>
+
+        {/* Stacked layers representation */}
+        {decoderLayerY.map((y, layerIdx) => (
+          <g key={`dec-layer-${layerIdx}`} transform={`translate(130, ${y})`}>
+            {/* Layer container */}
+            <rect x="-75" y="-5" width="150" height="100" rx="8"
+                  className="fill-white dark:fill-slate-800/50 stroke-slate-200 dark:stroke-slate-700"
+                  strokeWidth="1" />
+
+            {/* FFN */}
+            <DiagramBlock
+              x={0} y={0} width={130} height={26}
+              label="Feed-Forward"
+              component="decoder-ffn"
+              hovered={hoveredComponent}
+              onHover={onHover}
+              color="value"
+            />
+            <text x="75" y="16" className="fill-text-secondary text-[9px]">Add & Norm</text>
+
+            {/* Cross-Attention */}
+            <DiagramBlock
+              x={0} y={32} width={130} height={26}
+              label="Cross-Attention"
+              component="decoder-cross-attn"
+              hovered={hoveredComponent}
+              onHover={onHover}
+              color="encoder"
+            />
+            <text x="75" y="48" className="fill-text-secondary text-[9px]">Add & Norm</text>
+
+            {/* Masked Self-Attention */}
+            <DiagramBlock
+              x={0} y={64} width={130} height={26}
+              label="Masked Self-Attn"
+              component="decoder-masked-attn"
+              hovered={hoveredComponent}
+              onHover={onHover}
+              color="decoder"
+            />
+            <text x="75" y="80" className="fill-text-secondary text-[9px]">Add & Norm</text>
+
+            {/* Layer number */}
+            <text x="-85" y="50" className="fill-text-secondary text-xs font-mono">
+              L{layerIdx === 0 ? '1' : layerIdx === 1 ? '...' : '6'}
+            </text>
+          </g>
+        ))}
+
+        {/* Arrows between layers */}
+        <line x1="130" y1="260" x2="130" y2="255" className="stroke-slate-400 dark:stroke-slate-500" strokeWidth="2" markerEnd="url(#arrow-down)" />
+        <line x1="130" y1="370" x2="130" y2="360" className="stroke-slate-400 dark:stroke-slate-500" strokeWidth="2" markerEnd="url(#arrow-down)" />
+
+        {/* Positional Encoding */}
+        <DiagramBlock
+          x={130} y={500} width={130} height={30}
+          label="+ Positional Encoding"
+          component="positional-encoding"
+          hovered={hoveredComponent}
+          onHover={onHover}
+          color="key"
+        />
+        <line x1="130" y1="475" x2="130" y2="495" className="stroke-slate-400 dark:stroke-slate-500" strokeWidth="2" markerEnd="url(#arrow-down)" />
+
+        {/* Output Embedding */}
+        <DiagramBlock
+          x={130} y={550} width={130} height={35}
+          label="Output Embedding"
+          component="output-embedding"
+          hovered={hoveredComponent}
+          onHover={onHover}
+          color="query"
+        />
+        <line x1="130" y1="530" x2="130" y2="545" className="stroke-slate-400 dark:stroke-slate-500" strokeWidth="2" markerEnd="url(#arrow-down)" />
+
+        {/* Output label */}
+        <text x="130" y="605" textAnchor="middle" className="fill-text-secondary text-sm font-medium">
+          Output Sequence
+        </text>
+        <text x="130" y="620" textAnchor="middle" className="fill-text-secondary text-[10px]">
+          (shifted right)
+        </text>
+        <line x1="130" y1="585" x2="130" y2="593" className="stroke-slate-400 dark:stroke-slate-500" strokeWidth="2" markerEnd="url(#arrow-down)" />
+      </g>
+
+      {/* ========== CROSS-ATTENTION CONNECTIONS ========== */}
+      {/* Curved arrow from encoder to decoder cross-attention */}
       <motion.path
-        d="M 210 280 Q 250 280 330 220"
+        d="M 250 350 C 290 350 290 300 330 300"
+        fill="none"
+        className="stroke-accent-encoder"
+        strokeWidth="3"
+        strokeDasharray="6 3"
+        initial={{ pathLength: 0 }}
+        animate={{ pathLength: 1 }}
+        transition={{ duration: 1.2, delay: 0.5 }}
+        markerEnd="url(#arrow-right)"
+      />
+      <text x="290" y="290" textAnchor="middle" className="fill-accent-encoder text-xs font-semibold">
+        K, V
+      </text>
+
+      {/* Additional encoder output arrow */}
+      <motion.path
+        d="M 250 280 C 285 280 285 205 320 205"
         fill="none"
         className="stroke-accent-encoder"
         strokeWidth="2"
-        strokeDasharray="4"
+        strokeDasharray="4 2"
+        strokeOpacity="0.5"
         initial={{ pathLength: 0 }}
         animate={{ pathLength: 1 }}
-        transition={{ duration: 1 }}
+        transition={{ duration: 1.2, delay: 0.7 }}
       />
 
-      {/* Encoder stack */}
-      <g transform="translate(30, 110)">
-        <text x="90" y={10} textAnchor="middle" className="fill-text-secondary text-[10px]">×N</text>
+      {/* Legend */}
+      <g transform="translate(20, 680)">
+        <text x="0" y="0" className="fill-text-secondary text-xs font-semibold">Data Flow:</text>
+        <line x1="70" y1="-3" x2="100" y2="-3" className="stroke-slate-400 dark:stroke-slate-500" strokeWidth="2" markerEnd="url(#arrow-down)" />
+        <text x="105" y="0" className="fill-text-secondary text-[10px]">Sequential</text>
 
-        {/* Encoder FFN */}
-        <DiagramBlock
-          x={90} y={20} width={160} height={35}
-          label="Feed Forward"
-          component="encoder-ffn"
-          hovered={hoveredComponent}
-          onHover={onHover}
-          color="value"
-        />
-        <text x={170} y={42} className="fill-text-secondary text-[8px]">Add & Norm</text>
-
-        {/* Self attention */}
-        <DiagramBlock
-          x={90} y={70} width={160} height={35}
-          label="Multi-Head Attention"
-          component="encoder-self-attn"
-          hovered={hoveredComponent}
-          onHover={onHover}
-          color="attention"
-        />
-        <text x={170} y={92} className="fill-text-secondary text-[8px]">Add & Norm</text>
+        <line x1="180" y1="-3" x2="210" y2="-3" className="stroke-accent-encoder" strokeWidth="2" strokeDasharray="4 2" />
+        <text x="215" y="0" className="fill-text-secondary text-[10px]">Cross-attention (K,V from encoder)</text>
       </g>
-
-      {/* Positional encoding */}
-      <DiagramBlock
-        x={120} y={340} width={120} height={25}
-        label="+ Pos Encoding"
-        component="positional-encoding"
-        hovered={hoveredComponent}
-        onHover={onHover}
-        color="key"
-      />
-      <DiagramBlock
-        x={380} y={340} width={120} height={25}
-        label="+ Pos Encoding"
-        component="positional-encoding"
-        hovered={hoveredComponent}
-        onHover={onHover}
-        color="key"
-      />
-
-      {/* Embeddings */}
-      <DiagramBlock
-        x={120} y={380} width={120} height={30}
-        label="Input Embedding"
-        component="input-embedding"
-        hovered={hoveredComponent}
-        onHover={onHover}
-        color="query"
-      />
-      <DiagramBlock
-        x={380} y={380} width={120} height={30}
-        label="Output Embedding"
-        component="output-embedding"
-        hovered={hoveredComponent}
-        onHover={onHover}
-        color="query"
-      />
-
-      {/* Arrows */}
-      <Arrow x={120} y1={410} y2={430} />
-      <Arrow x={380} y1={410} y2={430} />
-
-      {/* Input/Output labels */}
-      <text x="120" y="450" textAnchor="middle" className="fill-text-secondary text-xs">
-        Inputs
-      </text>
-      <text x="380" y="450" textAnchor="middle" className="fill-text-secondary text-xs">
-        Outputs (shifted right)
-      </text>
-
-      {/* Vertical arrows in stacks */}
-      <Arrow x={120} y1={215} y2={335} />
-      <Arrow x={380} y1={270} y2={335} />
-      <Arrow x={380} y1={105} y2={110} />
     </svg>
   )
 }
@@ -350,7 +450,7 @@ function DiagramBlock({
     query: { fill: 'fill-accent-query/20', stroke: 'stroke-accent-query' },
     key: { fill: 'fill-accent-key/20', stroke: 'stroke-accent-key' },
     value: { fill: 'fill-accent-value/20', stroke: 'stroke-accent-value' },
-    slate: { fill: 'fill-slate-200 dark:fill-slate-700', stroke: 'stroke-slate-400' },
+    slate: { fill: 'fill-slate-100 dark:fill-slate-700', stroke: 'stroke-slate-400 dark:stroke-slate-500' },
   }
 
   return (
@@ -358,43 +458,32 @@ function DiagramBlock({
       onMouseEnter={() => onHover(component)}
       onMouseLeave={() => onHover(null)}
       className="cursor-pointer"
+      style={{ transform: isHovered ? 'scale(1.03)' : 'scale(1)', transformOrigin: `${x}px ${y + height/2}px`, transition: 'transform 0.2s ease-out' }}
     >
       <motion.rect
         x={x - width / 2}
         y={y}
         width={width}
         height={height}
-        rx={4}
+        rx={6}
         className={cn(
           colorMap[color].fill,
           colorMap[color].stroke,
-          'transition-all'
+          'transition-all duration-200'
         )}
-        strokeWidth={isHovered ? 3 : 1.5}
-        animate={{ scale: isHovered ? 1.02 : 1 }}
+        strokeWidth={isHovered ? 2.5 : 1.5}
+        style={{
+          filter: isHovered ? 'drop-shadow(0 4px 6px rgba(0,0,0,0.15))' : 'none'
+        }}
       />
       <text
         x={x}
         y={y + height / 2 + 4}
         textAnchor="middle"
-        className="fill-text-primary text-[10px] font-medium pointer-events-none"
+        className="fill-text-primary text-xs font-medium pointer-events-none"
       >
         {label}
       </text>
     </g>
-  )
-}
-
-function Arrow({ x, y1, y2 }: { x: number; y1: number; y2: number }) {
-  return (
-    <line
-      x1={x}
-      y1={y1}
-      x2={x}
-      y2={y2}
-      className="stroke-slate-400"
-      strokeWidth={1.5}
-      markerEnd="url(#arrowhead)"
-    />
   )
 }

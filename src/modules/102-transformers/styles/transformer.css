@@ -1,29 +1,49 @@
 /* Transformer Module - Scoped Styles */
 /* All styles scoped to .transformer-module to prevent conflicts with main app */
 
-/* Module-scoped CSS variables */
+/* Module-scoped CSS variables - Light Mode (default) */
 .transformer-module {
+  /* Surface colors for light theme */
+  --color-surface: 255 255 255;
+  --color-surface-alt: 248 250 252;
+  --color-surface-elevated: 255 255 255;
+
+  /* Text colors for light theme */
+  --color-text-primary: 15 23 42;
+  --color-text-secondary: 100 116 139;
+
+  /* Visualization colors - same in both modes for semantic consistency */
+  --color-query: 59 130 246;      /* Blue - Questions/Queries */
+  --color-key: 249 115 22;        /* Orange - Keys */
+  --color-value: 34 197 94;       /* Green - Values */
+  --color-attention: 168 85 247;  /* Purple - Attention weights */
+  --color-encoder: 14 165 233;    /* Sky - Encoder */
+  --color-decoder: 249 115 22;    /* Orange - Decoder */
+  --color-positive: 34 197 94;
+  --color-negative: 239 68 68;
+
+  /* Smooth scrolling within module */
+  scroll-behavior: smooth;
+}
+
+/* Dark Mode overrides */
+.dark .transformer-module {
   /* Surface colors for dark theme */
   --color-surface: 15 23 42;
   --color-surface-alt: 30 41 59;
   --color-surface-elevated: 51 65 85;
 
-  /* Text colors */
+  /* Text colors for dark theme */
   --color-text-primary: 248 250 252;
   --color-text-secondary: 148 163 184;
 
-  /* Visualization colors */
+  /* Brighter visualization colors for dark mode */
   --color-query: 96 165 250;      /* Blue - Questions/Queries */
   --color-key: 251 146 60;        /* Orange - Keys */
   --color-value: 74 222 128;      /* Green - Values */
   --color-attention: 192 132 252; /* Purple - Attention weights */
   --color-encoder: 125 211 252;   /* Sky - Encoder */
   --color-decoder: 253 186 116;   /* Orange - Decoder */
-  --color-positive: 34 197 94;
-  --color-negative: 239 68 68;
-
-  /* Smooth scrolling within module */
-  scroll-behavior: smooth;
 }
 
 /* Section layout */
@@ -40,29 +60,36 @@
 }
 
 .transformer-module .section-subtitle {
-  @apply text-xl sm:text-2xl text-slate-400 mb-12;
+  @apply text-xl sm:text-2xl mb-12;
+  color: rgb(var(--color-text-secondary));
 }
 
 /* Visualization containers */
 .transformer-module .viz-container {
-  @apply relative bg-slate-800/50 rounded-2xl p-6 sm:p-8 border border-slate-700;
+  @apply relative rounded-2xl p-6 sm:p-8 border;
+  background-color: rgb(var(--color-surface-alt) / 0.5);
+  border-color: rgb(var(--color-text-secondary) / 0.2);
 }
 
 .transformer-module .equation-block {
-  @apply my-8 py-6 px-4 bg-slate-800/50 rounded-xl overflow-x-auto flex justify-center;
+  @apply my-8 py-6 px-4 rounded-xl overflow-x-auto flex justify-center;
+  background-color: rgb(var(--color-surface-alt) / 0.5);
 }
 
 /* Prose styling */
 .transformer-module .prose-custom {
-  @apply text-lg leading-relaxed text-slate-400;
+  @apply text-lg leading-relaxed;
+  color: rgb(var(--color-text-secondary));
 }
 
 .transformer-module .prose-custom strong {
-  @apply text-slate-200 font-semibold;
+  @apply font-semibold;
+  color: rgb(var(--color-text-primary));
 }
 
 .transformer-module .prose-custom code {
-  @apply bg-slate-800 px-1.5 py-0.5 rounded text-sm font-mono;
+  @apply px-1.5 py-0.5 rounded text-sm font-mono;
+  background-color: rgb(var(--color-surface-alt));
 }
 
 /* KaTeX customizations */
